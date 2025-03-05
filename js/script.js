@@ -46,6 +46,11 @@ const CORD_TL = timeline({
     set([DUMMY, HIT], { display: 'none' });
     set(CORDS[0], { display: 'block' });
     AUDIO.CLICK.play();
+    
+    window.parent.postMessage({
+      type: 'data-on',
+      value: STATE.ON ? 'true' : 'false'
+    }, '*');
   },
   onComplete: () => {
     set([DUMMY, HIT], { display: 'block' });

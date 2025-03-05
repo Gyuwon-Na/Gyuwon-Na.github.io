@@ -27,6 +27,17 @@
     0.125em 0.125em 0.25em rgba(0, 0, 0, 0.15);
 }
 
+[data-on="true"] {
+  --clr-light: #1d1f23;
+  --clr-dark: #9cabc2;
+  --clr-accent: #878acd2c;
+}
+
+[data-on="false"] {
+  --clr-light: #F2F1E9;
+  --clr-dark: #2F2A1F;
+  --clr-accent: #8B8C81;
+}
 
 /* With wider screens use differnt/bigger numbers */
 @media (min-width: 800px) {

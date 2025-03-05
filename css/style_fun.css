@@ -6,7 +6,7 @@
   :root {
     --on: 0;
     --bg-off: #F2F1E9;
-    --bg-on: #1A2634;
+    --bg-on: #1d1f23;
     --cord: hsl(0, 0%, calc((60 - (var(--on) * 50)) * 1%));
     --stroke: hsl(0, 0%, calc((60 - (var(--on) * 50)) * 1%));
     --shine: hsla(0, 0%, 100%, calc(0.75 - (var(--on) * 0.5)));
