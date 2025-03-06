@@ -12,6 +12,8 @@ registerPlugin(MorphSVGPlugin);
 let startX;
 let startY;
 
+document.documentElement.setAttribute('data-on', 'false'); 
+
 const AUDIO = {
   CLICK: new Audio('https://assets.codepen.io/605876/click.mp3') };
 
