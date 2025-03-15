@@ -38,7 +38,6 @@ window.addEventListener("message", function(event) {
     if (event.data && event.data.type === 'data-on') {
         const dataOnValue = event.data.value;
 
-        // data-on 값에 따른 처리
         if (dataOnValue === "true") {
             document.documentElement.setAttribute('data-on', 'true');
         } else {
