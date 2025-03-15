@@ -62,7 +62,6 @@ const CORD_TL = timeline({
 for (let i = 1; i < CORDS.length; i++) {
   CORD_TL.add(
   to(CORDS[0], {
-    morphSVG: CORDS[i],
     duration: CORD_DURATION,
     repeat: 1,
     yoyo: true }));
