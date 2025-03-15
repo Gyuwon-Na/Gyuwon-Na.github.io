@@ -13,6 +13,11 @@ navLinks.forEach((link) => {
 
 // Help iframe of webgl demos get access to the keyboard by giving them focus when clicked
 document.addEventListener("DOMContentLoaded", function () {
+    const savedDataOn = localStorage.getItem("data-on");
+    if (savedDataOn) {
+        document.documentElement.setAttribute("data-on", savedDataOn);
+    }
+
     const iframe = document.getElementById("demo");
     if (!iframe) {
         return;
@@ -38,10 +43,7 @@ window.addEventListener("message", function(event) {
     if (event.data && event.data.type === 'data-on') {
         const dataOnValue = event.data.value;
 
-        if (dataOnValue === "true") {
-            document.documentElement.setAttribute('data-on', 'true');
-        } else {
-            document.documentElement.setAttribute('data-on', 'false');
-        }
+        document.documentElement.setAttribute('data-on', dataOnValue);
+        localStorage.setItem("data-on", dataOnValue);
     }
 });

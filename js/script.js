@@ -104,4 +104,11 @@ Draggable.create(PROXY, {
 
   } });
 
+  window.addEventListener("pageshow", function () {
+    const savedDataOn = localStorage.getItem("data-on");
+    if (savedDataOn) {
+        document.documentElement.setAttribute("data-on", savedDataOn);
+    }
+});
+
   /* END of JavaScript Coding... */
