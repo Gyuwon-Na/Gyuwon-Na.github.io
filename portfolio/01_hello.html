@@ -69,22 +69,25 @@
 
     <div class="portfolio-item-individual">
         <h2>Project Overview</h2>
-        <p>Provide a brief description of the project, its purpose, and what you aimed to achieve.</p>
+        <p>The Hello Quad project was a part of Computer Graphics course. The Goals of this project are: 
+            <p>Implementing a setup the foundational rendering features. </p>
+            <p>Building & running for Windows & Web by displaying a simple animated quad.</p>
+        </p>
 
         <h2>Tasks Completed</h2>
         <ul>
-            <li>Describe the tasks you completed for this project.</li>
-            <li>Be specific about your contributions and the technologies used.</li>
+            <li>Implemented classes to encapsulate OpenGL Textures, VertexBuffers, IndexBuffers, and VertexArrays</li>
+            <li>Created vertex and frament shaders to display a quad.</li>
+            <li>Updating the Demo logic to feed the animations based on time, mouse position, and mouse wheel.</li>
+            <li>Created my own animations in the shader code to display the quad.</li>
         </ul>
 
         <h2>Reflection</h2>
-        <p>Reflect on the project, discussing any challenges faced, solutions implemented, and what you learned from the
-            experience.</p>
+        <p>I struggled with displaying textures on the window. I wrote code similar to what we did with OpenGL last semester, but the texture didn't show up. It turned out that the issue was with the ordering of binding and std::move. From this experience, I learned how important the correct order of operations is when working with binding buffers.</p>
     </div>
 
     <div class="portfolio-item-individual">
         <h2>Demo</h2>
-        <!-- TODO demo the webgl version of the project -->
         <iframe id="demo" src="../webgl/D01HelloQuad/graphics_fun.html"></iframe>
     </div>
 
