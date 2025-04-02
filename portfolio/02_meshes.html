@@ -71,17 +71,25 @@
 
     <div class="portfolio-item-individual">
         <h2>Project Overview</h2>
-        <p>Provide a brief description of the project, its purpose, and what you aimed to achieve.</p>
+        <p>The Procedural Meshes project was a part of Computer Graphics course. The Goals of this project are:
+            <p>Implementing procedural mesh generation algorithms.</p>
+            <p>Integrating the generated meshes into an interactive graphics demo.</p>
+        </p>
 
         <h2>Tasks Completed</h2>
         <ul>
-            <li>Describe the tasks you completed for this project.</li>
-            <li>Be specific about your contributions and the technologies used.</li>
+            <li>Implemented functions to render plane, cube, cylinder, sphere, cone, and torus</li>
+            <li>Constructed the index buffer for mesh connectivity.</li>
+            <li>Generated vertices for a procedurally created plane.</li>
         </ul>
 
         <h2>Reflection</h2>
-        <p>Reflect on the project, discussing any challenges faced, solutions implemented, and what you learned from the
-            experience.</p>
+        <p>There were cases where the shape was not drawn correctly or appeared distorted when the current row and column were defined as integers. 
+            After casting into float, the cylinder and cone rendered correctly. 
+            Additionally, although the wireframe was rendered correctly, the texture was not applied properly. I attempted to fix the issue by modifying the fragment shader, but only the plane and the front side of the cube rendered correctly, matching the demo example. 
+            After further investigation, I realized the issue was related to vertex attribute pointer setup. The problem was resolved by correctly calculating the buffer starting point. 
+            I learned that converting integers to floats ensured smooth and accurate shape generation in calculations. Additionally, properly aligning vertex attributes and handling offsets correctly is crucial for accurate texture mapping and rendering.
+        </p>            
     </div>
 
     <div class="portfolio-item-individual">
