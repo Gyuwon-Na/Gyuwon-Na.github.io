@@ -91,8 +91,6 @@
             Initially, I used the view vector <code>V</code> by normalizing <code>vPosition</code> and computed the half-vector <code>H</code> as <code>L + V</code> for the specular component.
             However, this caused the shape of the light source to appear too clearly on the surface, which was not the intended effect.
             Replacing the eye vector with a constant <code>(0, 0, 1)</code> and computing <code>H</code> as <code>L + Eye</code> helped distribute the specular highlights more evenly across the surface, achieving the desired visual outcome.
-            Additionally, during the implementation of gradient texture toon shading, I initially sampled the texture using <code>nl</code> directly, which resulted in a blended look even without anti-aliasing.
-            This made it clear that precise pixel-centered sampling was necessary to achieve sharp, discrete shading levels.
           </p>
           
     </div>
