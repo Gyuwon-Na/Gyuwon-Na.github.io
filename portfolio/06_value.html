@@ -69,17 +69,35 @@
 
     <div class="portfolio-item-individual">
         <h2>Project Overview</h2>
-        <p>Provide a brief description of the project, its purpose, and what you aimed to achieve.</p>
+        <p>The Value Noise project was a part of Computer Graphics course. The Goals of this project are:
+        <p>Implementing a Value Noise algorithm in C++ to generate procedural textures and integrate this into the
+            provided graphics framework and use OpenGL shaders to visualize the results</p>
+        </p>
 
         <h2>Tasks Completed</h2>
         <ul>
-            <li>Describe the tasks you completed for this project.</li>
-            <li>Be specific about your contributions and the technologies used.</li>
+            <li>Support 1D, 2D, and 3D noise.</li>
+            <li>Utilize permutation hashing.</li>
+            <li>Allow for adjustable interpolation methods.</li>
         </ul>
 
         <h2>Reflection</h2>
-        <p>Reflect on the project, discussing any challenges faced, solutions implemented, and what you learned from the
-            experience.</p>
+        <p>
+            I had a hard time solving the issue where the noise appeared as a solid color. At first, I thought the
+            problem was with the <code>Evaluate</code> function and that the output was being blended incorrectly. However, it turned
+            out to be an issue with the <code>layout(location)</code> specification.
+
+            The <code>layout(location)</code> in the shader must exactly match the location used on the CPU side with
+            <code>glEnableVertexAttribArray(location)</code> and <code>glVertexAttribPointer(location, ...)</code>. If these locations don’t
+            match, the shader receives incorrect data, causing unexpected results like a solid color instead of noise.
+
+            I’ve encountered similar issues before in 2D graphics, where textures wouldn’t show because of incorrect
+            <code>layout</code> locations. In that case, removing explicit locations helped, but this time, just leaving <code>in</code> and <code>out</code>
+            without proper locations was not enough.
+
+            This experience reinforced how important it is to clearly understand and correctly manage the
+            <code>layout(location)</code> bindings between CPU and GPU for correct rendering.
+        </p>
     </div>
 
     <div class="portfolio-item-individual">
