@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml" href="../img/face.jpg"> <!-- 탭 아이콘 -->
+
+  <!-- Help auto scale for desktop & mobile -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gyuwon-Na Portfolio</title>
+
+  <!-- Normalize the difference across browsers  https://necolas.github.io/normalize.css/ -->
+  <link rel="stylesheet" href="../external/normalize.css" />
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css"
+    integrity="sha256-46qynGAkLSFpVbEBog43gvNhfrOj+BmwXdxFgVK/Kvc=" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+
+  <!-- https://fonts.google.com/selection/embed -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap"
+    rel="stylesheet" />
+
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+
+<body>
+
+  <div class="floating-nav-container" id="navContainer">
+
+    <button class="nav-trigger-btn" onclick="toggleNav()" aria-label="Open Menu">
+      <div class="hamburger-lines">
+        <span></span>
+        <span></span>
+      </div>
+    </button>
+
+    <nav class="nav-capsule-menu">
+      <ul class="nav-links">
+        <li><a href="../index.html" onclick="toggleNav()">Home</a></li>
+        <li><a href="AboutMe.html" onclick="toggleNav()">About Me</a></li>
+        <li><a href="Research.html" onclick="toggleNav()">Research</a></li>
+        <li><a href="Projects.html" onclick="toggleNav()">Projects</a></li>
+      </ul>
+
+      <button class="nav-close-btn" onclick="toggleNav()" aria-label="Close Menu">
+        <i data-lucide="x"></i>
+      </button>
+    </nav>
+
+  </div>
+
+  <script>
+    function toggleNav() {
+      const container = document.getElementById('navContainer');
+      container.classList.toggle('active'); // active 클래스를 스위치처럼 껐다 켬
+    }
+
+    // 화면 빈 곳을 클릭하면 닫기
+    document.addEventListener('click', (e) => {
+      const container = document.getElementById('navContainer');
+      if (container.classList.contains('active') && !container.contains(e.target)) {
+        container.classList.remove('active');
+      }
+    });
+  </script>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <ul class="social-list">
+      <li class="social-list__item">
+        <a class="social-list__link" href="mailto:uoyuvvou@gmail.com" aria-label="Email me">
+          <i class="fa-regular fa-envelope"></i>
+        </a>
+      </li>
+      <li class="social-list__item">
+        <a class="social-list__link" href="https://www.linkedin.com/in/uoyuvvou" target="_blank"
+          rel="noopener noreferrer" aria-label="LinkedIn profile">
+          <i class="fa-brands fa-linkedin-in"></i>
+        </a>
+      </li>
+      <li class="social-list__item">
+        <a class="social-list__link" href="https://github.com/Gyuwon-Na" target="_blank" rel="noopener noreferrer"
+          aria-label="GitHub profile">
+          <i class="fa-brands fa-github"></i>
+        </a>
+      </li>
+      <li class="social-list__item">
+        <a class="social-list__link" href="https://www.instagram.com/uoyuvvou" target="_blank" rel="noopener noreferrer"
+          aria-label="Instagram profile">
+          <i class="fa-brands fa-instagram"></i>
+        </a>
+      </li>
+    </ul>
+
+    <p class="footer-copyright">&copy; 2026 Gyuwon Na. All rights reserved.</p>
+  </footer>
+
+  <script src="../js/index.js"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    lucide.createIcons();
+  </script>
+</body>
+
+</html>

@@ -1,261 +1,547 @@
-<!-- https://youtu.be/_xkSvufmjEs?si=mh-MXT2ZdUasYAYn&t=3416 -->
-<!-- adobe.ly/2GAgF93 -->
-<!-- https://scrimba.com/build-and-deploy-your-portfolio-c012 -->
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <link rel="icon" type="image/svg+xml" href="../img/face.jpg">
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml" href="../img/face.jpg">
 
-    <!-- Help auto scale for desktop & mobile -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>STUDENT Gyuwon Na Website</title>
+  <!-- Help auto scale for desktop & mobile -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gyuwon Na - Software Engineer | Robotics & Computer Graphics</title>
+  <meta name="description"
+    content="Software engineer specializing in Robotics and Computer Graphics. Passionate about autonomous systems and real-time simulations.">
 
-    <!-- Normalize the difference across browsers  https://necolas.github.io/normalize.css/ -->
-    <link rel="stylesheet" href="external/normalize.css" />
+  <!-- Normalize the difference across browsers -->
+  <link rel="stylesheet" href="external/normalize.css" />
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css"
-        integrity="sha256-46qynGAkLSFpVbEBog43gvNhfrOj+BmwXdxFgVK/Kvc=" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css"
+    integrity="sha256-46qynGAkLSFpVbEBog43gvNhfrOj+BmwXdxFgVK/Kvc=" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
 
-    <!-- https://fonts.google.com/selection/embed -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-        href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap"
-        rel="stylesheet" />
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap"
+    rel="stylesheet" />
 
-    <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/style.css" />
 </head>
 
 <body>
-    <header>
-        <div class="logo">
-            <!-- alt text can be blank since the logo is purely decorative and putting something like logo isn't actually helpful -->
-            <img src="img/cout.png" alt="">
-        </div>
-        <button class="nav-toggle" aria-label="toggle navigation">
-            <span class="hamburger"></span>
-        </button>
-        <nav class="nav">
-            <ul class="nav__list">
-                <li class="nav__item"> <a href="#home" class="nav__link">Home</a> </li>
-                <li class="nav__item"> <a href="#skills" class="nav__link">Skills</a> </li>
-                <li class="nav__item"> <a href="#about" class="nav__link">About Me</a> </li>
-                <li class="nav__item"> <a href="#projects" class="nav__link">Projects</a> </li>
-                <li class="nav__item"> <a href="#resume" class="nav__link">Resume</a> </li>
-            </ul>
-        </nav>
-    </header>
 
-    <!-- Introduction -->
+  <!-- Skip to main content for accessibility -->
+  <a href="#main-content" class="skip-to-main">Skip to main content</a>
 
-    <section class="intro" id="#home">
-        <!-- TODO put in a mouse based interactive shader visualization page-->
-        <div class="intro-bg">
-            <iframe id="interaction" src="webgl/for_fun.html"></iframe>
+  <!-- Floating Navigation -->
+  <div class="floating-nav-container" id="navContainer" role="navigation" aria-label="Main navigation">
+
+    <button class="nav-trigger-btn" onclick="toggleNav()" aria-label="Open navigation menu" aria-expanded="false">
+      <div class="hamburger-lines">
+        <span></span>
+        <span></span>
+      </div>
+    </button>
+
+    <nav class="nav-capsule-menu">
+      <ul class="nav-links">
+        <li><a href="index.html" onclick="toggleNav()">Home</a></li>
+        <li><a href="pages/AboutMe.html" onclick="toggleNav()">About Me</a></li>
+        <li><a href="pages/Research.html" onclick="toggleNav()">Research</a></li>
+        <li><a href="pages/Projects.html" onclick="toggleNav()">Projects</a></li>
+      </ul>
+
+      <button class="nav-close-btn" onclick="toggleNav()" aria-label="Close navigation menu">
+        <i data-lucide="x"></i>
+      </button>
+    </nav>
+
+  </div>
+
+  <script>
+    function toggleNav() {
+      const container = document.getElementById('navContainer');
+      const triggerBtn = container.querySelector('.nav-trigger-btn');
+      const isActive = container.classList.toggle('active');
+
+      // Update ARIA attributes for accessibility
+      triggerBtn.setAttribute('aria-expanded', isActive);
+    }
+
+    // Close menu when clicking outside
+    document.addEventListener('click', (e) => {
+      const container = document.getElementById('navContainer');
+      if (container.classList.contains('active') && !container.contains(e.target)) {
+        container.classList.remove('active');
+        container.querySelector('.nav-trigger-btn').setAttribute('aria-expanded', 'false');
+      }
+    });
+
+    // Close menu on Escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        const container = document.getElementById('navContainer');
+        if (container.classList.contains('active')) {
+          container.classList.remove('active');
+          container.querySelector('.nav-trigger-btn').setAttribute('aria-expanded', 'false');
+        }
+      }
+    });
+  </script>
+
+  <!-- Main Content -->
+  <main id="main-content">
+
+    <!-- Hero Section -->
+    <section class="main-section" aria-labelledby="hero-title">
+      <div class="container main-container">
+
+        <div class="main-visual">
+          <div class="profile-image-wrapper">
+            <img src="img/profile.jpg" alt="Gyuwon Na - Software Engineer" class="profile-img" loading="eager">
+          </div>
         </div>
-        <h1 class="section__title section__title--intro">
-            Hi, I am <strong>Gyuwon Na</strong>
-        </h1>
-        <p class="section__subtitle section__subtitle--intro">Student / Programmer</p>
-        <img src="img/face.jpg" alt="a picture of Gyuwon Na smiling" class="intro__img" />
+
+        <div class="main-content">
+          <h1 id="hero-title" class="main-title">
+            Bridging Perception<br>
+            and <span class="text-highlight">Reality</span>
+          </h1>
+
+          <p class="main-description">
+            I am a software engineer passionate about Robotics and Computer Graphics.<br>
+            Currently solving real-world problems with autonomous systems.
+          </p>
+
+          <div class="hero-cta-group">
+            <a href="https://github.com/Gyuwon-Na" target="_blank" rel="noopener noreferrer"
+              class="btn-primary btn-github" aria-label="Visit my GitHub profile">
+              <i class="fa-brands fa-github"></i>
+              <span>GitHub</span>
+            </a>
+            <a href="../docs/Resume.pdf" class="btn-secondary btn-resume" target="_blank" rel="noopener noreferrer"
+              aria-label="Download my resume">
+              <i data-lucide="file-down" aria-hidden="true"></i>
+              <span>Resume</span>
+            </a>
+          </div>
+        </div>
+
+      </div>
     </section>
 
-    <!-- My Services -->
-    <section class="my-services" id="skills">
-        <h2 class="section__title section__title--services">SKILLS</h2>
-        <div class="services">
-            <div class="service">
-                <h3>C++ Programmer</h3>
-                <p> C++ is my favorite programming language because its flexibility with both low-level and high-level
-                    programming, making it suitable for a wide range of applications, from system software to game
-                    development. The powerful Standard Template Library (STL) and object-oriented features are also big
-                    pluses that make C++ efficient and versatile for different types of projects.
-                </p>
-            </div>
+    <!-- Technology Stack Section -->
+    <section class="tech-stack-section" aria-label="Technology stack">
+      <div class="tech-stack-container">
 
-            <div class="service">
-                <h3>Game AI Designer</h3>
-                <p> While participating on a game project, I took on the job regarded with game artificial intelligence.
-                    Especially I experienced in designing AI behaviors, not only avoiding obstacles and pathfinding, but
-                    flocking system.
-                </p>
+        <div class="fade-overlay left" aria-hidden="true"></div>
+        <div class="fade-overlay right" aria-hidden="true"></div>
+
+        <div class="tech-track">
+
+          <div class="tech-logo-group">
+            <div class="tech-item" data-tooltip="C">
+              <img src="img/logos/c.svg" alt="C programming language" loading="lazy">
             </div>
+            <div class="tech-item" data-tooltip="Python">
+              <img src="img/logos/python.svg" alt="Python" loading="lazy">
+            </div>
+            <div class="tech-item" data-tooltip="ROS 2">
+              <img src="img/logos/ros.svg" alt="ROS 2" loading="lazy">
+            </div>
+            <div class="tech-item" data-tooltip="OpenGL">
+              <img src="img/logos/opengl.svg" alt="OpenGL" loading="lazy">
+            </div>
+            <div class="tech-item" data-tooltip="Unity">
+              <img src="img/logos/unity.svg" alt="Unity" loading="lazy">
+            </div>
+            <div class="tech-item" data-tooltip="PyTorch">
+              <img src="img/logos/pytorch.svg" alt="PyTorch" loading="lazy">
+            </div>
+            <div class="tech-item" data-tooltip="OpenCV">
+              <img src="img/logos/opencv.svg" alt="OpenCV" loading="lazy">
+            </div>
+            <div class="tech-item" data-tooltip="Linux">
+              <img src="img/logos/linux.svg" alt="Linux" loading="lazy">
+            </div>
+            <div class="tech-item" data-tooltip="Javascript">
+              <img src="img/logos/javascript.svg" alt="Javascript" loading="lazy">
+            </div>
+            <div class="tech-item" data-tooltip="Git">
+              <img src="img/logos/git.svg" alt="Git" loading="lazy">
+            </div>
+          </div>
+
+          <!-- Duplicate for seamless loop -->
+          <div class="tech-logo-group" aria-hidden="true">
+            <div class="tech-item" data-tooltip="C++">
+              <img src="img/logos/cpp.svg" alt="C++" loading="lazy">
+            </div>
+            <div class="tech-item" data-tooltip="Python">
+              <img src="img/logos/python.svg" alt="Python" loading="lazy">
+            </div>
+            <div class="tech-item" data-tooltip="ROS 2">
+              <img src="img/logos/ros.svg" alt="ROS 2" loading="lazy">
+            </div>
+            <div class="tech-item" data-tooltip="OpenGL">
+              <img src="img/logos/opengl.svg" alt="OpenGL" loading="lazy">
+            </div>
+            <div class="tech-item" data-tooltip="Unity">
+              <img src="img/logos/unity.svg" alt="Unity" loading="lazy">
+            </div>
+            <div class="tech-item" data-tooltip="PyTorch">
+              <img src="img/logos/pytorch.svg" alt="PyTorch" loading="lazy">
+            </div>
+            <div class="tech-item" data-tooltip="OpenCV">
+              <img src="img/logos/opencv.svg" alt="OpenCV" loading="lazy">
+            </div>
+            <div class="tech-item" data-tooltip="Linux">
+              <img src="img/logos/linux.svg" alt="Linux" loading="lazy">
+            </div>
+          </div>
+
         </div>
-
-        <a href="#projects" class="btn">Projects</a>
+      </div>
     </section>
 
-    <!-- About Me -->
-    <section class="about-me" id="about">
-        <h2 class="section__title section__title--about">Who I am</h2>
-        <p class="section__subtitle section__subtitle--about">
-            A Passionate Game Programmer & Student
+    <!-- About Me Section -->
+    <section class="about-me-section" aria-labelledby="about-title">
+      <div class="container">
+        <h2 id="about-title" class="section__title">About Me</h2>
+
+        <p class="about-me-description">
+          I'm Gyuwon Na, a dedicated software engineer specializing in Robotics and Computer Graphics.
+          With a strong foundation in C++ and Python, I excel in developing real-time perception algorithms and
+          simulation
+          engines.
+          My passion lies in creating innovative solutions that bridge the gap between perception and reality,
+          driving advancements in autonomous systems.
         </p>
 
-        <div class="about-me__body">
-            <p>
-                I'm very passonate about new ones, so I'm interested in learning new
-                technologies. It’s always exciting to explore fresh concepts and tools that can improve my skills and
-                open up new possibilities for projects. Whether it's a new programming language, framework, or
-                development technique, I enjoy staying updated and experimenting with cutting-edge tech.
-            </p>
-            <p>
-                Skilled in C++, C, Python, OpenGL, OpenCV, and General Game Programming. I am studying with a Bachelor of Science (BS) focused in Real Time Interactive Simulation from Digipen
-                Institute of Technology. 
-            </p>
+        <div class="about-btn-wrapper">
+          <a href="pages/AboutMe.html" class="btn-download btn-about-me" aria-label="Learn more about me">
+            <span>More Details</span>
+            <i data-lucide="arrow-right" aria-hidden="true"></i>
+          </a>
         </div>
-        <img src="img/tall.jpg" alt="picture of Gyuwon Na" class="about-me__img" />
+
+      </div>
     </section>
 
-    <!-- My Portfolio -->
-    <section class="my-projects" id="projects">
-        <h2 class="section__title section__title--projects">My Projects</h2>
-        <p class="section__subtitle section__subtitle--projects">
-            A selection of my range of projects
+    <!-- Research & Publication -->
+    <section class="research-section" aria-labelledby="research-title">
+      <div class="container">
+        <h2 id="research-title" class="section__title">Research & Publication</h2>
+
+        <div class="carousel-wrapper">
+
+          <button class="nav-arrow prev" aria-label="Previous research slide">
+            <i data-lucide="chevron-left"></i>
+          </button>
+
+          <div class="research-carousel" role="region" aria-live="polite">
+
+            <article class="research-card">
+              <div class="research-card__image">
+                <div class="image-placeholder">Visual 1</div>
+              </div>
+              <div class="research-card__content">
+                <span class="research-tag">Presented at KMMS</span>
+                <h3 class="research-title">Real-time Perception Algorithm</h3>
+                <p class="research-description">Optimized latency by 15% using CUDA for enhanced performance in
+                  autonomous systems.</p>
+                <a href="#" class="research-link">Read More <i data-lucide="arrow-right" aria-hidden="true"></i></a>
+              </div>
+            </article>
+
+            <article class="research-card">
+              <div class="research-card__image">
+                <div class="image-placeholder">Visual 2</div>
+              </div>
+              <div class="research-card__content">
+                <span class="research-tag">Research Project</span>
+                <h3 class="research-title">ROI based Matching with HNSW</h3>
+                <p class="research-description">Developed high-speed feature matching logic for real-time computer
+                  vision applications.</p>
+                <a href="#" class="research-link">Read More <i data-lucide="arrow-right" aria-hidden="true"></i></a>
+              </div>
+            </article>
+
+            <article class="research-card">
+              <div class="research-card__image">
+                <div class="image-placeholder">Visual 3</div>
+              </div>
+              <div class="research-card__content">
+                <span class="research-tag">Presented at KMMS</span>
+                <h3 class="research-title">Advanced Feature Matching</h3>
+                <p class="research-description">Implemented efficient algorithms for robust pattern recognition in
+                  challenging environments.</p>
+                <a href="#" class="research-link">Read More <i data-lucide="arrow-right" aria-hidden="true"></i></a>
+              </div>
+            </article>
+
+          </div>
+
+          <button class="nav-arrow next" aria-label="Next research slide">
+            <i data-lucide="chevron-right"></i>
+          </button>
+
+        </div>
+
+        <div class="carousel-indicators" role="tablist" aria-label="Research slides">
+          <button class="indicator active" aria-label="Go to slide 1" role="tab"></button>
+          <button class="indicator" aria-label="Go to slide 2" role="tab"></button>
+          <button class="indicator" aria-label="Go to slide 3" role="tab"></button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Project Section -->
+    <section id="projects" class="project-section" aria-labelledby="projects-title">
+      <div class="container">
+        <h2 id="projects-title" class="section__title">Projects</h2>
+
+        <div class="project-grid">
+
+          <article class="project-card">
+            <div class="project-card__visual">
+              <span class="glass-badge">Computer Graphics</span>
+              <img src="img/project1_static.jpg" alt="Fluid Simulation Engine project" class="img-static"
+                loading="lazy">
+              <img src="img/project1_anim.gif" alt="Fluid Simulation Engine animation" class="img-gif" loading="lazy">
+            </div>
+
+            <div class="glass-overlay-info">
+              <h4>Key Achievement</h4>
+              <p>Developed advanced fluid dynamics simulation with real-time particle rendering and optimized GPU
+                computation</p>
+            </div>
+
+            <div class="project-card__info">
+              <h3 class="project-title">Fluid Simulation Engine</h3>
+              <div class="tech-stack">
+                <span class="tech-pill"><i class="fab fa-cuttlefish"></i> C++</span>
+                <span class="tech-pill"><i class="fas fa-cube"></i> OpenGL</span>
+                <span class="tech-pill">GLSL</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-card__visual">
+              <span class="glass-badge">Computer Vision</span>
+              <img src="img/project2_static.jpg" alt="Lane Detection System project" class="img-static" loading="lazy">
+              <img src="img/project2_anim.gif" alt="Lane Detection System animation" class="img-gif" loading="lazy">
+            </div>
+
+            <div class="glass-overlay-info">
+              <h4>Key Achievement</h4>
+              <p>Achieved 92% detection accuracy in adverse weather conditions using custom trained YOLOv8 model</p>
+            </div>
+
+            <div class="project-card__info">
+              <h3 class="project-title">Lane Detection System</h3>
+              <div class="tech-stack">
+                <span class="tech-pill"><i class="fab fa-python"></i> Python</span>
+                <span class="tech-pill">OpenCV</span>
+                <span class="tech-pill">YOLO</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-card__visual">
+              <span class="glass-badge">Autonomous Driving</span>
+              <img src="img/project3_static.jpg" alt="ERP-42 Control Logic project" class="img-static" loading="lazy">
+              <img src="img/project3_anim.gif" alt="ERP-42 Control Logic animation" class="img-gif" loading="lazy">
+            </div>
+
+            <div class="glass-overlay-info">
+              <h4>Key Achievement</h4>
+              <p>Implemented robust path planning and obstacle avoidance for autonomous vehicle navigation</p>
+            </div>
+
+            <div class="project-card__info">
+              <h3 class="project-title">ERP-42 Control Logic</h3>
+              <div class="tech-stack">
+                <span class="tech-pill">ROS2</span>
+                <span class="tech-pill">C++</span>
+                <span class="tech-pill">Linux</span>
+              </div>
+            </div>
+          </article>
+
+        </div>
+
+        <div class="view-all-container">
+          <a href="pages/Projects.html" class="view-all-link">
+            View all projects <i data-lucide="arrow-right" aria-hidden="true"></i>
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Education & Leadership Section -->
+    <section class="info-section" aria-labelledby="education-title">
+      <div class="info-container">
+
+        <div class="info-column">
+          <h2 id="education-title" class="section__title">Education</h2>
+          <div class="mini-timeline">
+
+            <article class="mini-timeline__item">
+              <div class="mini-timeline__dot" aria-hidden="true"></div>
+              <div class="mini-timeline__content">
+                <h4 class="info__period">Mar 2023 - Jun 2026</h4>
+                <h3 class="info__title">Keimyung University</h3>
+                <p class="info__detail">DigiPen Game Engineering</p>
+              </div>
+            </article>
+
+            <article class="mini-timeline__item">
+              <div class="mini-timeline__dot" aria-hidden="true"></div>
+              <div class="mini-timeline__content">
+                <h4 class="info__period">Aug 2026 - Present</h4>
+                <h3 class="info__title">DigiPen Institute of Technology</h3>
+                <p class="info__detail">B.S. in Computer Science in Real-Time Interactive Simulation</p>
+              </div>
+            </article>
+
+          </div>
+        </div>
+
+        <div class="info-column">
+          <h2 class="section__title">Leadership & Global</h2>
+          <div class="mini-timeline">
+
+            <article class="mini-timeline__item">
+              <div class="mini-timeline__dot" aria-hidden="true"></div>
+              <div class="mini-timeline__content">
+                <h4 class="info__period">Sep 2023 - Jun 2025</h4>
+                <h3 class="info__title">Student Council Member</h3>
+                <p class="info__detail">Represented student perspectives and helped coordinate communication with
+                  faculty.</p>
+              </div>
+            </article>
+
+            <article class="mini-timeline__item">
+              <div class="mini-timeline__dot" aria-hidden="true"></div>
+              <div class="mini-timeline__content">
+                <h4 class="info__period">Aug 2025</h4>
+                <h3 class="info__title">Daegu Global Youth Tourism Exchange Program</h3>
+                <p class="info__detail">Worked with international students to develop ideas for promoting tourism in
+                  Daegu.</p>
+              </div>
+            </article>
+
+            <article class="mini-timeline__item">
+              <div class="mini-timeline__dot" aria-hidden="true"></div>
+              <div class="mini-timeline__content">
+                <h4 class="info__period">Sep 2025 - Jun 2026</h4>
+                <h3 class="info__title">Buddy Program</h3>
+                <p class="info__detail">Supported French exchange students in adapting to academic and campus life.</p>
+              </div>
+            </article>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Call to Action Section -->
+    <section class="cta-section" aria-labelledby="cta-title">
+      <div class="cta-container">
+        <h2 id="cta-title" class="cta__title">Let's build something amazing together!</h2>
+        <p class="cta__description">
+          I'm currently looking for new opportunities in Computer Vision, Computer Graphics and Robotics.
         </p>
-        <div class="portfolio">
-            <a href="portfolio/01_hello.html" class="portfolio__item">
-                <img src="img/portfolio_thumbnails/01_hello.jpg" alt="" class="portfolio__img" />
-            </a>
-            <a href="portfolio/02_meshes.html" class="portfolio__item">
-                <img src="img/portfolio_thumbnails/02_meshes.jpg" alt="" class="portfolio__img" />
-            </a>
-            <a href="portfolio/03_fog.html" class="portfolio__item">
-                <img src="img/portfolio_thumbnails/03_fog.jpg" alt="" class="portfolio__img" />
-            </a>
-            <a href="portfolio/04_toon.html" class="portfolio__item">
-                <img src="img/portfolio_thumbnails/04_toon.jpg" alt="" class="portfolio__img" />
-            </a>
-            <a href="portfolio/05_shadow.html" class="portfolio__item">
-                <img src="img/portfolio_thumbnails/05_shadow.jpg" alt="" class="portfolio__img" />
-            </a>
-            <a href="portfolio/06_value.html" class="portfolio__item">
-                <img src="img/portfolio_thumbnails/06_value.jpg" alt="" class="portfolio__img" />
-            </a>
-            <a href="portfolio/07_gradient.html" class="portfolio__item">
-                <img src="img/portfolio_thumbnails/07_gradient.jpg" alt="" class="portfolio__img" />
-            </a>
-            <a href="portfolio/08_fun.html" class="portfolio__item">
-                <img src="img/portfolio_thumbnails/08_fun.jpg" alt="" class="portfolio__img" />
-            </a>
-
-        </div>
+        <a href="../docs/Resume.pdf" class="btn-download" target="_blank" rel="noopener noreferrer"
+          aria-label="Download my resume">
+          <i data-lucide="file-down" aria-hidden="true"></i>
+          <span>Download CV</span>
+        </a>
+      </div>
     </section>
 
-    <!-- Resume Section -->
-    <section class="my-resume" id="resume">
-        <h2 class="section__title section__title--resume">Resume</h2>
-        <a target="_blank" href="docs/Resume.pdf"><i class="far fa-file-pdf"></i> PDF</a>
+  </main>
 
-        <div class="resume-section">
-            <!--<h3>Experience</h3>
-            <div class="resume-item">
-                <p>
-                    <b>Title, Company</b></br>
-                    Month Year - Present</br>
-                    <em>City, State, Country</em></br>
-                    What you did, how you did it, result. Quantify your achievement(s) try to have at least one like
-                    this. Look at the example below.
-                </p>
-            </div>
-            <div class="resume-item">
-                <p>
-                    <b>Software Test Engineer Intern, Qualtrics</b></br>
-                    Month Year - Month Year </br>
-                    <em>Seattle, WA</em></br>
-                    Implemented an extensible script in Python to automate project creation with static data on tests to
-                    improve pass rates and duration, ultimately speeding up software releases. Improved test times
-                    across 3 teams by nearly 400% with more stability. Reviewed design docs and prototypes of an
-                    upcoming feature release to create nearly 50 test cases. Performed manual testing and triaged 15
-                    bugs with engineers.
-                </p>
-            </div>-->
-            <h3>Projects</h3>
-            <div class="resume-item">
-                <p>
-                    <b>Technical Lead, Physics Programmer, Build Engineer, MANZO</b></br>
-                    Sep 2024 - Jun 2025</br>
-                    <em>Daegu, South Korea</em></br>
-                    ● Horror, rhythmical adventure game</br>
-                    ● Draw and manage Bezier lined vector font by using vertex/fragment shader.</br>
-                    ● Developed Game AI (flocking system, pre-detecting & avoiding obstacles)
+  <!-- Scroll Reveal Animation -->
+  <script src="https://unpkg.com/scrollreveal"></script>
+  <script>
+    // ScrollReveal configuration
+    const sr = ScrollReveal({
+      distance: '50px',
+      duration: 800,
+      easing: 'ease-out',
+      origin: 'bottom',
+      reset: false,
+      mobile: true,
+      viewFactor: 0.2
+    });
 
-                </p>
-            </div>
-            <div class="resume-item">
-                <p>
-                    <b>Technical Lead, Build Engineer, Tester, Stand By</b></br>
-                    Mar 2024 - Jun 2024</br>
-                    <em>Daegu, South Korea</em></br>
-                    ● Tycoon, making drinks as fast as you can to satisfy customers! </br>
-                    ● Developed basic game logics for playing</br>
-                    ● Awarded the Best Award in Micro-degree EXPO
+    // Animate timeline items
+    sr.reveal('.mini-timeline__item', {
+      interval: 200
+    });
 
-                </p>
-            </div>
-            <div class="resume-item">
-                <p>
-                    <b>Technical Lead, Resonate</b></br>
-                    Sep 2023 - Dec 2023</br>
-                    <em>Daegu, South Korea</em></br>
-                    ● Boss raids of RPG game, 2D Platformer</br>
-                    ● Find various patterns and kill the boss!
+    // Animate CTA section
+    sr.reveal('.cta-container', {
+      delay: 300,
+      origin: 'bottom',
+      distance: '100px'
+    });
 
-                </p>
-            </div>
+    // Animate project cards
+    sr.reveal('.project-card', {
+      interval: 150,
+      distance: '30px'
+    });
 
-            <h3>Leadership Experience</h3>
-            <div class="resume-item">
-                <p>
-                    <b>Class Representative, Keimyung University</b></br>
-                    Sep 2023 - Jun 2025</br>
-                    <em>Daegu, South Korea</em></br>
-                    ● As a communication bridge between students and professor.</br>
-                    ● Manage all of festivals and people to proceed well.</br>
-                    ● For example, helping other students to hang out or leading them at G-STAR or lan-party
+    // Animate section titles
+    sr.reveal('.section__title', {
+      distance: '30px',
+      duration: 600
+    });
+  </script>
 
-                </p>
-            </div>
+  <!-- Footer -->
+  <footer class="footer">
+    <ul class="social-list">
+      <li class="social-list__item">
+        <a class="social-list__link" href="mailto:uoyuvvou@gmail.com" aria-label="Email me">
+          <i class="fa-regular fa-envelope"></i>
+        </a>
+      </li>
+      <li class="social-list__item">
+        <a class="social-list__link" href="https://www.linkedin.com/in/uoyuvvou" target="_blank"
+          rel="noopener noreferrer" aria-label="LinkedIn profile">
+          <i class="fa-brands fa-linkedin-in"></i>
+        </a>
+      </li>
+      <li class="social-list__item">
+        <a class="social-list__link" href="https://github.com/Gyuwon-Na" target="_blank" rel="noopener noreferrer"
+          aria-label="GitHub profile">
+          <i class="fa-brands fa-github"></i>
+        </a>
+      </li>
+      <li class="social-list__item">
+        <a class="social-list__link" href="https://www.instagram.com/uoyuvvou" target="_blank" rel="noopener noreferrer"
+          aria-label="Instagram profile">
+          <i class="fa-brands fa-instagram"></i>
+        </a>
+      </li>
+    </ul>
 
-            <h3>Education</h3>
-            <div class="resume-item">
-                <p>
-                    <b>Bachelor of Science in Computer Science in Real-Time Interactive Simulation</b></br>
-                    2023-2028</br>
-                    <em>Daegu, South Korea & Redmond, WA, USA</em></br>
-                    Relevant Courses: Computer Engineering
-                </p>
-            </div>
-        </div>
-    </section>
-    <!-- /Resume Section -->
+    <p class="footer-copyright">&copy; 2026 Gyuwon Na. All rights reserved.</p>
+  </footer>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <a href="mailto:gyuwon.na@digipen.edu" class="footer__link">gyuwon.na@digipen.edu</a>
-        <ul class="social-list">
-            <li class="social-list__item">
-                <a class="social-list__link" href="https://www.linkedin.com/in/uoyuvvou">
-                    <i class="fab fa-linkedin"></i>
-                </a>
-            </li>
-            <li class="social-list__item">
-                <a class="social-list__link" href="https://github.com/Gyuwon-Na">
-                    <i class="fab fa-github"></i>
-                </a>
-            </li>
-            <li class="social-list__item">
-                <a class="social-list__link" href="https://www.instagram.com/uoyuvvou">
-                    <i class="fab fa-instagram"></i>
-                </a>
-            </li>
-            <!-- Want to list more? search : https://fontawesome.com/v5/search?ic=brands -->
-        </ul>
-    </footer>
-
-    <script src="js/index.js"></script>
+  <script src="js/index.js"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    lucide.createIcons();
+  </script>
 </body>
 
 </html>
