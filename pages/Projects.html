@@ -101,10 +101,6 @@
             <i data-lucide="grid" aria-hidden="true"></i>
             All Projects
           </button>
-          <button class="filter-btn" data-category="game" role="tab" aria-selected="false">
-            <i data-lucide="gamepad-2" aria-hidden="true"></i>
-            Game
-          </button>
           <button class="filter-btn" data-category="autonomous" role="tab" aria-selected="false">
             <i data-lucide="car" aria-hidden="true"></i>
             Autonomous Driving
@@ -113,6 +109,713 @@
             <i data-lucide="cpu" aria-hidden="true"></i>
             Computer Graphics
           </button>
+          <button class="filter-btn" data-category="game" role="tab" aria-selected="false">
+            <i data-lucide="gamepad-2" aria-hidden="true"></i>
+            Game Development
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Autonomous Driving Projects -->
+    <section class="project-category" id="autonomous-section" data-category="autonomous">
+      <div class="container">
+        <div class="category-header">
+          <div class="category-icon">
+            <i data-lucide="car"></i>
+          </div>
+          <div class="category-info">
+            <h2 class="category-title">Autonomous Driving</h2>
+            <p class="category-description">Real-time perception and control systems for autonomous vehicles</p>
+          </div>
+        </div>
+
+        <div class="projects-grid">
+
+          <!-- Autonomous Project 1 -->
+          <article class="project-detail-card">
+            <div class="project-detail-card__visual">
+              <img src="../img/project3_static.jpg" alt="Autonomous Driving Project 1 img" class="img-static"
+                loading="lazy">
+              <img src="../img/project3_anim.gif" alt="Autonomous Driving Project 1 animation" class="img-gif"
+                loading="lazy">
+              <span class="project-status completed">Completed</span>
+            </div>
+
+            <div class="project-detail-card__content">
+              <h3 class="project-detail-card__title">
+                V2X-Based Cooperative Driving System
+              </h3>
+
+              <div class="project-meta">
+                <span class="project-date">
+                  <i data-lucide="calendar" aria-hidden="true"></i>
+                  DEC 2025 - FEB 2026
+                </span>
+                <span class="project-type">
+                  <i data-lucide="tag" aria-hidden="true"></i>
+                  KAIST Mobility Challenge Competition
+                </span>
+              </div>
+
+              <p class="project-detail-card__description">
+                Developed a V2X-based autonomous driving system for the KAIST Mobility Challenge Competition. Designed
+                robust
+                decision-making algorithms for safe intersection navigation and dynamic overtaking maneuvers.
+              </p>
+
+              <div class="project-highlights">
+                <h4 class="highlights-title">Key Achievements</h4>
+                <ul class="highlights-list">
+                  <li>Achieved the Excellence Award at the KAIST Mobility Challenge Competition</li>
+                  <li>Implemented an MPC-based path tracking algorithm</li>
+                  <li>Refined decision-making algorithms for collision-free intersection navigation utilizing real-time
+                    TTC (Time-To-Collision) assessments</li>
+                  <li>Streamlined Sim-to-Real deployment by architecting a centralized configuration system for domain
+                    IDs and hyperparameter tuning</li>
+                  <li>Prototyped a dynamic overtaking algorithm for safe passing maneuvers</li>
+                </ul>
+              </div>
+
+              <div class="tech-stack-detailed">
+                <span class="tech-badge">ROS2 Foxy</span>
+                <span class="tech-badge">C++</span>
+                <span class="tech-badge">Python</span>
+                <span class="tech-badge">Linux</span>
+                <span class="tech-badge">Docker</span>
+              </div>
+
+              <div class="project-actions">
+                <a href="https://github.com/Gyuwon-Na" target="_blank" rel="noopener noreferrer"
+                  class="action-btn primary">
+                  <i data-lucide="github" aria-hidden="true"></i>
+                  View Code
+                </a>
+                <!-- 버튼 (클릭 시 이동) -->
+                <a href="../portfolio/autonomous_driving/V2X.html" class="action-btn secondary">
+                  <i data-lucide="file-text" aria-hidden="true"></i>
+                  View Details
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Autonomous Project 2 -->
+          <article class="project-detail-card">
+            <div class="project-detail-card__visual">
+              <img src="../img/project3_static.jpg" alt="Autonomous Driving Project 2 img" class="img-static"
+                loading="lazy">
+              <img src="../img/project3_anim.gif" alt="Autonomous Driving Project 2 animation" class="img-gif"
+                loading="lazy">
+              <span class="project-status completed">Completed</span>
+            </div>
+
+            <div class="project-detail-card__content">
+              <h3 class="project-detail-card__title">
+                1/2-Scale Autonomous Vehicle
+              </h3>
+
+              <div class="project-meta">
+                <span class="project-date">
+                  <i data-lucide="calendar" aria-hidden="true"></i>
+                  AUG 2025 - OCT 2025
+                </span>
+                <span class="project-type">
+                  <i data-lucide="tag" aria-hidden="true"></i>
+                  Student Creative Mobility Competition 2025 - Unmanned Mobility Division
+                </span>
+              </div>
+
+              <p class="project-detail-card__description">
+                Developed a vision-based autonomous driving system for a 1/2-scale vehicle to navigate complex obstacle
+                courses. Led the development of robust perception algorithms for lane tracking, object detection, and
+                mission-critical decision making.
+              </p>
+
+              <div class="project-highlights">
+                <h4 class="highlights-title">Key Achievements</h4>
+                <ul class="highlights-list">
+                  <li>Advanced to the Finals in the Unmanned Mobility Division at the Student Creative Mobility
+                    Competition 2025</li>
+                  <li>Engineered a robust lane detection algorithm</li>
+                  <li>Implemented vision-based traffic light recognition and pedestrian detection for safe automated
+                    stopping</li>
+                  <li>Developed a sign recognition system to successfully execute autonomous delivery missions
+                  </li>
+                  <li>Created a custom auto-labeling model to streamline the generation of training data for
+                    mission-specific signs</li>
+                  <li>Integrated Velodyne LiDAR data to enable dynamic obstacle avoidance</li>
+                </ul>
+              </div>
+
+              <div class="tech-stack-detailed">
+                <span class="tech-badge">ROS1 Noetic</span>
+                <span class="tech-badge">OpenCV</span>
+                <span class="tech-badge">Python</span>
+                <span class="tech-badge">C++</span>
+                <span class="tech-badge">Linux</span>
+              </div>
+
+              <div class="project-actions">
+                <a href="https://github.com/Gyuwon-Na" target="_blank" rel="noopener noreferrer"
+                  class="action-btn primary">
+                  <i data-lucide="github" aria-hidden="true"></i>
+                  View Code
+                </a>
+                <!-- 버튼 (클릭 시 이동) -->
+                <a href="../portfolio/autonomous_driving/creative_mobility.html" class="action-btn secondary">
+                  <i data-lucide="file-text" aria-hidden="true"></i>
+                  View Details
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Autonomous Project 3 -->
+          <article class="project-detail-card">
+            <div class="project-detail-card__visual">
+              <img src="../img/project3_static.jpg" alt="Autonomous Driving Project 3 img" class="img-static"
+                loading="lazy">
+              <img src="../img/project3_anim.gif" alt="Autonomous Driving Project 3 animation" class="img-gif"
+                loading="lazy">
+              <span class="project-status completed">Completed</span>
+            </div>
+
+            <div class="project-detail-card__content">
+              <h3 class="project-detail-card__title">
+                1/5-Scale Autonomous Vehicle
+              </h3>
+
+              <div class="project-meta">
+                <span class="project-date">
+                  <i data-lucide="calendar" aria-hidden="true"></i>
+                  AUG 2025 - SEP 2025
+                </span>
+                <span class="project-type">
+                  <i data-lucide="tag" aria-hidden="true"></i>
+                  HL Future Mobility Award 2025
+                </span>
+              </div>
+
+              <p class="project-detail-card__description">
+                ??
+              </p>
+
+              <div class="project-highlights">
+                <h4 class="highlights-title">Key Achievements</h4>
+                <ul class="highlights-list">
+                  - 장려상 수상
+                  - 신호등
+                  - 경로 추종
+                </ul>
+              </div>
+
+              <div class="tech-stack-detailed">
+                <span class="tech-badge">ROS1 Noetic</span>
+                <span class="tech-badge">OpenCV</span>
+                <span class="tech-badge">Python</span>
+                <span class="tech-badge">C++</span>
+                <span class="tech-badge">Linux</span>
+              </div>
+
+              <div class="project-actions">
+                <a href="https://github.com/Gyuwon-Na" target="_blank" rel="noopener noreferrer"
+                  class="action-btn primary">
+                  <i data-lucide="github" aria-hidden="true"></i>
+                  View Code
+                </a>
+                <!-- 버튼 (클릭 시 이동) -->
+                <a href="../portfolio/autonomous_driving/HL_FMA.html" class="action-btn secondary">
+                  <i data-lucide="file-text" aria-hidden="true"></i>
+                  View Details
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Autonomous Project 4 -->
+          <article class="project-detail-card">
+            <div class="project-detail-card__visual">
+              <img src="../img/project4_static.jpg" alt="Autonomous Driving Project 4 img" class="img-static"
+                loading="lazy">
+              <img src="../img/project4_anim.gif" alt="Autonomous Driving Project 4 animation" class="img-gif"
+                loading="lazy">
+              <span class="project-status completed">Completed</span>
+            </div>
+
+            <div class="project-detail-card__content">
+              <h3 class="project-detail-card__title">
+                Simulation-Based Autonomous Driving System
+              </h3>
+
+              <div class="project-meta">
+                <span class="project-date">
+                  <i data-lucide="calendar" aria-hidden="true"></i>
+                  JUL 2025 - AUG 2025
+                </span>
+                <span class="project-type">
+                  <i data-lucide="tag" aria-hidden="true"></i>
+                  Virtual AutoRace 2025
+                </span>
+              </div>
+
+              <p class="project-detail-card__description">
+                ??
+              </p>
+
+              <div class="project-highlights">
+                <h4 class="highlights-title">Key Achievements</h4>
+                <ul class="highlights-list">
+                  - 차선 인식 주행
+                  - 로터리 진입
+                  - 장애물 피
+                </ul>
+              </div>
+
+              <div class="tech-stack-detailed">
+                <span class="tech-badge">ROS1 Noetic</span>
+                <span class="tech-badge">OpenCV</span>
+                <span class="tech-badge">Python</span>
+                <span class="tech-badge">MORAI</span>
+                <span class="tech-badge">Linux</span>
+              </div>
+
+              <div class="project-actions">
+                <a href="https://github.com/Gyuwon-Na" target="_blank" rel="noopener noreferrer"
+                  class="action-btn primary">
+                  <i data-lucide="github" aria-hidden="true"></i>
+                  View Code
+                </a>
+                <!-- 버튼 (클릭 시 이동) -->
+                <a href="../portfolio/autonomous_driving/MORAI.html" class="action-btn secondary">
+                  <i data-lucide="file-text" aria-hidden="true"></i>
+                  View Details
+                </a>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Computer Graphics Projects -->
+    <section class="project-category" id="graphics-section" data-category="graphics">
+      <div class="container">
+        <div class="category-header">
+          <div class="category-icon">
+            <i data-lucide="cpu"></i>
+          </div>
+          <div class="category-info">
+            <h2 class="category-title">Computer Graphics</h2>
+            <p class="category-description">Real-time rendering, simulations, and visual effects</p>
+          </div>
+        </div>
+
+        <div class="projects-grid">
+          <!-- Graphics Project 1 -->
+          <article class="project-detail-card">
+            <div class="project-detail-card__visual">
+              <img src="../img/project1_static.jpg" alt="Fluid Simulation" class="img-static" loading="lazy">
+              <img src="../img/project1_anim.gif" alt="Fluid Simulation animation" class="img-gif" loading="lazy">
+              <span class="project-status completed">Completed</span>
+            </div>
+
+            <div class="project-detail-card__content">
+              <h3 class="project-detail-card__title">Cross-Platform Foundations: Hello Quad</h3>
+
+              <div class="project-meta">
+                <span class="project-date">
+                  <i data-lucide="calendar" aria-hidden="true"></i>
+                  SEPT 2025
+                </span>
+                <span class="project-type">
+                  <i data-lucide="tag" aria-hidden="true"></i>
+                  CS250 Coursework
+                </span>
+              </div>
+
+              <p class="project-detail-card__description">
+                Established a foundational rendering pipeline by implementing core OpenGL abstractions. Developed an
+                interactive animated quad capable of running seamlessly on both Windows and Web platforms.
+              </p>
+
+              <div class="project-highlights">
+                <h4 class="highlights-title">Key Engineering Tasks</h4>
+                <ul class="highlights-list">
+                  <li>Encapsulated low-level OpenGL API into reusable classes: VertexBuffer, IndexBuffer, and VertexArray</li>
+                  <li>Developed custom Vertex and Fragment shaders to drive interactive, time-based animations</li>
+                  <li>Implemented real-time input handling for dynamic visual updates via mouse and wheel interaction</li>
+                </ul>
+              </div>
+
+              <div class="tech-stack-detailed">
+                <span class="tech-badge">C++</span>
+                <span class="tech-badge">OpenGL</span>
+                <span class="tech-badge">GLSL</span>
+                <span class="tech-badge">WebGL</span>
+                <span class="tech-badge">CMake</span>
+              </div>
+
+              <div class="project-actions">
+                <a href="https://github.com/Gyuwon-Na" target="_blank" rel="noopener noreferrer"
+                  class="action-btn primary">
+                  <i data-lucide="github" aria-hidden="true"></i>
+                  View Code
+                </a>
+                <a href="../portfolio/graphics/01_hello.html" class="action-btn secondary">
+                  <i data-lucide="file-text" aria-hidden="true"></i>
+                  View Details
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Graphics Project 2 -->
+          <article class="project-detail-card">
+            <div class="project-detail-card__visual">
+              <img src="../img/project2_static.jpg" alt="Meshes" class="img-static" loading="lazy">
+              <img src="../img/project2_anim.gif" alt="Meshes animation" class="img-gif" loading="lazy">
+              <span class="project-status completed">Completed</span>
+            </div>
+
+            <div class="project-detail-card__content">
+              <h3 class="project-detail-card__title">meshes</h3>
+
+              <div class="project-meta">
+                <span class="project-date">
+                  <i data-lucide="calendar" aria-hidden="true"></i>
+                  SEP 2025
+                </span>
+                <span class="project-type">
+                  <i data-lucide="tag" aria-hidden="true"></i>
+                  CS250 Coursework
+                </span>
+              </div>
+
+              <p class="project-detail-card__description">
+              </p>
+
+              <div class="project-highlights">
+                <h4 class="highlights-title">Key Engineering Tasks</h4>
+                <ul class="highlights-list">
+                </ul>
+              </div>
+
+              <div class="tech-stack-detailed">
+                <span class="tech-badge">C++</span>
+              </div>
+
+              <div class="project-actions">
+                <a href="https://github.com/Gyuwon-Na" target="_blank" rel="noopener noreferrer"
+                  class="action-btn primary">
+                  <i data-lucide="github" aria-hidden="true"></i>
+                  View Code
+                </a>
+                <a href="../portfolio/graphics/02_meshes.html" class="action-btn secondary">
+                  <i data-lucide="file-text" aria-hidden="true"></i>
+                  View Details
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Graphics Project 3 -->
+          <article class="project-detail-card">
+            <div class="project-detail-card__visual">
+              <img src="../img/project3_static.jpg" alt="Fog" class="img-static" loading="lazy">
+              <img src="../img/project3_anim.gif" alt="Fog animation" class="img-gif" loading="lazy">
+              <span class="project-status completed">Completed</span>
+            </div>
+
+            <div class="project-detail-card__content">
+              <h3 class="project-detail-card__title">fog</h3>
+
+              <div class="project-meta">
+                <span class="project-date">
+                  <i data-lucide="calendar" aria-hidden="true"></i>
+                  SEP 2025
+                </span>
+                <span class="project-type">
+                  <i data-lucide="tag" aria-hidden="true"></i>
+                  CS250 Coursework
+                </span>
+              </div>
+
+              <p class="project-detail-card__description">
+              </p>
+
+              <div class="project-highlights">
+                <h4 class="highlights-title">Key Engineering Tasks</h4>
+                <ul class="highlights-list">
+                </ul>
+              </div>
+
+              <div class="tech-stack-detailed">
+                <span class="tech-badge">C++</span>
+              </div>
+
+              <div class="project-actions">
+                <a href="https://github.com/Gyuwon-Na" target="_blank" rel="noopener noreferrer"
+                  class="action-btn primary">
+                  <i data-lucide="github" aria-hidden="true"></i>
+                  View Code
+                </a>
+                <a href="../portfolio/graphics/03_fog.html" class="action-btn secondary">
+                  <i data-lucide="file-text" aria-hidden="true"></i>
+                  View Details
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Graphics Project 4 -->
+          <article class="project-detail-card">
+            <div class="project-detail-card__visual">
+              <img src="../img/project4_static.jpg" alt="Toon Shading" class="img-static" loading="lazy">
+              <img src="../img/project4_anim.gif" alt="Toon Shading animation" class="img-gif" loading="lazy">
+              <span class="project-status completed">Completed</span>
+            </div>
+
+            <div class="project-detail-card__content">
+              <h3 class="project-detail-card__title">toon shading</h3>
+
+              <div class="project-meta">
+                <span class="project-date">
+                  <i data-lucide="calendar" aria-hidden="true"></i>
+                  SEP 2025
+                </span>
+                <span class="project-type">
+                  <i data-lucide="tag" aria-hidden="true"></i>
+                  CS250 Coursework
+                </span>
+              </div>
+
+              <p class="project-detail-card__description">
+              </p>
+
+              <div class="project-highlights">
+                <h4 class="highlights-title">Key Engineering Tasks</h4>
+                <ul class="highlights-list">
+                </ul>
+              </div>
+
+              <div class="tech-stack-detailed">
+                <span class="tech-badge">C++</span>
+              </div>
+
+              <div class="project-actions">
+                <a href="https://github.com/Gyuwon-Na" target="_blank" rel="noopener noreferrer"
+                  class="action-btn primary">
+                  <i data-lucide="github" aria-hidden="true"></i>
+                  View Code
+                </a>
+                <a href="../portfolio/graphics/04_toon.html" class="action-btn secondary">
+                  <i data-lucide="file-text" aria-hidden="true"></i>
+                  View Details
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Graphics Project 5 -->
+          <article class="project-detail-card">
+            <div class="project-detail-card__visual">
+              <img src="../img/project5_static.jpg" alt="Shadow" class="img-static" loading="lazy">
+              <img src="../img/project5_anim.gif" alt="Shadow animation" class="img-gif" loading="lazy">
+              <span class="project-status completed">Completed</span>
+            </div>
+
+            <div class="project-detail-card__content">
+              <h3 class="project-detail-card__title">Shadow</h3>
+
+              <div class="project-meta">
+                <span class="project-date">
+                  <i data-lucide="calendar" aria-hidden="true"></i>
+                  SEPT 2025
+                </span>
+                <span class="project-type">
+                  <i data-lucide="tag" aria-hidden="true"></i>
+                  CS250 Coursework
+                </span>
+              </div>
+
+              <p class="project-detail-card__description">
+                ??
+              </p>
+
+              <div class="project-highlights">
+                <h4 class="highlights-title">Key Engineering Tasks</h4>
+                <ul class="highlights-list">
+                  <li>??</li>
+                </ul>
+              </div>
+
+              <div class="tech-stack-detailed">
+                <span class="tech-badge">C++</span>
+              </div>
+
+              <div class="project-actions">
+                <a href="https://github.com/Gyuwon-Na" target="_blank" rel="noopener noreferrer"
+                  class="action-btn primary">
+                  <i data-lucide="github" aria-hidden="true"></i>
+                  View Code
+                </a>
+                <a href="../portfolio/graphics/05_shadow.html" class="action-btn secondary">
+                  <i data-lucide="file-text" aria-hidden="true"></i>
+                  View Details
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Graphics Project 6 -->
+          <article class="project-detail-card">
+            <div class="project-detail-card__visual">
+              <img src="../img/project6_static.jpg" alt="Value" class="img-static" loading="lazy">
+              <img src="../img/project6_anim.gif" alt="Value animation" class="img-gif" loading="lazy">
+              <span class="project-status completed">Completed</span>
+            </div>
+
+            <div class="project-detail-card__content">
+              <h3 class="project-detail-card__title">Value</h3>
+
+              <div class="project-meta">
+                <span class="project-date">
+                  <i data-lucide="calendar" aria-hidden="true"></i>
+                  SEP 2025
+                </span>
+                <span class="project-type">
+                  <i data-lucide="tag" aria-hidden="true"></i>
+                  CS250 Coursework
+                </span>
+              </div>
+
+              <p class="project-detail-card__description">
+              </p>
+
+              <div class="project-highlights">
+                <h4 class="highlights-title">Key Engineering Tasks</h4>
+                <ul class="highlights-list">
+                </ul>
+              </div>
+
+              <div class="tech-stack-detailed">
+                <span class="tech-badge">C++</span>
+              </div>
+
+              <div class="project-actions">
+                <a href="https://github.com/Gyuwon-Na" target="_blank" rel="noopener noreferrer"
+                  class="action-btn primary">
+                  <i data-lucide="github" aria-hidden="true"></i>
+                  View Code
+                </a>
+                <a href="../portfolio/graphics/06_value.html" class="action-btn secondary">
+                  <i data-lucide="file-text" aria-hidden="true"></i>
+                  View Details
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Graphics Project 7 -->
+          <article class="project-detail-card">
+            <div class="project-detail-card__visual">
+              <img src="../img/project7_static.jpg" alt="Gradient" class="img-static" loading="lazy">
+              <img src="../img/project7_anim.gif" alt="Gradient animation" class="img-gif" loading="lazy">
+              <span class="project-status completed">Completed</span>
+            </div>
+
+            <div class="project-detail-card__content">
+              <h3 class="project-detail-card__title">fog</h3>
+
+              <div class="project-meta">
+                <span class="project-date">
+                  <i data-lucide="calendar" aria-hidden="true"></i>
+                  SEP 2025
+                </span>
+                <span class="project-type">
+                  <i data-lucide="tag" aria-hidden="true"></i>
+                  CS250 Coursework
+                </span>
+              </div>
+
+              <p class="project-detail-card__description">
+              </p>
+
+              <div class="project-highlights">
+                <h4 class="highlights-title">Key Engineering Tasks</h4>
+                <ul class="highlights-list">
+                </ul>
+              </div>
+
+              <div class="tech-stack-detailed">
+                <span class="tech-badge">C++</span>
+              </div>
+
+              <div class="project-actions">
+                <a href="https://github.com/Gyuwon-Na" target="_blank" rel="noopener noreferrer"
+                  class="action-btn primary">
+                  <i data-lucide="github" aria-hidden="true"></i>
+                  View Code
+                </a>
+                <a href="../portfolio/graphics/07_gradient.html" class="action-btn secondary">
+                  <i data-lucide="file-text" aria-hidden="true"></i>
+                  View Details
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Graphics Project 8 -->
+          <article class="project-detail-card">
+            <div class="project-detail-card__visual">
+              <img src="../img/project8_static.jpg" alt="Own Project" class="img-static" loading="lazy">
+              <img src="../img/project8_anim.gif" alt="Own Project animation" class="img-gif" loading="lazy">
+              <span class="project-status completed">Completed</span>
+            </div>
+
+            <div class="project-detail-card__content">
+              <h3 class="project-detail-card__title">CS250 Final Project</h3>
+
+              <div class="project-meta">
+                <span class="project-date">
+                  <i data-lucide="calendar" aria-hidden="true"></i>
+                  DEC 2025
+                </span>
+                <span class="project-type">
+                  <i data-lucide="tag" aria-hidden="true"></i>
+                  CS250 Coursework
+                </span>
+              </div>
+
+              <p class="project-detail-card__description">
+              </p>
+
+              <div class="project-highlights">
+                <h4 class="highlights-title">Key Engineering Tasks</h4>
+                <ul class="highlights-list">
+                </ul>
+              </div>
+
+              <div class="tech-stack-detailed">
+                <span class="tech-badge">C++</span>
+              </div>
+
+              <div class="project-actions">
+                <a href="https://github.com/Gyuwon-Na" target="_blank" rel="noopener noreferrer"
+                  class="action-btn primary">
+                  <i data-lucide="github" aria-hidden="true"></i>
+                  View Code
+                </a>
+                <a href="../portfolio/graphics/08_fun.html" class="action-btn secondary">
+                  <i data-lucide="file-text" aria-hidden="true"></i>
+                  View Details
+                </a>
+              </div>
+            </div>
+          </article>
+
         </div>
       </div>
     </section>
@@ -137,43 +840,38 @@
             <div class="project-detail-card__visual">
               <img src="../img/project1_static.jpg" alt="Game Project 1" class="img-static" loading="lazy">
               <img src="../img/project1_anim.gif" alt="Game Project 1 animation" class="img-gif" loading="lazy">
-              <span class="project-status">In Progress</span>
+              <span class="project-status">Completed</span>
             </div>
 
             <div class="project-detail-card__content">
-              <h3 class="project-detail-card__title">3D Platformer Game</h3>
+              <h3 class="project-detail-card__title">MANZO</h3>
 
               <div class="project-meta">
                 <span class="project-date">
                   <i data-lucide="calendar" aria-hidden="true"></i>
-                  2025
+                  JUN 2024 - JUN 2025
                 </span>
                 <span class="project-type">
                   <i data-lucide="tag" aria-hidden="true"></i>
-                  Personal Project
+                  GAM 200-250 Project
                 </span>
               </div>
 
               <p class="project-detail-card__description">
-                A physics-based 3D platformer featuring custom character controllers, dynamic camera systems,
-                and procedural level generation. Implemented advanced collision detection and response systems.
+                >?>
               </p>
 
               <div class="project-highlights">
                 <h4 class="highlights-title">Key Features</h4>
                 <ul class="highlights-list">
-                  <li>Custom physics engine with realistic character movement</li>
-                  <li>Dynamic camera system with smooth transitions</li>
-                  <li>Procedural level generation algorithms</li>
-                  <li>Optimized rendering pipeline for 60+ FPS</li>
+                  <li>??</li>
                 </ul>
               </div>
 
               <div class="tech-stack-detailed">
-                <span class="tech-badge">Unity</span>
-                <span class="tech-badge">C#</span>
-                <span class="tech-badge">Shader Graph</span>
-                <span class="tech-badge">ProBuilder</span>
+                <span class="tech-badge">C++</span>
+                <span class="tech-badge">OpenGL</span>
+                <span class="tech-badge">Render Doc</span>
               </div>
 
               <div class="project-actions">
@@ -190,122 +888,43 @@
             </div>
           </article>
 
+
           <!-- Game Project 2 -->
           <article class="project-detail-card">
             <div class="project-detail-card__visual">
-              <img src="../img/project1_static.jpg" alt="Game Project 2" class="img-static" loading="lazy">
-              <img src="../img/project1_anim.gif" alt="Game Project 2 animation" class="img-gif" loading="lazy">
-              <span class="project-status completed">Completed</span>
+              <img src="../img/project2_static.jpg" alt="Game Project 2" class="img-static" loading="lazy">
+              <img src="../img/project2_anim.gif" alt="Game Project 2 animation" class="img-gif" loading="lazy">
+              <span class="project-status">Completed</span>
             </div>
 
             <div class="project-detail-card__content">
-              <h3 class="project-detail-card__title">2D Puzzle Adventure</h3>
+              <h3 class="project-detail-card__title">Stand-By</h3>
 
               <div class="project-meta">
                 <span class="project-date">
                   <i data-lucide="calendar" aria-hidden="true"></i>
-                  2024
+                  MAR 2024 - JUN 2024
                 </span>
                 <span class="project-type">
                   <i data-lucide="tag" aria-hidden="true"></i>
-                  Game Jam
+                  GAM 150 Project
                 </span>
               </div>
 
               <p class="project-detail-card__description">
-                A narrative-driven puzzle game with hand-drawn art style. Features include inventory management,
-                dialogue system, and multiple endings based on player choices.
+                >?>
               </p>
 
               <div class="project-highlights">
                 <h4 class="highlights-title">Key Features</h4>
                 <ul class="highlights-list">
-                  <li>Branching narrative with 5 different endings</li>
-                  <li>Custom dialogue system with rich text support</li>
-                  <li>Save/load system with cloud sync</li>
-                  <li>Accessibility options (colorblind mode, subtitles)</li>
+                  <li>??</li>
                 </ul>
               </div>
 
               <div class="tech-stack-detailed">
-                <span class="tech-badge">Unity</span>
-                <span class="tech-badge">C#</span>
-                <span class="tech-badge">TextMesh Pro</span>
-                <span class="tech-badge">DOTween</span>
-              </div>
-
-              <div class="project-actions">
-                <a href="https://github.com/Gyuwon-Na" target="_blank" rel="noopener noreferrer"
-                  class="action-btn primary">
-                  <i data-lucide="github" aria-hidden="true"></i>
-                  View Code
-                </a>
-              </div>
-            </div>
-          </article>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- Autonomous Driving Projects -->
-    <section class="project-category" id="autonomous-section" data-category="autonomous">
-      <div class="container">
-        <div class="category-header">
-          <div class="category-icon">
-            <i data-lucide="car"></i>
-          </div>
-          <div class="category-info">
-            <h2 class="category-title">Autonomous Driving</h2>
-            <p class="category-description">Real-time perception and control systems for autonomous vehicles</p>
-          </div>
-        </div>
-
-        <div class="projects-grid">
-
-          <!-- Autonomous Project 1 -->
-          <article class="project-detail-card">
-            <div class="project-detail-card__visual">
-              <img src="../img/project3_static.jpg" alt="ERP-42 Control Logic" class="img-static" loading="lazy">
-              <img src="../img/project3_anim.gif" alt="ERP-42 animation" class="img-gif" loading="lazy">
-              <span class="project-status completed">Completed</span>
-            </div>
-
-            <div class="project-detail-card__content">
-              <h3 class="project-detail-card__title">ERP-42 Control Logic</h3>
-
-              <div class="project-meta">
-                <span class="project-date">
-                  <i data-lucide="calendar" aria-hidden="true"></i>
-                  2025
-                </span>
-                <span class="project-type">
-                  <i data-lucide="tag" aria-hidden="true"></i>
-                  Research Project
-                </span>
-              </div>
-
-              <p class="project-detail-card__description">
-                Developed comprehensive control algorithms for ERP-42 autonomous vehicle platform including
-                path planning, obstacle avoidance, and sensor fusion using ROS2 framework.
-              </p>
-
-              <div class="project-highlights">
-                <h4 class="highlights-title">Key Achievements</h4>
-                <ul class="highlights-list">
-                  <li>Real-time path planning with A* and RRT algorithms</li>
-                  <li>Sensor fusion combining LiDAR, camera, and IMU data</li>
-                  <li>Robust obstacle detection and avoidance system</li>
-                  <li>Successfully tested on campus autonomous driving challenge</li>
-                </ul>
-              </div>
-
-              <div class="tech-stack-detailed">
-                <span class="tech-badge">ROS2</span>
                 <span class="tech-badge">C++</span>
-                <span class="tech-badge">Python</span>
-                <span class="tech-badge">Linux</span>
-                <span class="tech-badge">OpenCV</span>
+                <span class="tech-badge">Raylib</span>
               </div>
 
               <div class="project-actions">
@@ -315,130 +934,49 @@
                   View Code
                 </a>
                 <a href="#" class="action-btn secondary">
-                  <i data-lucide="file-text" aria-hidden="true"></i>
-                  Documentation
+                  <i data-lucide="play-circle" aria-hidden="true"></i>
+                  Live Demo
                 </a>
               </div>
             </div>
           </article>
 
-          <!-- Autonomous Project 2 -->
+          <!-- Game Project 3 -->
           <article class="project-detail-card">
             <div class="project-detail-card__visual">
-              <img src="../img/project2_static.jpg" alt="Lane Detection System" class="img-static" loading="lazy">
-              <img src="../img/project2_anim.gif" alt="Lane Detection animation" class="img-gif" loading="lazy">
-              <span class="project-status completed">Completed</span>
+              <img src="../img/project3_static.jpg" alt="Game Project 3" class="img-static" loading="lazy">
+              <img src="../img/project3_anim.gif" alt="Game Project 3 animation" class="img-gif" loading="lazy">
+              <span class="project-status">Completed</span>
             </div>
 
             <div class="project-detail-card__content">
-              <h3 class="project-detail-card__title">Advanced Lane Detection System</h3>
+              <h3 class="project-detail-card__title">Resonate</h3>
 
               <div class="project-meta">
                 <span class="project-date">
                   <i data-lucide="calendar" aria-hidden="true"></i>
-                  2024
+                  SEP 2023 - DEC 2023
                 </span>
                 <span class="project-type">
                   <i data-lucide="tag" aria-hidden="true"></i>
-                  Academic Project
+                  GAM 100 Project
                 </span>
               </div>
 
               <p class="project-detail-card__description">
-                ML-based lane detection system using YOLOv8 achieving 92% accuracy in adverse weather conditions.
-                Implemented custom data augmentation pipeline and real-time inference optimization.
-              </p>
-
-              <div class="project-highlights">
-                <h4 class="highlights-title">Key Achievements</h4>
-                <ul class="highlights-list">
-                  <li>92% detection accuracy in rain and fog conditions</li>
-                  <li>Real-time processing at 30 FPS on embedded systems</li>
-                  <li>Custom dataset with 10,000+ annotated images</li>
-                  <li>Model optimization reducing inference time by 40%</li>
-                </ul>
-              </div>
-
-              <div class="tech-stack-detailed">
-                <span class="tech-badge">Python</span>
-                <span class="tech-badge">YOLOv8</span>
-                <span class="tech-badge">OpenCV</span>
-                <span class="tech-badge">PyTorch</span>
-                <span class="tech-badge">CUDA</span>
-              </div>
-
-              <div class="project-actions">
-                <a href="https://github.com/Gyuwon-Na" target="_blank" rel="noopener noreferrer"
-                  class="action-btn primary">
-                  <i data-lucide="github" aria-hidden="true"></i>
-                  View Code
-                </a>
-              </div>
-            </div>
-          </article>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- Computer Graphics Projects -->
-    <section class="project-category" id="graphics-section" data-category="graphics">
-      <div class="container">
-        <div class="category-header">
-          <div class="category-icon">
-            <i data-lucide="cpu"></i>
-          </div>
-          <div class="category-info">
-            <h2 class="category-title">Computer Graphics</h2>
-            <p class="category-description">Real-time rendering, simulations, and visual effects</p>
-          </div>
-        </div>
-
-        <div class="projects-grid">
-
-          <!-- Graphics Project 1 -->
-          <article class="project-detail-card">
-            <div class="project-detail-card__visual">
-              <img src="../img/project1_static.jpg" alt="Fluid Simulation" class="img-static" loading="lazy">
-              <img src="../img/project1_anim.gif" alt="Fluid Simulation animation" class="img-gif" loading="lazy">
-              <span class="project-status completed">Completed</span>
-            </div>
-
-            <div class="project-detail-card__content">
-              <h3 class="project-detail-card__title">Real-time Fluid Simulation Engine</h3>
-
-              <div class="project-meta">
-                <span class="project-date">
-                  <i data-lucide="calendar" aria-hidden="true"></i>
-                  2025
-                </span>
-                <span class="project-type">
-                  <i data-lucide="tag" aria-hidden="true"></i>
-                  Capstone Project
-                </span>
-              </div>
-
-              <p class="project-detail-card__description">
-                GPU-accelerated fluid dynamics simulation using Smoothed Particle Hydrodynamics (SPH) method.
-                Supports up to 100,000 particles with real-time visualization and user interaction.
+                >?>
               </p>
 
               <div class="project-highlights">
                 <h4 class="highlights-title">Key Features</h4>
                 <ul class="highlights-list">
-                  <li>SPH-based fluid dynamics with density-pressure solver</li>
-                  <li>GPU compute shaders for particle calculations</li>
-                  <li>Real-time rendering with surface reconstruction</li>
-                  <li>Interactive controls for viscosity and surface tension</li>
+                  <li>??</li>
                 </ul>
               </div>
 
               <div class="tech-stack-detailed">
                 <span class="tech-badge">C++</span>
-                <span class="tech-badge">OpenGL</span>
-                <span class="tech-badge">GLSL</span>
-                <span class="tech-badge">Compute Shaders</span>
-                <span class="tech-badge">ImGui</span>
+                <span class="tech-badge">Raylib</span>
               </div>
 
               <div class="project-actions">
@@ -448,62 +986,8 @@
                   View Code
                 </a>
                 <a href="#" class="action-btn secondary">
-                  <i data-lucide="youtube" aria-hidden="true"></i>
-                  Watch Demo
-                </a>
-              </div>
-            </div>
-          </article>
-
-          <!-- Graphics Project 2 -->
-          <article class="project-detail-card">
-            <div class="project-detail-card__visual">
-              <img src="../img/project1_static.jpg" alt="Ray Tracer" class="img-static" loading="lazy">
-              <img src="../img/project1_anim.gif" alt="Ray Tracer animation" class="img-gif" loading="lazy">
-              <span class="project-status completed">Completed</span>
-            </div>
-
-            <div class="project-detail-card__content">
-              <h3 class="project-detail-card__title">Path Tracing Renderer</h3>
-
-              <div class="project-meta">
-                <span class="project-date">
-                  <i data-lucide="calendar" aria-hidden="true"></i>
-                  2024
-                </span>
-                <span class="project-type">
-                  <i data-lucide="tag" aria-hidden="true"></i>
-                  Academic Project
-                </span>
-              </div>
-
-              <p class="project-detail-card__description">
-                Physically-based path tracing renderer with support for global illumination, importance sampling,
-                and various material models including metal, dielectric, and diffuse surfaces.
-              </p>
-
-              <div class="project-highlights">
-                <h4 class="highlights-title">Key Features</h4>
-                <ul class="highlights-list">
-                  <li>Monte Carlo path tracing with Russian roulette</li>
-                  <li>BVH acceleration structure for fast ray-triangle intersection</li>
-                  <li>Physically-based materials (Cook-Torrance BRDF)</li>
-                  <li>Progressive rendering with denoising</li>
-                </ul>
-              </div>
-
-              <div class="tech-stack-detailed">
-                <span class="tech-badge">C++</span>
-                <span class="tech-badge">OpenMP</span>
-                <span class="tech-badge">GLM</span>
-                <span class="tech-badge">stb_image</span>
-              </div>
-
-              <div class="project-actions">
-                <a href="https://github.com/Gyuwon-Na" target="_blank" rel="noopener noreferrer"
-                  class="action-btn primary">
-                  <i data-lucide="github" aria-hidden="true"></i>
-                  View Code
+                  <i data-lucide="play-circle" aria-hidden="true"></i>
+                  Live Demo
                 </a>
               </div>
             </div>

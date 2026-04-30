@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml" href="../../img/face.jpg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>1/2-Scale Autonomous Vehicle</title>
+  <meta name="description"
+    content="Details about the 1/2-Scale Autonomous Vehicle project for KAIST Mobility Challenge Competition.">
+
+  <!-- Normalize -->
+  <link rel="stylesheet" href="../../external/normalize.css" />
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css"
+    integrity="sha256-46qynGAkLSFpVbEBog43gvNhfrOj+BmwXdxFgVK/Kvc=" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap"
+    rel="stylesheet" />
+
+  <link rel="stylesheet" href="../../css/style.css" />
+  <link rel="stylesheet" href="../../css/projects.css" />
+</head>
+
+<body>
+
+  <!-- Floating Navigation (기존과 동일) -->
+  <div class="floating-nav-container" id="navContainer" role="navigation" aria-label="Main navigation">
+    <button class="nav-trigger-btn" onclick="toggleNav()" aria-label="Open navigation menu" aria-expanded="false">
+      <div class="hamburger-lines">
+        <span></span>
+        <span></span>
+      </div>
+    </button>
+    <nav class="nav-capsule-menu">
+      <ul class="nav-links">
+        <li><a href="../../index.html" onclick="toggleNav()">Home</a></li>
+        <li><a href="../../pages/AboutMe.html" onclick="toggleNav()">About Me</a></li>
+        <li><a href="../../pages/Research.html" onclick="toggleNav()">Research</a></li>
+        <li><a href="../../pages/Projects.html" onclick="toggleNav()">Projects</a></li>
+      </ul>
+      <button class="nav-close-btn" onclick="toggleNav()" aria-label="Close navigation menu">
+        <i data-lucide="x"></i>
+      </button>
+    </nav>
+  </div>
+
+  <main id="main-content">
+
+    <!-- Header Section -->
+    <section class="detail-hero">
+      <div class="back-btn-wrapper">
+        <a href="../../pages/Projects.html" class="back-btn">
+          <i data-lucide="arrow-left"></i> Back to Projects
+        </a>
+      </div>
+      <div class="container">
+        <h1 class="projects-hero__title" style="font-size: clamp(2rem, 4vw, 3rem);">1/2-Scale Autonomous Vehicle</h1>
+        <div class="project-meta" style="justify-content: center; margin-top: 20px;">
+          <span class="project-date">
+            <i data-lucide="calendar" aria-hidden="true"></i> AUG 2025 - OCT 2025
+          </span>
+          <span class="project-type">
+            <i data-lucide="award" aria-hidden="true"></i> Student Creative Mobility Competition 2025 - Unmanned
+            Mobility Division
+          </span>
+        </div>
+        <div class="tech-stack-detailed" style="justify-content: center; margin-top: 20px;">
+          <span class="tech-badge">ROS1 Noetic</span>
+          <span class="tech-badge">OpenCV</span>
+          <span class="tech-badge">Python</span>
+          <span class="tech-badge">C++</span>
+          <span class="tech-badge">Linux</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Main Content Section -->
+    <section class="detail-content">
+      <!-- 1. Demo Video (정중앙 정렬 + 색상 호버 효과) -->
+      <h1 class="detail-section-title">Demo Video</h1>
+      <div class="detail-section" style="margin-top: -20px;">
+        <a href="https://youtu.be/YCeGdbSMRuc?t=4669" target="_blank" rel="noopener noreferrer"
+          style="text-decoration: none;">
+
+          <div style="
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%; /* 16:9 비율 유지 */
+            background-image: url('https://img.youtube.com/vi/YCeGdbSMRuc/maxresdefault.jpg'); 
+            background-size: cover; 
+            background-position: center; 
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.08);
+          " onmouseover="this.querySelector('i').style.color='#ff0000'"
+            onmouseout="this.querySelector('i').style.color='white'">
+
+            <!-- 이미지를 살짝 어둡게 덮어주는 오버레이 -->
+            <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.3);">
+            </div>
+
+            <!-- 완벽하게 중앙 정렬된 유튜브 로고 -->
+            <i class="fa-brands fa-youtube" style="
+              position: absolute;
+              top: 50%;
+              left: 50%;
+              transform: translate(-50%, -50%);
+              font-size: 5rem; 
+              color: white; 
+              z-index: 10; 
+              transition: color 0.2s ease-in-out;
+              filter: drop-shadow(0 4px 10px rgba(0,0,0,0.3));
+            "></i>
+
+          </div>
+        </a>
+      </div>
+
+      <!-- Overview -->
+      <div class="detail-section">
+        <h2 class="detail-section-title">Overview</h2>
+        <p class="detail-text">
+          The <strong>1/2-Scale Autonomous Vehicle</strong> project was developed for the Student Creative Mobility Competition 2025, where our team successfully advanced to the finals in the Unmanned Mobility Division. The core objective was to navigate complex, dynamic obstacle courses by executing critical missions such as traffic light compliance, pedestrian emergency braking, obstacle avoidance, and target-specific autonomous delivery.
+          <br><br>
+          As the lead perception engineer, I spearheaded the <strong>vision-based perception pipeline</strong> and system architecture. My primary contributions included engineering illumination-robust algorithms for lane and traffic light detection, developing a custom auto-labeling tool to streamline YOLO model training, and refactoring the mission management architecture into a decoupled Dictionary structure for highly scalable deployment.
+        </p>
+      </div>
+
+      <!-- My Role & Contributions -->
+      <div class="detail-section">
+        <h2 class="detail-section-title">My Role & Contributions</h2>
+        <p class="detail-text" style="margin-bottom: 25px;">
+          In this project, I spearheaded the development of the <strong>vision-based perception system</strong> for the autonomous vehicle and led the <strong>refactoring of the mission management architecture and automation of the data pipeline</strong>, playing a pivotal role in advancing the team to the finals.
+        </p>
+
+        <!-- Category 1: Vision & Perception -->
+        <div style="margin-bottom: 30px;">
+          <h3 style="font-size: 1.15rem; color: var(--clr-accent); margin-bottom: 15px; display: flex; align-items: center; gap: 8px;">
+            <i data-lucide="eye" style="width: 20px; height: 20px;"></i> Vision & Perception System
+          </h3>
+          <ul class="highlights-list" style="background: var(--clr-bg-alt); padding: 20px 20px 20px 40px; border-radius: 12px; border-left: 3px solid var(--clr-accent);">
+            <li style="margin-bottom: 10px;">
+              <strong>Robust Lane Detection:</strong> Implemented a dynamic preprocessing-based lane tracking algorithm to ensure stable autonomous navigation (detailed in the Challenges section).
+            </li>
+            <li style="margin-bottom: 10px;">
+              <strong>Traffic Light Recognition:</strong> Developed a YOLO-based 4-bulb traffic light recognition model and engineered the active-signal determination logic.
+            </li>
+            <li style="margin-bottom: 10px;">
+              <strong>Target Sign Recognition for Delivery:</strong> Integrated a custom identification model for delivery target signs (e.g., A1, A2) with decision-making logic to execute precise stops for autonomous delivery missions.
+            </li>
+            <li>
+              <strong>Pedestrian Detection & Emergency Braking:</strong> Implemented an Autonomous Emergency Braking (AEB) system utilizing ZED 2i stereo camera depth data for robust pedestrian detection.
+            </li>
+          </ul>
+        </div>
+
+        <!-- Category 2: Navigation & Control -->
+        <div style="margin-bottom: 30px;">
+          <h3 style="font-size: 1.15rem; color: #ff9800; margin-bottom: 15px; display: flex; align-items: center; gap: 8px;">
+            <i data-lucide="map" style="width: 20px; height: 20px;"></i> Navigation & Control
+          </h3>
+          <ul class="highlights-list" style="background: var(--clr-bg-alt); padding: 20px 20px 20px 40px; border-radius: 12px; border-left: 3px solid #ff9800;">
+            <li>
+              <strong>LiDAR-based Obstacle Avoidance (Prototype):</strong> Extracted 3D bounding boxes from Velodyne LiDAR Point Cloud data, designing the foundational algorithm for generating dynamic obstacle avoidance trajectories.
+            </li>
+          </ul>
+        </div>
+
+        <!-- Category 3: System Architecture & Tools -->
+        <div>
+          <h3 style="font-size: 1.15rem; color: #4caf50; margin-bottom: 15px; display: flex; align-items: center; gap: 8px;">
+            <i data-lucide="settings" style="width: 20px; height: 20px;"></i> System Architecture & Tools
+          </h3>
+          <ul class="highlights-list" style="background: var(--clr-bg-alt); padding: 20px 20px 20px 40px; border-radius: 12px; border-left: 3px solid #4caf50;">
+            <li style="margin-bottom: 10px;">
+              <strong>Architecture Refactoring:</strong> Consolidated fragmented codebases and maximized system maintainability by decoupling the hardcoded waypoint-to-mission mapping into a Dictionary data structure.
+            </li>
+            <li>
+              <strong>Custom Auto-Labeling Tool:</strong> Developed a custom vision-based auto-labeling tool to resolve the data labeling bottleneck, significantly streamlining the YOLO model training pipeline.
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="detail-section">
+        <h2 class="detail-section-title">Technical Highlights</h2>
+        <p class="detail-text">
+          - 시스템 전체 데이터 흐름 그림
+          - 이 기술을 왜,어떻게 썼는지
+        </p>
+      </div>
+
+      <div class="detail-section">
+        <h2 class="detail-section-title">Challenges & Solutions</h2>
+
+        <!-- Challenge 1: Traffic Light Backlight -->
+        <article class="challenge-card">
+          <div class="challenge-header">
+            <span class="challenge-header-num">1</span>
+            Overcoming Severe Backlight in Traffic Light Recognition
+          </div>
+
+          <div class="cs-box problem">
+            <div class="cs-box-title">
+              <i data-lucide="alert-triangle" style="width:18px; height:18px;"></i> Challenge
+            </div>
+            <p>Because the competition track was a closed-loop, the vehicle faced <strong>severe sun glare
+                (backlight)</strong> when driving back from the opposite direction. This caused the vision sensor to
+              fail in detecting traffic light color changes, leading to critical departure delays at intersections.</p>
+          </div>
+
+          <div class="cs-box solution">
+            <div class="cs-box-title">
+              <i data-lucide="lightbulb" style="width:18px; height:18px;"></i> Solution
+            </div>
+            <p>Inspired by smartphone camera image processing techniques, I built a dynamic image preprocessing pipeline
+              with <strong>illumination robustness</strong>.</p>
+            <ul class="highlights-list" style="margin-top: 15px; margin-bottom: 0;">
+              <li>Applied <strong>CLAHE (Contrast Limited Adaptive Histogram Equalization)</strong> to maximize local
+                contrast and effectively restore colors obscured by backlight.</li>
+              <li>Integrated <strong>Gamma Correction</strong> and real-time saturation/contrast adjustment logic to
+                ensure stable and highly accurate traffic light recognition regardless of external lighting conditions.
+              </li>
+            </ul>
+          </div>
+        </article>
+
+        <!-- Challenge 2: Lane Detection in Varying Illumination -->
+        <article class="challenge-card">
+          <div class="challenge-header">
+            <span class="challenge-header-num">2</span>
+            Robust Lane Detection Against Drastic Lighting Shifts
+          </div>
+
+          <div class="cs-box problem">
+            <div class="cs-box-title">
+              <i data-lucide="alert-triangle" style="width:18px; height:18px;"></i> Challenge
+            </div>
+            <p>The initial lane detection algorithm suffered a sharp drop in recognition rates in dark environments.
+              Manually readjusting the <strong>HSL color thresholds</strong> for every lighting change was highly
+              inefficient and posed a massive risk for adapting to unpredictable weather and lighting conditions on the
+              competition day.</p>
+          </div>
+
+          <div class="cs-box solution">
+            <div class="cs-box-title">
+              <i data-lucide="lightbulb" style="width:18px; height:18px;"></i> Solution
+            </div>
+            <p>Moved away from relying on absolute color values and completely revamped the system with an
+              <strong>L-Channel (Lightness) contrast-based detection algorithm</strong>.
+            </p>
+            <ul class="highlights-list" style="margin-top: 15px; margin-bottom: 0;">
+              <li>Extracted only the Lightness data to perform morphological operations that maximize the relative
+                <strong>contrast difference</strong> between the lane lines and the road surface.
+              </li>
+              <li>Consequently, the system achieved robust lane tracking capabilities that autonomously adapt to ambient
+                brightness changes <strong>without any manual parameter intervention</strong>.</li>
+            </ul>
+          </div>
+        </article>
+
+        <!-- Challenge 3: Custom Auto-Labeling Pipeline -->
+        <article class="challenge-card">
+          <div class="challenge-header">
+            <span class="challenge-header-num">3</span>
+            Automated Data Labeling Pipeline for Custom Delivery Signs
+          </div>
+
+          <div class="cs-box problem">
+            <div class="cs-box-title">
+              <i data-lucide="alert-triangle" style="width:18px; height:18px;"></i> Challenge
+            </div>
+            <p>When training the YOLO model, there was no pre-existing auto-labeling feature for the
+              competition-specific delivery target markers (e.g., A1, B1). This created a severe
+              <strong>bottleneck</strong>, requiring the team to perform tedious <strong>manual labeling on thousands of
+                images</strong>.
+            </p>
+          </div>
+
+          <div class="cs-box solution">
+            <div class="cs-box-title">
+              <i data-lucide="lightbulb" style="width:18px; height:18px;"></i> Solution
+            </div>
+            <p>To eliminate the inefficiency of manual labor, I developed a <strong>Custom Auto-Labeling Tool</strong>
+              that fuses various computer vision techniques to fully automate the training data pipeline.</p>
+            <ul class="highlights-list" style="margin-top: 15px; margin-bottom: 0;">
+              <li><strong>Color-filtered Shape Detection:</strong> Initially filtered for square contours exhibiting
+                specific blue hues.</li>
+              <li><strong>Optical Character Recognition (OCR):</strong> Performed secondary verification to confirm the
+                presence of text within the extracted Region of Interest (ROI).</li>
+              <li>By generating bounding box coordinates only when both conditions were strictly met, the pipeline
+                <strong>minimized false positives and achieved approximately 98% labeling accuracy</strong>.
+              </li>
+            </ul>
+          </div>
+        </article>
+
+        <!-- Challenge 4: Algorithm Trade-offs & Discarded Approaches -->
+        <article class="challenge-card">
+          <div class="challenge-header">
+            <span class="challenge-header-num">4</span>
+            Algorithm Evolution & Trade-off Analysis
+          </div>
+          
+          <div class="cs-box problem">
+            <div class="cs-box-title">
+              <i data-lucide="alert-triangle" style="width:18px; height:18px;"></i> Challenge (Discarded Approaches)
+            </div>
+            <p style="margin-bottom: 12px;">To achieve optimal performance, I implemented and evaluated multiple algorithms. However, due to physical constraints and computational inefficiencies, the following approaches were ultimately discarded after a thorough <strong>trade-off analysis</strong>.</p>
+            
+            <ul class="highlights-list" style="margin-bottom: 0;">
+              <li style="margin-bottom: 10px;">
+                <strong>Lane Detection (HSL + Otsu's Binarization):</strong><br>
+                Initially, I implemented a pipeline combining HSL color space conversion, morphological closing, and Otsu's binarization. However, this approach proved highly vulnerable in outdoor environments where rapid illumination changes caused the static color thresholds to collapse completely.
+              </li>
+              <li style="margin-bottom: 10px;">
+                <strong>Obstacle Avoidance 1 (Grid-based Planning):</strong><br>
+                I attempted to generate paths by excluding grid cells occupied by bounding boxes. However, this led to a <strong>geometric misalignment</strong>, as the vehicle's center often lay on the grid lines rather than inside the cells. Additionally, the excessive number of unnecessarily occupied buffer cells made advanced, smooth trajectory generation impossible.
+              </li>
+              <li>
+                <strong>Obstacle Avoidance 2 (Tangent-based Circular Avoidance):</strong><br>
+                I generated avoidance trajectories by creating a circumscribed circle around the bounding box and following its tangent lines. While computationally fast, the calculated steering angles were <strong>overly aggressive</strong>, preventing fine steering control and causing the vehicle to deviate significantly from the track.
+              </li>
+            </ul>
+          </div>
+
+          <div class="cs-box solution">
+            <div class="cs-box-title">
+              <i data-lucide="lightbulb" style="width:18px; height:18px;"></i> Solution (Final Architecture)
+            </div>
+            <p>
+              <!-- TODO: 나중에 코드를 확인하시고 이 부분을 채워주세요! -->
+              <em>[Pending Code Review] Through these iterations, I ultimately adopted the OOO algorithm to secure both trajectory smoothness and robust steering stability...</em>
+            </p>
+          </div>
+        </article>
+
+      </div>
+
+      <!-- Reflection & Future Work (회고 및 발전 방향) -->
+      <div class="detail-section">
+        <h2 class="detail-section-title">Reflection & Future Work</h2>
+
+        <p class="detail-text" style="margin-bottom: 20px;">
+          This project provided profound hands-on experience in vision-based perception and real-world hardware
+          integration. By analyzing the system's limitations and the iterative challenges faced during field testing, I
+          have identified key areas for my future growth as a computer vision and robotics engineer.
+        </p>
+
+        <div class="project-highlights"
+          style="background: rgba(0, 122, 255, 0.02); border-left-color: var(--clr-text-main);">
+          <ul class="highlights-list">
+            <li style="margin-bottom: 15px;">
+              <strong>Deepening Interest in Computational Imaging:</strong>
+              Developing robust lane and traffic light detection pipelines sparked a profound interest in how light
+              interacts with physical environments. Moving forward, I aspire to delve deeper into <strong>Inverse
+                Rendering and Computational Imaging</strong>—researching how to mathematically process light to extract
+              precise physical properties and desired information from observed images.
+            </li>
+            <li style="margin-bottom: 15px;">
+              <strong>Leveraging Open-Source for Algorithmic Breakthroughs:</strong> 
+              When encountering algorithmic roadblocks, I actively researched and analyzed various open-source implementations on GitHub. By dissecting complex external codebases and seamlessly integrating them into our custom system architecture, I significantly enhanced my code-reading proficiency and my ability to rapidly adapt and apply new technologies to solve practical engineering problems.
+            </li>
+            <li style="margin-bottom: 15px;">
+              <strong>Importance of System Integration & Diagnostics:</strong>
+              During field testing, I spent significant time debugging what I assumed were algorithmic failures, only to
+              discover that the control node had silently lost connection with the physical hardware. This experience
+              highlighted the absolute necessity of implementing <strong>robust heartbeat mechanisms and continuous
+                hardware diagnostics (Health Monitoring)</strong> to ensure system reliability.
+            </li>
+            <li style="margin-bottom: 15px;">
+              <strong>Optimizing Real-Time Perception Algorithms:</strong>
+              During high-speed delivery missions, the sign recognition system occasionally failed, likely due to motion
+              blur or computational overload. To resolve this in future projects, I plan to explore <strong>model
+                optimization techniques</strong> to guarantee real-time,
+              lightweight inference even under heavy system constraints.
+            </li>
+            <li>
+              <strong>Systematic Approach to Control System Tuning:</strong>
+              Mitigating lateral oscillations during lane tracking required exhaustive manual debugging to find the
+              optimal PID gains. This tedious fine-tuning process made me realize the necessity of systematic tuning
+              methods, motivating me to study <strong>advanced control strategies</strong> to mathematically ensure
+              stability rather than relying on empirical trials.
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer (기존과 동일) -->
+  <footer class="footer">
+    <ul class="social-list">
+      <li class="social-list__item"><a class="social-list__link" href="mailto:uoyuvvou@gmail.com"><i
+            class="fa-regular fa-envelope"></i></a></li>
+      <li class="social-list__item"><a class="social-list__link" href="https://www.linkedin.com/in/uoyuvvou"><i
+            class="fa-brands fa-linkedin-in"></i></a></li>
+      <li class="social-list__item"><a class="social-list__link" href="https://github.com/Gyuwon-Na"><i
+            class="fa-brands fa-github"></i></a></li>
+      <li class="social-list__item"><a class="social-list__link" href="https://www.instagram.com/uoyuvvou"><i
+            class="fa-brands fa-instagram"></i></a></li>
+    </ul>
+    <p class="footer-copyright">&copy; 2026 Gyuwon Na. All rights reserved.</p>
+  </footer>
+
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    lucide.createIcons();
+
+    // 네비게이션 토글 스크립트 (기존과 동일)
+    function toggleNav() {
+      const container = document.getElementById('navContainer');
+      const triggerBtn = container.querySelector('.nav-trigger-btn');
+      const isActive = container.classList.toggle('active');
+      triggerBtn.setAttribute('aria-expanded', isActive);
+    }
+  </script>
+</body>
+
+</html>

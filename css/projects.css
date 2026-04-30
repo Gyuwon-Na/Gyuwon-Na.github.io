@@ -153,7 +153,8 @@
 .project-detail-card__visual {
   position: relative;
   width: 100%;
-  padding-top: 56.25%; /* 16:9 aspect ratio */
+  padding-top: 56.25%;
+  /* 16:9 aspect ratio */
   background: linear-gradient(135deg, #e5e5e5 0%, #d1d1d6 100%);
   overflow: hidden;
 }
@@ -537,6 +538,7 @@
     opacity: 0;
     transform: translateY(30px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -563,3 +565,164 @@
 .project-category {
   animation: fadeInUp 0.5s ease-out;
 }
+
+/* 포트폴리오 세부사항 페이지 전용 최소한의 레이아웃 조정 (기존 테마 변수 활용) */
+.detail-hero {
+  padding: 120px 20px 60px;
+  background: linear-gradient(135deg, var(--clr-bg) 0%, var(--clr-bg-alt) 100%);
+  text-align: center;
+  border-bottom: 1px solid var(--clr-border);
+}
+
+.detail-content {
+  padding: 60px 20px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.detail-section {
+  margin-bottom: 50px;
+}
+
+.detail-section-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--clr-text-main);
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--clr-border);
+  display: inline-block;
+}
+
+.detail-text {
+  font-size: 1.1rem;
+  color: var(--clr-text-sub);
+  line-height: 1.8;
+  margin-bottom: 20px;
+}
+
+.detail-media-placeholder {
+  width: 100%;
+  height: 400px;
+  background-color: #e5e5e5;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--clr-text-sub);
+  font-weight: 600;
+  margin: 30px 0;
+}
+
+.back-btn-wrapper {
+  margin-bottom: 30px;
+  text-align: left;
+  max-width: 900px;
+  margin: 0 auto 30px;
+  padding: 0 20px;
+}
+
+.back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--clr-text-sub);
+  font-weight: 600;
+  transition: var(--transition-smooth);
+}
+
+.back-btn:hover {
+  color: var(--clr-accent);
+  transform: translateX(-5px);
+}
+
+/* YouTube 반응형 비디오 래퍼 */
+.video-wrapper {
+  position: relative;
+  padding-bottom: 56.25%;
+  /* 16:9 비율 */
+  height: 0;
+  overflow: hidden;
+  border-radius: 16px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+  margin-bottom: 40px;
+}
+
+.video-wrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* =========================================
+   Challenges & Solutions Card Styles (Static)
+   ========================================= */
+.challenge-card {
+  background: var(--clr-bg-alt);
+  border: 1px solid var(--clr-border);
+  border-radius: 16px;
+  padding: 30px;
+  margin-bottom: 30px;
+}
+
+.challenge-header {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--clr-text-main);
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.challenge-header-num {
+  background: var(--clr-accent);
+  color: #fff;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+  flex-shrink: 0;
+}
+
+/* 박스 공통 스타일 */
+.cs-box {
+  padding: 20px;
+  border-radius: 12px;
+  margin-bottom: 15px;
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
+/* 문제(Challenge) 박스 */
+.cs-box.problem {
+  background: rgba(255, 77, 79, 0.04);
+  border-left: 4px solid #ff4d4f;
+  color: var(--clr-text-sub);
+}
+
+/* 해결(Solution) 박스 */
+.cs-box.solution {
+  background: rgba(0, 122, 255, 0.04);
+  border-left: 4px solid var(--clr-accent);
+  color: var(--clr-text-main);
+}
+
+.cs-box-title {
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+  font-size: 1rem;
+}
+
+.cs-box.problem .cs-box-title { color: #d9363e; }
+.cs-box.solution .cs-box-title { color: var(--clr-accent); }
+.cs-box p { margin: 0; }

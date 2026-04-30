@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml" href="../../img/face.jpg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>V2X-Based Cooperative Driving System</title>
+  <meta name="description"
+    content="Details about the V2X-Based Cooperative Driving System project for KAIST Mobility Challenge Competition.">
+
+  <!-- Normalize -->
+  <link rel="stylesheet" href="../../external/normalize.css" />
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css"
+    integrity="sha256-46qynGAkLSFpVbEBog43gvNhfrOj+BmwXdxFgVK/Kvc=" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap"
+    rel="stylesheet" />
+
+  <link rel="stylesheet" href="../../css/style.css" />
+  <link rel="stylesheet" href="../../css/projects.css" />
+</head>
+
+<body>
+
+  <!-- Floating Navigation (기존과 동일) -->
+  <div class="floating-nav-container" id="navContainer" role="navigation" aria-label="Main navigation">
+    <button class="nav-trigger-btn" onclick="toggleNav()" aria-label="Open navigation menu" aria-expanded="false">
+      <div class="hamburger-lines">
+        <span></span>
+        <span></span>
+      </div>
+    </button>
+    <nav class="nav-capsule-menu">
+      <ul class="nav-links">
+        <li><a href="../../index.html" onclick="toggleNav()">Home</a></li>
+        <li><a href="../../pages/AboutMe.html" onclick="toggleNav()">About Me</a></li>
+        <li><a href="../../pages/Research.html" onclick="toggleNav()">Research</a></li>
+        <li><a href="../../pages/Projects.html" onclick="toggleNav()">Projects</a></li>
+      </ul>
+      <button class="nav-close-btn" onclick="toggleNav()" aria-label="Close navigation menu">
+        <i data-lucide="x"></i>
+      </button>
+    </nav>
+  </div>
+
+  <main id="main-content">
+
+    <!-- Header Section -->
+    <section class="detail-hero">
+      <div class="back-btn-wrapper">
+        <a href="../../pages/Projects.html" class="back-btn">
+          <i data-lucide="arrow-left"></i> Back to Projects
+        </a>
+      </div>
+      <div class="container">
+        <h1 class="projects-hero__title" style="font-size: clamp(2rem, 4vw, 3rem);">V2X-Based Cooperative Driving System
+        </h1>
+        <div class="project-meta" style="justify-content: center; margin-top: 20px;">
+          <span class="project-date">
+            <i data-lucide="calendar" aria-hidden="true"></i> DEC 2025 - FEB 2026
+          </span>
+          <span class="project-type">
+            <i data-lucide="award" aria-hidden="true"></i> KAIST Mobility Challenge Competition
+          </span>
+        </div>
+        <div class="tech-stack-detailed" style="justify-content: center; margin-top: 20px;">
+          <span class="tech-badge">ROS2 Foxy</span>
+          <span class="tech-badge">C++</span>
+          <span class="tech-badge">Python</span>
+          <span class="tech-badge">Linux</span>
+          <span class="tech-badge">Docker</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Main Content Section -->
+    <section class="detail-content">
+      <!-- 1. Demo Video (정중앙 정렬 + 색상 호버 효과) -->
+      <h1 class="detail-section-title">Demo Video</h1>
+      <div class="detail-section" style="margin-top: -20px;">
+        <a href="https://youtu.be/X6_6XrGptqQ?si=D7Mj_nsYNKSff-gz" target="_blank" rel="noopener noreferrer"
+          style="text-decoration: none;">
+
+          <div style="
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%; /* 16:9 비율 유지 */
+            background-image: url('https://img.youtube.com/vi/X6_6XrGptqQ/maxresdefault.jpg'); 
+            background-size: cover; 
+            background-position: center; 
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.08);
+          " onmouseover="this.querySelector('i').style.color='#ff0000'"
+            onmouseout="this.querySelector('i').style.color='white'">
+
+            <!-- 이미지를 살짝 어둡게 덮어주는 오버레이 -->
+            <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.3);">
+            </div>
+
+            <!-- 완벽하게 중앙 정렬된 유튜브 로고 -->
+            <i class="fa-brands fa-youtube" style="
+              position: absolute;
+              top: 50%;
+              left: 50%;
+              transform: translate(-50%, -50%);
+              font-size: 5rem; 
+              color: white; 
+              z-index: 10; 
+              transition: color 0.2s ease-in-out;
+              filter: drop-shadow(0 4px 10px rgba(0,0,0,0.3));
+            "></i>
+
+          </div>
+        </a>
+      </div>
+
+      <!-- Overview -->
+      <!-- Overview -->
+      <div class="detail-section">
+        <h2 class="detail-section-title">Overview</h2>
+        <p class="detail-text">
+          The <strong>V2X-Based Cooperative Driving System</strong> was developed for the KAIST Mobility Challenge
+          Competition, where our team was honored with the <strong>Excellence Award</strong>. The core objective of this
+          project was to navigate complex, multi-agent traffic scenarios—such as collision-free intersection crossing
+          and dynamic overtaking—by exclusively leveraging V2X communication and cooperative driving protocols.
+          <br><br>
+          As a core software engineer on the team, I spearheaded the development of the <strong>decision-making and
+            control pipeline</strong>. My primary contributions included designing a TTC-based collision avoidance logic
+          for intersections, implementing an MPC-based path tracking algorithm, and refactoring the system
+            architecture to enable dynamic vehicle allocation and rapid parameter tuning in the field.
+        </p>
+      </div>
+
+      <div class="detail-section">
+        <h2 class="detail-section-title">My Role & Contributions</h2>
+        <p class="detail-text">
+          -내가 직접 설계하고 구현한 부분
+        </p>
+      </div>
+
+      <div class="detail-section">
+        <h2 class="detail-section-title">Technical Highlights</h2>
+        <p class="detail-text">
+          - 시스템 전체 데이터 흐름 그림
+          - 이 기술을 왜,어떻게 썼는지
+        </p>
+      </div>
+
+      <!-- Challenges & Solutions (문제 상황 & 해결책) -->
+      <div class="detail-section">
+        <h2 class="detail-section-title">Challenges & Solutions</h2>
+
+        <!-- Challenge 1: Braking Dynamics -->
+        <article class="challenge-card">
+          <div class="challenge-header">
+            <span class="challenge-header-num">1</span>
+            Overcoming Sim-to-Real Gap in Braking Dynamics
+          </div>
+
+          <div class="cs-box problem">
+            <div class="cs-box-title">
+              <i data-lucide="alert-triangle" style="width:18px; height:18px;"></i> Challenge
+            </div>
+            <p>In the simulator, a velocity command of zero resulted in an immediate stop. However, in the real-world
+              physical environment, <strong>inertial drift</strong> occurred due to momentum and friction even after the
+              stop command was issued. This was a critical issue that could lead to collisions during intersection
+              navigation.</p>
+          </div>
+
+          <div class="cs-box solution">
+            <div class="cs-box-title">
+              <i data-lucide="lightbulb" style="width:18px; height:18px;"></i> Solution
+            </div>
+            <p>Designed a <strong>Dual-Parameter Sigmoid Deceleration</strong> algorithm that dynamically adjusts the
+              slope and transition time of the deceleration curve based on the situational context.</p>
+            <ul class="highlights-list" style="margin-top: 15px; margin-bottom: 0;">
+              <li>Dynamically classified <strong>Soft Stop</strong> and <strong>Hard Stop</strong> states based on the
+                target velocity condition.</li>
+              <li><strong>Soft Stop:</strong> Applied a gentle slope and sufficient transition time to ensure
+                <strong>passenger comfort</strong>.
+              </li>
+              <li><strong>Hard Stop (Emergency):</strong> Applied a steep slope and removed the time delay multiplier to
+                achieve an <strong>immediate, hard braking effect</strong>, successfully preventing vehicle drift.</li>
+            </ul>
+          </div>
+        </article>
+
+        <!-- Challenge 2: Domain ID Configuration -->
+        <article class="challenge-card">
+          <div class="challenge-header">
+            <span class="challenge-header-num">2</span>
+            Dynamic Domain ID Allocation for Field Testing
+          </div>
+
+          <div class="cs-box problem">
+            <div class="cs-box-title">
+              <i data-lucide="alert-triangle" style="width:18px; height:18px;"></i> Challenge
+            </div>
+            <p>Unlike the simulation, the available physical vehicles (Domain IDs) randomly changed for each field
+              testing session. The initial system relied on <strong>hardcoded IDs</strong>, requiring tedious code
+              modifications and recompilations every time to assign roles to the 4 vehicles, causing severe
+              inefficiencies.</p>
+          </div>
+
+          <div class="cs-box solution">
+            <div class="cs-box-title">
+              <i data-lucide="lightbulb" style="width:18px; height:18px;"></i> Solution
+            </div>
+            <p>Refactored the system by decoupling the ROS2 Domain ID mapping logic from the core codebase, introducing
+              an <strong>external YAML config-based initialization architecture</strong>. By automatically allocating
+              CAV 1-4 roles based on the config file order, I <strong>reduced the setup time to under a minute</strong>
+              through simple variable tweaks, eliminating the need for rebuilding.</p>
+          </div>
+        </article>
+
+        <!-- Challenge 3: Vehicle-Specific Parameter Tuning -->
+        <article class="challenge-card">
+          <div class="challenge-header">
+            <span class="challenge-header-num">3</span>
+            Vehicle-Specific Hyperparameter Architecture
+          </div>
+
+          <div class="cs-box problem">
+            <div class="cs-box-title">
+              <i data-lucide="alert-triangle" style="width:18px; height:18px;"></i> Challenge
+            </div>
+            <p>Due to mechanical discrepancies in motor performance and sensor noise among the physical vehicles,
+              applying identical path-tracking (MPC) parameters resulted in inconsistent behaviors, such as <strong>lane
+                departure and severe understeering</strong> for certain vehicles.</p>
+          </div>
+
+          <div class="cs-box solution">
+            <div class="cs-box-title">
+              <i data-lucide="lightbulb" style="width:18px; height:18px;"></i> Solution
+            </div>
+            <p>Engineered a <strong>vehicle-specific hyperparameter management architecture</strong>. This centralized
+              framework allowed the control system to <strong>fine-tune tracking parameters in real-time</strong> via
+              sliders for each unique vehicle ID, ensuring uniform and stable platoon driving performance across the
+              entire fleet.</p>
+          </div>
+        </article>
+
+      </div>
+
+      <!-- Reflection & Future Work (회고 및 발전 방향) -->
+      <div class="detail-section">
+        <h2 class="detail-section-title">Reflection & Future Work</h2>
+
+        <p class="detail-text" style="margin-bottom: 20px;">
+          This project was an invaluable experience that allowed me to confront the physical limitations and
+          complexities of <strong>real-world system integration</strong> firsthand. By analyzing the system's current
+          limitations, I have established a clear direction for my future growth as a robotics software engineer.
+        </p>
+
+        <div class="project-highlights"
+          style="background: rgba(0, 122, 255, 0.02); border-left-color: var(--clr-text-main);">
+          <ul class="highlights-list">
+            <li style="margin-bottom: 15px;">
+              <strong>Refining the Overtaking Logic:</strong>
+              Due to time constraints and safety priorities, I adopted a somewhat conservative, <strong>rule-based
+                overtaking logic</strong> with fixed safety margins. Moving forward, I aim to implement a more
+              sophisticated path-planning algorithm that calculates a <strong>Dynamic Diagonal Margin</strong> by taking
+              relative velocities and lane-change angles into account.
+            </li>
+            <li style="margin-bottom: 15px;">
+              <strong>Expanding Sensor Fusion Capabilities:</strong>
+              During the competition, we were restricted to equipping custom sensors on only one ego-vehicle. Since we
+              could not receive rich, synchronized sensor topics from the other shared vehicles, we had to rely heavily
+              on OptiTrack for basic localization. Moving forward, my goal is to develop <strong>advanced
+                decision-making algorithms</strong> that process a highly diverse array of environmental data through
+              <strong>Multi-Sensor Fusion (LiDAR and Vision)</strong>, rather than being limited to simple positional
+              information.
+            </li>
+            <li style="margin-bottom: 15px;">
+              <strong>Advancing Control Theory (MPC):</strong>
+              I recognized the limitations of implementing a predictive controller based on Pure Pursuit rather than a
+              complete dynamic model, which paradoxically deepened my appreciation for advanced control engineering. I
+              plan to extensively study and design <strong>Non-Linear MPC (NMPC)</strong> systems to perfectly handle
+              complex non-linear vehicle dynamics.
+            </li>
+            <li>
+              <strong>ROS2 QoS & System Optimization:</strong>
+              Deploying the ROS2 network in the field taught me that <strong>QoS (Quality of Service) profiles, topic
+                publishing frequencies (Hz), and the computational load</strong> of control nodes have a critical impact
+              on the control loop. I intend to dive deeper into <strong>System-level Tuning</strong> to minimize
+              inter-node communication bottlenecks and optimize execution speeds for highly stable architectures.
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer (기존과 동일) -->
+  <footer class="footer">
+    <ul class="social-list">
+      <li class="social-list__item"><a class="social-list__link" href="mailto:uoyuvvou@gmail.com"><i
+            class="fa-regular fa-envelope"></i></a></li>
+      <li class="social-list__item"><a class="social-list__link" href="https://www.linkedin.com/in/uoyuvvou"><i
+            class="fa-brands fa-linkedin-in"></i></a></li>
+      <li class="social-list__item"><a class="social-list__link" href="https://github.com/Gyuwon-Na"><i
+            class="fa-brands fa-github"></i></a></li>
+      <li class="social-list__item"><a class="social-list__link" href="https://www.instagram.com/uoyuvvou"><i
+            class="fa-brands fa-instagram"></i></a></li>
+    </ul>
+    <p class="footer-copyright">&copy; 2026 Gyuwon Na. All rights reserved.</p>
+  </footer>
+
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    lucide.createIcons();
+
+    // 네비게이션 토글 스크립트 (기존과 동일)
+    function toggleNav() {
+      const container = document.getElementById('navContainer');
+      const triggerBtn = container.querySelector('.nav-trigger-btn');
+      const isActive = container.classList.toggle('active');
+      triggerBtn.setAttribute('aria-expanded', isActive);
+    }
+  </script>
+</body>
+
+</html>
