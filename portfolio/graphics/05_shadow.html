@@ -1,125 +1,156 @@
-<!-- https://youtu.be/_xkSvufmjEs?si=mh-MXT2ZdUasYAYn&t=3416 -->
-<!-- adobe.ly/2GAgF93 -->
-<!-- https://scrimba.com/build-and-deploy-your-portfolio-c012 -->
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <link rel="icon" type="image/svg+xml" href="../img/face.jpg">
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml" href="../../img/face.jpg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shadow Mapping</title>
+  <meta name="description" content="Details about the Shadow Mapping project for the 3D Graphics course.">
 
-    <!-- Help auto scale for desktop & mobile -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>STUDENT Gyuwon Na Website</title>
-
-    <!-- Normalize the difference across browsers  https://necolas.github.io/normalize.css/ -->
-    <link rel="stylesheet" href="../external/normalize.css">
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css"
-        integrity="sha256-46qynGAkLSFpVbEBog43gvNhfrOj+BmwXdxFgVK/Kvc=" crossorigin="anonymous" />
-
-    <!-- https://fonts.google.com/selection/embed -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap"
-        rel="stylesheet">
-
-    <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../../external/normalize.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css"
+    integrity="sha256-46qynGAkLSFpVbEBog43gvNhfrOj+BmwXdxFgVK/Kvc=" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="../../css/style.css" />
+  <link rel="stylesheet" href="../../css/projects.css" />
 </head>
 
 <body>
-    <header>
-        <div class="logo">
-            <!-- alt text can be blank since the logo is purely decorative and putting something like logo isn't actually helpful -->
-            <img src="../img/cout.png" alt="">
-        </div>
-        <button class="nav-toggle" aria-label="toggle navigation">
-            <span class="hamburger"></span>
-        </button>
-        <nav class="nav">
-            <ul class="nav__list">
-                <li class="nav__item">
-                    <a href="../index.html" class="nav__link">Home</a>
-                </li>
-                <li class="nav__item">
-                    <a href="../index.html#skills" class="nav__link">Skills</a>
-                </li>
-                <li class="nav__item">
-                    <a href="../index.html#main" class="nav__link">About Me</a>
-                </li>
-                <li class="nav__item">
-                    <a href="../index.html#projects" class="nav__link">Projects</a>
-                </li>
-                <li class="nav__item">
-                    <a href="../index.html#resume" class="nav__link">Resume</a>
-                </li>
-            </ul>
-        </nav>
-    </header>
 
-    <!-- Introduction -->
-    <section class="intro">
-        <h1 class="section__title section__title--intro">
-            Project <strong>Shadow Mapping</strong>
-        </h1>
-        <p class="section__subtitle section__subtitle--intro">3D Graphics</p>
-        <img src="../img/portfolio_thumbnails/05_shadow.jpg" alt="a picture of this portfolio item" class="intro__img">
+  <div class="floating-nav-container" id="navContainer" role="navigation" aria-label="Main navigation">
+    <button class="nav-trigger-btn" onclick="toggleNav()" aria-label="Open navigation menu" aria-expanded="false">
+      <div class="hamburger-lines"><span></span><span></span></div>
+    </button>
+    <nav class="nav-capsule-menu">
+      <ul class="nav-links">
+        <li><a href="../../index.html" onclick="toggleNav()">Home</a></li>
+        <li><a href="../../pages/AboutMe.html" onclick="toggleNav()">About Me</a></li>
+        <li><a href="../../pages/Research.html" onclick="toggleNav()">Research</a></li>
+        <li><a href="../../pages/Projects.html" onclick="toggleNav()">Projects</a></li>
+      </ul>
+      <button class="nav-close-btn" onclick="toggleNav()" aria-label="Close navigation menu"><i
+          data-lucide="x"></i></button>
+    </nav>
+  </div>
+
+  <main id="main-content">
+
+    <section class="detail-hero">
+      <div class="back-btn-wrapper">
+        <a href="../../pages/Projects.html" class="back-btn"><i data-lucide="arrow-left"></i> Back to Projects</a>
+      </div>
+      <div class="container">
+        <h1 class="projects-hero__title" style="font-size: clamp(2rem, 4vw, 3rem);">Shadow Mapping</h1>
+        <div class="project-meta" style="justify-content: center; margin-top: 20px;">
+          <span class="project-date">
+            <i data-lucide="calendar" aria-hidden="true"></i> SEPT 2025
+          </span>
+          <span class="project-type">
+            <i data-lucide="award" aria-hidden="true"></i> CS250 Coursework
+          </span>
+        </div>
+        <div class="tech-stack-detailed" style="justify-content: center; margin-top: 20px;">
+          <span class="tech-badge">C++</span>
+          <span class="tech-badge">OpenGL</span>
+          <span class="tech-badge">GLSL</span>
+          <span class="tech-badge">WebGL</span>
+          <span class="tech-badge">CMake</span>
+        </div>
+      </div>
     </section>
 
-    <div class="portfolio-item-individual">
-        <h2>Project Overview</h2>
-        <p>The Shadow Mapping project was a part of Computer Graphics course. The Goals of this project are:
-            <p>Implementing shadow mapping techniques and integrate them into an interactive graphics demo</p>
+    <section class="detail-content">
+
+      <h1 class="detail-section-title">Interactive Demo</h1>
+      <div class="detail-section" style="margin-top: -20px;">
+        <div
+          style="position: relative; width: 100%; height: 600px; border-radius: 16px; overflow: hidden; box-shadow: 0 15px 35px rgba(0,0,0,0.08); background-color: var(--clr-bg-alt);">
+          <iframe id="demo" src="../../webgl/D05ShadowMapping/graphics_fun.html?start=shadow"
+            style="width: 100%; height: 100%; border: none;" tabindex="-1"></iframe>
+        </div>
+      </div>
+
+      <div class="detail-section">
+        <h2 class="detail-section-title">Overview</h2>
+        <p class="detail-text">
+          The <strong>Shadow Mapping</strong> project was a part of the Computer Graphics course. The goals of this
+          project were twofold:
+          <br><br>
+          First, to implement robust shadow mapping techniques. Second, to integrate them effectively into an
+          interactive graphics demo.
         </p>
+      </div>
 
-        <h2>Tasks Completed</h2>
-        <ul>
-            <li>Implement shadow mapping for a light source modeled as a perspective camera.</li>
-            <li>Modify the Texture class to support depth and RGBA8 color textures.</li>
-            <li>Implement and use the FrameBuffer class for rendering depth maps.</li>
-            <li>Utilize a Camera class to generate proper view and transformation matrices.</li>
-            <li>Visualize shadow maps and the light frustum.</li>
-            <li>Integrate shadow mapping techniques into an interactive demo.</li>
-            <li>Create a structured portfolio page showcasing your project.</li>
-        </ul>
+      <div class="detail-section">
+        <h2 class="detail-section-title">Tasks Completed</h2>
+        <div class="project-highlights"
+          style="background: rgba(0, 122, 255, 0.02); border-left-color: var(--clr-accent);">
+          <ul class="highlights-list">
+            <li style="margin-bottom: 15px;"><strong>Perspective Light Source:</strong> Implement shadow mapping for a
+              light source modeled as a perspective camera.</li>
+            <li style="margin-bottom: 15px;"><strong>Texture Enhancements:</strong> Modify the Texture class to support
+              depth and RGBA8 color textures.</li>
+            <li style="margin-bottom: 15px;"><strong>Framebuffer Management:</strong> Implement and use the FrameBuffer
+              class for rendering depth maps.</li>
+            <li style="margin-bottom: 15px;"><strong>Matrix Operations:</strong> Utilize a Camera class to generate
+              proper view and transformation matrices.</li>
+            <li><strong>Visualization & Integration:</strong> Visualize shadow maps and the light frustum, and integrate
+              shadow mapping techniques into an interactive demo.</li>
+          </ul>
+        </div>
+      </div>
 
-        <h2>Reflection</h2>
-        <p>
-            I learned a new concept called gamma correction. When I first noticed that the scene looked too dark, I thought it was simply due to incorrect lighting calculations or improperly passing matrices. However, through this, I realized that the actual cause was the difference between gamma space and linear space. Understanding this distinction helped me fix the lighting issues and create more realistic rendering results.
-        </p>
-    </div>
+      <div class="detail-section">
+        <h2 class="detail-section-title">Reflection</h2>
 
-    <div class="portfolio-item-individual">
-        <h2>Demo</h2>
-        <iframe id="demo" src="../webgl/D05ShadowMapping/graphics_fun.html?start=shadow" tabindex="-1"></iframe>
-    </div>
+        <article class="challenge-card">
+          <div class="challenge-header"><span class="challenge-header-num">1</span>Linear vs Gamma Space Lighting</div>
+          <div class="cs-box problem">
+            <div class="cs-box-title"><i data-lucide="alert-triangle" style="width:18px; height:18px;"></i> Challenge
+            </div>
+            <p>When I first noticed that the scene looked too dark, I thought it was simply due to incorrect lighting
+              calculations or improperly passing matrices.</p>
+          </div>
+          <div class="cs-box solution">
+            <div class="cs-box-title"><i data-lucide="lightbulb" style="width:18px; height:18px;"></i> Solution &
+              Takeaway</div>
+            <p>I learned a new concept called gamma correction. I realized that the actual cause was the difference
+              between gamma space and linear space. Understanding this distinction helped me fix the lighting issues and
+              create more realistic rendering results.</p>
+          </div>
+        </article>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <a href="mailto:gyuwon.na@digipen.edu" class="footer__link">gyuwon.na@digipen.edu</a>
-        <ul class="social-list">
-            <li class="social-list__item">
-                <a class="social-list__link" href="https://www.linkedin.com/in/uoyuvvou">
-                    <i class="fab fa-linkedin"></i>
-                </a>
-            </li>
-            <li class="social-list__item">
-                <a class="social-list__link" href="https://github.com/Gyuwon-Na">
-                    <i class="fab fa-github"></i>
-                </a>
-            </li>
-            <li class="social-list__item">
-                <a class="social-list__link" href="https://www.instagram.com/uoyuvvou">
-                    <i class="fab fa-instagram"></i>
-                </a>
-            </li>
-            <!-- Want to list more? search : https://fontawesome.com/v5/search?ic=brands -->
-        </ul>
-    </footer>
+      </div>
+    </section>
+  </main>
 
-    <script src="../js/index.js"></script>
+  <footer class="footer">
+    <ul class="social-list">
+      <li class="social-list__item"><a class="social-list__link" href="mailto:gyuwon.na@digipen.edu"><i
+            class="fa-regular fa-envelope"></i></a></li>
+      <li class="social-list__item"><a class="social-list__link" href="https://www.linkedin.com/in/uoyuvvou"><i
+            class="fa-brands fa-linkedin-in"></i></a></li>
+      <li class="social-list__item"><a class="social-list__link" href="https://github.com/Gyuwon-Na"><i
+            class="fa-brands fa-github"></i></a></li>
+      <li class="social-list__item"><a class="social-list__link" href="https://www.instagram.com/uoyuvvou"><i
+            class="fa-brands fa-instagram"></i></a></li>
+    </ul>
+    <p class="footer-copyright">&copy; 2026 Gyuwon Na. All rights reserved.</p>
+  </footer>
 
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    lucide.createIcons();
+    function toggleNav() {
+      document.getElementById('navContainer').classList.toggle('active');
+    }
+  </script>
 </body>
 
 </html>

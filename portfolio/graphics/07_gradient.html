@@ -1,128 +1,153 @@
-<!-- https://youtu.be/_xkSvufmjEs?si=mh-MXT2ZdUasYAYn&t=3416 -->
-<!-- adobe.ly/2GAgF93 -->
-<!-- https://scrimba.com/build-and-deploy-your-portfolio-c012 -->
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <link rel="icon" type="image/svg+xml" href="../img/face.jpg">
-    <!-- Help auto scale for desktop & mobile -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>STUDENT Gyuwon Na Website</title>
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml" href="../../img/face.jpg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gradient Noise</title>
+  <meta name="description" content="Details about the Gradient Noise project for the 3D Graphics course.">
 
-    <!-- Normalize the difference across browsers  https://necolas.github.io/normalize.css/ -->
-    <link rel="stylesheet" href="../external/normalize.css">
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css"
-        integrity="sha256-46qynGAkLSFpVbEBog43gvNhfrOj+BmwXdxFgVK/Kvc=" crossorigin="anonymous" />
-
-    <!-- https://fonts.google.com/selection/embed -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap"
-        rel="stylesheet">
-
-    <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../../external/normalize.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css"
+    integrity="sha256-46qynGAkLSFpVbEBog43gvNhfrOj+BmwXdxFgVK/Kvc=" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="../../css/style.css" />
+  <link rel="stylesheet" href="../../css/projects.css" />
 </head>
 
 <body>
-    <header>
-        <div class="logo">
-            <!-- alt text can be blank since the logo is purely decorative and putting something like logo isn't actually helpful -->
-            <img src="../img/cout.png" alt="">
-        </div>
-        <button class="nav-toggle" aria-label="toggle navigation">
-            <span class="hamburger"></span>
-        </button>
-        <nav class="nav">
-            <ul class="nav__list">
-                <li class="nav__item">
-                    <a href="../index.html" class="nav__link">Home</a>
-                </li>
-                <li class="nav__item">
-                    <a href="../index.html#skills" class="nav__link">Skills</a>
-                </li>
-                <li class="nav__item">
-                    <a href="../index.html#main" class="nav__link">About Me</a>
-                </li>
-                <li class="nav__item">
-                    <a href="../index.html#projects" class="nav__link">Projects</a>
-                </li>
-                <li class="nav__item">
-                    <a href="../index.html#resume" class="nav__link">Resume</a>
-                </li>
-            </ul>
-        </nav>
-    </header>
 
-    <!-- Introduction -->
-    <section class="intro">
-        <h1 class="section__title section__title--intro">
-            Project <strong>Gradient Noise</strong>
-        </h1>
-        <p class="section__subtitle section__subtitle--intro">3D Graphics</p>
-        <img src="../img/portfolio_thumbnails/07_gradient.jpg" alt="a picture of this portfolio item"
-            class="intro__img">
+  <div class="floating-nav-container" id="navContainer" role="navigation" aria-label="Main navigation">
+    <button class="nav-trigger-btn" onclick="toggleNav()">
+      <div class="hamburger-lines"><span></span><span></span></div>
+    </button>
+    <nav class="nav-capsule-menu">
+      <ul class="nav-links">
+        <li><a href="../../index.html" onclick="toggleNav()">Home</a></li>
+        <li><a href="../../pages/AboutMe.html" onclick="toggleNav()">About Me</a></li>
+        <li><a href="../../pages/Research.html" onclick="toggleNav()">Research</a></li>
+        <li><a href="../../pages/Projects.html" onclick="toggleNav()">Projects</a></li>
+      </ul>
+      <button class="nav-close-btn" onclick="toggleNav()"><i data-lucide="x"></i></button>
+    </nav>
+  </div>
+
+  <main id="main-content">
+
+    <section class="detail-hero">
+      <div class="back-btn-wrapper">
+        <a href="../../pages/Projects.html" class="back-btn"><i data-lucide="arrow-left"></i> Back to Projects</a>
+      </div>
+      <div class="container">
+        <h1 class="projects-hero__title" style="font-size: clamp(2rem, 4vw, 3rem);">Gradient Noise</h1>
+        <div class="project-meta" style="justify-content: center; margin-top: 20px;">
+          <span class="project-date">
+            <i data-lucide="calendar" aria-hidden="true"></i> SEPT 2025
+          </span>
+          <span class="project-type">
+            <i data-lucide="award" aria-hidden="true"></i> CS250 Coursework
+          </span>
+        </div>
+        <div class="tech-stack-detailed" style="justify-content: center; margin-top: 20px;">
+          <span class="tech-badge">C++</span>
+          <span class="tech-badge">OpenGL</span>
+          <span class="tech-badge">GLSL</span>
+          <span class="tech-badge">WebGL</span>
+          <span class="tech-badge">CMake</span>
+        </div>
+      </div>
     </section>
 
-    <div class="portfolio-item-individual">
-        <h2>Project Overview</h2>
-        <p>The Gradient Noise project was a part of Computer Graphics course. The Goals of this project are:
-        <p>Extending graphics framework to support new texture formats and implementing a 3D Gradient Noise algorithm
-            using a 2D texture lookup approach</p>
+    <section class="detail-content">
+
+      <h1 class="detail-section-title">Interactive Demo</h1>
+      <div class="detail-section" style="margin-top: -20px;">
+        <div
+          style="position: relative; width: 100%; height: 600px; border-radius: 16px; overflow: hidden; box-shadow: 0 15px 35px rgba(0,0,0,0.08); background-color: var(--clr-bg-alt);">
+          <iframe id="demo" src="../../webgl/D07GradientNoise/graphics_fun.html?start=gradient"
+            style="width: 100%; height: 100%; border: none;" tabindex="-1"></iframe>
+        </div>
+      </div>
+
+      <div class="detail-section">
+        <h2 class="detail-section-title">Overview</h2>
+        <p class="detail-text">
+          The <strong>Gradient Noise</strong> project was a part of the Computer Graphics course. The goals of this
+          project were twofold:
+          <br><br>
+          First, to extend the graphics framework to support new texture formats. Second, to implement a 3D Gradient
+          Noise algorithm using a 2D texture lookup approach.
         </p>
+      </div>
 
-        <h2>Tasks Completed</h2>
-        <ul>
-            <li>Implemented a value noise-based noise function using GLSL</li>
-            <li>Developed various procedural noise patterns such as fractal sum, turbulence, marble, and wood</li>
-            <li>Understood and applied the method of generating 3D noise using gradient vectors and a permutation table
-            </li>
-        </ul>
+      <div class="detail-section">
+        <h2 class="detail-section-title">Tasks Completed</h2>
+        <div class="project-highlights"
+          style="background: rgba(0, 122, 255, 0.02); border-left-color: var(--clr-accent);">
+          <ul class="highlights-list">
+            <li style="margin-bottom: 15px;"><strong>Noise Functions:</strong> Implemented a value noise-based noise
+              function using GLSL.</li>
+            <li style="margin-bottom: 15px;"><strong>Procedural Patterns:</strong> Developed various procedural noise
+              patterns such as fractal sum, turbulence, marble, and wood.</li>
+            <li><strong>3D Noise Construction:</strong> Understood and applied the method of generating 3D noise using
+              gradient vectors and a permutation table.</li>
+          </ul>
+        </div>
+      </div>
 
-        <h2>Reflection</h2>
-        <p>
-            There was an issue related to layout location, similar to what happened with value noise.
-            I also mistakenly thought that the number used with the modulo operator (%) had to exactly match the number
-            of gradient direction vectors.
-            Through this assignment, I was able to gain a deeper understanding of how a noise function is constructed,
-            especially how the permutation table and gradient vectors are connected to generate continuous noise.
-        </p>
+      <div class="detail-section">
+        <h2 class="detail-section-title">Reflection</h2>
 
-    </div>
+        <article class="challenge-card">
+          <div class="challenge-header"><span class="challenge-header-num">1</span>Gradient Vectors & Layout Mapping
+          </div>
+          <div class="cs-box problem">
+            <div class="cs-box-title"><i data-lucide="alert-triangle" style="width:18px; height:18px;"></i> Challenge
+            </div>
+            <p>There was an issue related to layout location, similar to what happened with value noise. I also
+              mistakenly thought that the number used with the modulo operator (%) had to exactly match the number of
+              gradient direction vectors.</p>
+          </div>
+          <div class="cs-box solution">
+            <div class="cs-box-title"><i data-lucide="lightbulb" style="width:18px; height:18px;"></i> Solution &
+              Takeaway</div>
+            <p>Through this assignment, I was able to gain a deeper understanding of how a noise function is
+              constructed, especially how the permutation table and gradient vectors are connected to generate
+              continuous noise.</p>
+          </div>
+        </article>
 
-    <div class="portfolio-item-individual">
-        <h2>Demo</h2>
-        <iframe id="demo" src="../webgl/D07GradientNoise/graphics_fun.html?start=gradient" tabindex="-1"></iframe>
-    </div>
+      </div>
+    </section>
+  </main>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <a href="mailto:gyuwon.na@digipen.edu" class="footer__link">gyuwon.na@digipen.edu</a>
-        <ul class="social-list">
-            <li class="social-list__item">
-                <a class="social-list__link" href="https://www.linkedin.com/in/uoyuvvou">
-                    <i class="fab fa-linkedin"></i>
-                </a>
-            </li>
-            <li class="social-list__item">
-                <a class="social-list__link" href="https://github.com/Gyuwon-Na">
-                    <i class="fab fa-github"></i>
-                </a>
-            </li>
-            <li class="social-list__item">
-                <a class="social-list__link" href="https://www.instagram.com/uoyuvvou">
-                    <i class="fab fa-instagram"></i>
-                </a>
-            </li>
-            <!-- Want to list more? search : https://fontawesome.com/v5/search?ic=brands -->
-        </ul>
-    </footer>
+  <footer class="footer">
+    <ul class="social-list">
+      <li class="social-list__item"><a class="social-list__link" href="mailto:gyuwon.na@digipen.edu"><i
+            class="fa-regular fa-envelope"></i></a></li>
+      <li class="social-list__item"><a class="social-list__link" href="https://www.linkedin.com/in/uoyuvvou"><i
+            class="fa-brands fa-linkedin-in"></i></a></li>
+      <li class="social-list__item"><a class="social-list__link" href="https://github.com/Gyuwon-Na"><i
+            class="fa-brands fa-github"></i></a></li>
+      <li class="social-list__item"><a class="social-list__link" href="https://www.instagram.com/uoyuvvou"><i
+            class="fa-brands fa-instagram"></i></a></li>
+    </ul>
+    <p class="footer-copyright">&copy; 2026 Gyuwon Na. All rights reserved.</p>
+  </footer>
 
-    <script src="../js/index.js"></script>
-
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    lucide.createIcons();
+    function toggleNav() {
+      document.getElementById('navContainer').classList.toggle('active');
+    }
+  </script>
 </body>
 
 </html>
