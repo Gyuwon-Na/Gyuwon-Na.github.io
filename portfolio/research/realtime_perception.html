@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml" href="../../img/face.jpg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Real-Time Perception Algorithm</title>
+  <meta name="description" content="Research detail page for a real-time perception algorithm project by Gyuwon Na.">
+  <link rel="stylesheet" href="../../external/normalize.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css"
+    integrity="sha256-46qynGAkLSFpVbEBog43gvNhfrOj+BmwXdxFgVK/Kvc=" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="../../css/style.css" />
+  <link rel="stylesheet" href="../../css/projects.css" />
+</head>
+
+<body>
+  <div class="floating-nav-container" id="navContainer" role="navigation" aria-label="Main navigation">
+    <button class="nav-trigger-btn" onclick="toggleNav()" aria-label="Open navigation menu" aria-expanded="false"><div class="hamburger-lines"><span></span><span></span></div></button>
+    <nav class="nav-capsule-menu">
+      <ul class="nav-links">
+        <li><a href="../../index.html" onclick="toggleNav()">Home</a></li>
+        <li><a href="../../pages/AboutMe.html" onclick="toggleNav()">About Me</a></li>
+        <li><a href="../../pages/Research.html" onclick="toggleNav()">Research</a></li>
+        <li><a href="../../pages/Projects.html" onclick="toggleNav()">Projects</a></li>
+      </ul>
+      <button class="nav-close-btn" onclick="toggleNav()" aria-label="Close navigation menu"><i data-lucide="x"></i></button>
+    </nav>
+  </div>
+
+  <main id="main-content">
+    <section class="detail-hero">
+      <div class="back-btn-wrapper"><a href="../../pages/Research.html" class="back-btn"><i data-lucide="arrow-left"></i> Back to Research</a></div>
+      <div class="container">
+        <span class="eyebrow"><i data-lucide="microscope"></i> Presented at KMMS</span>
+        <h1 class="projects-hero__title" style="font-size: clamp(2rem, 4vw, 3rem);">Real-Time Perception Algorithm</h1>
+        <div class="project-meta" style="justify-content: center; margin-top: 20px;">
+          <span class="project-date"><i data-lucide="calendar"></i> MM 2025</span>
+          <span class="project-type"><i data-lucide="tag"></i> Computer Vision Research</span>
+        </div>
+        <div class="tech-stack-detailed" style="justify-content: center; margin-top: 20px;">
+          <span class="tech-badge">Python</span>
+          <span class="tech-badge">OpenCV</span>
+          <span class="tech-badge">CUDA</span>
+          <span class="tech-badge">Profiling</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="detail-content">
+      <div class="detail-figure"><div class="visual-placeholder">Pipeline Diagram Placeholder</div></div>
+
+      <div class="detail-section">
+        <h2 class="detail-section-title">Research Question</h2>
+        <p class="detail-text">
+          How can a perception pipeline reduce latency while preserving stable detection behavior for autonomous-system
+          decision loops? This project frames the problem around execution time, data movement, and reliability under
+          changing image conditions.
+        </p>
+      </div>
+
+      <div class="detail-section">
+        <h2 class="detail-section-title">Approach</h2>
+        <ul class="highlights-list">
+          <li>Profiled the pipeline to identify the stages with the highest contribution to end-to-end latency.</li>
+          <li>Separated preprocessing, inference, postprocessing, and decision-facing outputs for easier measurement.</li>
+          <li>Explored parallel execution paths and GPU-aware optimization where data transfer overhead was justified.</li>
+          <li>Documented constraints so future experiments can compare accuracy, throughput, and deployment complexity.</li>
+        </ul>
+      </div>
+
+      <div class="detail-section">
+        <h2 class="detail-section-title">Evaluation Plan</h2>
+        <div class="metric-grid">
+          <article class="metric-card"><i data-lucide="timer"></i><h3 class="metric-card__value">Latency</h3><p class="metric-card__label">Measure frame-to-result time across representative input sequences.</p></article>
+          <article class="metric-card"><i data-lucide="activity"></i><h3 class="metric-card__value">Stability</h3><p class="metric-card__label">Track output variance when lighting, motion blur, and object scale change.</p></article>
+          <article class="metric-card"><i data-lucide="server"></i><h3 class="metric-card__value">Deployment Cost</h3><p class="metric-card__label">Compare compute requirements against the target real-time system budget.</p></article>
+        </div>
+      </div>
+
+      <div class="detail-section">
+        <h2 class="detail-section-title">Technical Highlights</h2>
+        <p class="detail-text">
+          The strongest big-tech signal in this work is not only a faster algorithm; it is the engineering loop around
+          the algorithm. The page should show profiling evidence, test clips, ablation results, and clear notes about
+          which optimizations helped and which introduced unacceptable complexity.
+        </p>
+      </div>
+
+      <div class="detail-section">
+        <h2 class="detail-section-title">Future Work</h2>
+        <ul class="highlights-list">
+          <li>Add a reproducible benchmark harness with fixed input sequences and automated latency reporting.</li>
+          <li>Compare CPU-only, GPU-accelerated, and mixed execution paths under the same evaluation protocol.</li>
+          <li>Extend the study toward multi-sensor perception where synchronization becomes part of the latency budget.</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <ul class="social-list">
+      <li class="social-list__item"><a class="social-list__link" href="mailto:uoyuvvou@gmail.com"><i class="fa-regular fa-envelope"></i></a></li>
+      <li class="social-list__item"><a class="social-list__link" href="https://www.linkedin.com/in/uoyuvvou"><i class="fa-brands fa-linkedin-in"></i></a></li>
+      <li class="social-list__item"><a class="social-list__link" href="https://github.com/Gyuwon-Na"><i class="fa-brands fa-github"></i></a></li>
+      <li class="social-list__item"><a class="social-list__link" href="https://www.instagram.com/uoyuvvou"><i class="fa-brands fa-instagram"></i></a></li>
+    </ul>
+    <p class="footer-copyright">&copy; 2026 Gyuwon Na. All rights reserved.</p>
+  </footer>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>function toggleNav(){const c=document.getElementById('navContainer');const b=c.querySelector('.nav-trigger-btn');const a=c.classList.toggle('active');b.setAttribute('aria-expanded',a);}lucide.createIcons();</script>
+</body>
+
+</html>

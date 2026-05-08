@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml" href="../../img/face.jpg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ROI-Based Matching with HNSW</title>
+  <meta name="description" content="Research detail page for ROI-based feature matching with HNSW by Gyuwon Na.">
+  <link rel="stylesheet" href="../../external/normalize.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css"
+    integrity="sha256-46qynGAkLSFpVbEBog43gvNhfrOj+BmwXdxFgVK/Kvc=" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="../../css/style.css" />
+  <link rel="stylesheet" href="../../css/projects.css" />
+</head>
+
+<body>
+  <div class="floating-nav-container" id="navContainer" role="navigation" aria-label="Main navigation">
+    <button class="nav-trigger-btn" onclick="toggleNav()" aria-label="Open navigation menu" aria-expanded="false"><div class="hamburger-lines"><span></span><span></span></div></button>
+    <nav class="nav-capsule-menu">
+      <ul class="nav-links">
+        <li><a href="../../index.html" onclick="toggleNav()">Home</a></li>
+        <li><a href="../../pages/AboutMe.html" onclick="toggleNav()">About Me</a></li>
+        <li><a href="../../pages/Research.html" onclick="toggleNav()">Research</a></li>
+        <li><a href="../../pages/Projects.html" onclick="toggleNav()">Projects</a></li>
+      </ul>
+      <button class="nav-close-btn" onclick="toggleNav()" aria-label="Close navigation menu"><i data-lucide="x"></i></button>
+    </nav>
+  </div>
+
+  <main id="main-content">
+    <section class="detail-hero">
+      <div class="back-btn-wrapper"><a href="../../pages/Research.html" class="back-btn"><i data-lucide="arrow-left"></i> Back to Research</a></div>
+      <div class="container">
+        <span class="eyebrow"><i data-lucide="network"></i> Research Project</span>
+        <h1 class="projects-hero__title" style="font-size: clamp(2rem, 4vw, 3rem);">ROI-Based Matching with HNSW</h1>
+        <div class="project-meta" style="justify-content: center; margin-top: 20px;">
+          <span class="project-date"><i data-lucide="calendar"></i> MM 2025</span>
+          <span class="project-type"><i data-lucide="tag"></i> Feature Matching / Approximate Search</span>
+        </div>
+        <div class="tech-stack-detailed" style="justify-content: center; margin-top: 20px;">
+          <span class="tech-badge">C++</span>
+          <span class="tech-badge">Python</span>
+          <span class="tech-badge">OpenCV</span>
+          <span class="tech-badge">HNSW</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="detail-content">
+      <div class="detail-figure"><div class="visual-placeholder">ROI Matching Pipeline Placeholder</div></div>
+
+      <div class="detail-section">
+        <h2 class="detail-section-title">Research Question</h2>
+        <p class="detail-text">
+          Can feature matching be made faster and more robust by combining spatial region constraints with approximate
+          nearest-neighbor search? This project explores how ROI filtering and HNSW indexing can reduce unnecessary
+          descriptor comparisons while preserving match quality.
+        </p>
+      </div>
+
+      <div class="detail-section">
+        <h2 class="detail-section-title">System Design</h2>
+        <ul class="highlights-list">
+          <li>Extract feature descriptors from candidate frames and assign them to region-of-interest buckets.</li>
+          <li>Use ROI constraints to reduce the search space before performing descriptor-level nearest-neighbor lookup.</li>
+          <li>Apply HNSW indexing to accelerate similarity search where the descriptor pool remains large.</li>
+          <li>Validate matches with geometric consistency checks to reject plausible but spatially invalid correspondences.</li>
+        </ul>
+      </div>
+
+      <div class="detail-section">
+        <h2 class="detail-section-title">Why It Matters</h2>
+        <p class="detail-text">
+          Matching quality directly affects localization, mapping, tracking, and image registration systems. A practical
+          portfolio version of this work should show the trade-off curve between speed, recall, and false matches rather
+          than presenting a single best-case demo.
+        </p>
+      </div>
+
+      <div class="detail-section">
+        <h2 class="detail-section-title">Evaluation Plan</h2>
+        <div class="metric-grid">
+          <article class="metric-card"><i data-lucide="zap"></i><h3 class="metric-card__value">Speed</h3><p class="metric-card__label">Compare brute-force, ROI-only, HNSW-only, and ROI+HNSW matching time.</p></article>
+          <article class="metric-card"><i data-lucide="target"></i><h3 class="metric-card__value">Recall</h3><p class="metric-card__label">Measure how many valid correspondences survive each filtering stage.</p></article>
+          <article class="metric-card"><i data-lucide="filter"></i><h3 class="metric-card__value">Precision</h3><p class="metric-card__label">Track false matches after geometric verification.</p></article>
+        </div>
+      </div>
+
+      <div class="detail-section">
+        <h2 class="detail-section-title">Future Work</h2>
+        <ul class="highlights-list">
+          <li>Integrate a reproducible benchmark with public image sequences and fixed parameter sweeps.</li>
+          <li>Explore adaptive ROI sizing based on camera motion and expected object scale.</li>
+          <li>Package the matching pipeline as a reusable module with clear profiling hooks.</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <ul class="social-list">
+      <li class="social-list__item"><a class="social-list__link" href="mailto:uoyuvvou@gmail.com"><i class="fa-regular fa-envelope"></i></a></li>
+      <li class="social-list__item"><a class="social-list__link" href="https://www.linkedin.com/in/uoyuvvou"><i class="fa-brands fa-linkedin-in"></i></a></li>
+      <li class="social-list__item"><a class="social-list__link" href="https://github.com/Gyuwon-Na"><i class="fa-brands fa-github"></i></a></li>
+      <li class="social-list__item"><a class="social-list__link" href="https://www.instagram.com/uoyuvvou"><i class="fa-brands fa-instagram"></i></a></li>
+    </ul>
+    <p class="footer-copyright">&copy; 2026 Gyuwon Na. All rights reserved.</p>
+  </footer>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>function toggleNav(){const c=document.getElementById('navContainer');const b=c.querySelector('.nav-trigger-btn');const a=c.classList.toggle('active');b.setAttribute('aria-expanded',a);}lucide.createIcons();</script>
+</body>
+
+</html>

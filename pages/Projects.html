@@ -90,10 +90,6 @@
     <section class="projects-hero">
       <div class="container">
         <h1 class="projects-hero__title">All Projects</h1>
-        <p class="projects-hero__description">
-          A collection of my work in game development, autonomous systems, and computer graphics.
-          Each project represents a unique challenge and learning experience.
-        </p>
 
         <!-- Category Filter -->
         <div class="category-filter" role="tablist" aria-label="Project categories">
@@ -117,6 +113,263 @@
       </div>
     </section>
 
+    <!-- Compact Overview for All Projects -->
+    <section class="projects-overview" id="projects-overview" data-category="all">
+      <div class="container">
+        <div class="overview-category">
+          <div class="overview-category__header">
+            <div>
+              <h3>Autonomous Driving</h3>
+              <p>Perception, planning, control, and sim-to-real field deployment.</p>
+            </div>
+            <button class="overview-filter-link" type="button" data-target-category="autonomous">
+              Detailed View <i data-lucide="arrow-right"></i>
+            </button>
+          </div>
+
+          <div class="compact-project-grid">
+            <article class="compact-project-card">
+              <img src="../img/portfolio_thumbnails/05_shadow.jpg" alt="V2X-Based Cooperative Driving System">
+              <div class="compact-project-card__body">
+                <div class="compact-project-card__meta">KAIST Mobility Challenge</div>
+                <h4>V2X-Based Cooperative Driving System</h4>
+                <p>Cooperative decision-making and MPC path tracking for multi-agent autonomous driving.</p>
+                <div class="compact-tags">
+                  <span>ROS2</span><span>C++</span><span>Python</span>
+                </div>
+                <div class="compact-highlight">Excellence Award</div>
+                <a href="../portfolio/autonomous_driving/V2X.html" class="compact-card-link">View Details</a>
+              </div>
+            </article>
+
+            <article class="compact-project-card">
+              <img src="../img/portfolio_thumbnails/03_fog.jpg" alt="1/2-Scale Autonomous Vehicle">
+              <div class="compact-project-card__body">
+                <div class="compact-project-card__meta">Creative Mobility Competition</div>
+                <h4>1/2-Scale Autonomous Vehicle</h4>
+                <p>Vision-based lane, traffic light, pedestrian, and delivery-sign perception pipeline.</p>
+                <div class="compact-tags">
+                  <span>ROS1</span><span>OpenCV</span><span>YOLO</span>
+                </div>
+                <div class="compact-highlight">Finalist</div>
+                <a href="../portfolio/autonomous_driving/creative_mobility.html" class="compact-card-link">View Details</a>
+              </div>
+            </article>
+
+            <article class="compact-project-card">
+              <img src="../img/portfolio_thumbnails/04_toon.jpg" alt="1/5-Scale Autonomous Vehicle">
+              <div class="compact-project-card__body">
+                <div class="compact-project-card__meta">HL Future Mobility Award</div>
+                <h4>1/5-Scale Autonomous Vehicle</h4>
+                <p>Compact vehicle autonomy stack for path following and traffic-light-aware mission logic.</p>
+                <div class="compact-tags">
+                  <span>ROS1</span><span>OpenCV</span><span>C++</span>
+                </div>
+                <div class="compact-highlight">Encouragement Award</div>
+                <a href="../portfolio/autonomous_driving/HL_FMA.html" class="compact-card-link">View Details</a>
+              </div>
+            </article>
+
+            <article class="compact-project-card">
+              <img src="../img/portfolio_thumbnails/06_value.jpg" alt="Simulation-Based Autonomous Driving System">
+              <div class="compact-project-card__body">
+                <div class="compact-project-card__meta">Virtual AutoRace</div>
+                <h4>Simulation-Based Autonomous Driving</h4>
+                <p>Lane following and mission-state logic tested in a virtual driving environment.</p>
+                <div class="compact-tags">
+                  <span>MORAI</span><span>ROS1</span><span>Python</span>
+                </div>
+                <div class="compact-highlight">Simulation Stack</div>
+                <a href="../portfolio/autonomous_driving/MORAI.html" class="compact-card-link">View Details</a>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <div class="overview-category">
+          <div class="overview-category__header">
+            <div>
+              <h3>Computer Graphics</h3>
+              <p>Rendering foundations, shader effects, procedural geometry, and WebGL demos.</p>
+            </div>
+            <button class="overview-filter-link" type="button" data-target-category="graphics">
+              Detailed View <i data-lucide="arrow-right"></i>
+            </button>
+          </div>
+
+          <div class="compact-project-grid">
+            <article class="compact-project-card">
+              <img src="../img/portfolio_thumbnails/01_hello.jpg" alt="Hello Quad">
+              <div class="compact-project-card__body">
+                <div class="compact-project-card__meta">Rendering Foundation</div>
+                <h4>Hello Quad</h4>
+                <p>Reusable OpenGL abstractions and shader-driven interaction across native and web builds.</p>
+                <div class="compact-tags">
+                  <span>C++</span><span>OpenGL</span><span>WebGL</span>
+                </div>
+                <div class="compact-highlight">Cross-Platform</div>
+                <a href="../portfolio/graphics/01_hello.html" class="compact-card-link">View Details</a>
+              </div>
+            </article>
+
+            <article class="compact-project-card">
+              <img src="../img/portfolio_thumbnails/02_meshes.jpg" alt="Procedural Geometric Modeling">
+              <div class="compact-project-card__body">
+                <div class="compact-project-card__meta">Procedural Modeling</div>
+                <h4>Procedural Geometric Modeling</h4>
+                <p>Generated mesh primitives and index buffers for interactive OpenGL rendering demos.</p>
+                <div class="compact-tags">
+                  <span>C++</span><span>OpenGL</span><span>CMake</span>
+                </div>
+                <div class="compact-highlight">Mesh Generation</div>
+                <a href="../portfolio/graphics/02_meshes.html" class="compact-card-link">View Details</a>
+              </div>
+            </article>
+
+            <article class="compact-project-card">
+              <img src="../img/portfolio_thumbnails/03_fog.jpg" alt="Fog Rendering">
+              <div class="compact-project-card__body">
+                <div class="compact-project-card__meta">Atmospheric Rendering</div>
+                <h4>Fog Rendering</h4>
+                <p>Implemented linear, exponential, and depth-based fog models in GLSL.</p>
+                <div class="compact-tags">
+                  <span>C++</span><span>GLSL</span><span>WebGL</span>
+                </div>
+                <div class="compact-highlight">Shader Effects</div>
+                <a href="../portfolio/graphics/03_fog.html" class="compact-card-link">View Details</a>
+              </div>
+            </article>
+
+            <article class="compact-project-card">
+              <img src="../img/portfolio_thumbnails/04_toon.jpg" alt="Toon Shading">
+              <div class="compact-project-card__body">
+                <div class="compact-project-card__meta">Stylized Rendering</div>
+                <h4>Toon Shading</h4>
+                <p>Built ramp-based lighting, specular shaping, normal transforms, and fog integration.</p>
+                <div class="compact-tags">
+                  <span>C++</span><span>OpenGL</span><span>GLSL</span>
+                </div>
+                <div class="compact-highlight">NPR Pipeline</div>
+                <a href="../portfolio/graphics/04_toon.html" class="compact-card-link">View Details</a>
+              </div>
+            </article>
+
+            <article class="compact-project-card">
+              <img src="../img/portfolio_thumbnails/05_shadow.jpg" alt="Shadow Mapping">
+              <div class="compact-project-card__body">
+                <div class="compact-project-card__meta">Lighting Pipeline</div>
+                <h4>Shadow Mapping</h4>
+                <p>Two-pass shadow rendering with depth textures, framebuffer support, and camera transforms.</p>
+                <div class="compact-tags">
+                  <span>C++</span><span>GLSL</span><span>CMake</span>
+                </div>
+                <div class="compact-highlight">Depth Pipeline</div>
+                <a href="../portfolio/graphics/05_shadow.html" class="compact-card-link">View Details</a>
+              </div>
+            </article>
+
+            <article class="compact-project-card">
+              <img src="../img/portfolio_thumbnails/06_value.jpg" alt="Value Noise">
+              <div class="compact-project-card__body">
+                <div class="compact-project-card__meta">Procedural Noise</div>
+                <h4>Value Noise</h4>
+                <p>Generated 1D, 2D, and 3D procedural textures with CPU-side noise functions.</p>
+                <div class="compact-tags">
+                  <span>C++</span><span>OpenGL</span><span>GLSL</span>
+                </div>
+                <div class="compact-highlight">Texture Generation</div>
+                <a href="../portfolio/graphics/06_value.html" class="compact-card-link">View Details</a>
+              </div>
+            </article>
+
+            <article class="compact-project-card">
+              <img src="../img/portfolio_thumbnails/07_gradient.jpg" alt="Gradient Noise">
+              <div class="compact-project-card__body">
+                <div class="compact-project-card__meta">GPU Noise</div>
+                <h4>Gradient Noise</h4>
+                <p>Implemented gradient noise and procedural patterns including marble, wood, and turbulence.</p>
+                <div class="compact-tags">
+                  <span>C++</span><span>GLSL</span><span>WebGL</span>
+                </div>
+                <div class="compact-highlight">GPU Procedural Patterns</div>
+                <a href="../portfolio/graphics/07_gradient.html" class="compact-card-link">View Details</a>
+              </div>
+            </article>
+
+            <article class="compact-project-card">
+              <img src="../img/portfolio_thumbnails/08_fun.jpg" alt="CS250 Final Project">
+              <div class="compact-project-card__body">
+                <div class="compact-project-card__meta">Interactive Scene</div>
+                <h4>CS250 Final Project</h4>
+                <p>Beach scene combining procedural geometry, noise terrain, lighting, and real-time controls.</p>
+                <div class="compact-tags">
+                  <span>C++</span><span>OpenGL</span><span>GLSL</span>
+                </div>
+                <div class="compact-highlight">Interactive WebGL Demo</div>
+                <a href="../portfolio/graphics/08_fun.html" class="compact-card-link">View Details</a>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <div class="overview-category">
+          <div class="overview-category__header">
+            <div>
+              <h3>Game Development</h3>
+              <p>Playable loops, gameplay systems, state flow, and team production practices.</p>
+            </div>
+            <button class="overview-filter-link" type="button" data-target-category="game">
+              Detailed View <i data-lucide="arrow-right"></i>
+            </button>
+          </div>
+
+          <div class="compact-project-grid">
+            <article class="compact-project-card">
+              <img src="../img/portfolio_thumbnails/08_fun.jpg" alt="MANZO">
+              <div class="compact-project-card__body">
+                <div class="compact-project-card__meta">GAM 200-250</div>
+                <h4>MANZO</h4>
+                <p>Long-form team game project with production-style gameplay and engine integration.</p>
+                <div class="compact-tags">
+                  <span>C++</span><span>OpenGL</span><span>Engine</span>
+                </div>
+                <div class="compact-highlight">Custom Engine</div>
+                <a href="../portfolio/games/manzo.html" class="compact-card-link">View Details</a>
+              </div>
+            </article>
+
+            <article class="compact-project-card">
+              <img src="../img/portfolio_thumbnails/02_meshes.jpg" alt="Stand-By">
+              <div class="compact-project-card__body">
+                <div class="compact-project-card__meta">GAM 150</div>
+                <h4>Stand-By</h4>
+                <p>Complete playable loop with responsive controls, feedback, and stable state transitions.</p>
+                <div class="compact-tags">
+                  <span>C++</span><span>Raylib</span><span>Gameplay</span>
+                </div>
+                <div class="compact-highlight">Playable Loop</div>
+                <a href="../portfolio/games/stand-by.html" class="compact-card-link">View Details</a>
+              </div>
+            </article>
+
+            <article class="compact-project-card">
+              <img src="../img/portfolio_thumbnails/01_hello.jpg" alt="Resonate">
+              <div class="compact-project-card__body">
+                <div class="compact-project-card__meta">GAM 100</div>
+                <h4>Resonate</h4>
+                <p>Early team game project focused on scope control, player feedback, and delivery.</p>
+                <div class="compact-tags">
+                  <span>C++</span><span>Raylib</span><span>2D</span>
+                </div>
+                <div class="compact-highlight">Team Project</div>
+                <a href="../portfolio/games/resonate.html" class="compact-card-link">View Details</a>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- Autonomous Driving Projects -->
     <section class="project-category" id="autonomous-section" data-category="autonomous">
       <div class="container">
@@ -135,9 +388,9 @@
           <!-- Autonomous Project 1 -->
           <article class="project-detail-card">
             <div class="project-detail-card__visual">
-              <img src="../img/project3_static.jpg" alt="Autonomous Driving Project 1 img" class="img-static"
+              <img src="../img/portfolio_thumbnails/05_shadow.jpg" alt="Autonomous Driving Project 1 img" class="img-static"
                 loading="lazy">
-              <img src="../img/project3_anim.gif" alt="Autonomous Driving Project 1 animation" class="img-gif"
+              <img src="../img/portfolio_thumbnails/05_shadow.jpg" alt="Autonomous Driving Project 1 animation" class="img-gif"
                 loading="lazy">
               <span class="project-status completed">Completed</span>
             </div>
@@ -203,9 +456,9 @@
           <!-- Autonomous Project 2 -->
           <article class="project-detail-card">
             <div class="project-detail-card__visual">
-              <img src="../img/project3_static.jpg" alt="Autonomous Driving Project 2 img" class="img-static"
+              <img src="../img/portfolio_thumbnails/03_fog.jpg" alt="Autonomous Driving Project 2 img" class="img-static"
                 loading="lazy">
-              <img src="../img/project3_anim.gif" alt="Autonomous Driving Project 2 animation" class="img-gif"
+              <img src="../img/portfolio_thumbnails/03_fog.jpg" alt="Autonomous Driving Project 2 animation" class="img-gif"
                 loading="lazy">
               <span class="project-status completed">Completed</span>
             </div>
@@ -274,9 +527,9 @@
           <!-- Autonomous Project 3 -->
           <article class="project-detail-card">
             <div class="project-detail-card__visual">
-              <img src="../img/project3_static.jpg" alt="Autonomous Driving Project 3 img" class="img-static"
+              <img src="../img/portfolio_thumbnails/04_toon.jpg" alt="Autonomous Driving Project 3 img" class="img-static"
                 loading="lazy">
-              <img src="../img/project3_anim.gif" alt="Autonomous Driving Project 3 animation" class="img-gif"
+              <img src="../img/portfolio_thumbnails/04_toon.jpg" alt="Autonomous Driving Project 3 animation" class="img-gif"
                 loading="lazy">
               <span class="project-status completed">Completed</span>
             </div>
@@ -298,15 +551,16 @@
               </div>
 
               <p class="project-detail-card__description">
-                ??
+                Built a compact autonomous-driving stack for a 1/5-scale vehicle, focusing on lane-aware path
+                following, mission-state logic, and reliable behavior under competition constraints.
               </p>
 
               <div class="project-highlights">
                 <h4 class="highlights-title">Key Achievements</h4>
                 <ul class="highlights-list">
-                  - 장려상 수상
-                  - 신호등
-                  - 경로 추종
+                  <li>Received an Encouragement Award at the HL Future Mobility Award 2025.</li>
+                  <li>Implemented traffic-light-aware mission logic for autonomous stop/go behavior.</li>
+                  <li>Developed path-following logic for stable lane-centered driving.</li>
                 </ul>
               </div>
 
@@ -336,9 +590,9 @@
           <!-- Autonomous Project 4 -->
           <article class="project-detail-card">
             <div class="project-detail-card__visual">
-              <img src="../img/project4_static.jpg" alt="Autonomous Driving Project 4 img" class="img-static"
+              <img src="../img/portfolio_thumbnails/06_value.jpg" alt="Autonomous Driving Project 4 img" class="img-static"
                 loading="lazy">
-              <img src="../img/project4_anim.gif" alt="Autonomous Driving Project 4 animation" class="img-gif"
+              <img src="../img/portfolio_thumbnails/06_value.jpg" alt="Autonomous Driving Project 4 animation" class="img-gif"
                 loading="lazy">
               <span class="project-status completed">Completed</span>
             </div>
@@ -360,15 +614,16 @@
               </div>
 
               <p class="project-detail-card__description">
-                ??
+                Developed and tested autonomous-driving behaviors in simulation, including lane following, mission
+                handling, and scenario-specific decision logic for virtual road environments.
               </p>
 
               <div class="project-highlights">
                 <h4 class="highlights-title">Key Achievements</h4>
                 <ul class="highlights-list">
-                  - 차선 인식 주행
-                  - 로터리 진입
-                  - 장애물 피
+                  <li>Implemented lane-recognition-based driving behavior in MORAI simulation.</li>
+                  <li>Designed decision logic for rotary entry and scenario transitions.</li>
+                  <li>Handled obstacle-aware behavior for safer virtual navigation.</li>
                 </ul>
               </div>
 
@@ -416,8 +671,8 @@
           <!-- Graphics Project 1 -->
           <article class="project-detail-card">
             <div class="project-detail-card__visual">
-              <img src="../img/project1_static.jpg" alt="Fluid Simulation" class="img-static" loading="lazy">
-              <img src="../img/project1_anim.gif" alt="Fluid Simulation animation" class="img-gif" loading="lazy">
+              <img src="../img/portfolio_thumbnails/01_hello.jpg" alt="Hello Quad" class="img-static" loading="lazy">
+              <img src="../img/portfolio_thumbnails/01_hello.jpg" alt="Hello Quad animation" class="img-gif" loading="lazy">
               <span class="project-status completed">Completed</span>
             </div>
 
@@ -427,7 +682,7 @@
               <div class="project-meta">
                 <span class="project-date">
                   <i data-lucide="calendar" aria-hidden="true"></i>
-                  SEP 2025
+                  MM 2025
                 </span>
                 <span class="project-type">
                   <i data-lucide="tag" aria-hidden="true"></i>
@@ -476,8 +731,8 @@
           <!-- Graphics Project 2 -->
           <article class="project-detail-card">
             <div class="project-detail-card__visual">
-              <img src="../img/project2_static.jpg" alt="Meshes" class="img-static" loading="lazy">
-              <img src="../img/project2_anim.gif" alt="Meshes animation" class="img-gif" loading="lazy">
+              <img src="../img/portfolio_thumbnails/02_meshes.jpg" alt="Meshes" class="img-static" loading="lazy">
+              <img src="../img/portfolio_thumbnails/02_meshes.jpg" alt="Meshes animation" class="img-gif" loading="lazy">
               <span class="project-status completed">Completed</span>
             </div>
 
@@ -487,7 +742,7 @@
               <div class="project-meta">
                 <span class="project-date">
                   <i data-lucide="calendar" aria-hidden="true"></i>
-                  SEP 2025
+                  MM 2025
                 </span>
                 <span class="project-type">
                   <i data-lucide="tag" aria-hidden="true"></i>
@@ -513,6 +768,7 @@
                 <span class="tech-badge">OpenGL</span>
                 <span class="tech-badge">GLSL</span>
                 <span class="tech-badge">WebGL</span>
+                <span class="tech-badge">CMake</span>
               </div>
 
               <div class="project-actions">
@@ -532,8 +788,8 @@
           <!-- Graphics Project 3 -->
           <article class="project-detail-card">
             <div class="project-detail-card__visual">
-              <img src="../img/project3_static.jpg" alt="Fog" class="img-static" loading="lazy">
-              <img src="../img/project3_anim.gif" alt="Fog animation" class="img-gif" loading="lazy">
+              <img src="../img/portfolio_thumbnails/03_fog.jpg" alt="Fog" class="img-static" loading="lazy">
+              <img src="../img/portfolio_thumbnails/03_fog.jpg" alt="Fog animation" class="img-gif" loading="lazy">
               <span class="project-status completed">Completed</span>
             </div>
 
@@ -543,7 +799,7 @@
               <div class="project-meta">
                 <span class="project-date">
                   <i data-lucide="calendar" aria-hidden="true"></i>
-                  SEP 2025
+                  MM 2025
                 </span>
                 <span class="project-type">
                   <i data-lucide="tag" aria-hidden="true"></i>
@@ -567,9 +823,11 @@
               </div>
 
               <div class="tech-stack-detailed">
+                <span class="tech-badge">C++</span>
                 <span class="tech-badge">OpenGL</span>
                 <span class="tech-badge">GLSL</span>
                 <span class="tech-badge">WebGL</span>
+                <span class="tech-badge">CMake</span>
               </div>
 
               <div class="project-actions">
@@ -589,8 +847,8 @@
           <!-- Graphics Project 4 -->
           <article class="project-detail-card">
             <div class="project-detail-card__visual">
-              <img src="../img/project4_static.jpg" alt="Toon Shading" class="img-static" loading="lazy">
-              <img src="../img/project4_anim.gif" alt="Toon Shading animation" class="img-gif" loading="lazy">
+              <img src="../img/portfolio_thumbnails/04_toon.jpg" alt="Toon Shading" class="img-static" loading="lazy">
+              <img src="../img/portfolio_thumbnails/04_toon.jpg" alt="Toon Shading animation" class="img-gif" loading="lazy">
               <span class="project-status completed">Completed</span>
             </div>
 
@@ -600,7 +858,7 @@
               <div class="project-meta">
                 <span class="project-date">
                   <i data-lucide="calendar" aria-hidden="true"></i>
-                  SEP 2025
+                  MM 2025
                 </span>
                 <span class="project-type">
                   <i data-lucide="tag" aria-hidden="true"></i>
@@ -626,9 +884,11 @@
               </div>
 
               <div class="tech-stack-detailed">
+                <span class="tech-badge">C++</span>
                 <span class="tech-badge">OpenGL</span>
                 <span class="tech-badge">GLSL</span>
                 <span class="tech-badge">WebGL</span>
+                <span class="tech-badge">CMake</span>
               </div>
 
               <div class="project-actions">
@@ -648,8 +908,8 @@
           <!-- Graphics Project 5 -->
           <article class="project-detail-card">
             <div class="project-detail-card__visual">
-              <img src="../img/project5_static.jpg" alt="Shadow" class="img-static" loading="lazy">
-              <img src="../img/project5_anim.gif" alt="Shadow animation" class="img-gif" loading="lazy">
+              <img src="../img/portfolio_thumbnails/05_shadow.jpg" alt="Shadow" class="img-static" loading="lazy">
+              <img src="../img/portfolio_thumbnails/05_shadow.jpg" alt="Shadow animation" class="img-gif" loading="lazy">
               <span class="project-status completed">Completed</span>
             </div>
 
@@ -659,7 +919,7 @@
               <div class="project-meta">
                 <span class="project-date">
                   <i data-lucide="calendar" aria-hidden="true"></i>
-                  SEP 2025
+                  MM 2025
                 </span>
                 <span class="project-type">
                   <i data-lucide="tag" aria-hidden="true"></i>
@@ -688,6 +948,8 @@
                 <span class="tech-badge">C++</span>
                 <span class="tech-badge">OpenGL</span>
                 <span class="tech-badge">GLSL</span>
+                <span class="tech-badge">WebGL</span>
+                <span class="tech-badge">CMake</span>
               </div>
 
               <div class="project-actions">
@@ -707,8 +969,8 @@
           <!-- Graphics Project 6 -->
           <article class="project-detail-card">
             <div class="project-detail-card__visual">
-              <img src="../img/project6_static.jpg" alt="Value" class="img-static" loading="lazy">
-              <img src="../img/project6_anim.gif" alt="Value animation" class="img-gif" loading="lazy">
+              <img src="../img/portfolio_thumbnails/06_value.jpg" alt="Value" class="img-static" loading="lazy">
+              <img src="../img/portfolio_thumbnails/06_value.jpg" alt="Value animation" class="img-gif" loading="lazy">
               <span class="project-status completed">Completed</span>
             </div>
 
@@ -718,7 +980,7 @@
               <div class="project-meta">
                 <span class="project-date">
                   <i data-lucide="calendar" aria-hidden="true"></i>
-                  SEP 2025
+                  MM 2025
                 </span>
                 <span class="project-type">
                   <i data-lucide="tag" aria-hidden="true"></i>
@@ -745,6 +1007,8 @@
                 <span class="tech-badge">C++</span>
                 <span class="tech-badge">OpenGL</span>
                 <span class="tech-badge">GLSL</span>
+                <span class="tech-badge">WebGL</span>
+                <span class="tech-badge">CMake</span>
               </div>
 
               <div class="project-actions">
@@ -764,8 +1028,8 @@
           <!-- Graphics Project 7 -->
           <article class="project-detail-card">
             <div class="project-detail-card__visual">
-              <img src="../img/project7_static.jpg" alt="Gradient" class="img-static" loading="lazy">
-              <img src="../img/project7_anim.gif" alt="Gradient animation" class="img-gif" loading="lazy">
+              <img src="../img/portfolio_thumbnails/07_gradient.jpg" alt="Gradient" class="img-static" loading="lazy">
+              <img src="../img/portfolio_thumbnails/07_gradient.jpg" alt="Gradient animation" class="img-gif" loading="lazy">
               <span class="project-status completed">Completed</span>
             </div>
 
@@ -775,7 +1039,7 @@
               <div class="project-meta">
                 <span class="project-date">
                   <i data-lucide="calendar" aria-hidden="true"></i>
-                  SEP 2025
+                  MM 2025
                 </span>
                 <span class="project-type">
                   <i data-lucide="tag" aria-hidden="true"></i>
@@ -803,6 +1067,8 @@
                 <span class="tech-badge">C++</span>
                 <span class="tech-badge">OpenGL</span>
                 <span class="tech-badge">GLSL</span>
+                <span class="tech-badge">WebGL</span>
+                <span class="tech-badge">CMake</span>
               </div>
 
               <div class="project-actions">
@@ -822,8 +1088,8 @@
           <!-- Graphics Project 8 -->
           <article class="project-detail-card">
             <div class="project-detail-card__visual">
-              <img src="../img/project8_static.jpg" alt="Own Project" class="img-static" loading="lazy">
-              <img src="../img/project8_anim.gif" alt="Own Project animation" class="img-gif" loading="lazy">
+              <img src="../img/portfolio_thumbnails/08_fun.jpg" alt="Own Project" class="img-static" loading="lazy">
+              <img src="../img/portfolio_thumbnails/08_fun.jpg" alt="Own Project animation" class="img-gif" loading="lazy">
               <span class="project-status completed">Completed</span>
             </div>
 
@@ -833,7 +1099,7 @@
               <div class="project-meta">
                 <span class="project-date">
                   <i data-lucide="calendar" aria-hidden="true"></i>
-                  DEC 2025
+                  MM 2025
                 </span>
                 <span class="project-type">
                   <i data-lucide="tag" aria-hidden="true"></i>
@@ -865,6 +1131,7 @@
                 <span class="tech-badge">OpenGL</span>
                 <span class="tech-badge">GLSL</span>
                 <span class="tech-badge">WebGL</span>
+                <span class="tech-badge">CMake</span>
               </div>
 
               <div class="project-actions">
@@ -903,8 +1170,8 @@
           <!-- Game Project 1 -->
           <article class="project-detail-card">
             <div class="project-detail-card__visual">
-              <img src="../img/project1_static.jpg" alt="Game Project 1" class="img-static" loading="lazy">
-              <img src="../img/project1_anim.gif" alt="Game Project 1 animation" class="img-gif" loading="lazy">
+              <img src="../img/portfolio_thumbnails/08_fun.jpg" alt="Game Project 1" class="img-static" loading="lazy">
+              <img src="../img/portfolio_thumbnails/08_fun.jpg" alt="Game Project 1 animation" class="img-gif" loading="lazy">
               <span class="project-status">Completed</span>
             </div>
 
@@ -923,20 +1190,24 @@
               </div>
 
               <p class="project-detail-card__description">
-                >?>
+                Long-form team game project focused on production-style gameplay systems, engine integration, rendering
+                support, and maintainable collaboration over a multi-semester development cycle.
               </p>
 
               <div class="project-highlights">
                 <h4 class="highlights-title">Key Features</h4>
                 <ul class="highlights-list">
-                  <li>??</li>
+                  <li>Structured gameplay logic around explicit states and tunable parameters.</li>
+                  <li>Integrated player-facing systems with rendering, input, and scene flow.</li>
+                  <li>Used debugging and rendering tools to investigate visual and runtime issues.</li>
                 </ul>
               </div>
 
               <div class="tech-stack-detailed">
                 <span class="tech-badge">C++</span>
                 <span class="tech-badge">OpenGL</span>
-                <span class="tech-badge">Render Doc</span>
+                <span class="tech-badge">Custom Engine</span>
+                <span class="tech-badge">RenderDoc</span>
               </div>
 
               <div class="project-actions">
@@ -945,9 +1216,9 @@
                   <i data-lucide="github" aria-hidden="true"></i>
                   View Code
                 </a>
-                <a href="#" class="action-btn secondary">
-                  <i data-lucide="play-circle" aria-hidden="true"></i>
-                  Live Demo
+                <a href="../portfolio/games/manzo.html" class="action-btn secondary">
+                  <i data-lucide="file-text" aria-hidden="true"></i>
+                  View Details
                 </a>
               </div>
             </div>
@@ -957,8 +1228,8 @@
           <!-- Game Project 2 -->
           <article class="project-detail-card">
             <div class="project-detail-card__visual">
-              <img src="../img/project2_static.jpg" alt="Game Project 2" class="img-static" loading="lazy">
-              <img src="../img/project2_anim.gif" alt="Game Project 2 animation" class="img-gif" loading="lazy">
+              <img src="../img/portfolio_thumbnails/02_meshes.jpg" alt="Game Project 2" class="img-static" loading="lazy">
+              <img src="../img/portfolio_thumbnails/02_meshes.jpg" alt="Game Project 2 animation" class="img-gif" loading="lazy">
               <span class="project-status">Completed</span>
             </div>
 
@@ -977,19 +1248,23 @@
               </div>
 
               <p class="project-detail-card__description">
-                >?>
+                C++ game project centered on a complete playable loop, responsive input, readable feedback, and stable
+                state transitions across gameplay, pause, restart, and end states.
               </p>
 
               <div class="project-highlights">
                 <h4 class="highlights-title">Key Features</h4>
                 <ul class="highlights-list">
-                  <li>??</li>
+                  <li>Implemented core gameplay states and transition logic.</li>
+                  <li>Connected player interactions to clear visual and timing feedback.</li>
+                  <li>Handled reset and scene-flow edge cases for repeated playtesting.</li>
                 </ul>
               </div>
 
               <div class="tech-stack-detailed">
                 <span class="tech-badge">C++</span>
                 <span class="tech-badge">Raylib</span>
+                <span class="tech-badge">Gameplay Systems</span>
               </div>
 
               <div class="project-actions">
@@ -998,9 +1273,9 @@
                   <i data-lucide="github" aria-hidden="true"></i>
                   View Code
                 </a>
-                <a href="#" class="action-btn secondary">
-                  <i data-lucide="play-circle" aria-hidden="true"></i>
-                  Live Demo
+                <a href="../portfolio/games/stand-by.html" class="action-btn secondary">
+                  <i data-lucide="file-text" aria-hidden="true"></i>
+                  View Details
                 </a>
               </div>
             </div>
@@ -1009,8 +1284,8 @@
           <!-- Game Project 3 -->
           <article class="project-detail-card">
             <div class="project-detail-card__visual">
-              <img src="../img/project3_static.jpg" alt="Game Project 3" class="img-static" loading="lazy">
-              <img src="../img/project3_anim.gif" alt="Game Project 3 animation" class="img-gif" loading="lazy">
+              <img src="../img/portfolio_thumbnails/01_hello.jpg" alt="Game Project 3" class="img-static" loading="lazy">
+              <img src="../img/portfolio_thumbnails/01_hello.jpg" alt="Game Project 3 animation" class="img-gif" loading="lazy">
               <span class="project-status">Completed</span>
             </div>
 
@@ -1029,19 +1304,23 @@
               </div>
 
               <p class="project-detail-card__description">
-                >?>
+                Early team game project that established my foundation in C++ gameplay programming, scope control,
+                player feedback, and complete-loop delivery.
               </p>
 
               <div class="project-highlights">
                 <h4 class="highlights-title">Key Features</h4>
                 <ul class="highlights-list">
-                  <li>??</li>
+                  <li>Built a small but complete game loop with menu, play, and reset behavior.</li>
+                  <li>Separated input capture from gameplay response for clearer debugging.</li>
+                  <li>Balanced feature scope against milestone reliability.</li>
                 </ul>
               </div>
 
               <div class="tech-stack-detailed">
                 <span class="tech-badge">C++</span>
                 <span class="tech-badge">Raylib</span>
+                <span class="tech-badge">2D Gameplay</span>
               </div>
 
               <div class="project-actions">
@@ -1050,9 +1329,9 @@
                   <i data-lucide="github" aria-hidden="true"></i>
                   View Code
                 </a>
-                <a href="#" class="action-btn secondary">
-                  <i data-lucide="play-circle" aria-hidden="true"></i>
-                  Live Demo
+                <a href="../portfolio/games/resonate.html" class="action-btn secondary">
+                  <i data-lucide="file-text" aria-hidden="true"></i>
+                  View Details
                 </a>
               </div>
             </div>

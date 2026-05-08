@@ -2,16 +2,28 @@ document.addEventListener('DOMContentLoaded', () => {
   // Category Filter Functionality
   const filterButtons = document.querySelectorAll('.filter-btn');
   const projectSections = document.querySelectorAll('.project-category');
+  const projectsOverview = document.getElementById('projects-overview');
+  const overviewFilterLinks = document.querySelectorAll('.overview-filter-link');
 
   // Function to show/hide categories based on filter
   const filterProjects = (category) => {
+    if (projectsOverview) {
+      if (category === 'all') {
+        projectsOverview.classList.remove('hidden');
+        projectsOverview.style.display = 'block';
+      } else {
+        projectsOverview.classList.add('hidden');
+        projectsOverview.style.display = 'none';
+      }
+    }
+
     projectSections.forEach(section => {
       const sectionCategory = section.getAttribute('data-category');
       
       if (category === 'all') {
-        // Show all sections
-        section.classList.remove('hidden');
-        section.style.display = 'block';
+        // All Projects uses compact overview mode.
+        section.classList.add('hidden');
+        section.style.display = 'none';
       } else {
         // Show only matching category
         if (sectionCategory === category) {
@@ -53,14 +65,23 @@ document.addEventListener('DOMContentLoaded', () => {
       const category = button.getAttribute('data-category');
       filterProjects(category);
 
-      // Store active filter in localStorage
-      localStorage.setItem('activeProjectFilter', category);
+      // Keep Projects landing lightweight: every fresh visit starts from the compact overview.
     });
   });
 
-  // Initialize with saved filter or 'all'
-  const savedFilter = localStorage.getItem('activeProjectFilter') || 'all';
-  const savedFilterButton = document.querySelector(`[data-category="${savedFilter}"]`);
+  overviewFilterLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      const targetCategory = link.getAttribute('data-target-category');
+      const targetButton = document.querySelector(`.filter-btn[data-category="${targetCategory}"]`);
+
+      if (targetButton) {
+        targetButton.click();
+      }
+    });
+  });
+
+  // Initialize with compact overview.
+  const savedFilterButton = document.querySelector('[data-category="all"]');
   
   if (savedFilterButton) {
     savedFilterButton.click();
@@ -158,10 +179,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const visibleSections = document.querySelectorAll('.project-category:not(.hidden)');
     let totalProjects = 0;
 
-    visibleSections.forEach(section => {
-      const cards = section.querySelectorAll('.project-detail-card');
-      totalProjects += cards.length;
-    });
+    if (projectsOverview && !projectsOverview.classList.contains('hidden')) {
+      totalProjects = projectsOverview.querySelectorAll('.compact-project-card').length;
+    } else {
+      visibleSections.forEach(section => {
+        const cards = section.querySelectorAll('.project-detail-card');
+        totalProjects += cards.length;
+      });
+    }
 
     // You can display this count somewhere if needed
     console.log(`Showing ${totalProjects} project(s)`);
@@ -179,8 +204,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Handle browser back/forward buttons
   window.addEventListener('popstate', () => {
-    const savedFilter = localStorage.getItem('activeProjectFilter') || 'all';
-    const savedFilterButton = document.querySelector(`[data-category="${savedFilter}"]`);
+    const savedFilterButton = document.querySelector('[data-category="all"]');
     if (savedFilterButton) {
       savedFilterButton.click();
     }

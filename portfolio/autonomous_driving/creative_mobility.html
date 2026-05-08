@@ -336,8 +336,11 @@
               <i data-lucide="lightbulb" style="width:18px; height:18px;"></i> Solution (Final Architecture)
             </div>
             <p>
-              <!-- TODO: 나중에 코드를 확인하시고 이 부분을 채워주세요! -->
-              <em>[Pending Code Review] Through these iterations, I ultimately adopted the OOO algorithm to secure both trajectory smoothness and robust steering stability...</em>
+              After evaluating these discarded approaches, I shifted the obstacle-avoidance module toward a more
+              conservative lane-aware trajectory selection strategy. Instead of producing aggressive geometric detours
+              from a single bounding-box estimate, the final architecture prioritized stable steering commands, bounded
+              lateral motion, and predictable recovery back to the reference lane. This made the behavior easier to tune
+              during field tests and reduced the risk of sudden control changes caused by noisy obstacle detections.
             </p>
           </div>
         </article>

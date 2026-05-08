@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml" href="../../img/face.jpg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Resonate - Game Project</title>
+  <meta name="description" content="Detailed portfolio page for Resonate, a C++ game project by Gyuwon Na.">
+  <link rel="stylesheet" href="../../external/normalize.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css"
+    integrity="sha256-46qynGAkLSFpVbEBog43gvNhfrOj+BmwXdxFgVK/Kvc=" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="../../css/style.css" />
+  <link rel="stylesheet" href="../../css/projects.css" />
+</head>
+
+<body>
+  <div class="floating-nav-container" id="navContainer" role="navigation" aria-label="Main navigation">
+    <button class="nav-trigger-btn" onclick="toggleNav()" aria-label="Open navigation menu" aria-expanded="false">
+      <div class="hamburger-lines"><span></span><span></span></div>
+    </button>
+    <nav class="nav-capsule-menu">
+      <ul class="nav-links">
+        <li><a href="../../index.html" onclick="toggleNav()">Home</a></li>
+        <li><a href="../../pages/AboutMe.html" onclick="toggleNav()">About Me</a></li>
+        <li><a href="../../pages/Research.html" onclick="toggleNav()">Research</a></li>
+        <li><a href="../../pages/Projects.html" onclick="toggleNav()">Projects</a></li>
+      </ul>
+      <button class="nav-close-btn" onclick="toggleNav()" aria-label="Close navigation menu"><i data-lucide="x"></i></button>
+    </nav>
+  </div>
+
+  <main id="main-content">
+    <section class="detail-hero">
+      <div class="back-btn-wrapper">
+        <a href="../../pages/Projects.html" class="back-btn"><i data-lucide="arrow-left"></i> Back to Projects</a>
+      </div>
+      <div class="container">
+        <span class="eyebrow"><i data-lucide="gamepad-2"></i> Game Development</span>
+        <h1 class="projects-hero__title" style="font-size: clamp(2rem, 4vw, 3rem);">Resonate</h1>
+        <div class="project-meta" style="justify-content: center; margin-top: 20px;">
+          <span class="project-date"><i data-lucide="calendar"></i> Sep 2023 - Dec 2023</span>
+          <span class="project-type"><i data-lucide="tag"></i> GAM 100 Project</span>
+        </div>
+        <div class="tech-stack-detailed" style="justify-content: center; margin-top: 20px;">
+          <span class="tech-badge">C++</span>
+          <span class="tech-badge">Raylib</span>
+          <span class="tech-badge">2D Gameplay</span>
+          <span class="tech-badge">Team Project</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="detail-content">
+      <div class="detail-figure">
+        <div class="visual-placeholder">Gameplay Capture Placeholder</div>
+      </div>
+
+      <div class="detail-section">
+        <h2 class="detail-section-title">Overview</h2>
+        <p class="detail-text">
+          Resonate is an early team game project that helped establish my foundation in C++ gameplay programming. The
+          project emphasized shipping a complete experience with a constrained toolset: core loop, interaction rules,
+          UI flow, audio/visual feedback, and predictable behavior across repeated playthroughs.
+        </p>
+      </div>
+
+      <div class="detail-section">
+        <h2 class="detail-section-title">What the Detail Page Shows</h2>
+        <ul class="highlights-list">
+          <li>How I decomposed gameplay into small systems that could be tested and adjusted independently.</li>
+          <li>How player feedback was tied to state changes so mechanics felt understandable rather than hidden.</li>
+          <li>How the team balanced scope with reliability to complete the project on schedule.</li>
+        </ul>
+      </div>
+
+      <div class="detail-section">
+        <h2 class="detail-section-title">Technical Highlights</h2>
+        <div class="role-grid">
+          <article class="info-card">
+            <i data-lucide="keyboard"></i>
+            <h3 class="info-card__title">Input & Control</h3>
+            <p class="info-card__text">Implemented responsive player input with clear separation between input capture and gameplay response.</p>
+          </article>
+          <article class="info-card">
+            <i data-lucide="shuffle"></i>
+            <h3 class="info-card__title">State Flow</h3>
+            <p class="info-card__text">Managed transitions between active play, win/loss conditions, and reset behavior.</p>
+          </article>
+          <article class="info-card">
+            <i data-lucide="volume-2"></i>
+            <h3 class="info-card__title">Game Feel</h3>
+            <p class="info-card__text">Connected mechanics to visual and audio feedback to make actions legible to the player.</p>
+          </article>
+        </div>
+      </div>
+
+      <div class="detail-section">
+        <h2 class="detail-section-title">Challenges & Solutions</h2>
+        <article class="challenge-card">
+          <div class="challenge-header"><span class="challenge-header-num">1</span> Building a Complete Loop</div>
+          <div class="cs-box problem">
+            <div class="cs-box-title"><i data-lucide="alert-triangle"></i> Challenge</div>
+            <p>The project needed to feel complete even though the team was still building fundamental programming and collaboration habits.</p>
+          </div>
+          <div class="cs-box solution">
+            <div class="cs-box-title"><i data-lucide="lightbulb"></i> Solution</div>
+            <p>Kept the scope tight, implemented the core loop first, and used each milestone to harden existing behavior before adding new content.</p>
+          </div>
+        </article>
+      </div>
+
+      <div class="detail-section">
+        <h2 class="detail-section-title">Reflection</h2>
+        <p class="detail-text">
+          Resonate was the project where I began thinking like a systems programmer. It taught me that even a small game
+          benefits from clean ownership, clear update order, and fast feedback during testing.
+        </p>
+      </div>
+
+      <div class="project-next">
+        <a href="stand-by.html" class="action-btn secondary"><i data-lucide="arrow-left"></i> Stand-By</a>
+        <a href="manzo.html" class="action-btn secondary">MANZO <i data-lucide="arrow-right"></i></a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <ul class="social-list">
+      <li class="social-list__item"><a class="social-list__link" href="mailto:uoyuvvou@gmail.com"><i class="fa-regular fa-envelope"></i></a></li>
+      <li class="social-list__item"><a class="social-list__link" href="https://www.linkedin.com/in/uoyuvvou"><i class="fa-brands fa-linkedin-in"></i></a></li>
+      <li class="social-list__item"><a class="social-list__link" href="https://github.com/Gyuwon-Na"><i class="fa-brands fa-github"></i></a></li>
+      <li class="social-list__item"><a class="social-list__link" href="https://www.instagram.com/uoyuvvou"><i class="fa-brands fa-instagram"></i></a></li>
+    </ul>
+    <p class="footer-copyright">&copy; 2026 Gyuwon Na. All rights reserved.</p>
+  </footer>
+
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    function toggleNav() {
+      const container = document.getElementById('navContainer');
+      const triggerBtn = container.querySelector('.nav-trigger-btn');
+      const isActive = container.classList.toggle('active');
+      triggerBtn.setAttribute('aria-expanded', isActive);
+    }
+    lucide.createIcons();
+  </script>
+</body>
+
+</html>

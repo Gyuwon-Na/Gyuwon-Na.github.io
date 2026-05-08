@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml" href="../../img/face.jpg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Stand-By - Game Project</title>
+  <meta name="description" content="Detailed portfolio page for Stand-By, a C++ game project by Gyuwon Na.">
+  <link rel="stylesheet" href="../../external/normalize.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css"
+    integrity="sha256-46qynGAkLSFpVbEBog43gvNhfrOj+BmwXdxFgVK/Kvc=" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="../../css/style.css" />
+  <link rel="stylesheet" href="../../css/projects.css" />
+</head>
+
+<body>
+  <div class="floating-nav-container" id="navContainer" role="navigation" aria-label="Main navigation">
+    <button class="nav-trigger-btn" onclick="toggleNav()" aria-label="Open navigation menu" aria-expanded="false">
+      <div class="hamburger-lines"><span></span><span></span></div>
+    </button>
+    <nav class="nav-capsule-menu">
+      <ul class="nav-links">
+        <li><a href="../../index.html" onclick="toggleNav()">Home</a></li>
+        <li><a href="../../pages/AboutMe.html" onclick="toggleNav()">About Me</a></li>
+        <li><a href="../../pages/Research.html" onclick="toggleNav()">Research</a></li>
+        <li><a href="../../pages/Projects.html" onclick="toggleNav()">Projects</a></li>
+      </ul>
+      <button class="nav-close-btn" onclick="toggleNav()" aria-label="Close navigation menu"><i data-lucide="x"></i></button>
+    </nav>
+  </div>
+
+  <main id="main-content">
+    <section class="detail-hero">
+      <div class="back-btn-wrapper">
+        <a href="../../pages/Projects.html" class="back-btn"><i data-lucide="arrow-left"></i> Back to Projects</a>
+      </div>
+      <div class="container">
+        <span class="eyebrow"><i data-lucide="gamepad-2"></i> Game Development</span>
+        <h1 class="projects-hero__title" style="font-size: clamp(2rem, 4vw, 3rem);">Stand-By</h1>
+        <div class="project-meta" style="justify-content: center; margin-top: 20px;">
+          <span class="project-date"><i data-lucide="calendar"></i> Mar 2024 - Jun 2024</span>
+          <span class="project-type"><i data-lucide="tag"></i> GAM 150 Project</span>
+        </div>
+        <div class="tech-stack-detailed" style="justify-content: center; margin-top: 20px;">
+          <span class="tech-badge">C++</span>
+          <span class="tech-badge">Raylib</span>
+          <span class="tech-badge">Gameplay Systems</span>
+          <span class="tech-badge">Tools</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="detail-content">
+      <div class="detail-figure">
+        <div class="visual-placeholder">Gameplay Capture Placeholder</div>
+      </div>
+
+      <div class="detail-section">
+        <h2 class="detail-section-title">Overview</h2>
+        <p class="detail-text">
+          Stand-By is a C++ game project focused on building a complete playable loop with responsive controls,
+          readable feedback, and stable scene flow. For a portfolio reviewer, this page highlights the engineering
+          discipline behind a smaller game: input handling, state management, iteration speed, and player-facing polish.
+        </p>
+      </div>
+
+      <div class="detail-section">
+        <h2 class="detail-section-title">Gameplay & Systems</h2>
+        <ul class="highlights-list">
+          <li>Implemented a clear gameplay loop that moves through menu, play, pause, success, and failure states.</li>
+          <li>Built player interaction logic with predictable timing and immediate visual feedback.</li>
+          <li>Organized level and entity behavior so content could be tuned without rewriting core systems.</li>
+          <li>Handled edge cases around restart, scene transition, and overlapping input events.</li>
+        </ul>
+      </div>
+
+      <div class="detail-section">
+        <h2 class="detail-section-title">My Role</h2>
+        <p class="detail-text">
+          I focused on gameplay implementation and system reliability. That included translating design requirements
+          into concrete mechanics, keeping update logic understandable, and debugging cases where timing or input order
+          created unexpected behavior.
+        </p>
+      </div>
+
+      <div class="detail-section">
+        <h2 class="detail-section-title">Challenges & Solutions</h2>
+        <article class="challenge-card">
+          <div class="challenge-header"><span class="challenge-header-num">1</span> Reliable Player Feedback</div>
+          <div class="cs-box problem">
+            <div class="cs-box-title"><i data-lucide="alert-triangle"></i> Challenge</div>
+            <p>Early interactions were technically correct but did not always communicate state changes clearly to the player.</p>
+          </div>
+          <div class="cs-box solution">
+            <div class="cs-box-title"><i data-lucide="lightbulb"></i> Solution</div>
+            <p>Mapped state changes to consistent visual and timing feedback, making game behavior easier to read and easier to debug.</p>
+          </div>
+        </article>
+      </div>
+
+      <div class="detail-section">
+        <h2 class="detail-section-title">Reflection</h2>
+        <p class="detail-text">
+          Stand-By taught me to treat small games as systems, not scripts. The project sharpened my ability to design
+          straightforward state machines and to keep player-facing behavior stable while iterating quickly.
+        </p>
+      </div>
+
+      <div class="project-next">
+        <a href="manzo.html" class="action-btn secondary"><i data-lucide="arrow-left"></i> MANZO</a>
+        <a href="resonate.html" class="action-btn secondary">Resonate <i data-lucide="arrow-right"></i></a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <ul class="social-list">
+      <li class="social-list__item"><a class="social-list__link" href="mailto:uoyuvvou@gmail.com"><i class="fa-regular fa-envelope"></i></a></li>
+      <li class="social-list__item"><a class="social-list__link" href="https://www.linkedin.com/in/uoyuvvou"><i class="fa-brands fa-linkedin-in"></i></a></li>
+      <li class="social-list__item"><a class="social-list__link" href="https://github.com/Gyuwon-Na"><i class="fa-brands fa-github"></i></a></li>
+      <li class="social-list__item"><a class="social-list__link" href="https://www.instagram.com/uoyuvvou"><i class="fa-brands fa-instagram"></i></a></li>
+    </ul>
+    <p class="footer-copyright">&copy; 2026 Gyuwon Na. All rights reserved.</p>
+  </footer>
+
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    function toggleNav() {
+      const container = document.getElementById('navContainer');
+      const triggerBtn = container.querySelector('.nav-trigger-btn');
+      const isActive = container.classList.toggle('active');
+      triggerBtn.setAttribute('aria-expanded', isActive);
+    }
+    lucide.createIcons();
+  </script>
+</body>
+
+</html>
