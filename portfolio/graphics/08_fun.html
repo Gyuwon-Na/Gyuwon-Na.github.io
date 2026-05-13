@@ -17,6 +17,19 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap"
     rel="stylesheet" />
+  <script>
+    (() => {
+      try {
+        const savedTheme = localStorage.getItem('theme');
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+          document.documentElement.setAttribute('data-theme', 'dark');
+        }
+      } catch (error) {
+        document.documentElement.removeAttribute('data-theme');
+      }
+    })();
+  </script>
   <link rel="stylesheet" href="../../css/style.css" />
   <link rel="stylesheet" href="../../css/projects.css" />
 </head>
@@ -24,6 +37,10 @@
 <body>
 
   <div class="floating-nav-container" id="navContainer" role="navigation" aria-label="Main navigation">
+    <button class="theme-toggle-btn" id="themeToggle" aria-label="Switch to dark mode" aria-pressed="false">
+      <i class="fa-solid fa-moon" aria-hidden="true"></i>
+    </button>
+
     <button class="nav-trigger-btn" onclick="toggleNav()">
       <div class="hamburger-lines"><span></span><span></span></div>
     </button>
@@ -104,7 +121,7 @@
       </div>
 
       <div class="detail-section">
-        <h2 class="detail-section-title">Reflection</h2>
+        <h2 class="detail-section-title">Challenges & Solutions</h2>
 
         <article class="challenge-card">
           <div class="challenge-header"><span class="challenge-header-num">1</span>Shader Uniform State Management</div>
@@ -115,14 +132,23 @@
               issues. I also didn't fully understand how noise scale works initially.</p>
           </div>
           <div class="cs-box solution">
-            <div class="cs-box-title"><i data-lucide="lightbulb" style="width:18px; height:18px;"></i> Solution &
-              Takeaway</div>
+            <div class="cs-box-title"><i data-lucide="lightbulb" style="width:18px; height:18px;"></i> Solution</div>
             <p>I realized I need to use a shader before sending uniforms to it; otherwise, the uniforms won't be set
               correctly. For the noise scale, I continuously adjusted the shader values to get a similar visual result
               and gradually achieved the intended look.</p>
           </div>
         </article>
 
+      </div>
+
+      <div class="detail-section">
+        <h2 class="detail-section-title">Reflection & Future Work</h2>
+        <div class="project-highlights" style="background: rgba(0, 122, 255, 0.02); border-left-color: var(--clr-text-main);">
+          <ul class="highlights-list">
+            <li><strong>Reflection:</strong> </li>
+            <li><strong>Future Work:</strong> </li>
+          </ul>
+        </div>
       </div>
     </section>
   </main>
@@ -140,6 +166,7 @@
     </ul>
     <p class="footer-copyright">&copy; 2026 Gyuwon Na. All rights reserved.</p>
   </footer>
+  <script src="../../js/index.js"></script>
 
   <script src="https://unpkg.com/lucide@latest"></script>
   <script>

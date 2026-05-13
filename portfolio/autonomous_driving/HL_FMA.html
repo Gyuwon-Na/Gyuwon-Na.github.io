@@ -23,6 +23,19 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap"
     rel="stylesheet" />
+  <script>
+    (() => {
+      try {
+        const savedTheme = localStorage.getItem('theme');
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+          document.documentElement.setAttribute('data-theme', 'dark');
+        }
+      } catch (error) {
+        document.documentElement.removeAttribute('data-theme');
+      }
+    })();
+  </script>
 
   <link rel="stylesheet" href="../../css/style.css" />
   <link rel="stylesheet" href="../../css/projects.css" />
@@ -30,8 +43,12 @@
 
 <body>
 
-  <!-- Floating Navigation (기존과 동일) -->
+  <!-- Floating Navigation (기존�??�일) -->
   <div class="floating-nav-container" id="navContainer" role="navigation" aria-label="Main navigation">
+    <button class="theme-toggle-btn" id="themeToggle" aria-label="Switch to dark mode" aria-pressed="false">
+      <i class="fa-solid fa-moon" aria-hidden="true"></i>
+    </button>
+
     <button class="nav-trigger-btn" onclick="toggleNav()" aria-label="Open navigation menu" aria-expanded="false">
       <div class="hamburger-lines">
         <span></span>
@@ -82,7 +99,7 @@
 
     <!-- Main Content Section -->
     <section class="detail-content">
-      <!-- 1. Demo Video (정중앙 정렬 + 색상 호버 효과) -->
+      <!-- 1. Demo Video (?�중???�렬 + ?�상 ?�버 ?�과) -->
       <h1 class="detail-section-title">Demo Video</h1>
       <div class="detail-section" style="margin-top: -20px;">
         <a href="https://youtu.be/X6_6XrGptqQ?si=D7Mj_nsYNKSff-gz" target="_blank" rel="noopener noreferrer"
@@ -91,7 +108,7 @@
           <div style="
             position: relative;
             width: 100%;
-            padding-bottom: 56.25%; /* 16:9 비율 유지 */
+            padding-bottom: 56.25%; /* 16:9 비율 ?��? */
             background-image: url('https://img.youtube.com/vi/X6_6XrGptqQ/maxresdefault.jpg'); 
             background-size: cover; 
             background-position: center; 
@@ -101,11 +118,11 @@
           " onmouseover="this.querySelector('i').style.color='#ff0000'"
             onmouseout="this.querySelector('i').style.color='white'">
 
-            <!-- 이미지를 살짝 어둡게 덮어주는 오버레이 -->
+            <!-- ?��?지�??�짝 ?�둡�???��주는 ?�버?�이 -->
             <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.3);">
             </div>
 
-            <!-- 완벽하게 중앙 정렬된 유튜브 로고 -->
+            <!-- ?�벽?�게 중앙 ?�렬???�튜�?로고 -->
             <i class="fa-brands fa-youtube" style="
               position: absolute;
               top: 50%;
@@ -126,47 +143,47 @@
       <div class="detail-section">
         <h2 class="detail-section-title">Overview</h2>
         <p class="detail-text">
-          어떤 프로젝트인가?
-          - 프로젝트의 목적
-          -주요 성과
-          -시스템 핵심 기능
+          ?�떤 ?�로?�트?��??
+          - ?�로?�트??목적
+          -주요 ?�과
+          -?�스???�심 기능
         </p>
       </div>
 
       <div class="detail-section">
         <h2 class="detail-section-title">My Role & Contributions</h2>
         <p class="detail-text">
-          -내가 직접 설계하고 구현한 부분
+          -?��? 직접 ?�계?�고 구현??부�?
         </p>
       </div>
 
       <div class="detail-section">
         <h2 class="detail-section-title">Technical Highlights</h2>
         <p class="detail-text">
-          - 시스템 전체 데이터 흐름 그림
-          - 이 기술을 왜,어떻게 썼는지
+          - ?�스???�체 ?�이???�름 그림
+          - ??기술?????�떻�??�는지
         </p>
       </div>
 
       <div class="detail-section">
         <h2 class="detail-section-title">Challenges & Solutions</h2>
         <p class="detail-text">
-          - 문제 상황>해결방법>결과
+          - 문제 ?�황>?�결방법>결과
         </p>
       </div>
 
       <div class="detail-section">
         <h2 class="detail-section-title">Reflection</h2>
         <p class="detail-text">
-          - 배운 점
-          - 아쉬운 점 & 발전 방향
+          - 배운 ??
+          - ?�쉬????& 발전 방향
         </p>
       </div>
     </section>
 
   </main>
 
-  <!-- Footer (기존과 동일) -->
+  <!-- Footer (기존�??�일) -->
   <footer class="footer">
     <ul class="social-list">
       <li class="social-list__item"><a class="social-list__link" href="mailto:uoyuvvou@gmail.com"><i
@@ -180,12 +197,13 @@
     </ul>
     <p class="footer-copyright">&copy; 2026 Gyuwon Na. All rights reserved.</p>
   </footer>
+  <script src="../../js/index.js"></script>
 
   <script src="https://unpkg.com/lucide@latest"></script>
   <script>
     lucide.createIcons();
 
-    // 네비게이션 토글 스크립트 (기존과 동일)
+    // ?�비게이???��? ?�크립트 (기존�??�일)
     function toggleNav() {
       const container = document.getElementById('navContainer');
       const triggerBtn = container.querySelector('.nav-trigger-btn');

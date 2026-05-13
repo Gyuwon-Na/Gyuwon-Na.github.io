@@ -16,12 +16,29 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap"
     rel="stylesheet" />
+  <script>
+    (() => {
+      try {
+        const savedTheme = localStorage.getItem('theme');
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+          document.documentElement.setAttribute('data-theme', 'dark');
+        }
+      } catch (error) {
+        document.documentElement.removeAttribute('data-theme');
+      }
+    })();
+  </script>
   <link rel="stylesheet" href="../../css/style.css" />
   <link rel="stylesheet" href="../../css/projects.css" />
 </head>
 
 <body>
   <div class="floating-nav-container" id="navContainer" role="navigation" aria-label="Main navigation">
+    <button class="theme-toggle-btn" id="themeToggle" aria-label="Switch to dark mode" aria-pressed="false">
+      <i class="fa-solid fa-moon" aria-hidden="true"></i>
+    </button>
+
     <button class="nav-trigger-btn" onclick="toggleNav()" aria-label="Open navigation menu" aria-expanded="false"><div class="hamburger-lines"><span></span><span></span></div></button>
     <nav class="nav-capsule-menu">
       <ul class="nav-links">
@@ -131,6 +148,7 @@
     </ul>
     <p class="footer-copyright">&copy; 2026 Gyuwon Na. All rights reserved.</p>
   </footer>
+  <script src="../../js/index.js"></script>
   <script src="https://unpkg.com/lucide@latest"></script>
   <script>function toggleNav(){const c=document.getElementById('navContainer');const b=c.querySelector('.nav-trigger-btn');const a=c.classList.toggle('active');b.setAttribute('aria-expanded',a);}lucide.createIcons();</script>
 </body>

@@ -39,7 +39,7 @@
   align-items: center;
   gap: 8px;
   padding: 12px 28px;
-  background: #fff;
+  background: var(--clr-surface);
   border: 2px solid var(--clr-border);
   border-radius: 50px;
   font-family: var(--ff-primary);
@@ -148,8 +148,8 @@
   align-items: center;
   gap: 8px;
   flex: 0 0 auto;
-  border: 1px solid rgba(29, 29, 31, 0.12);
-  background: #fff;
+  border: 1px solid var(--clr-border);
+  background: var(--clr-surface);
   color: var(--clr-text-main);
   border-radius: 999px;
   padding: 10px 18px;
@@ -182,17 +182,10 @@
   display: grid;
   grid-template-columns: 108px minmax(0, 1fr);
   min-height: 228px;
-  background: var(--clr-bg-alt);
+  background: var(--clr-surface-soft);
   border: 1px solid var(--clr-border);
   border-radius: 18px;
   overflow: hidden;
-  transition: var(--transition-smooth);
-}
-
-.compact-project-card:hover {
-  transform: translateY(-4px);
-  border-color: rgba(0, 122, 255, 0.22);
-  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.08);
 }
 
 .compact-project-card img {
@@ -242,9 +235,9 @@
 }
 
 .compact-tags span {
-  color: #555;
-  background: #fff;
-  border: 1px solid rgba(29, 29, 31, 0.08);
+  color: var(--clr-text-sub);
+  background: var(--clr-surface);
+  border: 1px solid var(--clr-border);
   border-radius: 999px;
   padding: 4px 9px;
   font-size: 0.75rem;
@@ -300,7 +293,7 @@
 .category-icon {
   width: 70px;
   height: 70px;
-  background: linear-gradient(135deg, var(--clr-accent) 0%, #0066CC 100%);
+  background: var(--clr-accent);
   border-radius: 20px;
   display: flex;
   align-items: center;
@@ -342,7 +335,7 @@
 
 /* Project Detail Card */
 .project-detail-card {
-  background: var(--clr-bg-alt);
+  background: var(--clr-surface-soft);
   border-radius: 24px;
   border: 1px solid var(--clr-border);
   overflow: hidden;
@@ -363,7 +356,7 @@
   width: 100%;
   padding-top: 56.25%;
   /* 16:9 aspect ratio */
-  background: linear-gradient(135deg, #e5e5e5 0%, #d1d1d6 100%);
+  background: linear-gradient(135deg, var(--clr-bg-alt) 0%, var(--clr-surface) 100%);
   overflow: hidden;
 }
 
@@ -497,7 +490,7 @@
 }
 
 .highlights-list li::before {
-  content: '→';
+  content: '??;
   position: absolute;
   left: 0;
   color: var(--clr-accent);
@@ -514,7 +507,7 @@
 
 .tech-badge {
   padding: 8px 16px;
-  background: #fff;
+  background: var(--clr-surface);
   border: 2px solid var(--clr-stack-border);
   border-radius: 12px;
   font-size: 0.85rem;
@@ -564,7 +557,7 @@
 }
 
 .action-btn.primary:hover {
-  background: #000;
+  background: var(--clr-accent);
   transform: translateY(-2px);
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
 }
@@ -584,7 +577,7 @@
 /* GitHub CTA Section */
 .github-cta {
   padding: 100px 20px;
-  background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+  background: linear-gradient(135deg, var(--clr-text-main) 0%, var(--clr-bg-alt) 100%);
   text-align: center;
 }
 
@@ -620,8 +613,8 @@
   align-items: center;
   gap: 10px;
   padding: 18px 40px;
-  background: #fff;
-  color: #1a1a1a;
+  background: var(--clr-surface);
+  color: var(--clr-bg);
   font-size: 1.05rem;
   font-weight: 700;
   border-radius: 50px;
@@ -800,7 +793,7 @@
   animation: fadeInUp 0.5s ease-out;
 }
 
-/* 포트폴리오 세부사항 페이지 전용 최소한의 레이아웃 조정 (기존 테마 변수 활용) */
+/* ?�트?�리???��??�항 ?�이지 ?�용 최소?�의 ?�이?�웃 조정 (기존 ?�마 변???�용) */
 .detail-hero {
   padding: 120px 20px 60px;
   background: linear-gradient(135deg, var(--clr-bg) 0%, var(--clr-bg-alt) 100%);
@@ -838,7 +831,7 @@
 .detail-media-placeholder {
   width: 100%;
   height: 400px;
-  background-color: #e5e5e5;
+  background-color: var(--clr-surface-soft);
   border-radius: 16px;
   display: flex;
   align-items: center;
@@ -870,7 +863,7 @@
   transform: translateX(-5px);
 }
 
-/* YouTube 반응형 비디오 래퍼 */
+/* YouTube 반응??비디???�퍼 */
 .video-wrapper {
   position: relative;
   padding-bottom: 56.25%;
@@ -895,7 +888,7 @@
    Challenges & Solutions Card Styles (Static)
    ========================================= */
 .challenge-card {
-  background: var(--clr-bg-alt);
+  background: var(--clr-surface-soft);
   border: 1px solid var(--clr-border);
   border-radius: 16px;
   padding: 30px;
@@ -925,7 +918,7 @@
   flex-shrink: 0;
 }
 
-/* 박스 공통 스타일 */
+/* 박스 공통 ?��???*/
 .cs-box {
   padding: 20px;
   border-radius: 12px;
@@ -941,7 +934,7 @@
   color: var(--clr-text-sub);
 }
 
-/* 해결(Solution) 박스 */
+/* ?�결(Solution) 박스 */
 .cs-box.solution {
   background: rgba(0, 122, 255, 0.04);
   border-left: 4px solid var(--clr-accent);
@@ -1009,7 +1002,7 @@
 }
 
 .page-section.alt {
-  background: var(--clr-bg-alt);
+  background: var(--clr-surface-soft);
 }
 
 .content-wrap {
@@ -1043,7 +1036,7 @@
 .metric-card,
 .research-list-card,
 .detail-callout {
-  background: #fff;
+  background: var(--clr-surface);
   border: 1px solid var(--clr-border);
   border-radius: 20px;
   padding: 28px;
@@ -1117,7 +1110,7 @@
   height: 12px;
   border-radius: 50%;
   background: var(--clr-accent);
-  border: 3px solid #fff;
+  border: 3px solid var(--clr-bg);
   box-shadow: 0 0 0 2px var(--clr-border);
 }
 
@@ -1176,7 +1169,7 @@
   overflow: hidden;
   border-radius: 20px;
   border: 1px solid var(--clr-border);
-  background: var(--clr-bg-alt);
+  background: var(--clr-surface-soft);
   box-shadow: 0 16px 40px rgba(0, 0, 0, 0.06);
   margin-bottom: 36px;
 }
@@ -1267,3 +1260,6 @@
     flex-direction: column;
   }
 }
+
+
+

@@ -1,4 +1,38 @@
 document.addEventListener('DOMContentLoaded', () => {
+  // --- Theme Toggle Logic ---
+  const themeToggle = document.getElementById('themeToggle');
+
+  const syncThemeToggle = () => {
+    if (!themeToggle) return;
+
+    const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+    themeToggle.setAttribute('aria-pressed', isDark);
+    themeToggle.setAttribute('aria-label', isDark ? 'Switch to light mode' : 'Switch to dark mode');
+    themeToggle.innerHTML = `<i class="fa-solid ${isDark ? 'fa-sun' : 'fa-moon'}" aria-hidden="true"></i>`;
+  };
+
+  if (themeToggle) {
+    syncThemeToggle();
+
+    themeToggle.addEventListener('click', () => {
+      const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+
+      if (isDark) {
+        document.documentElement.removeAttribute('data-theme');
+        try {
+          localStorage.setItem('theme', 'light');
+        } catch (error) {}
+      } else {
+        document.documentElement.setAttribute('data-theme', 'dark');
+        try {
+          localStorage.setItem('theme', 'dark');
+        } catch (error) {}
+      }
+
+      syncThemeToggle();
+    });
+  }
+
   // --- Navigation Toggle Logic ---
   const menuToggle = document.querySelector('.menu-toggle');
   const navOverlay = document.querySelector('.nav-overlay');

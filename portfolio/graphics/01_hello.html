@@ -23,6 +23,19 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap"
     rel="stylesheet" />
+  <script>
+    (() => {
+      try {
+        const savedTheme = localStorage.getItem('theme');
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+          document.documentElement.setAttribute('data-theme', 'dark');
+        }
+      } catch (error) {
+        document.documentElement.removeAttribute('data-theme');
+      }
+    })();
+  </script>
 
   <link rel="stylesheet" href="../../css/style.css" />
   <link rel="stylesheet" href="../../css/projects.css" />
@@ -32,6 +45,10 @@
 
   <!-- Floating Navigation -->
   <div class="floating-nav-container" id="navContainer" role="navigation" aria-label="Main navigation">
+    <button class="theme-toggle-btn" id="themeToggle" aria-label="Switch to dark mode" aria-pressed="false">
+      <i class="fa-solid fa-moon" aria-hidden="true"></i>
+    </button>
+
     <button class="nav-trigger-btn" onclick="toggleNav()" aria-label="Open navigation menu" aria-expanded="false">
       <div class="hamburger-lines">
         <span></span>
@@ -135,9 +152,9 @@
         </div>
       </div>
 
-      <!-- Reflection (Challenges & Solutions Format) -->
+      <!-- Challenges & Solutions -->
       <div class="detail-section">
-        <h2 class="detail-section-title">Reflection</h2>
+        <h2 class="detail-section-title">Challenges & Solutions</h2>
         
         <article class="challenge-card">
           <div class="challenge-header">
@@ -154,12 +171,25 @@
 
           <div class="cs-box solution">
             <div class="cs-box-title">
-              <i data-lucide="lightbulb" style="width:18px; height:18px;"></i> Solution & Takeaway
+              <i data-lucide="lightbulb" style="width:18px; height:18px;"></i> Solution
             </div>
-            <p>Through debugging, it turned out that the core issue stemmed from the incorrect ordering of buffer binding and <code>std::move</code> operations in C++. From this experience, I learned exactly how critical the <strong>correct order of operations</strong> is when working within the strict state-machine constraints of OpenGL binding buffers.</p>
+            <p>Through debugging, it turned out that the core issue stemmed from the incorrect ordering of buffer binding and <code>std::move</code> operations in C++.</p>
           </div>
         </article>
 
+      </div>
+
+      <!-- Reflection & Future Work -->
+      <div class="detail-section">
+        <h2 class="detail-section-title">Reflection & Future Work</h2>
+        <div class="project-highlights" style="background: rgba(0, 122, 255, 0.02); border-left-color: var(--clr-text-main);">
+          <ul class="highlights-list">
+            <li>
+              From this experience, I learned exactly how critical the <strong>correct order of operations</strong> is when working within the strict state-machine constraints of OpenGL binding buffers.
+            </li>
+            <li><strong>Future Work:</strong> </li>
+          </ul>
+        </div>
       </div>
     </section>
 
@@ -179,6 +209,7 @@
     </ul>
     <p class="footer-copyright">&copy; 2026 Gyuwon Na. All rights reserved.</p>
   </footer>
+  <script src="../../js/index.js"></script>
 
   <script src="https://unpkg.com/lucide@latest"></script>
   <script>

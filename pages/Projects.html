@@ -23,6 +23,19 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap"
     rel="stylesheet" />
+  <script>
+    (() => {
+      try {
+        const savedTheme = localStorage.getItem('theme');
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+          document.documentElement.setAttribute('data-theme', 'dark');
+        }
+      } catch (error) {
+        document.documentElement.removeAttribute('data-theme');
+      }
+    })();
+  </script>
 
   <link rel="stylesheet" href="../css/style.css" />
   <link rel="stylesheet" href="../css/projects.css" />
@@ -35,6 +48,10 @@
 
   <!-- Floating Navigation -->
   <div class="floating-nav-container" id="navContainer" role="navigation" aria-label="Main navigation">
+    <button class="theme-toggle-btn" id="themeToggle" aria-label="Switch to dark mode" aria-pressed="false">
+      <i class="fa-solid fa-moon" aria-hidden="true"></i>
+    </button>
+
     <button class="nav-trigger-btn" onclick="toggleNav()" aria-label="Open navigation menu" aria-expanded="false">
       <div class="hamburger-lines">
         <span></span>
@@ -444,7 +461,7 @@
                   <i data-lucide="github" aria-hidden="true"></i>
                   View Code
                 </a>
-                <!-- 버튼 (클릭 시 이동) -->
+                <!-- 버튼 (?�릭 ???�동) -->
                 <a href="../portfolio/autonomous_driving/V2X.html" class="action-btn secondary">
                   <i data-lucide="file-text" aria-hidden="true"></i>
                   View Details
@@ -515,7 +532,7 @@
                   <i data-lucide="github" aria-hidden="true"></i>
                   View Code
                 </a>
-                <!-- 버튼 (클릭 시 이동) -->
+                <!-- 버튼 (?�릭 ???�동) -->
                 <a href="../portfolio/autonomous_driving/creative_mobility.html" class="action-btn secondary">
                   <i data-lucide="file-text" aria-hidden="true"></i>
                   View Details
@@ -578,7 +595,7 @@
                   <i data-lucide="github" aria-hidden="true"></i>
                   View Code
                 </a>
-                <!-- 버튼 (클릭 시 이동) -->
+                <!-- 버튼 (?�릭 ???�동) -->
                 <a href="../portfolio/autonomous_driving/HL_FMA.html" class="action-btn secondary">
                   <i data-lucide="file-text" aria-hidden="true"></i>
                   View Details
@@ -641,7 +658,7 @@
                   <i data-lucide="github" aria-hidden="true"></i>
                   View Code
                 </a>
-                <!-- 버튼 (클릭 시 이동) -->
+                <!-- 버튼 (?�릭 ???�동) -->
                 <a href="../portfolio/autonomous_driving/MORAI.html" class="action-btn secondary">
                   <i data-lucide="file-text" aria-hidden="true"></i>
                   View Details
@@ -1342,7 +1359,7 @@
     </section>
 
     <!-- GitHub CTA -->
-    <section class="github-cta">
+    <!-- <section class="github-cta">
       <div class="container">
         <div class="github-cta__content">
           <i data-lucide="github" class="github-icon"></i>
@@ -1356,7 +1373,7 @@
           </a>
         </div>
       </div>
-    </section>
+    </section> -->
 
   </main>
 
@@ -1392,6 +1409,7 @@
   </footer>
 
   <script src="../js/projects.js"></script>
+  <script src="../js/index.js"></script>
   <script src="https://unpkg.com/lucide@latest"></script>
   <script>
     lucide.createIcons();

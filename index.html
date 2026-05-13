@@ -25,6 +25,20 @@
     href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap"
     rel="stylesheet" />
 
+  <script>
+    (() => {
+      try {
+        const savedTheme = localStorage.getItem('theme');
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+          document.documentElement.setAttribute('data-theme', 'dark');
+        }
+      } catch (error) {
+        document.documentElement.removeAttribute('data-theme');
+      }
+    })();
+  </script>
+
   <link rel="stylesheet" href="css/style.css" />
 </head>
 
@@ -35,6 +49,9 @@
 
   <!-- Floating Navigation -->
   <div class="floating-nav-container" id="navContainer" role="navigation" aria-label="Main navigation">
+    <button class="theme-toggle-btn" id="themeToggle" aria-label="Switch to dark mode" aria-pressed="false">
+      <i class="fa-solid fa-moon" aria-hidden="true"></i>
+    </button>
 
     <button class="nav-trigger-btn" onclick="toggleNav()" aria-label="Open navigation menu" aria-expanded="false">
       <div class="hamburger-lines">
@@ -87,6 +104,7 @@
         }
       }
     });
+
   </script>
 
   <!-- Main Content -->
@@ -127,80 +145,6 @@
           </div>
         </div>
 
-      </div>
-    </section>
-
-    <!-- Technology Stack Section -->
-    <section class="tech-stack-section" aria-label="Technology stack">
-      <div class="tech-stack-container">
-
-        <div class="fade-overlay left" aria-hidden="true"></div>
-        <div class="fade-overlay right" aria-hidden="true"></div>
-
-        <div class="tech-track">
-
-          <div class="tech-logo-group">
-            <div class="tech-item" data-tooltip="C">
-              <img src="img/logos/c.svg" alt="C programming language" loading="lazy">
-            </div>
-            <div class="tech-item" data-tooltip="Python">
-              <img src="img/logos/python.svg" alt="Python" loading="lazy">
-            </div>
-            <div class="tech-item" data-tooltip="ROS 2">
-              <img src="img/logos/ros.svg" alt="ROS 2" loading="lazy">
-            </div>
-            <div class="tech-item" data-tooltip="OpenGL">
-              <img src="img/logos/opengl.svg" alt="OpenGL" loading="lazy">
-            </div>
-            <div class="tech-item" data-tooltip="Unity">
-              <img src="img/logos/unity.svg" alt="Unity" loading="lazy">
-            </div>
-            <div class="tech-item" data-tooltip="PyTorch">
-              <img src="img/logos/pytorch.svg" alt="PyTorch" loading="lazy">
-            </div>
-            <div class="tech-item" data-tooltip="OpenCV">
-              <img src="img/logos/opencv.svg" alt="OpenCV" loading="lazy">
-            </div>
-            <div class="tech-item" data-tooltip="Linux">
-              <img src="img/logos/linux.svg" alt="Linux" loading="lazy">
-            </div>
-            <div class="tech-item" data-tooltip="Javascript">
-              <img src="img/logos/javascript.svg" alt="Javascript" loading="lazy">
-            </div>
-            <div class="tech-item" data-tooltip="Git">
-              <img src="img/logos/git.svg" alt="Git" loading="lazy">
-            </div>
-          </div>
-
-          <!-- Duplicate for seamless loop -->
-          <div class="tech-logo-group" aria-hidden="true">
-            <div class="tech-item" data-tooltip="C++">
-              <img src="img/logos/cplusplus.svg" alt="C++" loading="lazy">
-            </div>
-            <div class="tech-item" data-tooltip="Python">
-              <img src="img/logos/python.svg" alt="Python" loading="lazy">
-            </div>
-            <div class="tech-item" data-tooltip="ROS 2">
-              <img src="img/logos/ros.svg" alt="ROS 2" loading="lazy">
-            </div>
-            <div class="tech-item" data-tooltip="OpenGL">
-              <img src="img/logos/opengl.svg" alt="OpenGL" loading="lazy">
-            </div>
-            <div class="tech-item" data-tooltip="Unity">
-              <img src="img/logos/unity.svg" alt="Unity" loading="lazy">
-            </div>
-            <div class="tech-item" data-tooltip="PyTorch">
-              <img src="img/logos/pytorch.svg" alt="PyTorch" loading="lazy">
-            </div>
-            <div class="tech-item" data-tooltip="OpenCV">
-              <img src="img/logos/opencv.svg" alt="OpenCV" loading="lazy">
-            </div>
-            <div class="tech-item" data-tooltip="Linux">
-              <img src="img/logos/linux.svg" alt="Linux" loading="lazy">
-            </div>
-          </div>
-
-        </div>
       </div>
     </section>
 
@@ -379,6 +323,99 @@
           </a>
         </div>
 
+      </div>
+    </section>
+
+    <!-- Technology Stack Section -->
+    <section class="tech-stack-section" aria-labelledby="tech-stack-title">
+      <div class="tech-stack-container">
+        <h2 id="tech-stack-title" class="section__title">Tech Stack</h2>
+
+        <div class="tech-level-legend" aria-label="Skill level legend">
+          <span><i class="level-dot level-dot--primary" aria-hidden="true"></i>Primary</span>
+          <span><i class="level-dot level-dot--applied" aria-hidden="true"></i>Applied</span>
+          <span><i class="level-dot level-dot--familiar" aria-hidden="true"></i>Familiar</span>
+        </div>
+
+        <div class="tech-category-grid">
+          <article class="tech-category">
+            <h3>Languages</h3>
+            <div class="tech-skill-list">
+              <div class="tech-skill" data-level="primary">
+                <img src="img/logos/cplusplus.svg" alt="" loading="lazy">
+                <span class="tech-name">C/C++</span>
+                <span class="tech-level">Primary</span>
+              </div>
+              <div class="tech-skill" data-level="primary">
+                <img src="img/logos/python.svg" alt="" loading="lazy">
+                <span class="tech-name">Python</span>
+                <span class="tech-level">Primary</span>
+              </div>
+              <div class="tech-skill" data-level="familiar">
+                <img src="img/logos/javascript.svg" alt="" loading="lazy">
+                <span class="tech-name">JavaScript</span>
+                <span class="tech-level">Familiar</span>
+              </div>
+              <div class="tech-skill" data-level="applied">
+                <span class="tech-mark" aria-hidden="true">GL</span>
+                <span class="tech-name">GLSL</span>
+                <span class="tech-level">Applied</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="tech-category">
+            <h3>Tools &amp; Platforms</h3>
+            <div class="tech-skill-list">
+              <div class="tech-skill" data-level="primary">
+                <img src="img/logos/linux.svg" alt="" loading="lazy">
+                <span class="tech-name">Linux</span>
+                <span class="tech-level">Primary</span>
+              </div>
+              <div class="tech-skill" data-level="primary">
+                <img src="img/logos/git.svg" alt="" loading="lazy">
+                <span class="tech-name">Git</span>
+                <span class="tech-level">Primary</span>
+              </div>
+              <div class="tech-skill" data-level="primary">
+                <span class="tech-mark" aria-hidden="true">CM</span>
+                <span class="tech-name">CMake</span>
+                <span class="tech-level">Primary</span>
+              </div>
+              <div class="tech-skill" data-level="applied">
+                <img src="img/logos/ros.svg" alt="" loading="lazy">
+                <span class="tech-name">ROS1/ROS2</span>
+                <span class="tech-level">Applied</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="tech-category">
+            <h3>Libraries &amp; Engines</h3>
+            <div class="tech-skill-list">
+              <div class="tech-skill" data-level="primary">
+                <img src="img/logos/opengl.svg" alt="" loading="lazy">
+                <span class="tech-name">OpenGL</span>
+                <span class="tech-level">Primary</span>
+              </div>
+              <div class="tech-skill" data-level="applied">
+                <img src="img/logos/opencv.svg" alt="" loading="lazy">
+                <span class="tech-name">OpenCV</span>
+                <span class="tech-level">Applied</span>
+              </div>
+              <div class="tech-skill" data-level="applied">
+                <img src="img/logos/pytorch.svg" alt="" loading="lazy">
+                <span class="tech-name">PyTorch</span>
+                <span class="tech-level">Applied</span>
+              </div>
+              <div class="tech-skill" data-level="familiar">
+                <img src="img/logos/unity.svg" alt="" loading="lazy">
+                <span class="tech-name">Unity</span>
+                <span class="tech-level">Familiar</span>
+              </div>
+            </div>
+          </article>
+        </div>
       </div>
     </section>
 
