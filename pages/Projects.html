@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Projects - Gyuwon Na</title>
   <meta name="description"
-    content="Explore my projects in Game Development, Autonomous Driving, and Computer Graphics.">
+    content="Explore my projects in Games, Autonomous Driving, Computer Vision, and Computer Graphics.">
 
   <!-- Normalize -->
   <link rel="stylesheet" href="../external/normalize.css" />
@@ -122,9 +122,13 @@
             <i data-lucide="cpu" aria-hidden="true"></i>
             Computer Graphics
           </button>
+          <button class="filter-btn" data-category="vision" role="tab" aria-selected="false">
+            <i data-lucide="scan-search" aria-hidden="true"></i>
+            Computer Vision
+          </button>
           <button class="filter-btn" data-category="game" role="tab" aria-selected="false">
             <i data-lucide="gamepad-2" aria-hidden="true"></i>
-            Game Development
+            Games
           </button>
         </div>
       </div>
@@ -332,7 +336,37 @@
         <div class="overview-category">
           <div class="overview-category__header">
             <div>
-              <h3>Game Development</h3>
+              <h3>Computer Vision</h3>
+              <p>Visual recognition and retrieval projects that connect model design with practical object search.</p>
+            </div>
+            <button class="overview-filter-link" type="button" data-target-category="vision">
+              Detailed View <i data-lucide="arrow-right"></i>
+            </button>
+          </div>
+
+          <div class="compact-project-grid">
+            <article class="compact-project-card">
+              <div class="compact-project-visual compact-project-visual--vision" aria-hidden="true">
+                <i data-lucide="scan-search"></i>
+              </div>
+              <div class="compact-project-card__body">
+                <div class="compact-project-card__meta">AI Model Design</div>
+                <h4>Lego Finder</h4>
+                <p>Model-assisted visual search pipeline for identifying Lego pieces or sets from images.</p>
+                <div class="compact-tags">
+                  <span>Python</span><span>PyTorch</span><span>OpenCV</span>
+                </div>
+                <div class="compact-highlight">Visual Search</div>
+                <a href="../portfolio/computer_vision/lego_finder.html" class="compact-card-link">View Details</a>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <div class="overview-category">
+          <div class="overview-category__header">
+            <div>
+              <h3>Games</h3>
               <p>Playable loops, gameplay systems, state flow, and team production practices.</p>
             </div>
             <button class="overview-filter-link" type="button" data-target-category="game">
@@ -370,7 +404,7 @@
             </article>
 
             <article class="compact-project-card">
-              <img src="../img/portfolio_thumbnails/01_hello.jpg" alt="Resonate">
+              <img src="../img/portfolio_thumbnails/games/Resonate.jpg" alt="Resonate">
               <div class="compact-project-card__body">
                 <div class="compact-project-card__meta">GAM 100</div>
                 <h4>Resonate</h4>
@@ -699,7 +733,7 @@
               <div class="project-meta">
                 <span class="project-date">
                   <i data-lucide="calendar" aria-hidden="true"></i>
-                  MM 2025
+                  MAR 2025
                 </span>
                 <span class="project-type">
                   <i data-lucide="tag" aria-hidden="true"></i>
@@ -754,12 +788,12 @@
             </div>
 
             <div class="project-detail-card__content">
-              <h3 class="project-detail-card__title">meshes</h3>
+              <h3 class="project-detail-card__title">Procedural Geometric Modeling</h3>
 
               <div class="project-meta">
                 <span class="project-date">
                   <i data-lucide="calendar" aria-hidden="true"></i>
-                  MM 2025
+                  APR 2025
                 </span>
                 <span class="project-type">
                   <i data-lucide="tag" aria-hidden="true"></i>
@@ -811,12 +845,12 @@
             </div>
 
             <div class="project-detail-card__content">
-              <h3 class="project-detail-card__title">fog</h3>
+              <h3 class="project-detail-card__title">Fog</h3>
 
               <div class="project-meta">
                 <span class="project-date">
                   <i data-lucide="calendar" aria-hidden="true"></i>
-                  MM 2025
+                  APR 2025
                 </span>
                 <span class="project-type">
                   <i data-lucide="tag" aria-hidden="true"></i>
@@ -870,12 +904,12 @@
             </div>
 
             <div class="project-detail-card__content">
-              <h3 class="project-detail-card__title">toon shading</h3>
+              <h3 class="project-detail-card__title">Toon Shading</h3>
 
               <div class="project-meta">
                 <span class="project-date">
                   <i data-lucide="calendar" aria-hidden="true"></i>
-                  MM 2025
+                  MAY 2025
                 </span>
                 <span class="project-type">
                   <i data-lucide="tag" aria-hidden="true"></i>
@@ -931,12 +965,12 @@
             </div>
 
             <div class="project-detail-card__content">
-              <h3 class="project-detail-card__title">Shadow</h3>
+              <h3 class="project-detail-card__title">Shadow Mapping</h3>
 
               <div class="project-meta">
                 <span class="project-date">
                   <i data-lucide="calendar" aria-hidden="true"></i>
-                  MM 2025
+                  MAY 2025
                 </span>
                 <span class="project-type">
                   <i data-lucide="tag" aria-hidden="true"></i>
@@ -992,12 +1026,12 @@
             </div>
 
             <div class="project-detail-card__content">
-              <h3 class="project-detail-card__title">Value</h3>
+              <h3 class="project-detail-card__title">Value Noise</h3>
 
               <div class="project-meta">
                 <span class="project-date">
                   <i data-lucide="calendar" aria-hidden="true"></i>
-                  MM 2025
+                  JUN 2025
                 </span>
                 <span class="project-type">
                   <i data-lucide="tag" aria-hidden="true"></i>
@@ -1051,12 +1085,12 @@
             </div>
 
             <div class="project-detail-card__content">
-              <h3 class="project-detail-card__title">Gradient</h3>
+              <h3 class="project-detail-card__title">Gradient Noise</h3>
 
               <div class="project-meta">
                 <span class="project-date">
                   <i data-lucide="calendar" aria-hidden="true"></i>
-                  MM 2025
+                  JUN 2025
                 </span>
                 <span class="project-type">
                   <i data-lucide="tag" aria-hidden="true"></i>
@@ -1116,7 +1150,7 @@
               <div class="project-meta">
                 <span class="project-date">
                   <i data-lucide="calendar" aria-hidden="true"></i>
-                  MM 2025
+                  JUN 2025
                 </span>
                 <span class="project-type">
                   <i data-lucide="tag" aria-hidden="true"></i>
@@ -1169,7 +1203,83 @@
       </div>
     </section>
 
-    <!-- Game Projects -->
+    <!-- Computer Vision Projects -->
+    <section class="project-category" id="vision-section" data-category="vision">
+      <div class="container">
+        <div class="category-header">
+          <div class="category-icon">
+            <i data-lucide="scan-search"></i>
+          </div>
+          <div class="category-info">
+            <h2 class="category-title">Computer Vision</h2>
+            <p class="category-description">Visual recognition and retrieval systems built around practical object search</p>
+          </div>
+        </div>
+
+        <div class="projects-grid">
+
+          <article class="project-detail-card">
+            <div class="project-detail-card__visual">
+              <div class="project-visual-placeholder project-visual-placeholder--vision" aria-hidden="true">
+                <i data-lucide="scan-search"></i>
+                <span>Lego Finder</span>
+              </div>
+              <span class="project-status">In Progress</span>
+            </div>
+
+            <div class="project-detail-card__content">
+              <h3 class="project-detail-card__title">Lego Finder</h3>
+
+              <div class="project-meta">
+                <span class="project-date">
+                  <i data-lucide="calendar" aria-hidden="true"></i> APR 2026 - JUN 2026
+                </span>
+                <span class="project-type">
+                  <i data-lucide="tag" aria-hidden="true"></i>
+                  AI Model Design Coursework
+                </span>
+              </div>
+
+              <p class="project-detail-card__description">
+                Computer vision project for building a model-assisted visual search workflow that helps identify Lego
+                pieces or sets from images.
+              </p>
+
+              <div class="project-highlights">
+                <h4 class="highlights-title">Planned Engineering Tasks</h4>
+                <ul class="highlights-list">
+                  <li>Design an image-based recognition or retrieval pipeline for Lego objects.</li>
+                  <li>Prepare dataset structure, preprocessing, and evaluation criteria for model comparison.</li>
+                  <li>Connect model predictions to a practical search interface or ranked result flow.</li>
+                </ul>
+              </div>
+
+              <div class="tech-stack-detailed">
+                <span class="tech-badge">Python</span>
+                <span class="tech-badge">PyTorch</span>
+                <span class="tech-badge">OpenCV</span>
+                <span class="tech-badge">Image Retrieval</span>
+              </div>
+
+              <div class="project-actions">
+                <a href="https://github.com/Gyuwon-Na" target="_blank" rel="noopener noreferrer"
+                  class="action-btn primary">
+                  <i data-lucide="github" aria-hidden="true"></i>
+                  View Code
+                </a>
+                <a href="../portfolio/computer_vision/lego_finder.html" class="action-btn secondary">
+                  <i data-lucide="file-text" aria-hidden="true"></i>
+                  View Details
+                </a>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Games Projects -->
     <section class="project-category" id="game-section" data-category="game">
       <div class="container">
         <div class="category-header">
@@ -1177,7 +1287,7 @@
             <i data-lucide="gamepad-2"></i>
           </div>
           <div class="category-info">
-            <h2 class="category-title">Game Development</h2>
+            <h2 class="category-title">Games</h2>
             <p class="category-description">Interactive experiences built with Unity and custom engines</p>
           </div>
         </div>
@@ -1301,8 +1411,8 @@
           <!-- Game Project 3 -->
           <article class="project-detail-card">
             <div class="project-detail-card__visual">
-              <img src="../img/portfolio_thumbnails/01_hello.jpg" alt="Game Project 3" class="img-static" loading="lazy">
-              <img src="../img/portfolio_thumbnails/01_hello.jpg" alt="Game Project 3 animation" class="img-gif" loading="lazy">
+              <img src="../img/portfolio_thumbnails/games/Resonate.jpg" alt="Game Project 3" class="img-static" loading="lazy">
+              <img src="../img/portfolio_thumbnails/games/Resonate.jpg" alt="Game Project 3 animation" class="img-gif" loading="lazy">
               <span class="project-status">Completed</span>
             </div>
 

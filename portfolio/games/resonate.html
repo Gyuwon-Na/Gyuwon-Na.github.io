@@ -76,24 +76,36 @@
 
     <section class="detail-content">
       <div class="detail-figure">
-        <div class="visual-placeholder">Gameplay Capture Placeholder</div>
+        <iframe
+          title="Playable Resonate web build"
+          src="./resonate-web/index.html?v=20260519-0201"
+          allow="autoplay; fullscreen"
+          allowfullscreen
+          loading="lazy"></iframe>
       </div>
 
       <div class="detail-section">
         <h2 class="detail-section-title">Overview</h2>
         <p class="detail-text">
-          Resonate is an early team game project that helped establish my foundation in C++ gameplay programming. The
-          project emphasized shipping a complete experience with a constrained toolset: core loop, interaction rules,
-          UI flow, audio/visual feedback, and predictable behavior across repeated playthroughs.
+          Resonate is a single-player top-view boss rush game built by Team Star-Link for GAM 100. I worked as the
+          Technical Lead and Game Programmer, focusing on the player systems, boss pattern logic, collision behavior,
+          restart flow, and the overall stability of the C++/raylib implementation.
+        </p>
+        <p class="detail-text">
+          The original plan was to make combat feel less repetitive by combining boss attacks with fast, pattern-based
+          challenges. By the final milestone, the project became a compact RPG-style boss raid where the player reads
+          basic and special attack patterns, survives long enough to understand them, and finds openings to defeat the
+          boss.
         </p>
       </div>
 
       <div class="detail-section">
-        <h2 class="detail-section-title">What the Detail Page Shows</h2>
+        <h2 class="detail-section-title">Project Focus</h2>
         <ul class="highlights-list">
-          <li>How I decomposed gameplay into small systems that could be tested and adjusted independently.</li>
-          <li>How player feedback was tied to state changes so mechanics felt understandable rather than hidden.</li>
-          <li>How the team balanced scope with reliability to complete the project on schedule.</li>
+          <li>Built a readable boss fight around repeated attempts, pattern recognition, and high-pressure attacks.</li>
+          <li>Connected keyboard movement, mouse attacks, healing, health state, boss behavior, and end conditions into one playable loop.</li>
+          <li>Used playtesting to tune pacing, reduce downtime, and make special patterns feel understandable instead of arbitrary.</li>
+          <li>Balanced ambitious ideas against the deadline by cutting features that did not strengthen the final experience.</li>
         </ul>
       </div>
 
@@ -106,14 +118,14 @@
             <p class="info-card__text">Implemented responsive player input with clear separation between input capture and gameplay response.</p>
           </article>
           <article class="info-card">
-            <i data-lucide="shuffle"></i>
-            <h3 class="info-card__title">State Flow</h3>
-            <p class="info-card__text">Managed transitions between active play, win/loss conditions, and reset behavior.</p>
+            <i data-lucide="shield-alert"></i>
+            <h3 class="info-card__title">Boss Patterns</h3>
+            <p class="info-card__text">Programmed real-time attack patterns with distinct behavior so the boss felt threatening and learnable.</p>
           </article>
           <article class="info-card">
             <i data-lucide="volume-2"></i>
-            <h3 class="info-card__title">Game Feel</h3>
-            <p class="info-card__text">Connected mechanics to visual and audio feedback to make actions legible to the player.</p>
+            <h3 class="info-card__title">Feedback Loop</h3>
+            <p class="info-card__text">Linked animation, audio, health, and state changes so player actions and boss pressure were easier to read.</p>
           </article>
         </div>
       </div>
@@ -121,14 +133,38 @@
       <div class="detail-section">
         <h2 class="detail-section-title">Challenges & Solutions</h2>
         <article class="challenge-card">
-          <div class="challenge-header"><span class="challenge-header-num">1</span> Building a Complete Loop</div>
+          <div class="challenge-header"><span class="challenge-header-num">1</span> Collision and Boss Contact</div>
           <div class="cs-box problem">
             <div class="cs-box-title"><i data-lucide="alert-triangle"></i> Challenge</div>
-            <p>The project needed to feel complete even though the team was still building fundamental programming and collaboration habits.</p>
+            <p>During development, collision bugs could trap the player on or under the boss, breaking the fight and making repeated attempts frustrating.</p>
           </div>
           <div class="cs-box solution">
             <div class="cs-box-title"><i data-lucide="lightbulb"></i> Solution</div>
-            <p>Kept the scope tight, implemented the core loop first, and used each milestone to harden existing behavior before adding new content.</p>
+            <p>I reworked the collision response so movement and boss contact behaved predictably, then tested the fight repeatedly around edge cases.</p>
+          </div>
+        </article>
+
+        <article class="challenge-card">
+          <div class="challenge-header"><span class="challenge-header-num">2</span> Rewriting Unstable Code</div>
+          <div class="cs-box problem">
+            <div class="cs-box-title"><i data-lucide="alert-triangle"></i> Challenge</div>
+            <p>As more patterns and interactions were added, the team found that the code was not organized well enough to keep debugging safely.</p>
+          </div>
+          <div class="cs-box solution">
+            <div class="cs-box-title"><i data-lucide="lightbulb"></i> Solution</div>
+            <p>We made the difficult decision to rewrite large parts of the project. That reset cost time, but it gave us a cleaner structure for the final build.</p>
+          </div>
+        </article>
+
+        <article class="challenge-card">
+          <div class="challenge-header"><span class="challenge-header-num">3</span> Scope and Deadline Pressure</div>
+          <div class="cs-box problem">
+            <div class="cs-box-title"><i data-lucide="alert-triangle"></i> Challenge</div>
+            <p>The initial design included several exciting ideas, but not every idea could be finished to a reliable standard within the milestone schedule.</p>
+          </div>
+          <div class="cs-box solution">
+            <div class="cs-box-title"><i data-lucide="lightbulb"></i> Solution</div>
+            <p>We focused on the strongest parts of the game: boss presence, attack patterns, visual animation, and a complete playable loop.</p>
           </div>
         </article>
       </div>
@@ -136,8 +172,15 @@
       <div class="detail-section">
         <h2 class="detail-section-title">Reflection</h2>
         <p class="detail-text">
-          Resonate was the project where I began thinking like a systems programmer. It taught me that even a small game
-          benefits from clean ownership, clear update order, and fast feedback during testing.
+          Resonate was my first serious lesson in how quickly a game project becomes a systems problem. The final result
+          was not just about implementing movement or attacks; it was about keeping many small behaviors reliable while
+          art, audio, design, and code were all changing at the same time.
+        </p>
+        <p class="detail-text">
+          The most important lesson was that good development requires tradeoffs. We had to discard some interesting
+          ideas, rewrite code when the structure stopped supporting us, and use playtesting to decide what actually made
+          the fight better. By the end, I had a much stronger understanding of technical ownership, debugging discipline,
+          and why planning matters even for a small team project.
         </p>
       </div>
 

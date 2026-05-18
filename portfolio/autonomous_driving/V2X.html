@@ -39,6 +39,27 @@
 
   <link rel="stylesheet" href="../../css/style.css" />
   <link rel="stylesheet" href="../../css/projects.css" />
+  <style>
+    .v2x-dash-list li {
+      padding-left: 30px;
+    }
+
+    .v2x-dash-list li::before {
+      content: "";
+      display: block;
+      position: absolute;
+      width: 14px;
+      height: 2px;
+      border-radius: 999px;
+      background: var(--clr-accent);
+      left: 0;
+      top: 0.82em;
+    }
+
+    .v2x-dash-list li strong {
+      color: var(--clr-text-main);
+    }
+  </style>
 </head>
 
 <body>
@@ -147,32 +168,233 @@
         <p class="detail-text">
           The <strong>V2X-Based Cooperative Driving System</strong> was developed for the KAIST Mobility Challenge
           Competition, where our team was honored with the <strong>Excellence Award</strong>. The core objective of this
-          project was to navigate complex, multi-agent traffic scenarios, such as collision-free intersection crossing
-          and dynamic overtaking, by exclusively leveraging V2X communication and cooperative driving protocols.
+          project was to navigate complex, multi-agent traffic scenarios, such as CAV roundabout entry/exit around a
+          continuously circulating HV and four-way intersection negotiation among CAV1-CAV4, by exclusively leveraging
+          V2X communication and cooperative driving protocols.
           <br><br>
           As a core software engineer on the team, I spearheaded the development of the <strong>decision-making and
-            control pipeline</strong>. My primary contributions included designing a TTC-based collision avoidance logic
-          for intersections, implementing an MPC-based path tracking algorithm, and refactoring the system
+            control pipeline</strong>. My primary contributions included designing rule-based collision avoidance logic
+          for intersections, implementing an MPC-inspired Pure Pursuit path tracking algorithm, and refactoring the system
             architecture to enable dynamic vehicle allocation and rapid parameter tuning in the field.
         </p>
       </div>
 
       <div class="detail-section">
         <h2 class="detail-section-title">My Role & Contributions</h2>
-        <p class="detail-text">
-          -?��? 직접 ?�계?�고 구현??부�?
+        <p class="detail-text" style="margin-bottom: 25px;">
+          In this project, I led the implementation of the <strong>cooperative decision-making and control
+            pipeline</strong> for a multi-CAV driving scenario. My work focused on translating V2X-shared vehicle
+          states into safe, executable behaviors, while also improving the system architecture so the team could
+          deploy, tune, and recover the fleet quickly during field tests.
         </p>
+
+        <div style="margin-bottom: 30px;">
+          <h3
+            style="font-size: 1.15rem; color: var(--clr-accent); margin-bottom: 15px; display: flex; align-items: center; gap: 8px;">
+            <i data-lucide="radio-tower" style="width: 20px; height: 20px;"></i> V2X Decision-Making Logic
+          </h3>
+          <ul class="highlights-list v2x-dash-list"
+            style="background: var(--clr-bg-alt); padding: 20px 20px 20px 40px; border-radius: 12px; border-left: 3px solid var(--clr-accent);">
+            <li style="margin-bottom: 10px;">
+              <strong>Roundabout & Intersection Collision Avoidance:</strong> Designed rule-based decision logic for
+              allowing CAVs to enter and exit the roundabout without colliding with the circulating HV, while also
+              preventing conflicts among CAV1-CAV4 at four-way intersections.
+            </li>
+            <li style="margin-bottom: 10px;">
+              <strong>Stop-or-Go Priority Rule:</strong> Implemented logic that decides whether the ego CAV should stop
+              and yield or pass first based on relative position, velocity, and proximity to nearby vehicles.
+            </li>
+            <li>
+              <strong>V2X State Interpretation:</strong> Built decision logic around shared vehicle state information
+              rather than onboard perception alone, allowing the system to respond to surrounding CAV behavior through
+              cooperative communication.
+            </li>
+          </ul>
+        </div>
+
+        <div style="margin-bottom: 30px;">
+          <h3
+            style="font-size: 1.15rem; color: #ff9800; margin-bottom: 15px; display: flex; align-items: center; gap: 8px;">
+            <i data-lucide="route" style="width: 20px; height: 20px;"></i> Path Tracking & Vehicle Control
+          </h3>
+          <ul class="highlights-list v2x-dash-list"
+            style="background: var(--clr-bg-alt); padding: 20px 20px 20px 40px; border-radius: 12px; border-left: 3px solid #ff9800;">
+            <li style="margin-bottom: 10px;">
+              <strong>Pure Pursuit-Based Predictive Tracking:</strong> Implemented an MPC-inspired path-tracking
+              pipeline based on Pure Pursuit, used to follow reference trajectories while handling vehicle-specific
+              tuning constraints.
+            </li>
+            <li style="margin-bottom: 10px;">
+              <strong>Rule-Based Velocity Publishing:</strong> Published velocity commands according to the stop-or-go
+              decision rule when another vehicle entered the front/rear safety range of about 0.5 m.
+            </li>
+            <li style="margin-bottom: 10px;">
+              <strong>Sim-to-Real Braking Compensation:</strong> Developed a dual-parameter sigmoid deceleration
+              strategy to reduce inertial drift that appeared on physical vehicles but not in simulation.
+            </li>
+            <li>
+              <strong>Vehicle-Specific Parameter Tuning:</strong> Built a tuning architecture that allowed control
+              parameters to be adjusted per vehicle, improving consistency across CAVs with different mechanical
+              responses.
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <h3
+            style="font-size: 1.15rem; color: #4caf50; margin-bottom: 15px; display: flex; align-items: center; gap: 8px;">
+            <i data-lucide="settings" style="width: 20px; height: 20px;"></i> System Architecture & Field Deployment
+          </h3>
+          <ul class="highlights-list v2x-dash-list"
+            style="background: var(--clr-bg-alt); padding: 20px 20px 20px 40px; border-radius: 12px; border-left: 3px solid #4caf50;">
+            <li style="margin-bottom: 10px;">
+              <strong>Dynamic Domain ID Allocation:</strong> Refactored hardcoded vehicle assignment into an external
+              YAML-based configuration flow, reducing field setup time and avoiding repeated rebuilds.
+            </li>
+            <li style="margin-bottom: 10px;">
+              <strong>Launch & Recovery Runbook:</strong> Standardized the ROS2 launch sequence, CAV bridge startup,
+              race-start service call, and cleanup procedures used during final competition execution.
+            </li>
+            <li>
+              <strong>Competition-Day Stabilization:</strong> Focused on reproducibility under time pressure by
+              documenting readiness checks, stale process cleanup, DDS shared-memory recovery, and remote host operation.
+            </li>
+          </ul>
+        </div>
       </div>
 
       <div class="detail-section">
         <h2 class="detail-section-title">Technical Highlights</h2>
-        <p class="detail-text">
-          - ?�스???�체 ?�이???�름 그림
-          - ??기술?????�떻�??�는지
-        </p>
+
+        <div class="project-highlights"
+          style="background: var(--clr-bg-alt); border-left-color: var(--clr-accent); margin-bottom: 28px;">
+          <div style="display: grid; gap: 10px;">
+            <div style="display: grid; grid-template-columns: 86px minmax(0, 1fr); gap: 12px; align-items: stretch;">
+              <div
+                style="display: flex; flex-direction: column; justify-content: center; align-items: center; border-radius: 8px; background: rgba(0, 122, 255, 0.08); color: var(--clr-accent); font-weight: 700;">
+                <span>01</span>
+                <span style="font-size: 0.75rem; opacity: 0.82;">INPUT</span>
+              </div>
+              <div
+                style="padding: 14px 16px; border-radius: 8px; background: var(--clr-bg); border: 1px solid rgba(128,128,128,0.18);">
+                <strong>OptiTrack</strong><br>
+                <span style="font-size: 0.92rem; opacity: 0.78;">pose, velocity, vehicle ID</span>
+              </div>
+            </div>
+
+            <div style="display: flex; align-items: center; gap: 10px; margin-left: 36px; color: var(--clr-accent);">
+              <i data-lucide="arrow-down" style="width: 18px; height: 18px;"></i>
+              <span style="font-size: 0.86rem; opacity: 0.82;">compute path-tracking steering from vehicle pose</span>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 86px minmax(0, 1fr); gap: 12px; align-items: stretch;">
+              <div
+                style="display: flex; flex-direction: column; justify-content: center; align-items: center; border-radius: 8px; background: rgba(0, 122, 255, 0.08); color: var(--clr-accent); font-weight: 700;">
+                <span>02</span>
+                <span style="font-size: 0.75rem; opacity: 0.82;">TRACK</span>
+              </div>
+              <div
+                style="padding: 14px 16px; border-radius: 8px; background: var(--clr-bg); border: 1px solid rgba(128,128,128,0.18);">
+                <strong>MPC-Guided Pure Pursuit Tracking</strong><br>
+                <span style="font-size: 0.92rem; opacity: 0.78;">reference path following with MPC-style tuning</span>
+              </div>
+            </div>
+
+            <div style="display: flex; align-items: center; gap: 10px; margin-left: 36px; color: var(--clr-accent);">
+              <i data-lucide="arrow-down" style="width: 18px; height: 18px;"></i>
+              <span style="font-size: 0.86rem; opacity: 0.82;">evaluate collision risk before publishing speed</span>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 86px minmax(0, 1fr); gap: 12px; align-items: stretch;">
+              <div
+                style="display: flex; flex-direction: column; justify-content: center; align-items: center; border-radius: 8px; background: rgba(0, 122, 255, 0.08); color: var(--clr-accent); font-weight: 700;">
+                <span>03</span>
+                <span style="font-size: 0.75rem; opacity: 0.82;">DECIDE</span>
+              </div>
+              <div
+                style="padding: 14px 16px; border-radius: 8px; background: var(--clr-bg); border: 1px solid rgba(128,128,128,0.18);">
+                <strong>Intersection Safety Rule</strong><br>
+                <span style="font-size: 0.92rem; opacity: 0.78;">decides stop/yield or pass-first velocity at conflict zones</span>
+                <div style="display: grid; gap: 7px; margin-top: 12px;">
+                  <div
+                    style="display: flex; align-items: center; gap: 10px; padding: 9px 11px; border-radius: 8px; background: rgba(128,128,128,0.08); border: 1px solid rgba(128,128,128,0.14);">
+                    <span
+                      style="display: inline-flex; align-items: center; justify-content: center; width: 24px; height: 24px; border-radius: 999px; background: var(--clr-bg-alt); color: var(--clr-accent); font-weight: 700; font-size: 0.82rem; flex: 0 0 auto;">1</span>
+                    <span>CAV entry/exit around circulating HV</span>
+                  </div>
+                  <div
+                    style="display: flex; align-items: center; gap: 10px; padding: 9px 11px; border-radius: 8px; background: rgba(128,128,128,0.08); border: 1px solid rgba(128,128,128,0.14);">
+                    <span
+                      style="display: inline-flex; align-items: center; justify-content: center; width: 24px; height: 24px; border-radius: 999px; background: var(--clr-bg-alt); color: var(--clr-accent); font-weight: 700; font-size: 0.82rem; flex: 0 0 auto;">2</span>
+                    <span>Route-Length Priority</span>
+                  </div>
+                  <div
+                    style="display: flex; align-items: center; gap: 10px; padding: 9px 11px; border-radius: 8px; background: rgba(128,128,128,0.08); border: 1px solid rgba(128,128,128,0.14);">
+                    <span
+                      style="display: inline-flex; align-items: center; justify-content: center; width: 24px; height: 24px; border-radius: 999px; background: var(--clr-bg-alt); color: var(--clr-accent); font-weight: 700; font-size: 0.82rem; flex: 0 0 auto;">3</span>
+                    <span>Front/rear 0.5 m proximity gate</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div style="display: flex; align-items: center; gap: 10px; margin-left: 36px; color: var(--clr-accent);">
+              <i data-lucide="arrow-down" style="width: 18px; height: 18px;"></i>
+              <span style="font-size: 0.86rem; opacity: 0.82;">combine Pure Pursuit steering with selected velocity</span>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 86px minmax(0, 1fr); gap: 12px; align-items: stretch;">
+              <div
+                style="display: flex; flex-direction: column; justify-content: center; align-items: center; border-radius: 8px; background: rgba(0, 122, 255, 0.08); color: var(--clr-accent); font-weight: 700;">
+                <span>04</span>
+                <span style="font-size: 0.75rem; opacity: 0.82;">COMMAND</span>
+              </div>
+              <div
+                style="padding: 14px 16px; border-radius: 8px; background: var(--clr-bg); border: 1px solid rgba(128,128,128,0.18);">
+                <strong>Velocity / Steering Command Publisher</strong><br>
+                <span style="font-size: 0.92rem; opacity: 0.78;">rule-selected speed + Pure Pursuit steering</span>
+              </div>
+            </div>
+
+            <div style="display: flex; align-items: center; gap: 10px; margin-left: 36px; color: var(--clr-accent);">
+              <i data-lucide="arrow-down" style="width: 18px; height: 18px;"></i>
+              <span style="font-size: 0.86rem; opacity: 0.82;">publish to ROS2 command topics</span>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 86px minmax(0, 1fr); gap: 12px; align-items: stretch;">
+              <div
+                style="display: flex; flex-direction: column; justify-content: center; align-items: center; border-radius: 8px; background: rgba(0, 122, 255, 0.08); color: var(--clr-accent); font-weight: 700;">
+                <span>05</span>
+                <span style="font-size: 0.75rem; opacity: 0.82;">OUTPUT</span>
+              </div>
+              <div
+                style="padding: 14px 16px; border-radius: 8px; background: var(--clr-bg); border: 1px solid rgba(128,128,128,0.18);">
+                <strong>Physical CAVs</strong><br>
+                <span style="font-size: 0.92rem; opacity: 0.78;">commands executed by CAV1-4</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <ul class="highlights-list v2x-dash-list" style="margin-top: 10px;">
+          <li>
+            <strong>Communication-first architecture:</strong> The decision layer uses V2X-shared CAV states instead of
+            relying only on onboard perception, making roundabout and four-way intersection behavior explicitly
+            cooperative.
+          </li>
+          <li>
+            <strong>Separated decision and control:</strong> CAV roundabout entry/exit around the circulating HV and
+            four-way intersection stop/pass-first decisions are converted into velocity targets while Pure Pursuit
+            handles reference path tracking.
+          </li>
+          <li>
+            <strong>Deployment-aware design:</strong> Domain ID mapping, vehicle-specific parameters, Docker bridge
+            startup, and ROS2 recovery steps were organized so the system could be tuned quickly during field tests.
+          </li>
+        </ul>
       </div>
 
-      <!-- Challenges & Solutions (문제 ?�황 & ?�결�? -->
+      <!-- Challenges & Solutions -->
       <div class="detail-section">
         <h2 class="detail-section-title">Challenges & Solutions</h2>
 
@@ -251,7 +473,7 @@
               <i data-lucide="alert-triangle" style="width:18px; height:18px;"></i> Challenge
             </div>
             <p>Due to mechanical discrepancies in motor performance and sensor noise among the physical vehicles,
-              applying identical path-tracking (MPC) parameters resulted in inconsistent behaviors, such as <strong>lane
+              applying identical path-tracking parameters resulted in inconsistent behaviors, such as <strong>lane
                 departure and severe understeering</strong> for certain vehicles.</p>
           </div>
 
@@ -280,13 +502,13 @@
 
         <div class="project-highlights"
           style="background: rgba(0, 122, 255, 0.02); border-left-color: var(--clr-text-main);">
-          <ul class="highlights-list">
+          <ul class="highlights-list v2x-dash-list">
             <li style="margin-bottom: 15px;">
-              <strong>Refining the Overtaking Logic:</strong>
-              Due to time constraints and safety priorities, I adopted a somewhat conservative, <strong>rule-based
-                overtaking logic</strong> with fixed safety margins. Moving forward, I aim to implement a more
-              sophisticated path-planning algorithm that calculates a <strong>Dynamic Diagonal Margin</strong> by taking
-              relative velocities and lane-change angles into account.
+              <strong>Refining the Intersection Priority Logic:</strong>
+              Due to time constraints and safety priorities, I adopted a conservative <strong>rule-based stop/pass-first
+                policy</strong> with fixed safety margins. Moving forward, I aim to implement a more adaptive
+              priority-planning algorithm that considers relative velocity, conflict-zone occupancy, and predicted
+              arrival timing.
             </li>
             <li style="margin-bottom: 15px;">
               <strong>Expanding Sensor Fusion Capabilities:</strong>
@@ -298,11 +520,11 @@
               information.
             </li>
             <li style="margin-bottom: 15px;">
-              <strong>Advancing Control Theory (MPC):</strong>
-              I recognized the limitations of implementing a predictive controller based on Pure Pursuit rather than a
-              complete dynamic model, which paradoxically deepened my appreciation for advanced control engineering. I
-              plan to extensively study and design <strong>Non-Linear MPC (NMPC)</strong> systems to perfectly handle
-              complex non-linear vehicle dynamics.
+              <strong>Advancing Control Theory:</strong>
+              I recognized the limitations of implementing an MPC-inspired controller based on Pure Pursuit rather than
+              a complete dynamic vehicle model, which deepened my appreciation for advanced control engineering. I plan
+              to study and design <strong>Non-Linear MPC (NMPC)</strong> systems that can handle complex non-linear
+              vehicle dynamics more rigorously.
             </li>
             <li>
               <strong>ROS2 QoS & System Optimization:</strong>

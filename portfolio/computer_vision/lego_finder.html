@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml" href="../../img/face.jpg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lego Finder</title>
+  <meta name="description"
+    content="Details about the Lego Finder computer vision project for AI Model Design coursework.">
+
+  <link rel="stylesheet" href="../../external/normalize.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css"
+    integrity="sha256-46qynGAkLSFpVbEBog43gvNhfrOj+BmwXdxFgVK/Kvc=" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap"
+    rel="stylesheet" />
+  <script>
+    (() => {
+      try {
+        const savedTheme = localStorage.getItem('theme');
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+          document.documentElement.setAttribute('data-theme', 'dark');
+        }
+      } catch (error) {
+        document.documentElement.removeAttribute('data-theme');
+      }
+    })();
+  </script>
+
+  <link rel="stylesheet" href="../../css/style.css" />
+  <link rel="stylesheet" href="../../css/projects.css" />
+</head>
+
+<body>
+
+  <div class="floating-nav-container" id="navContainer" role="navigation" aria-label="Main navigation">
+    <button class="theme-toggle-btn" id="themeToggle" aria-label="Switch to dark mode" aria-pressed="false">
+      <i class="fa-solid fa-moon" aria-hidden="true"></i>
+    </button>
+
+    <button class="nav-trigger-btn" onclick="toggleNav()" aria-label="Open navigation menu" aria-expanded="false">
+      <div class="hamburger-lines"><span></span><span></span></div>
+    </button>
+    <nav class="nav-capsule-menu">
+      <ul class="nav-links">
+        <li><a href="../../index.html" onclick="toggleNav()">Home</a></li>
+        <li><a href="../../pages/AboutMe.html" onclick="toggleNav()">About Me</a></li>
+        <li><a href="../../pages/Research.html" onclick="toggleNav()">Research</a></li>
+        <li><a href="../../pages/Projects.html" onclick="toggleNav()">Projects</a></li>
+      </ul>
+      <button class="nav-close-btn" onclick="toggleNav()" aria-label="Close navigation menu">
+        <i data-lucide="x"></i>
+      </button>
+    </nav>
+  </div>
+
+  <main id="main-content">
+
+    <section class="detail-hero">
+      <div class="back-btn-wrapper">
+        <a href="../../pages/Projects.html" class="back-btn">
+          <i data-lucide="arrow-left"></i> Back to Projects
+        </a>
+      </div>
+      <div class="container">
+        <h1 class="projects-hero__title" style="font-size: clamp(2rem, 4vw, 3rem);">Lego Finder</h1>
+        <div class="project-meta" style="justify-content: center; margin-top: 20px;">
+          <span class="project-date">
+            <i data-lucide="calendar" aria-hidden="true"></i> APR 2026 - JUN 2026
+          </span>
+          <span class="project-type">
+            <i data-lucide="award" aria-hidden="true"></i> AI Model Design Coursework
+          </span>
+        </div>
+        <div class="tech-stack-detailed" style="justify-content: center; margin-top: 20px;">
+          <span class="tech-badge">Python</span>
+          <span class="tech-badge">PyTorch</span>
+          <span class="tech-badge">OpenCV</span>
+          <span class="tech-badge">Image Retrieval</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="detail-content">
+
+      <h1 class="detail-section-title">Project Visual</h1>
+      <div class="detail-section" style="margin-top: -20px;">
+        <div class="detail-figure">
+          <div class="visual-placeholder">
+            Lego Finder Visual
+          </div>
+        </div>
+      </div>
+
+      <div class="detail-section">
+        <h2 class="detail-section-title">Overview</h2>
+        <p class="detail-text">
+          <strong>Lego Finder</strong> is a computer vision project for the AI Model Design course. The project is
+          planned around a visual search workflow that can identify or retrieve relevant Lego pieces or sets from input
+          images.
+        </p>
+      </div>
+
+      <div class="detail-section">
+        <h2 class="detail-section-title">Tasks Completed</h2>
+        <div class="project-highlights" style="background: rgba(0, 122, 255, 0.02); border-left-color: var(--clr-accent);">
+          <ul class="highlights-list">
+            <li><strong>Dataset Pipeline:</strong> </li>
+            <li><strong>Model Design:</strong> </li>
+            <li><strong>Search / Retrieval Flow:</strong> </li>
+            <li><strong>Evaluation:</strong> </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="detail-section">
+        <h2 class="detail-section-title">Challenges & Solutions</h2>
+
+        <article class="challenge-card">
+          <div class="challenge-header">
+            <span class="challenge-header-num">1</span>
+          </div>
+
+          <div class="cs-box problem">
+            <div class="cs-box-title">
+              <i data-lucide="alert-triangle" style="width:18px; height:18px;"></i> Challenge
+            </div>
+            <p></p>
+          </div>
+
+          <div class="cs-box solution">
+            <div class="cs-box-title">
+              <i data-lucide="lightbulb" style="width:18px; height:18px;"></i> Solution
+            </div>
+            <p></p>
+          </div>
+        </article>
+
+      </div>
+
+      <div class="detail-section">
+        <h2 class="detail-section-title">Reflection & Future Work</h2>
+        <div class="project-highlights" style="background: rgba(0, 122, 255, 0.02); border-left-color: var(--clr-text-main);">
+          <ul class="highlights-list">
+            <li><strong>Reflection:</strong> </li>
+            <li><strong>Future Work:</strong> </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <ul class="social-list">
+      <li class="social-list__item"><a class="social-list__link" href="mailto:uoyuvvou@gmail.com"><i
+            class="fa-regular fa-envelope"></i></a></li>
+      <li class="social-list__item"><a class="social-list__link" href="https://www.linkedin.com/in/uoyuvvou"><i
+            class="fa-brands fa-linkedin-in"></i></a></li>
+      <li class="social-list__item"><a class="social-list__link" href="https://github.com/Gyuwon-Na"><i
+            class="fa-brands fa-github"></i></a></li>
+      <li class="social-list__item"><a class="social-list__link" href="https://www.instagram.com/uoyuvvou"><i
+            class="fa-brands fa-instagram"></i></a></li>
+    </ul>
+    <p class="footer-copyright">&copy; 2026 Gyuwon Na. All rights reserved.</p>
+  </footer>
+  <script src="../../js/index.js"></script>
+
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    lucide.createIcons();
+    function toggleNav() {
+      const container = document.getElementById('navContainer');
+      const triggerBtn = container.querySelector('.nav-trigger-btn');
+      const isActive = container.classList.toggle('active');
+      triggerBtn.setAttribute('aria-expanded', isActive);
+    }
+  </script>
+</body>
+
+</html>
