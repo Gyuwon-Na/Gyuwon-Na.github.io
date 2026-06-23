@@ -68,56 +68,115 @@
         <div class="tech-stack-detailed" style="justify-content: center; margin-top: 20px;">
           <span class="tech-badge">C++</span>
           <span class="tech-badge">Raylib</span>
-          <span class="tech-badge">Gameplay Systems</span>
-          <span class="tech-badge">Tools</span>
+          <span class="tech-badge">Cafe Simulation</span>
+          <span class="tech-badge">Team Project</span>
         </div>
       </div>
     </section>
 
     <section class="detail-content">
+      <!-- TODO: Replace this placeholder with a gameplay screenshot, trailer, or playable web build when an asset is ready. -->
       <div class="detail-figure">
-        <div class="visual-placeholder">Gameplay Capture Placeholder</div>
+        <div class="visual-placeholder">Stand-By Gameplay Capture</div>
       </div>
 
       <div class="detail-section">
         <h2 class="detail-section-title">Overview</h2>
         <p class="detail-text">
-          Stand-By is a C++ game project focused on building a complete playable loop with responsive controls,
-          readable feedback, and stable scene flow. For a portfolio reviewer, this page highlights the engineering
-          discipline behind a smaller game: input handling, state management, iteration speed, and player-facing polish.
+          Stand-By is a cafe management game created by Team Half & Half. The player runs a cafe as both the manager
+          and the only employee, serving customers while trying to earn enough money to pay late rent.
+        </p>
+        <p class="detail-text">
+          The core interaction loop centers on making drinks under pressure. Players pour sodas, prepare blends with
+          ingredients, shake the shaker, chill the cup, and deliver completed drinks to customers before the cafe closes.
         </p>
       </div>
 
       <div class="detail-section">
-        <h2 class="detail-section-title">Gameplay & Systems</h2>
+        <h2 class="detail-section-title">Project Focus</h2>
         <ul class="highlights-list">
-          <li>Implemented a clear gameplay loop that moves through menu, play, pause, success, and failure states.</li>
-          <li>Built player interaction logic with predictable timing and immediate visual feedback.</li>
-          <li>Organized level and entity behavior so content could be tuned without rewriting core systems.</li>
-          <li>Handled edge cases around restart, scene transition, and overlapping input events.</li>
+          <li>Built a cafe workflow around taking orders, choosing drink types, preparing recipes, and serving customers.</li>
+          <li>Used separate game states for splash, main menu, gameplay, daily script, success ending, and fail ending.</li>
+          <li>Modeled drink-making objects such as cups, soda types, ingredients, recipe book, shaker, shaker gauge, cup chilling, and ice.</li>
+          <li>Supported customer seats, a closing-time clock, drink icons, and background elements as part of the play screen.</li>
         </ul>
       </div>
 
       <div class="detail-section">
         <h2 class="detail-section-title">My Role</h2>
         <p class="detail-text">
-          I focused on gameplay implementation and system reliability. That included translating design requirements
-          into concrete mechanics, keeping update logic understandable, and debugging cases where timing or input order
-          created unexpected behavior.
+          I worked as the tech lead for Stand-By. According to the team post-mortem, my responsibility was overall code
+          management, working closely with QA as bugs were found and discussed during implementation.
         </p>
+        <!-- TODO: Add 1-2 specific systems or files you personally implemented once you verify them from source/history. -->
+      </div>
+
+      <div class="detail-section">
+        <h2 class="detail-section-title">Technical Highlights</h2>
+        <div class="role-grid">
+          <article class="info-card">
+            <i data-lucide="mouse-pointer-click"></i>
+            <h3 class="info-card__title">Object Interaction</h3>
+            <p class="info-card__text">Used the mouse as the central interaction object for selecting tools, adding ingredients, shaking, chilling, and serving.</p>
+          </article>
+          <article class="info-card">
+            <i data-lucide="glass-water"></i>
+            <h3 class="info-card__title">Drink Workflow</h3>
+            <p class="info-card__text">Structured soda and blend preparation through tool selection, recipe ingredients, shaker stages, and cup chilling.</p>
+          </article>
+          <article class="info-card">
+            <i data-lucide="users"></i>
+            <h3 class="info-card__title">Customer System</h3>
+            <p class="info-card__text">Customer behavior used random orders, visible and invisible timers, seat ranges, and randomized customer textures.</p>
+          </article>
+        </div>
+      </div>
+
+      <div class="detail-section">
+        <h2 class="detail-section-title">Game Systems</h2>
+        <ul class="highlights-list">
+          <li>Customer orders could include 6 soda types and 11 blend types, with blend recipes unlocking gradually by in-game day.</li>
+          <li>Customer timing used an invisible timer before appearing and a visible timer while waiting for service.</li>
+          <li>The customer collision range was tied to each seat so the interaction stayed aligned with where customers were placed.</li>
+          <li>The cafe closes at 18:00, and the game can reach success or fail endings depending on money and day progression.</li>
+        </ul>
       </div>
 
       <div class="detail-section">
         <h2 class="detail-section-title">Challenges & Solutions</h2>
         <article class="challenge-card">
-          <div class="challenge-header"><span class="challenge-header-num">1</span> Reliable Player Feedback</div>
+          <div class="challenge-header"><span class="challenge-header-num">1</span> Customer System Complexity</div>
           <div class="cs-box problem">
             <div class="cs-box-title"><i data-lucide="alert-triangle"></i> Challenge</div>
-            <p>Early interactions were technically correct but did not always communicate state changes clearly to the player.</p>
+            <p>The post-mortem notes that the customer system was not as mature as the team wanted, and potential improvements became clear late in the schedule.</p>
           </div>
           <div class="cs-box solution">
             <div class="cs-box-title"><i data-lucide="lightbulb"></i> Solution</div>
-            <p>Mapped state changes to consistent visual and timing feedback, making game behavior easier to read and easier to debug.</p>
+            <p>The final system still supported random orders, timed customer behavior, seat-based interaction ranges, and randomized customer textures.</p>
+          </div>
+        </article>
+
+        <article class="challenge-card">
+          <div class="challenge-header"><span class="challenge-header-num">2</span> Drink-Making Collision</div>
+          <div class="cs-box problem">
+            <div class="cs-box-title"><i data-lucide="alert-triangle"></i> Challenge</div>
+            <p>Many actions depended on collisions between the mouse, toolbar objects, ingredients, cups, shakers, and customer seats.</p>
+          </div>
+          <div class="cs-box solution">
+            <div class="cs-box-title"><i data-lucide="lightbulb"></i> Solution</div>
+            <p>The team separated interaction rules by stage, including toolbar selection, ingredient-to-shaker checks, shaker movement, and cup chilling distance checks.</p>
+          </div>
+        </article>
+
+        <article class="challenge-card">
+          <div class="challenge-header"><span class="challenge-header-num">3</span> Planning and Code Communication</div>
+          <div class="cs-box problem">
+            <div class="cs-box-title"><i data-lucide="alert-triangle"></i> Challenge</div>
+            <p>The team tried a development priority spreadsheet but stopped using it properly later in the semester, and the post-mortem also mentions a lack of reading each other's code.</p>
+          </div>
+          <div class="cs-box solution">
+            <div class="cs-box-title"><i data-lucide="lightbulb"></i> Solution</div>
+            <p>The team kept documentation, set priorities through communication, and generally met deadlines while implementing most desired features.</p>
           </div>
         </article>
       </div>
@@ -125,9 +184,12 @@
       <div class="detail-section">
         <h2 class="detail-section-title">Reflection</h2>
         <p class="detail-text">
-          Stand-By taught me to treat small games as systems, not scripts. The project sharpened my ability to design
-          straightforward state machines and to keep player-facing behavior stable while iterating quickly.
+          Stand-By showed how quickly a management game becomes a coordination problem between UI, input, object
+          interaction, customer behavior, recipes, and schedule pressure. The project also made clear that technical
+          leadership is not only about writing code; it is also about keeping the team aligned around priorities,
+          documentation, bug reports, and shared understanding of the codebase.
         </p>
+        <!-- TODO: Add a personal takeaway about what you would do differently as tech lead on the next team project. -->
       </div>
 
       <div class="project-next">
