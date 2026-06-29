@@ -3,49 +3,36 @@ document.addEventListener('DOMContentLoaded', () => {
   const filterButtons = document.querySelectorAll('.filter-btn');
   const projectSections = document.querySelectorAll('.project-category');
   const projectsOverview = document.getElementById('projects-overview');
+  const overviewCategories = document.querySelectorAll('.overview-category');
   const overviewFilterLinks = document.querySelectorAll('.overview-filter-link');
 
   // Function to show/hide categories based on filter
   const filterProjects = (category) => {
     if (projectsOverview) {
-      if (category === 'all') {
-        projectsOverview.classList.remove('hidden');
-        projectsOverview.style.display = 'block';
-      } else {
-        projectsOverview.classList.add('hidden');
-        projectsOverview.style.display = 'none';
-      }
+      projectsOverview.classList.remove('hidden');
+      projectsOverview.style.display = 'block';
+    }
+
+    overviewCategories.forEach(section => {
+      const sectionCategory = section.getAttribute('data-category');
+      const isVisible = category === 'all' || sectionCategory === category;
+      section.classList.toggle('hidden', !isVisible);
+      section.style.display = isVisible ? 'block' : 'none';
+    });
+
+    if (projectsOverview && category !== 'all') {
+      setTimeout(() => {
+        projectsOverview.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+      }, 100);
     }
 
     projectSections.forEach(section => {
-      const sectionCategory = section.getAttribute('data-category');
-      
-      if (category === 'all') {
-        // All Projects uses compact overview mode.
-        section.classList.add('hidden');
-        section.style.display = 'none';
-      } else {
-        // Show only matching category
-        if (sectionCategory === category) {
-          section.classList.remove('hidden');
-          section.style.display = 'block';
-        } else {
-          section.classList.add('hidden');
-          section.style.display = 'none';
-        }
-      }
+      section.classList.add('hidden');
+      section.style.display = 'none';
     });
-
-    // Smooth scroll to first visible section
-    setTimeout(() => {
-      const firstVisibleSection = document.querySelector('.project-category:not(.hidden)');
-      if (firstVisibleSection && category !== 'all') {
-        firstVisibleSection.scrollIntoView({ 
-          behavior: 'smooth', 
-          block: 'start'
-        });
-      }
-    }, 100);
   };
 
   // Add click event listeners to filter buttons
@@ -180,7 +167,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let totalProjects = 0;
 
     if (projectsOverview && !projectsOverview.classList.contains('hidden')) {
-      totalProjects = projectsOverview.querySelectorAll('.compact-project-card').length;
+      totalProjects = projectsOverview.querySelectorAll('.overview-category:not(.hidden) .compact-project-card').length;
     } else {
       visibleSections.forEach(section => {
         const cards = section.querySelectorAll('.project-detail-card');
