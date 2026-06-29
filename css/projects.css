@@ -1001,6 +1001,52 @@
   line-height: 1.75;
 }
 
+.recruiter-snapshot {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  max-width: 900px;
+  margin: 34px auto 0;
+}
+
+.snapshot-item {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  min-height: 118px;
+  padding: 20px;
+  text-align: left;
+  background:
+    linear-gradient(135deg, rgba(0, 122, 255, 0.08), rgba(0, 122, 255, 0) 58%),
+    var(--clr-surface);
+  border: 1px solid var(--clr-border);
+  border-radius: 18px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.035);
+}
+
+.snapshot-label,
+.signal-card__meta {
+  color: var(--clr-accent);
+  font-size: 0.76rem;
+  font-weight: 850;
+  letter-spacing: 0.7px;
+  text-transform: uppercase;
+}
+
+.snapshot-item strong {
+  color: var(--clr-text-main);
+  font-size: 1.04rem;
+  font-weight: 850;
+  line-height: 1.22;
+}
+
+.snapshot-item span:last-child {
+  color: var(--clr-text-sub);
+  font-size: 0.94rem;
+  font-weight: 650;
+  line-height: 1.35;
+}
+
 .page-section {
   padding: 80px 20px;
 }
@@ -1073,6 +1119,34 @@
   margin: 0;
 }
 
+.profile-actions {
+  display: grid;
+  gap: 10px;
+  margin-top: 22px;
+}
+
+.profile-actions a {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
+  min-height: 44px;
+  padding: 10px 13px;
+  color: var(--clr-text-main);
+  background: var(--clr-surface-soft);
+  border: 1px solid var(--clr-border);
+  border-radius: 12px;
+  font-size: 0.92rem;
+  font-weight: 800;
+}
+
+.profile-actions i {
+  width: 17px;
+  height: 17px;
+  color: var(--clr-accent);
+  margin: 0;
+}
+
 .info-grid,
 .metric-grid,
 .role-grid,
@@ -1089,6 +1163,46 @@
   height: 28px;
   color: var(--clr-accent);
   margin-bottom: 16px;
+}
+
+.signal-card {
+  display: flex;
+  flex-direction: column;
+  min-height: 310px;
+}
+
+.signal-card .info-card__title {
+  margin-top: 8px;
+}
+
+.signal-card .info-card__text {
+  margin-bottom: 20px;
+}
+
+.signal-tags,
+.evidence-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+}
+
+.signal-tags {
+  margin-top: auto;
+}
+
+.signal-tags span,
+.evidence-tags span {
+  display: inline-flex;
+  align-items: center;
+  min-height: 28px;
+  padding: 6px 10px;
+  color: var(--clr-text-main);
+  background: rgba(0, 122, 255, 0.07);
+  border: 1px solid rgba(0, 122, 255, 0.14);
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 800;
+  line-height: 1.15;
 }
 
 .timeline-list {
@@ -1187,6 +1301,14 @@
   object-fit: cover;
 }
 
+.detail-figure video {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  display: block;
+  border: 0;
+  object-fit: cover;
+}
+
 .visual-placeholder {
   min-height: 260px;
   background:
@@ -1235,12 +1357,221 @@
   gap: 12px;
 }
 
+/* About page education and activity cards */
+.about-journey .content-wrap {
+  max-width: 1040px;
+}
+
+.journey-section-header {
+  text-align: center;
+}
+
+.journey-section-header .section__title {
+  margin-bottom: 34px;
+}
+
+.journey-section-header--spaced {
+  margin-top: 58px;
+}
+
+.journey-kicker {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--clr-accent);
+  font-size: 0.8rem;
+  font-weight: 850;
+  letter-spacing: 0.9px;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.journey-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px;
+}
+
+.journey-card,
+.activity-card {
+  position: relative;
+  overflow: hidden;
+  background:
+    linear-gradient(135deg, rgba(0, 122, 255, 0.08), rgba(0, 122, 255, 0) 54%),
+    var(--clr-surface);
+  border: 1px solid var(--clr-border);
+  border-radius: 20px;
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.04);
+}
+
+.journey-card {
+  display: grid;
+  grid-template-columns: 68px minmax(0, 1fr);
+  gap: 18px;
+  min-height: 255px;
+  padding: 28px;
+}
+
+.journey-card::before {
+  content: '';
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 4px;
+  background: var(--clr-accent);
+}
+
+.journey-card__icon {
+  width: 52px;
+  height: 52px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 16px;
+  color: var(--clr-accent);
+  background: rgba(0, 122, 255, 0.08);
+  border: 1px solid rgba(0, 122, 255, 0.16);
+}
+
+.journey-card__icon i {
+  width: 26px;
+  height: 26px;
+}
+
+.journey-card h3,
+.activity-card h3 {
+  color: var(--clr-text-main);
+  font-size: 1.25rem;
+  font-weight: 850;
+  line-height: 1.2;
+  margin: 10px 0 8px;
+}
+
+.journey-card__meta {
+  color: var(--clr-text-sub);
+  font-size: 0.98rem;
+  font-weight: 700;
+  line-height: 1.35;
+  margin: 0 0 12px;
+}
+
+.journey-list {
+  display: grid;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+}
+
+.journey-list li {
+  position: relative;
+  color: var(--clr-text-sub);
+  line-height: 1.55;
+  padding-left: 18px;
+}
+
+.journey-list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.78em;
+  width: 7px;
+  height: 2px;
+  border-radius: 999px;
+  background: var(--clr-accent);
+}
+
+.journey-card .evidence-tags {
+  margin-bottom: 18px;
+}
+
+.about-journey .card-date {
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+  padding: 6px 11px;
+  border-radius: 999px;
+  color: var(--clr-accent);
+  background: rgba(0, 122, 255, 0.08);
+  border: 1px solid rgba(0, 122, 255, 0.16);
+  font-size: 0.78rem;
+  font-weight: 850;
+  line-height: 1;
+  letter-spacing: 0.3px;
+  opacity: 1;
+}
+
+.activity-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.activity-card {
+  display: flex;
+  flex-direction: column;
+  min-height: 270px;
+  padding: 24px;
+}
+
+.activity-card__topline {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.activity-card__topline i {
+  flex: 0 0 auto;
+  width: 26px;
+  height: 26px;
+  color: var(--clr-accent);
+}
+
+.activity-card p {
+  color: var(--clr-text-sub);
+  line-height: 1.62;
+  margin: 0 0 12px;
+}
+
+.activity-card .evidence-tags {
+  margin: 4px 0 18px;
+}
+
+.activity-card p:last-child {
+  margin-bottom: 0;
+}
+
+@media (max-width: 760px) {
+  .recruiter-snapshot {
+    grid-template-columns: 1fr;
+  }
+
+  .journey-grid,
+  .activity-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .journey-card,
+  .activity-card {
+    grid-column: auto;
+  }
+
+  .journey-card {
+    grid-template-columns: 1fr;
+    min-height: 0;
+    padding: 24px;
+  }
+}
+
 .project-next {
   display: flex;
   justify-content: space-between;
   gap: 16px;
   padding-top: 28px;
   border-top: 1px solid var(--clr-border);
+}
+
+.project-next--end {
+  justify-content: flex-end;
 }
 
 .project-next .action-btn {

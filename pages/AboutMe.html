@@ -59,6 +59,8 @@
     </nav>
   </div>
 
+  <main id="main-content">
+
   <section class="page-hero">
     <div class="page-hero__content">
       <span class="eyebrow"><i data-lucide="sparkles"></i> About Me</span>
@@ -72,6 +74,24 @@
         My interests range from robotics platforms and perception systems to rendering pipelines and simulation tools,
         with a focus on understanding how complex systems work as a whole.
       </p>
+
+      <div class="recruiter-snapshot" aria-label="Recruiter snapshot">
+        <div class="snapshot-item">
+          <span class="snapshot-label">Target</span>
+          <strong>Software Engineering</strong>
+          <span>Robotics &middot; Graphics &middot; Simulation</span>
+        </div>
+        <div class="snapshot-item">
+          <span class="snapshot-label">Core Stack</span>
+          <strong>C++ &middot; Python</strong>
+          <span>OpenGL &middot; ROS &middot; OpenCV</span>
+        </div>
+        <div class="snapshot-item">
+          <span class="snapshot-label">Strength</span>
+          <strong>Real-Time Systems</strong>
+          <span>Perception &middot; Control &middot; Rendering</span>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -105,6 +125,21 @@
         <p class="profile-card__text">
           Interested in robotics, autonomous systems, computer vision, rendering, and graphics technologies.
         </p>
+
+        <div class="profile-actions" aria-label="Profile links">
+          <a href="../docs/Resume.pdf" target="_blank" rel="noopener noreferrer">
+            <i data-lucide="file-down" aria-hidden="true"></i>
+            Resume
+          </a>
+          <a href="https://github.com/Gyuwon-Na" target="_blank" rel="noopener noreferrer">
+            <i data-lucide="github" aria-hidden="true"></i>
+            GitHub
+          </a>
+          <a href="https://www.linkedin.com/in/uoyuvvou" target="_blank" rel="noopener noreferrer">
+            <i data-lucide="linkedin" aria-hidden="true"></i>
+            LinkedIn
+          </a>
+        </div>
       </aside>
 
     </div>
@@ -113,27 +148,45 @@
 
   <section class="page-section alt">
     <div class="content-wrap">
-      <h2 class="section__title">Engineering Focus</h2>
+      <h2 class="section__title">Selected Signals</h2>
       <div class="info-grid">
-        <article class="info-card">
+        <article class="info-card signal-card">
           <i data-lucide="car"></i>
+          <span class="signal-card__meta">Applied Robotics</span>
           <h3 class="info-card__title">Autonomous Systems</h3>
-          <p class="info-card__text">Sensor integration, perception and control systems, ROS-based development, and
-            validation across multiple scaled autonomous vehicle platforms.
+          <p class="info-card__text">Built perception and control experience around cameras, LiDAR, ROS-based modules,
+            and scaled autonomous vehicle platforms.
           </p>
+          <div class="signal-tags">
+            <span>ROS</span>
+            <span>Sensor Fusion</span>
+            <span>Control</span>
+          </div>
         </article>
-        <article class="info-card">
+        <article class="info-card signal-card">
           <i data-lucide="activity"></i>
+          <span class="signal-card__meta">Computer Vision</span>
           <h3 class="info-card__title">Image & Signal Processing</h3>
-          <p class="info-card__text">Image filtering, feature extraction, digital signal processing, and sensor data
-            analysis.
+          <p class="info-card__text">Worked with image filtering, feature extraction, digital signal processing, and
+            sensor data analysis for real-world perception tasks.
           </p>
+          <div class="signal-tags">
+            <span>OpenCV</span>
+            <span>DSP</span>
+          </div>
         </article>
-        <article class="info-card">
+        <article class="info-card signal-card">
           <i data-lucide="layers"></i>
+          <span class="signal-card__meta">Graphics Systems</span>
           <h3 class="info-card__title">Real-Time Graphics</h3>
-          <p class="info-card__text">OpenGL, GLSL, WebGL demos, procedural modeling, lighting, and shader debugging.
+          <p class="info-card__text">Developed OpenGL and GLSL projects covering rendering pipelines, procedural
+            modeling, lighting, and shader debugging.
           </p>
+          <div class="signal-tags">
+            <span>C++</span>
+            <span>OpenGL</span>
+            <span>GLSL</span>
+          </div>
         </article>
       </div>
     </div>
@@ -170,55 +223,109 @@
     </div>
   </section>
 
-  <section class="page-section alt">
+  <section class="page-section alt about-journey">
     <div class="content-wrap">
-      <h2 class="section__title">Education</h2>
+      <div class="journey-section-header">
+        <span class="journey-kicker">Academic Path</span>
+        <h2 class="section__title">Education</h2>
+      </div>
 
-      <div class="card-grid education-grid">
+      <div class="journey-grid education-grid">
 
-        <article class="info-card wide">
-          <span class="card-date">Mar 2023 – Jun 2026</span>
-          <h3>Keimyung University</h3>
-          <ul>
-            <li>Built a strong foundation in C++, computer graphics, game development, and software engineering.</li>
-            <li>Completed coursework in circuit theory and digital signal processing.</li>
-          </ul>
+        <article class="journey-card journey-card--education">
+          <div class="journey-card__icon" aria-hidden="true">
+            <i data-lucide="graduation-cap"></i>
+          </div>
+          <div class="journey-card__body">
+            <span class="card-date">Mar 2023 - Jun 2026</span>
+            <h3>Keimyung University</h3>
+            <p class="journey-card__meta">GPA 4.37/4.5</p>
+            <div class="evidence-tags" aria-label="Education evidence">
+              <span>Coursework: C++ / Graphics / Game Development</span>
+              <span>GPA: 4.37/4.5</span>
+            </div>
+            <ul class="journey-list">
+              <li>Built a strong foundation in C++, computer graphics, game development, and software engineering.</li>
+              <li>Completed coursework in circuit theory and digital signal processing.</li>
+            </ul>
+          </div>
         </article>
-        <article class="info-card wide">
-          <span class="card-date">Aug 2026 – Present</span>
-          <h3>DigiPen Institute of Technology</h3>
-          <ul>
-            <li>B.S. in Computer Science in Real-Time Interactive Simulation.</li>
-          </ul>
+
+        <article class="journey-card journey-card--education">
+          <div class="journey-card__icon" aria-hidden="true">
+            <i data-lucide="graduation-cap"></i>
+          </div>
+          <div class="journey-card__body">
+            <span class="card-date">Aug 2026 - Incoming</span>
+            <h3>DigiPen Institute of Technology</h3>
+            <p class="journey-card__meta">CS in Real-time interactive simulation</p>
+            <div class="evidence-tags" aria-label="Education evidence">
+              <span>Program: RTIS</span>
+              <span>Focus: Real-time systems</span>
+            </div>
+            <ul class="journey-list">
+              <li>B.S. in Computer Science in Real-Time Interactive Simulation.</li>
+            </ul>
+          </div>
         </article>
       </div>
 
+      <div class="journey-section-header journey-section-header--spaced">
+        <span class="journey-kicker">Outside The Classroom</span>
+        <h2 class="section__title">Leadership & Activities</h2>
+      </div>
 
-      <h2 class="section__title">Leadership & Activities</h2>
-      <div class="card-grid">
+      <div class="activity-grid">
 
-        <article class="info-card">
-          <span class="card-date">Sep 2023 – Jun 2025</span>
+        <article class="activity-card">
+          <div class="activity-card__topline">
+            <span class="card-date">Sep 2023 - Jun 2025</span>
+            <i data-lucide="users" aria-hidden="true"></i>
+          </div>
           <h3>Student Council Member</h3>
+          <div class="evidence-tags" aria-label="Activity evidence">
+            <span>Role: Representative</span>
+            <span>Impact: Student-faculty communication</span>
+          </div>
           <p>Represented student perspectives and helped coordinate communication with faculty.</p>
         </article>
 
-        <article class="info-card">
-          <span class="card-date">Mar 2025 – Aug 2026</span>
+        <article class="activity-card">
+          <div class="activity-card__topline">
+            <span class="card-date">Mar 2025 - Aug 2026</span>
+            <i data-lucide="car" aria-hidden="true"></i>
+          </div>
           <h3>Autonomous Driving Club</h3>
-          <p>Worked with cameras, LiDAR, and other sensors on scaled autonomous vehicle platforms.</p>
-          <p>Contributed to perception and control modules using ROS-based systems.</p>
+          <div class="evidence-tags" aria-label="Activity evidence">
+            <span>Stack: ROS / Cameras / LiDAR</span>
+            <span>Impact: Perception-control modules</span>
+          </div>
+          <p>Contributed to ROS-based perception and control modules for scaled autonomous vehicle platforms.</p>
         </article>
 
-        <article class="info-card">
-          <span class="card-date">Aug 2025</span>
+        <article class="activity-card">
+          <div class="activity-card__topline">
+            <span class="card-date">Aug 2025</span>
+            <i data-lucide="globe-2" aria-hidden="true"></i>
+          </div>
           <h3>Daegu Global Youth Tourism Exchange Program</h3>
+          <div class="evidence-tags" aria-label="Activity evidence">
+            <span>Role: Cross-cultural collaboration</span>
+            <span>Output: Tourism promotion ideas</span>
+          </div>
           <p>Worked with international students to develop ideas for promoting tourism in Daegu.</p>
         </article>
 
-        <article class="info-card">
-          <span class="card-date">Sep 2025 – Feb 2026</span>
+        <article class="activity-card">
+          <div class="activity-card__topline">
+            <span class="card-date">Sep 2025 - Feb 2026</span>
+            <i data-lucide="handshake" aria-hidden="true"></i>
+          </div>
           <h3>Buddy Program</h3>
+          <div class="evidence-tags" aria-label="Activity evidence">
+            <span>Role: Mentor</span>
+            <span>Impact: Exchange student support</span>
+          </div>
           <p>Supported French exchange students in adapting to academic and campus life.</p>
         </article>
 

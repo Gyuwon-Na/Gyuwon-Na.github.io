@@ -49,7 +49,9 @@
         <li><a href="../../pages/Research.html" onclick="toggleNav()">Research</a></li>
         <li><a href="../../pages/Projects.html" onclick="toggleNav()">Projects</a></li>
       </ul>
-      <button class="nav-close-btn" onclick="toggleNav()" aria-label="Close navigation menu"><i data-lucide="x"></i></button>
+      <button class="nav-close-btn" onclick="toggleNav()" aria-label="Close navigation menu">
+        <i data-lucide="x"></i>
+      </button>
     </nav>
   </div>
 
@@ -76,61 +78,105 @@
 
     <section class="detail-content">
       <div class="detail-figure">
-        <div class="visual-placeholder">Gameplay / Engine Capture Placeholder</div>
+        <video controls muted playsinline preload="metadata" aria-label="MANZO gameplay and engine capture">
+          <source src="../../img/video/games/Manzo.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
       </div>
 
       <div class="detail-section">
         <h2 class="detail-section-title">Overview</h2>
         <p class="detail-text">
-          MANZO is a long-form team game project built around the engineering demands of a larger real-time game:
-          stable gameplay systems, content iteration, rendering support, debugging workflows, and collaboration across
-          code, design, and art. The portfolio goal for this page is to show how I contributed to a production-like game
-          environment rather than only a class prototype.
+          MANZO is a rhythm-based Metroidvania psychological horror game where the player hunts fish with dash movement,
+          avoids underwater threats, and uncovers the secrets of the sea. Resources earned through hunting can be sold
+          to merchants, then used to buy modules and skills that gradually make deeper exploration possible.
         </p>
       </div>
 
       <div class="detail-section">
         <h2 class="detail-section-title">My Role</h2>
+        <p class="detail-text">
+          I worked as the Technical Lead, contributing across rendering systems and core gameplay algorithms. My work
+          focused on building reusable engine features while supporting the game's rhythm movement, exploration loop,
+          fish behavior, and module-driven progression.
+        </p>
+        <ul class="highlights-list">
+          <li>Developed engine support for quest windows and icons so UI content could be added and managed more easily.</li>
+          <li>Implemented shader-based visibility limits that intensify as the player moves deeper underwater.</li>
+          <li>Laid the foundation for the OpenGL rendering engine and debugged the rendering pipeline with RenderDoc.</li>
+          <li>Designed fish movement patterns and module-related gameplay patterns for the exploration loop.</li>
+        </ul>
+      </div>
+
+      <div class="detail-section">
+        <h2 class="detail-section-title">Technical Highlights</h2>
         <div class="role-grid">
           <article class="info-card">
-            <i data-lucide="boxes"></i>
-            <h3 class="info-card__title">Gameplay Systems</h3>
-            <p class="info-card__text">Designed gameplay-facing logic with predictable state transitions and clear interfaces for iteration.</p>
+            <i data-lucide="type"></i>
+            <h3 class="info-card__title">Vector Font Rendering</h3>
+            <p class="info-card__text">Implemented custom vector-font rendering to give the game smoother and more
+              scalable text than bitmap-font rendering could provide.</p>
           </article>
           <article class="info-card">
-            <i data-lucide="monitor-cog"></i>
-            <h3 class="info-card__title">Engine Integration</h3>
-            <p class="info-card__text">Connected gameplay behavior to rendering, input, scene flow, and debugging support.</p>
+            <i data-lucide="audio-lines"></i>
+            <h3 class="info-card__title">3D Audio Cues</h3>
+            <p class="info-card__text">Built positional audio feedback for Morse-code search sequences, increasing
+              volume near spawn points and using stereo direction to guide the player left or right.</p>
           </article>
           <article class="info-card">
-            <i data-lucide="users"></i>
-            <h3 class="info-card__title">Team Workflow</h3>
-            <p class="info-card__text">Kept implementation readable so teammates could tune, test, and extend features safely.</p>
+            <i data-lucide="route"></i>
+            <h3 class="info-card__title">Navigation AI</h3>
+            <p class="info-card__text">Implemented AI movement for fish and other non-player objects so they could
+              generate paths, avoid terrain collision, and support flocking-style motion.</p>
           </article>
         </div>
       </div>
 
       <div class="detail-section">
-        <h2 class="detail-section-title">Technical Highlights</h2>
-        <ul class="highlights-list">
-          <li>Structured gameplay features around explicit states to reduce hidden dependencies between systems.</li>
-          <li>Used rendering/debugging tools to inspect frame behavior and diagnose visual or performance issues.</li>
-          <li>Separated tunable constants from core logic so designers could iterate without risky code changes.</li>
-          <li>Prioritized graceful failure states for player interactions that could overlap or interrupt each other.</li>
-        </ul>
-      </div>
-
-      <div class="detail-section">
         <h2 class="detail-section-title">Challenges & Solutions</h2>
         <article class="challenge-card">
-          <div class="challenge-header"><span class="challenge-header-num">1</span> Maintaining Feature Stability</div>
+          <div class="challenge-header"><span class="challenge-header-num">1</span> Scope and Planning</div>
           <div class="cs-box problem">
             <div class="cs-box-title"><i data-lucide="alert-triangle"></i> Challenge</div>
-            <p>As features accumulated, small gameplay changes could accidentally affect unrelated interactions.</p>
+            <p>Early in planning, everyone had ambitious ideas and the design grew larger than the schedule could
+              support. As deadlines approached, the team needed a clearer way to decide what the game should actually
+              deliver.</p>
           </div>
           <div class="cs-box solution">
             <div class="cs-box-title"><i data-lucide="lightbulb"></i> Solution</div>
-            <p>Reduced implicit coupling by isolating ownership, clarifying update order, and keeping data flow visible during debugging.</p>
+            <p>We reduced the game's scope and spent time redesigning around the experience we wanted most. Weekly
+              meetings and Notion task tracking helped us clarify ownership, report progress, and divide work by
+              schedule.</p>
+          </div>
+        </article>
+
+        <article class="challenge-card">
+          <div class="challenge-header"><span class="challenge-header-num">2</span> OpenGL Rendering</div>
+          <div class="cs-box problem">
+            <div class="cs-box-title"><i data-lucide="alert-triangle"></i> Challenge</div>
+            <p>While implementing the OpenGL rendering engine, object transform matrices and rendering order became
+              tangled, causing visible stutter and unstable frame behavior.</p>
+          </div>
+          <div class="cs-box solution">
+            <div class="cs-box-title"><i data-lucide="lightbulb"></i> Solution</div>
+            <p>We rebuilt parts of the rendering logic with guidance from our professor and used RenderDoc to inspect
+              the pipeline directly. That process helped us identify where the frame data was going wrong instead of
+              guessing from code alone.</p>
+          </div>
+        </article>
+
+        <article class="challenge-card">
+          <div class="challenge-header"><span class="challenge-header-num">3</span> In-Game AI</div>
+          <div class="cs-box problem">
+            <div class="cs-box-title"><i data-lucide="alert-triangle"></i> Challenge</div>
+            <p>Fish needed to avoid terrain on their own, but the avoidance algorithms I first tested did not produce
+              the behavior I wanted. At first, it was also difficult to understand exactly where the AI logic was failing.</p>
+          </div>
+          <div class="cs-box solution">
+            <div class="cs-box-title"><i data-lucide="lightbulb"></i> Solution</div>
+            <p>I represented the map as walkable and non-walkable regions, then constrained fish movement to valid
+              areas. To avoid checking the entire map every frame, I used a quadtree structure and applied the same idea
+              to the flocking system. This interest later expanded into my autonomous-driving club work.</p>
           </div>
         </article>
       </div>
@@ -138,25 +184,28 @@
       <div class="detail-section">
         <h2 class="detail-section-title">Reflection</h2>
         <p class="detail-text">
-          MANZO strengthened my interest in engine-level engineering because it exposed the cost of unclear interfaces
-          over a long project. The biggest takeaway was that good game code is not just clever in isolation; it has to
-          stay understandable while multiple people are actively changing the system.
+          MANZO showed me how much unclear interfaces can hurt a long-term project. Because multi-semester game projects
+          often require people to continue each other's work, good game code has to be more than functionally correct;
+          it also has to remain understandable when several people are changing the system at the same time.
         </p>
       </div>
 
-      <div class="project-next">
-        <a href="stand-by.html" class="action-btn secondary"><i data-lucide="arrow-left"></i> Stand-By</a>
-        <a href="resonate.html" class="action-btn secondary">Resonate <i data-lucide="arrow-right"></i></a>
+      <div class="project-next project-next--end">
+        <a href="stand-by.html" class="action-btn secondary">Stand-By <i data-lucide="arrow-right"></i></a>
       </div>
     </section>
   </main>
 
   <footer class="footer">
     <ul class="social-list">
-      <li class="social-list__item"><a class="social-list__link" href="mailto:uoyuvvou@gmail.com"><i class="fa-regular fa-envelope"></i></a></li>
-      <li class="social-list__item"><a class="social-list__link" href="https://www.linkedin.com/in/uoyuvvou"><i class="fa-brands fa-linkedin-in"></i></a></li>
-      <li class="social-list__item"><a class="social-list__link" href="https://github.com/Gyuwon-Na"><i class="fa-brands fa-github"></i></a></li>
-      <li class="social-list__item"><a class="social-list__link" href="https://www.instagram.com/uoyuvvou"><i class="fa-brands fa-instagram"></i></a></li>
+      <li class="social-list__item"><a class="social-list__link" href="mailto:uoyuvvou@gmail.com"><i
+            class="fa-regular fa-envelope"></i></a></li>
+      <li class="social-list__item"><a class="social-list__link" href="https://www.linkedin.com/in/uoyuvvou"><i
+            class="fa-brands fa-linkedin-in"></i></a></li>
+      <li class="social-list__item"><a class="social-list__link" href="https://github.com/Gyuwon-Na"><i
+            class="fa-brands fa-github"></i></a></li>
+      <li class="social-list__item"><a class="social-list__link" href="https://www.instagram.com/uoyuvvou"><i
+            class="fa-brands fa-instagram"></i></a></li>
     </ul>
     <p class="footer-copyright">&copy; 2026 Gyuwon Na. All rights reserved.</p>
   </footer>
