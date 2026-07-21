@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Projects - Gyuwon Na</title>
   <meta name="description"
-    content="Explore my projects in Games, Autonomous Driving, Computer Vision, and Computer Graphics.">
+    content="Explore my projects in Games, Autonomous Systems, Computer Vision, and Computer Graphics.">
 
   <!-- Normalize -->
   <link rel="stylesheet" href="../external/normalize.css" />
@@ -116,7 +116,7 @@
           </button>
           <button class="filter-btn" data-category="autonomous" role="tab" aria-selected="false">
             <i data-lucide="car" aria-hidden="true"></i>
-            Autonomous Driving
+            Autonomous Systems
           </button>
           <button class="filter-btn" data-category="graphics" role="tab" aria-selected="false">
             <i data-lucide="cpu" aria-hidden="true"></i>
@@ -140,7 +140,7 @@
         <div class="overview-category" data-category="autonomous">
           <div class="overview-category__header">
             <div>
-              <h3>Autonomous Driving</h3>
+              <h3>Autonomous Systems</h3>
               <p>Perception, planning, control, and sim-to-real field deployment.</p>
             </div>
             <button class="overview-filter-link" type="button" data-target-category="autonomous">
@@ -149,6 +149,23 @@
           </div>
 
           <div class="compact-project-grid">
+            <article class="compact-project-card">
+              <img src="../img/portfolio_thumbnails/05_shadow.jpg" alt="SEA:ME HACKATHON">
+              <div class="compact-project-card__body">
+                <div class="compact-project-card__meta">SEA:ME HACKATHON</div>
+                <h4>SEA:ME HACKATHON</h4>
+                <p>Built an autonomous mobility prototype under hackathon constraints with rapid system integration.</p>
+                <div class="compact-tags">
+                  <span>Autonomous Driving</span><span>System Integration</span><span>Prototype</span>
+                </div>
+                <div class="compact-highlight">Hackathon Project</div>
+                <div class="compact-actions">
+                  <a href="https://github.com/Gyuwon-Na" target="_blank" rel="noopener noreferrer"><i data-lucide="github"></i> Code</a>
+                  <a href="../portfolio/autonomous_driving/HACKATHON.html"><i data-lucide="file-text"></i> Details</a>
+                </div>
+              </div>
+            </article>
+
             <article class="compact-project-card">
               <img src="../img/portfolio_thumbnails/05_shadow.jpg" alt="V2X-Based Cooperative Driving System">
               <div class="compact-project-card__body">
@@ -469,7 +486,7 @@
       </div>
     </section>
 
-    <!-- Autonomous Driving Projects -->
+    <!-- Autonomous Systems Projects -->
     <section class="project-category" id="autonomous-section" data-category="autonomous">
       <div class="container">
         <div class="category-header">
@@ -477,7 +494,7 @@
             <i data-lucide="car"></i>
           </div>
           <div class="category-info">
-            <h2 class="category-title">Autonomous Driving</h2>
+            <h2 class="category-title">Autonomous Systems</h2>
             <p class="category-description">Real-time perception and control systems for autonomous vehicles</p>
           </div>
         </div>
@@ -487,9 +504,70 @@
           <!-- Autonomous Project 1 -->
           <article class="project-detail-card">
             <div class="project-detail-card__visual">
-              <img src="../img/portfolio_thumbnails/auto/KAIST_V2X.jpg" alt="Autonomous Driving Project 1 img" class="img-static"
+              <img src="../img/portfolio_thumbnails/05_shadow.jpg" alt="SEA:ME HACKATHON project img" class="img-static"
                 loading="lazy">
-              <img src="../img/portfolio_thumbnails/auto/KAIST_V2X.gif" alt="Autonomous Driving Project 1 animation" class="img-gif"
+              <img src="../img/portfolio_thumbnails/05_shadow.jpg" alt="SEA:ME HACKATHON project animation" class="img-gif"
+                loading="lazy">
+              <span class="project-status completed">Completed</span>
+            </div>
+
+            <div class="project-detail-card__content">
+              <h3 class="project-detail-card__title">
+                SEA:ME HACKATHON
+              </h3>
+
+              <div class="project-meta">
+                <span class="project-date">
+                  <i data-lucide="calendar" aria-hidden="true"></i>
+                  JUL 2026
+                </span>
+                <span class="project-type">
+                  <i data-lucide="tag" aria-hidden="true"></i>
+                  SEA:ME HACKATHON
+                </span>
+              </div>
+
+              <p class="project-detail-card__description">
+                Built an autonomous mobility prototype under hackathon constraints, focusing on fast iteration,
+                practical system integration, and reliable end-to-end behavior.
+              </p>
+
+              <div class="project-highlights">
+                <h4 class="highlights-title">Key Achievements</h4>
+                <ul class="highlights-list">
+                  <li>Rapidly integrated perception, decision-making, and control components into a working prototype.</li>
+                  <li>Validated core autonomous-driving behavior through iterative testing and debugging.</li>
+                  <li>Collaborated across software and mobility-system tasks within a short hackathon timeline.</li>
+                </ul>
+              </div>
+
+              <div class="tech-stack-detailed">
+                <span class="tech-badge">ROS2</span>
+                <span class="tech-badge">OpenCV</span>
+                <span class="tech-badge">Prototype</span>
+                <span class="tech-badge">Linux</span>
+              </div>
+
+              <div class="project-actions">
+                <a href="https://github.com/Gyuwon-Na/SEA-ME-HACKATHON.git" target="_blank" rel="noopener noreferrer"
+                  class="action-btn primary">
+                  <i data-lucide="github" aria-hidden="true"></i>
+                  View Code
+                </a>
+                <a href="../portfolio/autonomous_driving/HACKATHON.html" class="action-btn secondary">
+                  <i data-lucide="file-text" aria-hidden="true"></i>
+                  View Details
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Autonomous Project 2 -->
+          <article class="project-detail-card">
+            <div class="project-detail-card__visual">
+              <img src="../img/portfolio_thumbnails/auto/KAIST_V2X.jpg" alt="Autonomous Systems Project 1 img" class="img-static"
+                loading="lazy">
+              <img src="../img/portfolio_thumbnails/auto/KAIST_V2X.gif" alt="Autonomous Systems Project 1 animation" class="img-gif"
                 loading="lazy">
               <span class="project-status completed">Completed</span>
             </div>
@@ -552,12 +630,12 @@
             </div>
           </article>
 
-          <!-- Autonomous Project 2 -->
+          <!-- Autonomous Project 3 -->
           <article class="project-detail-card">
             <div class="project-detail-card__visual">
-              <img src="../img/portfolio_thumbnails/03_fog.jpg" alt="Autonomous Driving Project 2 img" class="img-static"
+              <img src="../img/portfolio_thumbnails/03_fog.jpg" alt="Autonomous Systems Project 2 img" class="img-static"
                 loading="lazy">
-              <img src="../img/portfolio_thumbnails/03_fog.jpg" alt="Autonomous Driving Project 2 animation" class="img-gif"
+              <img src="../img/portfolio_thumbnails/03_fog.jpg" alt="Autonomous Systems Project 2 animation" class="img-gif"
                 loading="lazy">
               <span class="project-status completed">Completed</span>
             </div>
@@ -623,12 +701,12 @@
             </div>
           </article>
 
-          <!-- Autonomous Project 3 -->
+          <!-- Autonomous Project 4 -->
           <article class="project-detail-card">
             <div class="project-detail-card__visual">
-              <img src="../img/portfolio_thumbnails/04_toon.jpg" alt="Autonomous Driving Project 3 img" class="img-static"
+              <img src="../img/portfolio_thumbnails/04_toon.jpg" alt="Autonomous Systems Project 3 img" class="img-static"
                 loading="lazy">
-              <img src="../img/portfolio_thumbnails/04_toon.jpg" alt="Autonomous Driving Project 3 animation" class="img-gif"
+              <img src="../img/portfolio_thumbnails/04_toon.jpg" alt="Autonomous Systems Project 3 animation" class="img-gif"
                 loading="lazy">
               <span class="project-status completed">Completed</span>
             </div>
@@ -686,12 +764,12 @@
             </div>
           </article>
 
-          <!-- Autonomous Project 4 -->
+          <!-- Autonomous Project 5 -->
           <article class="project-detail-card">
             <div class="project-detail-card__visual">
-              <img src="../img/portfolio_thumbnails/06_value.jpg" alt="Autonomous Driving Project 4 img" class="img-static"
+              <img src="../img/portfolio_thumbnails/06_value.jpg" alt="Autonomous Systems Project 4 img" class="img-static"
                 loading="lazy">
-              <img src="../img/portfolio_thumbnails/06_value.jpg" alt="Autonomous Driving Project 4 animation" class="img-gif"
+              <img src="../img/portfolio_thumbnails/06_value.jpg" alt="Autonomous Systems Project 4 animation" class="img-gif"
                 loading="lazy">
               <span class="project-status completed">Completed</span>
             </div>

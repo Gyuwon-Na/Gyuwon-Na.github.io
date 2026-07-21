@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
+
+<svg
+   width="700"
+   height="463.20001"
+   viewBox="0 0 28 18.528"
+   version="1.1"
+   id="svg1"
+   sodipodi:docname="cuda-svgrepo-com.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs1">
+    <filter
+       style="color-interpolation-filters:sRGB"
+       inkscape:label="Greyscale"
+       id="filter1"
+       x="0"
+       y="0"
+       width="1"
+       height="1">
+      <feColorMatrix
+         values="0.21 0.72 0.072 -1.47541 0 0.21 0.72 0.072 -1.47541 0 0.21 0.72 0.072 -1.47541 0 0 0 0 1 0 "
+         id="feColorMatrix1" />
+    </filter>
+  </defs>
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1" />
+  <title
+     id="title1">file_type_cuda</title>
+  <path
+     d="m 10.447,5.5290004 v -1.674 c 0.163,-0.012 0.327,-0.02 0.494,-0.026 4.577,-0.143 7.581,3.934 7.581,3.934 0,0 -3.244,4.5009996 -6.722,4.5009996 A 4.2,4.2 0 0 1 10.447,12.047 V 6.9760004 c 1.782,0.215 2.14,1 3.212,2.788 l 2.383,-2.009 a 6.312,6.312 0 0 0 -4.672,-2.281 8.606,8.606 0 0 0 -0.923,0.055 M 10.447,4.15802e-7 V 2.5000004 c 0.164,-0.013 0.329,-0.024 0.494,-0.03 6.366,-0.214 10.513,5.221 10.513,5.221 0,0 -4.764,5.7919996 -9.726,5.7919996 a 7.4,7.4 0 0 1 -1.281,-0.112 v 1.545 a 8.528,8.528 0 0 0 1.067,0.069 c 4.618,0 7.958,-2.358 11.192,-5.1499996 C 23.241,10.265 25.437,11.309 25.888,11.767 c -3.075,2.574 -10.241,4.649 -14.3,4.649 -0.392,0 -0.769,-0.024 -1.138,-0.06 v 2.172 H 28 V 4.15802e-7 Z M 10.447,12.051 v 1.32 C 6.176,12.609 4.99,8.1710004 4.99,8.1710004 a 9.234,9.234 0 0 1 5.457,-2.64 v 1.447 h -0.006 a 4.1,4.1 0 0 0 -3.184,1.456 c 0,0 0.782,2.8109996 3.19,3.6199996 M 2.861,7.9770004 a 10.576,10.576 0 0 1 7.586,-4.122 v -1.355 c -5.599,0.449 -10.447,5.191 -10.447,5.191 0,0 2.746,7.9389996 10.447,8.6649996 v -1.44 C 4.8,14.205 2.861,7.9770004 2.861,7.9770004 Z"
+     style="fill:#80bc00;filter:url(#filter1)"
+     id="path1" />
+</svg>

@@ -122,13 +122,12 @@
 
         <div class="main-content">
           <h1 id="hero-title" class="main-title">
-            Bridging Perception<br>
-            and <span class="text-highlight">Reality</span>
+            Engineering Real-Time Systems<br>
+            for the <span class="text-highlight">Physical World</span>
           </h1>
 
           <p class="main-description">
-            I am a software engineer passionate about Robotics and Computer Graphics.<br>
-            Currently solving real-world problems with autonomous systems.
+            Working across computer vision, graphics, and robotics, from core algorithms to system-level implementation.
           </p>
 
           <div class="hero-cta-group">
@@ -154,12 +153,13 @@
         <h2 id="about-title" class="section__title">About Me</h2>
 
         <p class="about-me-description">
-          I'm Gyuwon Na, a dedicated software engineer specializing in Robotics and Computer Graphics.
-          With a strong foundation in C++ and Python, I excel in developing real-time perception algorithms and
-          simulation
-          engines.
-          My passion lies in creating innovative solutions that bridge the gap between perception and reality,
-          driving advancements in autonomous systems.
+          I'm Gyuwon Na, a software engineer interested in computer vision,
+          computer graphics, and robotics. I enjoy developing core algorithms,
+          designing system-level architectures, and refining them into reliable,
+          maintainable software using C++ and Python. My experience includes
+          perception systems, rendering pipelines, and autonomous platforms.
+          In the long term, I hope to apply these technologies to improve
+          accessibility and empower underserved communities.
         </p>
 
         <div class="about-btn-wrapper">
@@ -173,7 +173,7 @@
     </section>
 
     <!-- Research & Publication -->
-    <section class="research-section" aria-labelledby="research-title">
+    <!-- <section class="research-section" aria-labelledby="research-title">
       <div class="container">
         <h2 id="research-title" class="section__title">Research & Publication</h2>
 
@@ -194,7 +194,8 @@
                 <h3 class="research-title">Real-time Perception Algorithm</h3>
                 <p class="research-description">Studied latency-aware perception pipelines for real-time autonomous
                   systems.</p>
-                <a href="portfolio/research/realtime_perception.html" class="research-link">Read More <i data-lucide="arrow-right" aria-hidden="true"></i></a>
+                <a href="portfolio/research/realtime_perception.html" class="research-link">Read More <i
+                    data-lucide="arrow-right" aria-hidden="true"></i></a>
               </div>
             </article>
 
@@ -207,7 +208,8 @@
                 <h3 class="research-title">ROI based Matching with HNSW</h3>
                 <p class="research-description">Explored ROI filtering and graph-based nearest-neighbor search for
                   faster visual correspondence.</p>
-                <a href="portfolio/research/roi_hnsw.html" class="research-link">Read More <i data-lucide="arrow-right" aria-hidden="true"></i></a>
+                <a href="portfolio/research/roi_hnsw.html" class="research-link">Read More <i data-lucide="arrow-right"
+                    aria-hidden="true"></i></a>
               </div>
             </article>
 
@@ -220,7 +222,8 @@
                 <h3 class="research-title">Advanced Feature Matching</h3>
                 <p class="research-description">Compared matching strategies under viewpoint shifts, lighting changes,
                   and ambiguous local features.</p>
-                <a href="portfolio/research/advanced_feature_matching.html" class="research-link">Read More <i data-lucide="arrow-right" aria-hidden="true"></i></a>
+                <a href="portfolio/research/advanced_feature_matching.html" class="research-link">Read More <i
+                    data-lucide="arrow-right" aria-hidden="true"></i></a>
               </div>
             </article>
 
@@ -238,7 +241,7 @@
           <button class="indicator" aria-label="Go to slide 3" role="tab"></button>
         </div>
       </div>
-    </section>
+    </section> -->
 
     <!-- Project Section -->
     <section id="projects" class="project-section" aria-labelledby="projects-title">
@@ -249,23 +252,27 @@
 
           <article class="project-card">
             <div class="project-card__visual">
-              <span class="glass-badge">Computer Graphics</span>
-              <img src="img/portfolio_thumbnails/08_fun.jpg" alt="Fluid Simulation Engine project" class="img-static"
-                loading="lazy">
-              <img src="img/portfolio_thumbnails/08_fun.jpg" alt="Fluid Simulation Engine animation" class="img-gif" loading="lazy">
+              <span class="glass-badge">Games</span>
+              <img src="img/portfolio_thumbnails/games/Manzo.png" alt="MANZO project" class="img-static" loading="lazy">
             </div>
 
             <div class="glass-overlay-info">
               <h4>Key Achievement</h4>
-              <p>Developed advanced fluid dynamics simulation with real-time particle rendering and optimized GPU
-                computation</p>
+              <p>
+                Designed rendering pipeline components and core engine systems for MANZO.
+                Refactored the architecture into reusable, inheritance-based components
+                to improve maintainability and feature integration.
+              </p>
+              <a href="portfolio/games/manzo.html" class="project-overlay-link">
+                View Project <i data-lucide="arrow-right" aria-hidden="true"></i>
+              </a>
             </div>
 
             <div class="project-card__info">
-              <h3 class="project-title">Fluid Simulation Engine</h3>
+              <h3 class="project-title">MANZO</h3>
               <div class="tech-stack">
-                <span class="tech-pill"><i class="fab fa-cuttlefish"></i> C++</span>
-                <span class="tech-pill"><i class="fas fa-cube"></i> OpenGL</span>
+                <span class="tech-pill">C++</span>
+                <span class="tech-pill">OpenGL</span>
                 <span class="tech-pill">GLSL</span>
               </div>
             </div>
@@ -274,39 +281,47 @@
           <article class="project-card">
             <div class="project-card__visual">
               <span class="glass-badge">Computer Vision</span>
-              <img src="img/portfolio_thumbnails/03_fog.jpg" alt="Lego Finder project" class="img-static" loading="lazy">
-              <img src="img/portfolio_thumbnails/03_fog.jpg" alt="Lego Finder animation" class="img-gif" loading="lazy">
+              <img src="img/portfolio_thumbnails/lego-finder.jpg" alt="Lego Finder project" class="img-static"
+                loading="lazy">
             </div>
 
             <div class="glass-overlay-info">
               <h4>Key Achievement</h4>
-              <p>Designed a model-assisted visual search workflow for identifying Lego pieces or sets from images</p>
+              <p>Developed a real-time LEGO part finder using computer vision, providing instant part recognition and
+                retrieval from live camera input.</p>
+              <a href="portfolio/computer_vision/lego_finder.html" class="project-overlay-link">
+                View Project <i data-lucide="arrow-right" aria-hidden="true"></i>
+              </a>
             </div>
 
             <div class="project-card__info">
               <h3 class="project-title">Lego Finder</h3>
               <div class="tech-stack">
-                <span class="tech-pill"><i class="fab fa-python"></i> Python</span>
+                <span class="tech-pill">Python</span>
                 <span class="tech-pill">OpenCV</span>
-                <span class="tech-pill">PyTorch</span>
+                <span class="tech-pill">CODEX</span>
               </div>
             </div>
           </article>
 
           <article class="project-card">
             <div class="project-card__visual">
-              <span class="glass-badge">Autonomous Driving</span>
-              <img src="img/portfolio_thumbnails/05_shadow.jpg" alt="ERP-42 Control Logic project" class="img-static" loading="lazy">
-              <img src="img/portfolio_thumbnails/05_shadow.jpg" alt="ERP-42 Control Logic animation" class="img-gif" loading="lazy">
+              <span class="glass-badge">Autonomous Systems</span>
+              <img src="img/portfolio_thumbnails/auto/V2X.jpg" alt="V2X Simulation project" class="img-static"
+                loading="lazy">
             </div>
 
             <div class="glass-overlay-info">
               <h4>Key Achievement</h4>
-              <p>Implemented robust path planning and obstacle avoidance for autonomous vehicle navigation</p>
+              <p>Implemented MPC-based pure pursuit control and overtaking logic for a 1/10-scale autonomous vehicle.
+              </p>
+              <a href="portfolio/autonomous_driving/V2X.html" class="project-overlay-link">
+                View Project <i data-lucide="arrow-right" aria-hidden="true"></i>
+              </a>
             </div>
 
             <div class="project-card__info">
-              <h3 class="project-title">ERP-42 Control Logic</h3>
+              <h3 class="project-title">V2X Cooperative Driving System</h3>
               <div class="tech-stack">
                 <span class="tech-pill">ROS2</span>
                 <span class="tech-pill">C++</span>
@@ -378,7 +393,7 @@
                 <span class="tech-level">Primary</span>
               </div>
               <div class="tech-skill" data-level="primary">
-                <span class="tech-mark" aria-hidden="true">CM</span>
+                <img src="img/logos/cmake.svg" alt="" loading="lazy">
                 <span class="tech-name">CMake</span>
                 <span class="tech-level">Primary</span>
               </div>
@@ -414,6 +429,11 @@
                 <span class="tech-level">Applied</span>
               </div>
               <div class="tech-skill" data-level="familiar">
+                <img src="img/logos/cuda.svg" alt="" loading="lazy">
+                <span class="tech-name">CUDA</span>
+                <span class="tech-level">Applied</span>
+              </div>
+              <div class="tech-skill" data-level="familiar">
                 <img src="img/logos/unity.svg" alt="" loading="lazy">
                 <span class="tech-name">Unity</span>
                 <span class="tech-level">Familiar</span>
@@ -437,8 +457,8 @@
               <div class="mini-timeline__content">
                 <h4 class="info__period">Mar 2023 - Jun 2026</h4>
                 <h3 class="info__title">Keimyung University</h3>
-                <p class="info__detail">DigiPen Game Engineering</p>
-                <p class="info__detail">GPA: 4.367 / 4.5</p>
+                <p class="info__detail">B.S. in DigiPen Game Engineering (Dual Degree)</p>
+                <p class="info__detail">GPA: 4.38 / 4.5</p>
               </div>
             </article>
 
@@ -448,6 +468,7 @@
                 <h4 class="info__period">Aug 2026 - Present</h4>
                 <h3 class="info__title">DigiPen Institute of Technology</h3>
                 <p class="info__detail">B.S. in Computer Science in Real-Time Interactive Simulation</p>
+                <p class="info__detail">GPA: 4.0 / 4.0</p>
               </div>
             </article>
 
@@ -455,7 +476,7 @@
         </div>
 
         <div class="info-column">
-          <h2 class="section__title">Leadership & Global</h2>
+          <h2 class="section__title">Leadership & Activities</h2>
           <div class="mini-timeline">
 
             <article class="mini-timeline__item">
@@ -463,7 +484,7 @@
               <div class="mini-timeline__content">
                 <h4 class="info__period">Sep 2023 - Jun 2025</h4>
                 <h3 class="info__title">Student Council Member</h3>
-                <p class="info__detail">Represented student perspectives and helped coordinate communication with
+                <p class="info__detail">Represented student interests and coordinated communication between students and
                   faculty.</p>
               </div>
             </article>
@@ -473,8 +494,8 @@
               <div class="mini-timeline__content">
                 <h4 class="info__period">Aug 2025</h4>
                 <h3 class="info__title">Daegu Global Youth Tourism Exchange Program</h3>
-                <p class="info__detail">Worked with international students to develop ideas for promoting tourism in
-                  Daegu.</p>
+                <p class="info__detail">Collaborated with international participants to develop tourism promotion
+                  strategies for Daegu.</p>
               </div>
             </article>
 
@@ -483,7 +504,7 @@
               <div class="mini-timeline__content">
                 <h4 class="info__period">Sep 2025 - Jun 2026</h4>
                 <h3 class="info__title">Buddy Program</h3>
-                <p class="info__detail">Supported French exchange students in adapting to academic and campus life.</p>
+                <p class="info__detail">Assisted French exchange students in adapting to academic and campus life.</p>
               </div>
             </article>
 
@@ -496,9 +517,9 @@
     <!-- Call to Action Section -->
     <section class="cta-section" aria-labelledby="cta-title">
       <div class="cta-container">
-        <h2 id="cta-title" class="cta__title">Let's build something amazing together!</h2>
+        <h2 id="cta-title" class="cta__title">Interested in Working Together?</h2>
         <p class="cta__description">
-          I'm currently looking for new opportunities in Computer Vision, Computer Graphics and Robotics.
+          I'm always open to new opportunities where I can contribute, learn, and grow.
         </p>
         <a href="docs/Resume.pdf" class="btn-download" target="_blank" rel="noopener noreferrer"
           aria-label="Download my resume">
@@ -509,45 +530,6 @@
     </section>
 
   </main>
-
-  <!-- Scroll Reveal Animation -->
-  <script src="https://unpkg.com/scrollreveal"></script>
-  <script>
-    // ScrollReveal configuration
-    const sr = ScrollReveal({
-      distance: '50px',
-      duration: 800,
-      easing: 'ease-out',
-      origin: 'bottom',
-      reset: false,
-      mobile: true,
-      viewFactor: 0.2
-    });
-
-    // Animate timeline items
-    sr.reveal('.mini-timeline__item', {
-      interval: 200
-    });
-
-    // Animate CTA section
-    sr.reveal('.cta-container', {
-      delay: 300,
-      origin: 'bottom',
-      distance: '100px'
-    });
-
-    // Animate project cards
-    sr.reveal('.project-card', {
-      interval: 150,
-      distance: '30px'
-    });
-
-    // Animate section titles
-    sr.reveal('.section__title', {
-      distance: '30px',
-      duration: 600
-    });
-  </script>
 
   <!-- Footer -->
   <footer class="footer">
