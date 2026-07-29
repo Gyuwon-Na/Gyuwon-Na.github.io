@@ -4,18 +4,20 @@
 <head>
   <meta charset="UTF-8">
   <link rel="icon" type="image/svg+xml" href="../../img/face.jpg">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ROI-Based Matching with HNSW</title>
-  <meta name="description" content="Research detail page for ROI-based feature matching with HNSW by Gyuwon Na.">
-  <link rel="stylesheet" href="../../external/normalize.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css"
-    integrity="sha256-46qynGAkLSFpVbEBog43gvNhfrOj+BmwXdxFgVK/Kvc=" crossorigin="anonymous" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <meta name="description"
+    content="Exploratory research detail page for an ROI-constrained feature-matching prototype using HNSW approximate nearest-neighbor search.">
+
+  <link rel="stylesheet" href="../../external/normalize.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
     href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap"
-    rel="stylesheet" />
+    rel="stylesheet">
+
   <script>
     (() => {
       try {
@@ -29,110 +31,565 @@
       }
     })();
   </script>
-  <link rel="stylesheet" href="../../css/style.css" />
-  <link rel="stylesheet" href="../../css/projects.css" />
+
+  <link rel="stylesheet" href="../../css/style.css">
+  <link rel="stylesheet" href="../../css/projects.css">
+  <link rel="stylesheet" href="../../css/research-page.css">
 </head>
 
-<body>
+<body class="clifford-detail-page">
+  <a class="skip-to-main" href="#main-content">Skip to main content</a>
+
   <div class="floating-nav-container" id="navContainer" role="navigation" aria-label="Main navigation">
     <button class="theme-toggle-btn" id="themeToggle" aria-label="Switch to dark mode" aria-pressed="false">
       <i class="fa-solid fa-moon" aria-hidden="true"></i>
     </button>
 
-    <button class="nav-trigger-btn" onclick="toggleNav()" aria-label="Open navigation menu" aria-expanded="false"><div class="hamburger-lines"><span></span><span></span></div></button>
-    <nav class="nav-capsule-menu">
+    <button class="nav-trigger-btn" onclick="toggleNav()" aria-label="Open navigation menu" aria-expanded="false">
+      <span class="hamburger-lines" aria-hidden="true"><span></span><span></span></span>
+    </button>
+
+    <nav class="nav-capsule-menu" aria-label="Primary">
       <ul class="nav-links">
         <li><a href="../../index.html" onclick="toggleNav()">Home</a></li>
         <li><a href="../../pages/AboutMe.html" onclick="toggleNav()">About Me</a></li>
         <li><a href="../../pages/Research.html" onclick="toggleNav()">Research</a></li>
         <li><a href="../../pages/Projects.html" onclick="toggleNav()">Projects</a></li>
       </ul>
-      <button class="nav-close-btn" onclick="toggleNav()" aria-label="Close navigation menu"><i data-lucide="x"></i></button>
+      <button class="nav-close-btn" onclick="toggleNav()" aria-label="Close navigation menu"><i
+          data-lucide="x"></i></button>
     </nav>
   </div>
 
   <main id="main-content">
-    <section class="detail-hero">
-      <div class="back-btn-wrapper"><a href="../../pages/Research.html" class="back-btn"><i data-lucide="arrow-left"></i> Back to Research</a></div>
-      <div class="container">
-        <span class="eyebrow"><i data-lucide="network"></i> Research Project</span>
-        <h1 class="projects-hero__title" style="font-size: clamp(2rem, 4vw, 3rem);">ROI-Based Matching with HNSW</h1>
-        <div class="project-meta" style="justify-content: center; margin-top: 20px;">
-          <span class="project-date"><i data-lucide="calendar"></i> MM 2025</span>
-          <span class="project-type"><i data-lucide="tag"></i> Feature Matching / Approximate Search</span>
+    <section class="detail-hero clifford-hero">
+      <div class="back-btn-wrapper">
+        <a href="../../pages/Research.html" class="back-btn"><i data-lucide="arrow-left"></i> Back to Research</a>
+      </div>
+
+      <div class="container clifford-hero__layout">
+        <div class="clifford-hero__copy">
+          <p class="clifford-eyebrow">
+            <span class="clifford-status-dot" aria-hidden="true"></span>
+            RESEARCH PROTOTYPE
+          </p>
+
+          <h1 class="clifford-hero__title">ROI-Based Matching with HNSW</h1>
+
+          <p class="clifford-hero__summary">
+            An exploratory matching prototype that separates <em>where to search</em> from <em>how to search</em>:
+            restrict descriptor candidates to a region of interest, then use a Hierarchical Navigable Small World
+            index to retrieve approximate nearest neighbors efficiently.
+          </p>
+
+          <div class="clifford-meta" aria-label="Research metadata">
+            <span><i data-lucide="flask-conical" aria-hidden="true"></i> Independent Prototype</span>
+            <span><i data-lucide="scan-search" aria-hidden="true"></i> Feature Retrieval &amp; Matching</span>
+          </div>
+
+          <div class="tech-stack-detailed clifford-tech-stack" aria-label="Technology stack">
+            <span class="tech-badge">Correspondence Matching</span>
+            <span class="tech-badge">ROI Filtering</span>
+            <span class="tech-badge">Approximate Nearest Neighbor</span>
+          </div>
+
+          <!-- <div class="clifford-hero__actions">
+            <a class="clifford-action clifford-action--primary"
+              href="https://www.notion.so/roi-2a3ecf05ce4c80d88618f096cec08f58?source=copy_link" target="_blank"
+              rel="noopener noreferrer">
+              <i data-lucide="lightbulb" aria-hidden="true"></i> Idea Notes
+            </a>
+            <a class="clifford-action"
+              href="https://www.notion.so/ROI-HNSW-2b1ecf05ce4c80668f98d67580822cf8?source=copy_link" target="_blank"
+              rel="noopener noreferrer">
+              <i data-lucide="chart-no-axes-combined" aria-hidden="true"></i> Experiment Notes
+            </a>
+          </div> -->
         </div>
-        <div class="tech-stack-detailed" style="justify-content: center; margin-top: 20px;">
-          <span class="tech-badge">C++</span>
-          <span class="tech-badge">Python</span>
-          <span class="tech-badge">OpenCV</span>
-          <span class="tech-badge">HNSW</span>
+
+
+        <div class="project-card__visual">
+          <img src="../../img/research/roi/comparison_result.png" alt="Hello Quad project" class="img-static"
+            loading="lazy">
         </div>
+      </div>
+      </div>
+
+      <div class="container clifford-stat-strip" aria-label="Study summary">
+        <div class="clifford-stat"><strong>ROI first</strong><span>reduce irrelevant descriptor candidates before
+            retrieval</span></div>
+        <div class="clifford-stat"><strong>ANN</strong><span>replace exhaustive nearest-neighbor lookup with graph
+            search</span></div>
+        <div class="clifford-stat"><strong>Prototype</strong><span>explore design trade-offs rather than claim a
+            final method</span></div>
       </div>
     </section>
 
-    <section class="detail-content">
-      <div class="detail-figure"><div class="visual-placeholder">ROI Matching Pipeline Placeholder</div></div>
-
-      <div class="detail-section">
-        <h2 class="detail-section-title">Research Question</h2>
-        <p class="detail-text">
-          Can feature matching be made faster and more robust by combining spatial region constraints with approximate
-          nearest-neighbor search? This project explores how ROI filtering and HNSW indexing can reduce unnecessary
-          descriptor comparisons while preserving match quality.
-        </p>
+    <nav class="clifford-jump-nav" aria-label="Page sections">
+      <div class="container">
+        <a href="#overview">Overview</a>
+        <a href="#hypothesis">Hypothesis</a>
+        <a href="#pipeline">Pipeline</a>
+        <a href="#evaluation">Evaluation</a>
+        <a href="#findings">Findings</a>
+        <a href="#limits">Limitations</a>
+        <a href="#reflection">Reflection</a>
       </div>
+    </nav>
 
-      <div class="detail-section">
-        <h2 class="detail-section-title">System Design</h2>
-        <ul class="highlights-list">
-          <li>Extract feature descriptors from candidate frames and assign them to region-of-interest buckets.</li>
-          <li>Use ROI constraints to reduce the search space before performing descriptor-level nearest-neighbor lookup.</li>
-          <li>Apply HNSW indexing to accelerate similarity search where the descriptor pool remains large.</li>
-          <li>Validate matches with geometric consistency checks to reject plausible but spatially invalid correspondences.</li>
-        </ul>
-      </div>
-
-      <div class="detail-section">
-        <h2 class="detail-section-title">Why It Matters</h2>
-        <p class="detail-text">
-          Matching quality directly affects localization, mapping, tracking, and image registration systems. A practical
-          portfolio version of this work should show the trade-off curve between speed, recall, and false matches rather
-          than presenting a single best-case demo.
-        </p>
-      </div>
-
-      <div class="detail-section">
-        <h2 class="detail-section-title">Evaluation Plan</h2>
-        <div class="metric-grid">
-          <article class="metric-card"><i data-lucide="zap"></i><h3 class="metric-card__value">Speed</h3><p class="metric-card__label">Compare brute-force, ROI-only, HNSW-only, and ROI+HNSW matching time.</p></article>
-          <article class="metric-card"><i data-lucide="target"></i><h3 class="metric-card__value">Recall</h3><p class="metric-card__label">Measure how many valid correspondences survive each filtering stage.</p></article>
-          <article class="metric-card"><i data-lucide="filter"></i><h3 class="metric-card__value">Precision</h3><p class="metric-card__label">Track false matches after geometric verification.</p></article>
+    <section class="detail-content clifford-detail-content">
+      <section class="detail-section" id="overview">
+        <div class="clifford-section-heading">
+          <span class="clifford-section-index">01</span>
+          <div>
+            <p class="clifford-section-kicker">Overview</p>
+            <h2 class="detail-section-title">A focused experiment on candidate-space design</h2>
+          </div>
         </div>
-      </div>
 
-      <div class="detail-section">
-        <h2 class="detail-section-title">Future Work</h2>
-        <ul class="highlights-list">
-          <li>Integrate a reproducible benchmark with public image sequences and fixed parameter sweeps.</li>
-          <li>Explore adaptive ROI sizing based on camera motion and expected object scale.</li>
-          <li>Package the matching pipeline as a reusable module with clear profiling hooks.</li>
-        </ul>
-      </div>
+        <div class="clifford-overview-grid">
+          <div>
+            <p class="detail-text clifford-lede">
+              Feature matching is usually described as a descriptor problem, but the candidate pool itself can be just
+              as important. Searching an entire image exposes every query descriptor to repetitive texture,
+              semantically irrelevant objects, and distant background structure.
+            </p>
+            <p class="detail-text">
+              First, define a region of interest that represents the
+              relevant object or scene area. Second, index only the descriptors inside that region.
+              Third, use HNSW to
+              retrieve approximate nearest neighbors instead of exhaustively comparing every descriptor pair.
+            </p>
+          </div>
+
+          <aside class="clifford-brief-card" aria-label="Study brief">
+            <div class="brief-card__icon"><i data-lucide="network" aria-hidden="true"></i></div>
+            <dl>
+              <div>
+                <dt>Question</dt>
+                <dd>Can an ROI remove distractors before descriptor retrieval?</dd>
+              </div>
+              <div>
+                <dt>Search method</dt>
+                <dd>HNSW graph-based approximate nearest-neighbor lookup.</dd>
+              </div>
+              <div>
+                <dt>Focus</dt>
+                <dd>Candidate count, matching relevance, retrieval speed, and robustness to ROI error.</dd>
+              </div>
+            </dl>
+          </aside>
+        </div>
+      </section>
+
+      <section class="detail-section" id="hypothesis">
+        <div class="clifford-section-heading">
+          <span class="clifford-section-index">02</span>
+          <div>
+            <p class="clifford-section-kicker">Hypothesis</p>
+            <h2 class="detail-section-title">Constrain the search space before optimizing the search</h2>
+          </div>
+        </div>
+
+        <div class="clifford-origin-card">
+          <div class="origin-card__story">
+            <p class="detail-text">
+              Global descriptor search treats every extracted point as a possible match. This is useful when the scene
+              is unknown, but wasteful when the application already knows which object or region matters.
+            </p>
+            <p class="detail-text">
+              The central hypothesis was inspired by the unconscious behavior of people when capturing panoramic images.
+              During camera rotation, users tend to stabilize the frame around the horizon and keep the main subject
+              near the
+              horizontal center, even in the presence of hand jitter. This suggests that the central horizontal region
+              is likely
+              to maintain more stable overlap across adjacent frames.
+            </p>
+
+            <p class="detail-text">
+              To examine this assumption, the prototype collected IMU measurements from a smartphone camera alongside
+              the
+              captured image sequence. Gyroscope and accelerometer measurements were incorporated into the ROI-selection
+              process to identify temporally
+              stable regions during camera motion.
+            </p>
+
+            <p class="detail-text">
+              Based on these observations, the ROI was considered as a potentially adaptive region rather than only a
+              fixed
+              rectangular crop. Low-motion and texture-rich regions could be prioritized using visual features together
+              with
+              IMU-derived motion cues, while unstable foreground regions and areas affected by parallax distortion could
+              be
+              down-weighted or excluded from descriptor matching.
+            </p>
+            <!-- <ul class="clifford-dash-list">
+              <li><strong>Spatial prior:</strong> keep only descriptors from a relevant region.</li>
+              <li><strong>Efficient lookup:</strong> traverse a multi-layer proximity graph instead of brute-force
+                search.</li>
+              <li><strong>Verification:</strong> treat retrieved neighbors as candidates, not final geometric truth.
+              </li>
+            </ul> -->
+          </div>
+
+          <div class="origin-card__math" aria-label="Conceptual ROI and HNSW search expression">
+            <span class="math-caption">Constrained Retrieval</span>
+            <div class="math-equation">
+              <span class="math-dot">Q</span>
+              <span class="math-operator">&rarr;</span>
+              <span class="math-wedge">I<sub>ROI</sub></span>
+              <span class="math-operator">&rarr;</span>
+              <span class="math-dot">NN<sub>HNSW</sub></span>
+            </div>
+            <div class="math-meaning">
+              <span><b>ROI</b> controls which candidates exist.</span>
+              <span><b>HNSW</b> controls how candidates are retrieved.</span>
+            </div>
+            <div class="math-rotor-ring"><span>k-NN</span><small>approximate graph traversal</small></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="detail-section" id="pipeline">
+        <div class="clifford-section-heading">
+          <span class="clifford-section-index">03</span>
+          <div>
+            <p class="clifford-section-kicker">Prototype Pipeline</p>
+            <h2 class="detail-section-title">From region selection to verified correspondences</h2>
+          </div>
+        </div>
+
+        <div class="clifford-pipeline" aria-label="ROI and HNSW feature matching pipeline">
+          <article class="pipeline-stage pipeline-stage--p1"><span class="pipeline-stage__number">P1</span>
+            <h3>Define ROI</h3>
+            <p>Select the spatial area expected to contain useful correspondences.</p>
+          </article>
+          <div class="pipeline-connector"><i data-lucide="arrow-right"></i></div>
+          <article class="pipeline-stage pipeline-stage--p2"><span class="pipeline-stage__number">P2</span>
+            <h3>Extract Descriptors</h3>
+            <p>Represent local points inside the retained region.</p>
+          </article>
+          <div class="pipeline-connector"><i data-lucide="arrow-right"></i></div>
+          <article class="pipeline-stage pipeline-stage--p3"><span class="pipeline-stage__number">P3</span>
+            <h3>Build HNSW Index</h3>
+            <p>Organize reference descriptors in a hierarchical proximity graph.</p>
+          </article>
+          <div class="pipeline-connector"><i data-lucide="arrow-right"></i></div>
+          <article class="pipeline-stage pipeline-stage--p4"><span class="pipeline-stage__number">P4</span>
+            <h3>Retrieve Top-k</h3>
+            <p>Query approximate nearest neighbors for target descriptors.</p>
+          </article>
+          <div class="pipeline-connector"><i data-lucide="arrow-right"></i></div>
+          <article class="pipeline-stage pipeline-stage--p5"><span class="pipeline-stage__number">P5</span>
+            <h3>Filter &amp; Verify</h3>
+            <p>Reject ambiguous candidates and check geometric consistency.</p>
+          </article>
+        </div>
+
+        <div class="phase-detail-grid" style="margin-top:28px;">
+          <article class="phase-detail-card phase-detail-card--p1">
+            <div class="phase-detail-card__header">
+              <p>Spatial Filtering</p>
+              <h3>ROI as a Prior</h3>
+            </div>
+            <p>The region is not merely a crop for visualization. It changes the descriptor population and therefore the
+              probability of retrieving a visually similar but irrelevant point.</p>
+          </article>
+          <article class="phase-detail-card phase-detail-card--p2">
+            <div class="phase-detail-card__header">
+              <p>Indexing</p>
+              <h3>Hierarchical Graph Search</h3>
+            </div>
+            <p>HNSW provides coarse-to-fine graph traversal: upper layers move quickly across the space, while lower
+              layers refine the local neighborhood.</p>
+          </article>
+          <article class="phase-detail-card phase-detail-card--p3">
+            <div class="phase-detail-card__header">
+              <p>Matching</p>
+              <h3>Candidates, Not Guarantees</h3>
+            </div>
+            <p>Approximate nearest neighbors still need descriptor ambiguity checks and geometric verification because
+              fast vector similarity alone does not establish a valid correspondence.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="detail-section" id="evaluation">
+        <div class="clifford-section-heading">
+          <span class="clifford-section-index">04</span>
+          <div>
+            <p class="clifford-section-kicker">Experimental Questions</p>
+            <h2 class="detail-section-title">What the prototype was designed to reveal</h2>
+          </div>
+        </div>
+
+        <div class="protocol-grid">
+          <article class="protocol-card"><span class="protocol-card__label">Candidate Scope</span>
+            <h3>Global vs. ROI search</h3>
+            <ul>
+              <li>How many descriptors remain after ROI filtering?</li>
+              <li>Do retrieved matches concentrate on relevant structure?</li>
+              <li>Which valid matches are lost at the ROI boundary?</li>
+            </ul>
+          </article>
+          <article class="protocol-card"><span class="protocol-card__label">ANN Trade-off</span>
+            <h3>Recall vs. query cost</h3>
+            <ul>
+              <li>How does approximate search differ from exhaustive lookup?</li>
+              <li>How do graph-density and search-width choices affect behavior?</li>
+              <li>When is exact re-ranking still necessary?</li>
+            </ul>
+          </article>
+          <article class="protocol-card"><span class="protocol-card__label">Robustness</span>
+            <h3>Dependence on ROI quality</h3>
+            <ul>
+              <li>What happens when the ROI is too narrow?</li>
+              <li>What happens when it includes distractors?</li>
+              <li>Can verification recover from imperfect retrieval?</li>
+            </ul>
+          </article>
+        </div>
+
+        <div class="result-summary-callout" style="margin-top:24px;">
+          <i data-lucide="info" aria-hidden="true"></i>
+          <p><strong>Scope note:</strong> this was an exploratory comparison, not a publication-grade benchmark. The
+            page therefore emphasizes the design questions and observed trade-offs rather than presenting unsupported
+            headline metrics.</p>
+        </div>
+      </section>
+
+      <section class="detail-section" id="findings">
+        <div class="clifford-section-heading">
+          <span class="clifford-section-index">05</span>
+          <div>
+            <p class="clifford-section-kicker">Practical Findings</p>
+            <h2 class="detail-section-title">The search prior and the search algorithm must be evaluated together</h2>
+          </div>
+        </div>
+
+        <div class="result-card-grid">
+          <article class="result-card"><span class="result-card__tag">Candidate quality</span><strong>ROI
+              filtering</strong>
+            <h3>Fewer irrelevant neighbors</h3>
+            <p>Restricting the reference descriptor set can reduce matches caused by repeated texture or unrelated
+              background regions.</p>
+          </article>
+          <article class="result-card"><span class="result-card__tag">Scalability</span><strong>HNSW</strong>
+            <h3>Faster growth than brute force</h3>
+            <p>Graph-based lookup is useful when the descriptor index becomes large enough that exhaustive comparison
+              dominates the pipeline.</p>
+          </article>
+          <article class="result-card"><span class="result-card__tag">Failure mode</span><strong>ROI error</strong>
+            <h3>A strong prior can be brittle</h3>
+            <p>If the selected region excludes the true correspondence, no retrieval method can recover it from the
+              missing candidate set.</p>
+          </article>
+          <article class="result-card"><span class="result-card__tag">Verification</span><strong>Geometry</strong>
+            <h3>Nearest is not always correct</h3>
+            <p>Approximate vector similarity should be followed by consistency checks, especially in repetitive or
+              low-texture scenes.</p>
+          </article>
+        </div>
+
+        <div class="future-direction-card" style="margin-top:24px;">
+          <span>Key takeaway</span>
+          <h3>“Where to search” may matter as much as “which descriptor to use.”</h3>
+          <p>The experiment reframed ROI selection as part of the matching algorithm itself. A smaller candidate set can
+            improve relevance and speed, but only when the spatial prior is reliable and the approximate-search recall
+            is sufficient.</p>
+        </div>
+      </section>
+
+      <section class="detail-section" id="limits">
+        <div class="clifford-section-heading">
+          <span class="clifford-section-index">06</span>
+          <div>
+            <p class="clifford-section-kicker">Limitations</p>
+            <h2 class="detail-section-title">Why this remained an experiment rather than a finished method</h2>
+          </div>
+        </div>
+
+        <div class="clifford-challenge-grid">
+          <article class="challenge-card clifford-challenge-card">
+            <div class="challenge-header"><span class="challenge-header-num">1</span>ROI selection is an external
+              assumption</div>
+            <div class="cs-box problem">
+              <div class="cs-box-title"><i data-lucide="alert-triangle"></i> Limitation</div>
+              <p>The prototype depends on a meaningful region being available before matching. Manual or inaccurate
+                regions can bias the result.</p>
+            </div>
+            <div class="cs-box solution">
+              <div class="cs-box-title"><i data-lucide="lightbulb"></i> Next step</div>
+              <p>Learn or track the ROI jointly, or use uncertainty-aware expansion around the predicted region.</p>
+            </div>
+          </article>
+          <article class="challenge-card clifford-challenge-card">
+            <div class="challenge-header"><span class="challenge-header-num">2</span>No standardized quantitative
+              benchmark</div>
+            <div class="cs-box problem">
+              <div class="cs-box-title"><i data-lucide="alert-triangle"></i> Limitation</div>
+              <p>The work was not evaluated as a full research paper against established matching systems and datasets.
+              </p>
+            </div>
+            <div class="cs-box solution">
+              <div class="cs-box-title"><i data-lucide="lightbulb"></i> Next step</div>
+              <p>Measure recall, precision, latency, memory, geometric inlier rate, and sensitivity to ROI perturbation.
+              </p>
+            </div>
+          </article>
+          <article class="challenge-card clifford-challenge-card">
+            <div class="challenge-header"><span class="challenge-header-num">3</span>Approximation introduces another
+              error source</div>
+            <div class="cs-box problem">
+              <div class="cs-box-title"><i data-lucide="alert-triangle"></i> Limitation</div>
+              <p>A graph index can miss the exact nearest neighbor depending on its construction and search parameters.
+              </p>
+            </div>
+            <div class="cs-box solution">
+              <div class="cs-box-title"><i data-lucide="lightbulb"></i> Next step</div>
+              <p>Use HNSW for candidate generation, then exact re-ranking and geometric verification on a small
+                shortlist.</p>
+            </div>
+          </article>
+          <article class="challenge-card clifford-challenge-card">
+            <div class="challenge-header"><span class="challenge-header-num">4</span>Descriptor quality remains
+              unchanged</div>
+            <div class="cs-box problem">
+              <div class="cs-box-title"><i data-lucide="alert-triangle"></i> Limitation</div>
+              <p>ROI and HNSW can improve candidate handling, but cannot make a weak descriptor invariant to viewpoint,
+                lighting, or deformation.</p>
+            </div>
+            <div class="cs-box solution">
+              <div class="cs-box-title"><i data-lucide="lightbulb"></i> Next step</div>
+              <p>Combine the retrieval design with stronger local features and explicit uncertainty estimates.</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="detail-section" id="role">
+        <div class="clifford-section-heading">
+          <span class="clifford-section-index">07</span>
+          <div>
+            <p class="clifford-section-kicker">My Role</p>
+            <h2 class="detail-section-title">Independent idea exploration and prototype evaluation</h2>
+          </div>
+        </div>
+        <div class="role-card-grid">
+          <article class="role-card"><i data-lucide="lightbulb"></i>
+            <h3>Idea formulation</h3>
+            <p>Framed matching as a combination of spatial candidate selection and efficient nearest-neighbor retrieval.
+            </p>
+          </article>
+          <article class="role-card"><i data-lucide="boxes"></i>
+            <h3>Prototype design</h3>
+            <p>Structured the ROI filtering, descriptor indexing, query, filtering, and verification stages.</p>
+          </article>
+          <article class="role-card"><i data-lucide="gauge"></i>
+            <h3>Trade-off analysis</h3>
+            <p>Examined how candidate reduction, approximate search, and ROI errors affect efficiency and match
+              reliability.</p>
+          </article>
+          <article class="role-card"><i data-lucide="notebook-pen"></i>
+            <h3>Experiment documentation</h3>
+            <p>Recorded the initial idea, experimental observations, limitations, and possible directions for a stronger
+              study.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="detail-section" id="reflection">
+        <div class="clifford-section-heading">
+          <span class="clifford-section-index">08</span>
+          <div>
+            <p class="clifford-section-kicker">Reflection</p>
+            <h2 class="detail-section-title">The value of a small experiment</h2>
+          </div>
+        </div>
+
+        <div class="reflection-grid">
+          <div class="reflection-card reflection-card--learning">
+            <span>What the prototype clarified</span>
+            <ul class="clifford-dash-list">
+              <li>Matching performance is shaped by the candidate population before similarity is computed.</li>
+              <li>Approximate search is most useful when paired with a clear recall and verification strategy.</li>
+              <li>A strong prior improves efficiency but creates a new dependency that must be stress-tested.</li>
+            </ul>
+          </div>
+          <div class="reflection-card reflection-card--limits">
+            <span>Why I present it as secondary work</span>
+            <ul class="clifford-dash-list">
+              <li>It remained a focused experiment rather than a complete research contribution.</li>
+              <li>There is no publication, standardized benchmark, or final system artifact.</li>
+              <li>Its main value is the design insight that later informed more systematic matching research.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="future-direction-card">
+          <span>Potential continuation</span>
+          <h3>Learned ROI proposal + HNSW candidate generation + exact geometric re-ranking</h3>
+          <p>A fuller study would jointly evaluate ROI uncertainty, descriptor recall, ANN parameters, and geometric
+            inlier quality across standard local-feature and dense-matching datasets.</p>
+        </div>
+      </section>
+
+      <!-- <section class="detail-section" id="archive">
+        <div class="clifford-section-heading">
+          <span class="clifford-section-index">09</span>
+          <div>
+            <p class="clifford-section-kicker">Development Archive</p>
+            <h2 class="detail-section-title">Idea and experiment notes</h2>
+          </div>
+        </div>
+
+        <div class="archive-grid">
+          <a class="archive-card" href="https://www.notion.so/roi-2a3ecf05ce4c80d88618f096cec08f58?source=copy_link"
+            target="_blank" rel="noopener noreferrer">
+            <span>Concept</span>
+            <h3>ROI-Based Matching Idea</h3>
+            <p>The original reasoning for constraining the descriptor search region before nearest-neighbor retrieval.
+            </p><i data-lucide="arrow-up-right"></i>
+          </a>
+          <a class="archive-card"
+            href="https://www.notion.so/ROI-HNSW-2b1ecf05ce4c80668f98d67580822cf8?source=copy_link" target="_blank"
+            rel="noopener noreferrer">
+            <span>Experiment</span>
+            <h3>ROI + HNSW Results Notes</h3>
+            <p>Prototype observations, retrieval behavior, and limitations recorded during the experiment.</p><i
+              data-lucide="arrow-up-right"></i>
+          </a>
+        </div>
+      </section> -->
     </section>
   </main>
 
   <footer class="footer">
     <ul class="social-list">
-      <li class="social-list__item"><a class="social-list__link" href="mailto:uoyuvvou@gmail.com"><i class="fa-regular fa-envelope"></i></a></li>
-      <li class="social-list__item"><a class="social-list__link" href="https://www.linkedin.com/in/uoyuvvou"><i class="fa-brands fa-linkedin-in"></i></a></li>
-      <li class="social-list__item"><a class="social-list__link" href="https://github.com/Gyuwon-Na"><i class="fa-brands fa-github"></i></a></li>
-      <li class="social-list__item"><a class="social-list__link" href="https://www.instagram.com/uoyuvvou"><i class="fa-brands fa-instagram"></i></a></li>
+      <li class="social-list__item"><a class="social-list__link" href="mailto:uoyuvvou@gmail.com" aria-label="Email"><i
+            class="fa-regular fa-envelope"></i></a></li>
+      <li class="social-list__item"><a class="social-list__link" href="https://www.linkedin.com/in/uoyuvvou"
+          aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a></li>
+      <li class="social-list__item"><a class="social-list__link" href="https://github.com/Gyuwon-Na"
+          aria-label="GitHub"><i class="fa-brands fa-github"></i></a></li>
+      <li class="social-list__item"><a class="social-list__link" href="https://www.instagram.com/uoyuvvou"
+          aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a></li>
     </ul>
     <p class="footer-copyright">&copy; 2026 Gyuwon Na. All rights reserved.</p>
   </footer>
+
   <script src="../../js/index.js"></script>
+  <script src="../../js/research-navigator.js"></script>
   <script src="https://unpkg.com/lucide@latest"></script>
-  <script>function toggleNav(){const c=document.getElementById('navContainer');const b=c.querySelector('.nav-trigger-btn');const a=c.classList.toggle('active');b.setAttribute('aria-expanded',a);}lucide.createIcons();</script>
+  <script>
+    lucide.createIcons();
+    function toggleNav() {
+      const container = document.getElementById('navContainer');
+      const triggerBtn = container.querySelector('.nav-trigger-btn');
+      const isActive = container.classList.toggle('active');
+      triggerBtn.setAttribute('aria-expanded', isActive);
+    }
+  </script>
 </body>
 
 </html>

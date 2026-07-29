@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml" href="../../img/face.jpg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Improving Lane Detection with Morphological Operations and Adaptive Thresholding</title>
+  <meta name="description"
+    content="Research detail page for a lightweight lane-detection preprocessing study combining morphological closing and Otsu adaptive binarization.">
+
+  <link rel="stylesheet" href="../../external/normalize.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap"
+    rel="stylesheet">
+
+  <script>
+    (() => {
+      try {
+        const savedTheme = localStorage.getItem('theme');
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+          document.documentElement.setAttribute('data-theme', 'dark');
+        }
+      } catch (error) {
+        document.documentElement.removeAttribute('data-theme');
+      }
+    })();
+  </script>
+
+  <link rel="stylesheet" href="../../css/style.css">
+  <link rel="stylesheet" href="../../css/projects.css">
+
+  <link rel="stylesheet" href="../../css/research-page.css">
+</head>
+
+<body class="clifford-detail-page">
+  <a class="skip-to-main" href="#main-content">Skip to main content</a>
+
+  <div class="floating-nav-container" id="navContainer" role="navigation" aria-label="Main navigation">
+    <button class="theme-toggle-btn" id="themeToggle" aria-label="Switch to dark mode" aria-pressed="false">
+      <i class="fa-solid fa-moon" aria-hidden="true"></i>
+    </button>
+
+    <button class="nav-trigger-btn" onclick="toggleNav()" aria-label="Open navigation menu" aria-expanded="false">
+      <span class="hamburger-lines" aria-hidden="true">
+        <span></span>
+        <span></span>
+      </span>
+    </button>
+
+    <nav class="nav-capsule-menu" aria-label="Primary">
+      <ul class="nav-links">
+        <li><a href="../../index.html" onclick="toggleNav()">Home</a></li>
+        <li><a href="../../pages/AboutMe.html" onclick="toggleNav()">About Me</a></li>
+        <li><a href="../../pages/Research.html" onclick="toggleNav()">Research</a></li>
+        <li><a href="../../pages/Projects.html" onclick="toggleNav()">Projects</a></li>
+      </ul>
+      <button class="nav-close-btn" onclick="toggleNav()" aria-label="Close navigation menu">
+        <i data-lucide="x" aria-hidden="true"></i>
+      </button>
+    </nav>
+  </div>
+
+  <main id="main-content">
+    <section class="detail-hero clifford-hero">
+      <div class="back-btn-wrapper">
+        <a href="../../pages/Research.html" class="back-btn">
+          <i data-lucide="arrow-left" aria-hidden="true"></i>
+          Back to Research
+        </a>
+      </div>
+
+      <div class="container clifford-hero__layout">
+        <div class="clifford-hero__copy">
+          <p class="clifford-eyebrow">
+            <span class="clifford-status-dot" aria-hidden="true"></span>
+            Computer Vision Research / Conference Poster
+          </p>
+
+          <h1 class="clifford-hero__title">
+            Improving Lane Detection with Morphological Operations and Adaptive Thresholding
+          </h1>
+
+          <p class="clifford-hero__summary">
+            A lightweight preprocessing study that combines morphological closing with frame-adaptive Otsu
+            binarization to recover broken lane markings, suppress illumination-driven noise, and stabilize a
+            classical Hough-based lane-detection pipeline.
+          </p>
+
+          <div class="clifford-meta" aria-label="Research metadata">
+            <span><i data-lucide="calendar" aria-hidden="true"></i> 2025</span>
+            <span><i data-lucide="presentation" aria-hidden="true"></i> Poster Presented at KMMS</span>
+            <span><i data-lucide="user-round" aria-hidden="true"></i> First Author / Algorithm &amp; Evaluation</span>
+          </div>
+
+          <div class="tech-stack-detailed clifford-tech-stack" aria-label="Technology stack">
+            <span class="tech-badge">Python</span>
+            <span class="tech-badge">OpenCV</span>
+            <span class="tech-badge">Morphological Closing</span>
+            <span class="tech-badge">Otsu Thresholding</span>
+            <span class="tech-badge">Hough Transform</span>
+            <span class="tech-badge">TuSimple</span>
+          </div>
+
+          <div class="clifford-hero__actions">
+            <a class="clifford-action clifford-action--primary" href="../../docs/lane-detection-paper.pdf"
+              target="_blank" rel="noopener noreferrer">
+              <i data-lucide="file-text" aria-hidden="true"></i>
+              View Paper
+            </a>
+            <a class="clifford-action"
+              href="https://www.notion.so/35aecf05ce4c80748081e93bd5ed7996?source=copy_link"
+              target="_blank" rel="noopener noreferrer">
+              <i data-lucide="notebook-tabs" aria-hidden="true"></i>
+              Research Notes
+            </a>
+          </div>
+        </div>
+
+        <div class="clifford-hero__visual" role="img"
+          aria-label="Lane detection pipeline from road image through HSV masking, morphological closing, Otsu thresholding, and Hough line detection">
+          <div class="hero-orbit hero-orbit--one" aria-hidden="true"></div>
+          <div class="hero-orbit hero-orbit--two" aria-hidden="true"></div>
+
+          <div class="hero-visual__input">
+            <span class="hero-visual__label">Road Frame</span>
+            <div class="hero-image-plane hero-image-plane--back"></div>
+            <div class="hero-image-plane hero-image-plane--front">
+              <span class="hero-rotation-mark"><i data-lucide="car-front" aria-hidden="true"></i></span>
+            </div>
+          </div>
+
+          <div class="hero-visual__arrow" aria-hidden="true"><i data-lucide="arrow-right"></i></div>
+
+          <div class="hero-visual__grades">
+            <div class="grade-cube grade-cube--scalar"><span>H</span><small>HSV mask</small></div>
+            <div class="grade-cube grade-cube--vector"><span>C</span><small>closing</small></div>
+            <div class="grade-cube grade-cube--rotor"><span>O</span><small>Otsu</small></div>
+          </div>
+
+          <div class="hero-visual__arrow" aria-hidden="true"><i data-lucide="arrow-right"></i></div>
+
+          <div class="hero-transformer">
+            <span class="hero-transformer__token">L</span>
+            <span class="hero-transformer__token">R</span>
+            <span class="hero-transformer__token">&theta;</span>
+            <strong>Hough Lines<br>&amp; Steering</strong>
+            <span class="hero-transformer__output">&ang;</span>
+          </div>
+
+          <div class="hero-refine-path" aria-hidden="true">
+            <span>Continuity</span>
+            <i data-lucide="arrow-right"></i>
+            <span>Adaptive Contrast</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="container clifford-stat-strip" aria-label="Research highlights">
+        <div class="clifford-stat">
+          <strong>4.84 px</strong>
+          <span>mean centerline-distance error in the low-light case</span>
+        </div>
+        <div class="clifford-stat">
+          <strong>13.18 px</strong>
+          <span>mean centerline-distance error in the overexposed case</span>
+        </div>
+        <div class="clifford-stat">
+          <strong>9.1 px</strong>
+          <span>noise penalty under partial shadow, down from 73.7 px</span>
+        </div>
+        <div class="clifford-stat">
+          <strong>&asymp;30%</strong>
+          <span>reduction in noise pixels in the partial-shadow case</span>
+        </div>
+      </div>
+    </section>
+
+    <nav class="clifford-jump-nav" aria-label="Page sections">
+      <div class="container">
+        <a href="#overview">Overview</a>
+        <a href="#problem">Problem</a>
+        <a href="#method">Method</a>
+        <a href="#experiment">Experiment</a>
+        <a href="#results">Results</a>
+        <a href="#role">Role</a>
+        <a href="#reflection">Reflection</a>
+      </div>
+    </nav>
+
+    <section class="detail-content clifford-detail-content">
+      <section class="detail-section" id="overview">
+        <div class="clifford-section-heading">
+          <span class="clifford-section-index">01</span>
+          <div>
+            <p class="clifford-section-kicker">Research Overview</p>
+            <h2 class="detail-section-title">A small intervention in a fragile classical pipeline</h2>
+          </div>
+        </div>
+
+        <div class="clifford-overview-grid">
+          <div>
+            <p class="detail-text clifford-lede">
+              Classical lane detection can be fast and interpretable, but its performance often collapses when a
+              fixed color range meets shadows, tunnels, overexposure, faded paint, or broken lane segments.
+            </p>
+            <p class="detail-text">
+              This study focused on the preprocessing stage rather than replacing the entire lane detector. The core
+              hypothesis was that two inexpensive operations could address complementary failure modes:
+              <strong>morphological closing</strong> could reconnect fragmented lane pixels, while
+              <strong>Otsu binarization</strong> could select a threshold independently for each frame.
+            </p>
+            <p class="detail-text">
+              The resulting binary mask was passed directly to a Hough-based line detector. By omitting the Canny
+              stage, the pipeline also tested whether a cleaner adaptive mask could preserve useful lane structure
+              without adding unnecessary edge-processing overhead.
+            </p>
+          </div>
+
+          <aside class="clifford-brief-card" aria-label="Research brief">
+            <div class="brief-card__icon"><i data-lucide="route" aria-hidden="true"></i></div>
+            <dl>
+              <div><dt>Problem</dt><dd>Fixed HSV thresholds break under rapid illumination changes and fragmented markings.</dd></div>
+              <div><dt>Core idea</dt><dd>Reconnect lane regions first, then calculate a frame-specific binary threshold.</dd></div>
+              <div><dt>Evaluation</dt><dd>TuSimple scenes with low light, overexposure, and partial structural shadows.</dd></div>
+              <div><dt>Output</dt><dd>Cleaner lane candidates, Hough lines, and a more stable steering estimate.</dd></div>
+            </dl>
+          </aside>
+        </div>
+      </section>
+
+      <section class="detail-section" id="problem">
+        <div class="clifford-section-heading">
+          <span class="clifford-section-index">02</span>
+          <div>
+            <p class="clifford-section-kicker">Failure Analysis</p>
+            <h2 class="detail-section-title">Why fixed color thresholds were not enough</h2>
+          </div>
+        </div>
+
+        <div class="clifford-origin-card">
+          <div class="origin-card__story">
+            <p class="detail-text">
+              Narrow HSV ranges suppress background noise, but they also remove valid lane pixels when paint is faded
+              or lighting shifts. Broader ranges recover more lane pixels, yet introduce road texture, reflections,
+              vehicles, and environmental clutter into the mask.
+            </p>
+            <p class="detail-text">
+              The second failure is temporal: a threshold that works in open sunlight can fail a moment later under a
+              bridge. The detector therefore needs both <strong>structural continuity</strong> and
+              <strong>frame-level adaptation</strong>, not only a single carefully tuned color interval.
+            </p>
+            <ul class="clifford-dash-list">
+              <li><strong>Broken masks:</strong> dashed, worn, or underexposed lane markings produce gaps.</li>
+              <li><strong>Brightness shifts:</strong> tunnel exits and shadows alter the lane-road contrast.</li>
+              <li><strong>False positives:</strong> a permissive threshold admits non-lane regions.</li>
+            </ul>
+          </div>
+
+          <div class="origin-card__math" aria-label="Morphological closing equation">
+            <span class="math-caption">Morphological Closing</span>
+            <div class="math-equation">
+              <span class="math-dot">A</span>
+              <span class="math-operator">&oplus;</span>
+              <span class="math-wedge">B</span>
+              <span class="math-operator">then</span>
+              <span class="math-dot">&ominus; B</span>
+            </div>
+            <div class="math-meaning">
+              <span><b>Dilation</b> bridges narrow gaps.</span>
+              <span><b>Erosion</b> restores the region boundary.</span>
+            </div>
+            <div class="math-rotor-ring">
+              <span>5&times;5</span>
+              <small>rectangular structuring element</small>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="detail-section" id="method">
+        <div class="clifford-section-heading">
+          <span class="clifford-section-index">03</span>
+          <div>
+            <p class="clifford-section-kicker">Proposed Pipeline</p>
+            <h2 class="detail-section-title">Closing before Otsu, then direct geometric detection</h2>
+          </div>
+        </div>
+
+        <div class="clifford-pipeline" aria-label="Lane detection pipeline">
+          <article class="pipeline-stage pipeline-stage--p1">
+            <span class="pipeline-stage__number">P1</span>
+            <h3>HSV Candidate Mask</h3>
+            <p>Extract likely lane pixels using color-space constraints.</p>
+          </article>
+          <div class="pipeline-connector"><i data-lucide="arrow-right"></i></div>
+          <article class="pipeline-stage pipeline-stage--p2">
+            <span class="pipeline-stage__number">P2</span>
+            <h3>5&times;5 Closing</h3>
+            <p>Reconnect narrow gaps and strengthen lane continuity.</p>
+          </article>
+          <div class="pipeline-connector"><i data-lucide="arrow-right"></i></div>
+          <article class="pipeline-stage pipeline-stage--p3">
+            <span class="pipeline-stage__number">P3</span>
+            <h3>Otsu Binarization</h3>
+            <p>Choose a frame-specific threshold from the image histogram.</p>
+          </article>
+          <div class="pipeline-connector"><i data-lucide="arrow-right"></i></div>
+          <article class="pipeline-stage pipeline-stage--p4">
+            <span class="pipeline-stage__number">P4</span>
+            <h3>Hough Transform</h3>
+            <p>Detect left and right lane-line candidates from the binary mask.</p>
+          </article>
+          <div class="pipeline-connector"><i data-lucide="arrow-right"></i></div>
+          <article class="pipeline-stage pipeline-stage--p5">
+            <span class="pipeline-stage__number">P5</span>
+            <h3>Steering Estimate</h3>
+            <p>Compare the detected lane center with the image center.</p>
+          </article>
+        </div>
+
+        <div class="phase-detail-grid" style="margin-top: 28px;">
+          <article class="phase-detail-card phase-detail-card--p1">
+            <div class="phase-detail-card__header">
+              <p>Continuity</p>
+              <h3>Morphological Closing</h3>
+            </div>
+            <p>Closing applies dilation followed by erosion. It fills small holes and joins nearby fragments while retaining the overall shape of the candidate lane region.</p>
+          </article>
+          <article class="phase-detail-card phase-detail-card--p2">
+            <div class="phase-detail-card__header">
+              <p>Adaptation</p>
+              <h3>Otsu Thresholding</h3>
+            </div>
+            <p>Otsu selects the threshold that best separates two intensity classes. Recomputing it per frame allows the mask to react to abrupt brightness changes.</p>
+          </article>
+          <article class="phase-detail-card phase-detail-card--p3">
+            <div class="phase-detail-card__header">
+              <p>Efficiency</p>
+              <h3>Canny-Free Hough Input</h3>
+            </div>
+            <p>The preprocessed binary image is sent directly to the Hough stage. This tests whether stronger masking can reduce noise and avoid an additional edge-detection pass.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="detail-section" id="experiment">
+        <div class="clifford-section-heading">
+          <span class="clifford-section-index">04</span>
+          <div>
+            <p class="clifford-section-kicker">Experimental Design</p>
+            <h2 class="detail-section-title">Comparing both the operators and their order</h2>
+          </div>
+        </div>
+
+        <p class="detail-text clifford-section-intro">
+          The study used TuSimple road images and compared four preprocessing variants. The goal was not only to
+          test whether each operation helped, but also whether <strong>Closing &rarr; Otsu</strong> behaved differently
+          from <strong>Otsu &rarr; Closing</strong>.
+        </p>
+
+        <div class="protocol-grid">
+          <article class="protocol-card">
+            <span class="protocol-card__label">Variants</span>
+            <h3>Four pipelines</h3>
+            <ul>
+              <li>Conventional fixed-threshold HSV method</li>
+              <li>Closing only</li>
+              <li>Closing followed by Otsu</li>
+              <li>Otsu followed by closing</li>
+            </ul>
+          </article>
+          <article class="protocol-card">
+            <span class="protocol-card__label">Scenarios</span>
+            <h3>Illumination stress cases</h3>
+            <ul>
+              <li>Low light under a structure</li>
+              <li>Strong overexposure after leaving shade</li>
+              <li>Partial lane occlusion by structural shadow</li>
+            </ul>
+          </article>
+          <article class="protocol-card">
+            <span class="protocol-card__label">Measures</span>
+            <h3>Accuracy and mask quality</h3>
+            <ul>
+              <li>Mean centerline pixel-distance error</li>
+              <li>Noise-pixel count and noise penalty</li>
+              <li>Average processing time per frame</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section class="detail-section" id="results">
+        <div class="clifford-section-heading">
+          <span class="clifford-section-index">05</span>
+          <div>
+            <p class="clifford-section-kicker">Results</p>
+            <h2 class="detail-section-title">Adaptive thresholding recovered lanes where fixed masking failed</h2>
+          </div>
+        </div>
+
+        <article class="result-block">
+          <div class="result-block__heading">
+            <h3>Low-light environment</h3>
+            <span>Figure 1</span>
+          </div>
+          <img src="../../img/research/lane/low-light-comparison.jpg"
+            alt="Comparison of conventional, closing-only, closing-to-Otsu, and Otsu-to-closing lane masks in a low-light scene"
+            style="width:100%; border-radius:16px; border:1px solid var(--clr-border); background:#000; margin-bottom:20px;">
+          <p class="detail-text">
+            The fixed-threshold and closing-only pipelines failed to separate the lane pixels in the dark region.
+            Pipelines containing adaptive thresholding retained meaningful lane candidates. Closing &rarr; Otsu reached
+            a mean centerline-distance error of <strong>4.84 px</strong>, matching the alternative Otsu-based order while
+            processing each frame approximately <strong>1 ms faster</strong> in this comparison.
+          </p>
+        </article>
+
+        <article class="result-block">
+          <div class="result-block__heading">
+            <h3>Overexposed environment</h3>
+            <span>Figure 2</span>
+          </div>
+          <img src="../../img/research/lane/overexposure-comparison.jpg"
+            alt="Lane-mask comparison under strong road-surface overexposure"
+            style="width:100%; border-radius:16px; border:1px solid var(--clr-border); background:#000; margin-bottom:20px;">
+          <p class="detail-text">
+            Most variants produced a visible lane estimate, but the proposed order generated the fewest non-lane
+            pixels. It achieved a mean centerline-distance error of <strong>13.18 px</strong>, slightly below the
+            <strong>13.2 px</strong> result of the other Otsu-based ordering, while also recording lower average frame time.
+          </p>
+        </article>
+
+        <article class="result-block">
+          <div class="result-block__heading">
+            <h3>Partial structural shadow</h3>
+            <span>Figure 3</span>
+          </div>
+          <img src="../../img/research/lane/shadow-comparison.jpg"
+            alt="Lane-mask comparison when part of the road is covered by a structure shadow"
+            style="width:100%; border-radius:16px; border:1px solid var(--clr-border); background:#000; margin-bottom:20px;">
+          <p class="detail-text">
+            Visually, the methods produced similar lane lines, but their false-positive distribution differed sharply.
+            The conventional pipeline recorded a <strong>73.7 px</strong> noise penalty, whereas the Otsu-based
+            pipelines reduced it to <strong>9.1 px</strong>. Total noise pixels also decreased by approximately
+            <strong>30%</strong>, indicating a much cleaner binary representation.
+          </p>
+        </article>
+
+        <div class="result-summary-callout">
+          <i data-lucide="check-circle-2" aria-hidden="true"></i>
+          <p><strong>Main finding:</strong> the benefit came from pairing complementary operations. Closing repaired the spatial structure of the lane mask, while Otsu adapted the decision boundary to the current illumination.</p>
+        </div>
+      </section>
+
+      <section class="detail-section" id="limitations">
+        <div class="clifford-section-heading">
+          <span class="clifford-section-index">06</span>
+          <div>
+            <p class="clifford-section-kicker">Limitations</p>
+            <h2 class="detail-section-title">What the preprocessing step still cannot solve</h2>
+          </div>
+        </div>
+
+        <div class="clifford-challenge-grid">
+          <article class="challenge-card clifford-challenge-card">
+            <div class="challenge-header"><span class="challenge-header-num">1</span>Dependence on visible lane color</div>
+            <div class="cs-box problem"><div class="cs-box-title"><i data-lucide="alert-triangle"></i> Limitation</div><p>HSV-based candidates remain unreliable when lane paint is severely faded, damaged, or covered by dust and leaves.</p></div>
+            <div class="cs-box solution"><div class="cs-box-title"><i data-lucide="lightbulb"></i> Direction</div><p>Combine color evidence with learned structure cues or complementary sensors rather than relying on the mask alone.</p></div>
+          </article>
+          <article class="challenge-card clifford-challenge-card">
+            <div class="challenge-header"><span class="challenge-header-num">2</span>Limited real-road validation</div>
+            <div class="cs-box problem"><div class="cs-box-title"><i data-lucide="alert-triangle"></i> Limitation</div><p>The evaluation focused on selected TuSimple conditions and does not establish robustness across weather, road types, or camera systems.</p></div>
+            <div class="cs-box solution"><div class="cs-box-title"><i data-lucide="lightbulb"></i> Direction</div><p>Validate on continuous driving sequences and measure temporal stability, runtime, and steering behavior on physical vehicles.</p></div>
+          </article>
+        </div>
+      </section>
+
+      <section class="detail-section" id="role">
+        <div class="clifford-section-heading">
+          <span class="clifford-section-index">07</span>
+          <div>
+            <p class="clifford-section-kicker">My Role</p>
+            <h2 class="detail-section-title">From failure analysis to poster communication</h2>
+          </div>
+        </div>
+
+        <div class="role-card-grid">
+          <article class="role-card"><i data-lucide="search-check"></i><h3>Problem framing</h3><p>Analyzed why fixed HSV thresholds and fragmented masks failed under shadows and abrupt brightness changes.</p></article>
+          <article class="role-card"><i data-lucide="workflow"></i><h3>Pipeline design</h3><p>Designed the closing-and-Otsu preprocessing sequence and integrated it with direct Hough-based lane detection.</p></article>
+          <article class="role-card"><i data-lucide="flask-conical"></i><h3>Experimental evaluation</h3><p>Compared operation order, measured pixel error, noise behavior, and runtime, and selected representative stress cases.</p></article>
+          <article class="role-card"><i data-lucide="presentation"></i><h3>Research communication</h3><p>Prepared the conference paper and poster presentation with Junewoo Choi and Deokwoo Lee.</p></article>
+        </div>
+      </section>
+
+      <section class="detail-section" id="reflection">
+        <div class="clifford-section-heading">
+          <span class="clifford-section-index">08</span>
+          <div>
+            <p class="clifford-section-kicker">Reflection</p>
+            <h2 class="detail-section-title">A lesson in improving systems without overcomplicating them</h2>
+          </div>
+        </div>
+
+        <div class="reflection-grid">
+          <div class="reflection-card reflection-card--learning">
+            <span>What I learned</span>
+            <ul class="clifford-dash-list">
+              <li>Two inexpensive operations can address different failure modes more effectively than adding a large new model.</li>
+              <li>The order of preprocessing steps changes the statistical input seen by every later stage.</li>
+              <li>Mask quality should be evaluated through both geometric error and the spatial distribution of false positives.</li>
+            </ul>
+          </div>
+          <div class="reflection-card reflection-card--limits">
+            <span>How I would extend it</span>
+            <ul class="clifford-dash-list">
+              <li>Use temporal consistency so threshold and lane estimates do not fluctuate independently frame by frame.</li>
+              <li>Evaluate on physical autonomous-driving hardware with end-to-end control latency.</li>
+              <li>Fuse camera cues with LiDAR or learned lane representations in visually degraded scenes.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="detail-section" id="archive">
+        <div class="clifford-section-heading">
+          <span class="clifford-section-index">09</span>
+          <div>
+            <p class="clifford-section-kicker">Development Archive</p>
+            <h2 class="detail-section-title">Paper and implementation notes</h2>
+          </div>
+        </div>
+
+        <div class="archive-grid">
+          <a class="archive-card" href="https://www.notion.so/35aecf05ce4c80748081e93bd5ed7996?source=copy_link" target="_blank" rel="noopener noreferrer">
+            <span>Research Notes</span><h3>Lane Detection Study</h3><p>Problem definition, implementation decisions, and research-development notes.</p><i data-lucide="arrow-up-right"></i>
+          </a>
+          <a class="archive-card" href="https://www.notion.so/286ecf05ce4c800d90fef3cf1f7517eb?source=copy_link" target="_blank" rel="noopener noreferrer">
+            <span>Experiment Archive</span><h3>Evaluation and Poster Preparation</h3><p>Experimental comparisons, result interpretation, and presentation materials.</p><i data-lucide="arrow-up-right"></i>
+          </a>
+          <a class="archive-card archive-card--final" href="../../files/research/lane-detection-paper.pdf" target="_blank" rel="noopener noreferrer">
+            <span>Conference Paper</span><h3>KMMS 2025 Poster Paper</h3><p>The four-page paper describing the method, TuSimple evaluation, results, limitations, and future sensor-fusion direction.</p><i data-lucide="arrow-up-right"></i>
+          </a>
+        </div>
+      </section>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <ul class="social-list">
+      <li class="social-list__item"><a class="social-list__link" href="mailto:uoyuvvou@gmail.com" aria-label="Email"><i class="fa-regular fa-envelope"></i></a></li>
+      <li class="social-list__item"><a class="social-list__link" href="https://www.linkedin.com/in/uoyuvvou" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a></li>
+      <li class="social-list__item"><a class="social-list__link" href="https://github.com/Gyuwon-Na" aria-label="GitHub"><i class="fa-brands fa-github"></i></a></li>
+      <li class="social-list__item"><a class="social-list__link" href="https://www.instagram.com/uoyuvvou" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a></li>
+    </ul>
+    <p class="footer-copyright">&copy; 2026 Gyuwon Na. All rights reserved.</p>
+  </footer>
+
+  <script src="../../js/index.js"></script>
+  <script src="../../js/research-navigator.js"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    lucide.createIcons();
+    function toggleNav() {
+      const container = document.getElementById('navContainer');
+      const triggerBtn = container.querySelector('.nav-trigger-btn');
+      const isActive = container.classList.toggle('active');
+      triggerBtn.setAttribute('aria-expanded', isActive);
+    }
+  </script>
+</body>
+
+</html>
