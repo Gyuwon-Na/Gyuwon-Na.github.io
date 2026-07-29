@@ -33,6 +33,7 @@
   </script>
   <link rel="stylesheet" href="../css/style.css" />
   <link rel="stylesheet" href="../css/projects.css" />
+  <link rel="stylesheet" href="../css/research-page.css" />
 </head>
 
 <body>
@@ -59,91 +60,177 @@
     </nav>
   </div>
 
-  <main id="main-content">
+  <main id="main-content" class="research-page">
     <section class="page-hero">
       <div class="page-hero__content">
         <span class="eyebrow"><i data-lucide="microscope"></i> Research</span>
-        <h1 class="page-hero__title">Applied research for perception systems that need to run in real time.</h1>
+        <h1 class="page-hero__title">
+          Exploring robust visual perception through research and implementation.
+        </h1>
         <p class="page-hero__description">
-          This page collects my research-oriented work in computer vision and autonomous systems. Each project is framed
-          around a clear research question, implementation path, evaluation strategy, and relevance to production-scale
-          robotics or vision infrastructure.
+          My research explores feature correspondence, geometric alignment, and efficient visual perception.
+          I enjoy turning research ideas into reproducible implementations and evaluating them through systematic
+          experiments.</p>
+        <p class="page-hero__description">
+          I am particularly interested in areas that connect computer vision with robotics, autonomous systems, and
+          computer graphics,
+          such as inverse rendering, 4D vision, and video understanding.
         </p>
       </div>
     </section>
 
     <section class="page-section">
       <div class="content-wrap">
-        <h2 class="section__title">Research Projects</h2>
-        <div class="research-grid">
-          <article class="research-list-card">
-            <i data-lucide="gauge"></i>
-            <span class="research-list-card__meta">Presented at KMMS</span>
-            <h3 class="research-list-card__title">Real-Time Perception Algorithm</h3>
-            <p class="research-list-card__text">
-              A latency-focused perception pipeline study for autonomous systems, emphasizing profiling, parallel
-              execution, and stability under sensor noise.
-            </p>
-            <a href="../portfolio/research/realtime_perception.html" class="card-link">
-              View Details <i data-lucide="arrow-right"></i>
-            </a>
-          </article>
-
-          <article class="research-list-card">
-            <i data-lucide="network"></i>
-            <span class="research-list-card__meta">Research Project</span>
-            <h3 class="research-list-card__title">ROI-Based Matching with HNSW</h3>
-            <p class="research-list-card__text">
-              A high-speed feature matching approach that narrows search space with regions of interest and accelerates
-              nearest-neighbor retrieval through graph indexing.
-            </p>
-            <a href="../portfolio/research/roi_hnsw.html" class="card-link">
-              View Details <i data-lucide="arrow-right"></i>
-            </a>
-          </article>
-
-          <article class="research-list-card">
+        <h2 class="section__title">Featured Research</h2>
+        <article class="featured-research-card">
+          <div class="featured-research-card__visual" aria-hidden="true">
             <i data-lucide="scan-search"></i>
-            <span class="research-list-card__meta">Presented at KMMS</span>
-            <h3 class="research-list-card__title">Advanced Feature Matching</h3>
-            <p class="research-list-card__text">
-              An investigation into robust correspondence matching for challenging visual conditions such as viewpoint
-              shifts, lighting changes, and partial occlusion.
+            <span>Robust Correspondence</span>
+          </div>
+
+          <div class="featured-research-card__content">
+            <span class="research-status research-status--review">
+              Journal Manuscript · Under Review
+            </span>
+            <h3>A Clifford-Structured Geometric Transformer for Rotation-Aware
+              Geometric Alignment</h3>
+            <p>
+              극심한 회전된 환경에서 alignment
             </p>
+
+            <dl class="research-brief">
+              <div>
+                <dt>Problem</dt>
+                <dd>Classical feature matching can produce confident but incorrect correspondences in difficult visual
+                  scenes.</dd>
+              </div>
+              <div>
+                <dt>Approach</dt>
+                <dd>??
+                </dd>
+              </div>
+              <div>
+                <dt>My Role</dt>
+                <dd>Conceptualization, Methodology, Software, Validation, Formal analysis, Investigation, Data curation,
+                  Visualization, Writing– original draft
+                </dd>
+              </div>
+            </dl>
+
+            <div class="research-card__tags">
+              <span>Feature Matching</span>
+              <span>Geometric Verification</span>
+              <span>OpenCV</span>
+              <span>Evaluation</span>
+            </div>
+
             <a href="../portfolio/research/advanced_feature_matching.html" class="card-link">
-              View Details <i data-lucide="arrow-right"></i>
+              View Research <i data-lucide="arrow-right"></i>
+            </a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="page-section alt research-additional-section">
+      <div class="content-wrap">
+        <h2 class="section__title">Additional Research</h2>
+        <div class="research-project-grid">
+          <article class="research-project-card">
+            <div class="research-project-card__topline">
+              <i data-lucide="map"></i>
+              <span class="research-status research-status--completed">
+                Poster Presented at KMMS
+              </span>
+            </div>
+            <h3>Improving Lane Detection with Morphological Operations and Adaptive Thresholding</h3>
+            <p>
+              Proposed a vision-based lane-detection pipeline that integrates
+              morphological closing and adaptive Otsu thresholding to reduce
+              noise and improve lane continuity under varying illumination
+              conditions. The method was presented as a conference poster at KMMS.
+            </p>
+            <div class="research-card__tags">
+              <span>Lane Detection</span>
+              <span>Image Processing</span>
+              <span>OpenCV</span>
+            </div>
+            <a href="../portfolio/research/lane_detection.html" class="card-link">
+              View Research
+              <i data-lucide="arrow-right"></i>
+            </a>
+          </article>
+
+          <article class="research-project-card">
+            <div class="research-project-card__topline">
+              <i data-lucide="network"></i>
+              <span class="research-status research-status--completed">
+                Research Project
+              </span>
+            </div>
+            <h3>ROI-Based Matching with HNSW</h3>
+            <p>
+              A feature matching approach that narrows the search space with regions of interest and accelerates
+              nearest-neighbor retrieval through graph-based indexing.
+            </p>
+            <div class="research-card__tags">
+              <span>ROI Filtering</span>
+              <span>HNSW</span>
+              <span>Approximate Search</span>
+            </div>
+            <a href="../portfolio/research/roi_hnsw.html" class="card-link">
+              View Research <i data-lucide="arrow-right"></i>
             </a>
           </article>
         </div>
       </div>
     </section>
 
-    <section class="page-section alt">
+    <section class="page-section">
       <div class="content-wrap split-layout">
         <div>
-          <h2 class="section__title">Research Style</h2>
+          <h2 class="section__title">Research Approach</h2>
           <p class="body-copy">
-            I present research work as an engineering story: what problem mattered, what assumptions were tested, which
-            constraints shaped the solution, and how the implementation could be improved with more data, stronger
-            evaluation, or deeper systems optimization.
+            I approach research by connecting a clearly defined problem with reproducible implementation and evaluation.
+            I begin by identifying limitations in existing methods, develop and test a proposed approach, and analyze
+            where the method succeeds or fails.
           </p>
           <p class="body-copy">
-            This structure is intentional for large engineering teams. It makes the work reviewable, reproducible, and
-            easier to connect to real product constraints such as latency budgets, robustness, observability, and
-            maintainability.
+            Through this process, I have gained experience in experimental design, model implementation, quantitative
+            evaluation, visualization, and academic writing.
           </p>
         </div>
-        <div class="metric-grid" style="grid-template-columns: 1fr;">
+        <div class="approach-grid">
           <article class="metric-card">
-            <i data-lucide="timer"></i>
-            <h3 class="metric-card__value">Latency</h3>
-            <p class="metric-card__label">Profiling and reducing time-to-result for real-time perception loops.</p>
+            <i data-lucide="search-check"></i>
+            <h3 class="metric-card__value">Problem Formulation</h3>
+            <p class="metric-card__label">Define what fails, why it matters, and how improvement should be measured.</p>
           </article>
           <article class="metric-card">
-            <i data-lucide="shield-check"></i>
-            <h3 class="metric-card__value">Robustness</h3>
-            <p class="metric-card__label">Testing behavior under noisy observations, lighting change, and ambiguous matches.</p>
+            <i data-lucide="code-2"></i>
+            <h3 class="metric-card__value">Implementation</h3>
+            <p class="metric-card__label">Translate research ideas into reproducible experiments and inspectable code.
+            </p>
           </article>
+          <article class="metric-card">
+            <i data-lucide="bar-chart-3"></i>
+            <h3 class="metric-card__value">Evaluation</h3>
+            <p class="metric-card__label">Compare behavior through metrics, visualizations, and failure-case analysis.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="page-section alt research-interests-section">
+      <div class="content-wrap">
+        <h2 class="section__title">Research Interests</h2>
+        <div class="research-interest-list" aria-label="Research interests">
+          <span>Visual Correspondence</span>
+          <span>Autonomous Perception</span>
+          <span>Inverse Rendering</span>
+          <span>4D Vision</span>
+          <span>Video Understanding</span>
         </div>
       </div>
     </section>
@@ -151,10 +238,16 @@
 
   <footer class="footer">
     <ul class="social-list">
-      <li class="social-list__item"><a class="social-list__link" href="mailto:uoyuvvou@gmail.com" aria-label="Email me"><i class="fa-regular fa-envelope"></i></a></li>
-      <li class="social-list__item"><a class="social-list__link" href="https://www.linkedin.com/in/uoyuvvou" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile"><i class="fa-brands fa-linkedin-in"></i></a></li>
-      <li class="social-list__item"><a class="social-list__link" href="https://github.com/Gyuwon-Na" target="_blank" rel="noopener noreferrer" aria-label="GitHub profile"><i class="fa-brands fa-github"></i></a></li>
-      <li class="social-list__item"><a class="social-list__link" href="https://www.instagram.com/uoyuvvou" target="_blank" rel="noopener noreferrer" aria-label="Instagram profile"><i class="fa-brands fa-instagram"></i></a></li>
+      <li class="social-list__item"><a class="social-list__link" href="mailto:uoyuvvou@gmail.com"
+          aria-label="Email me"><i class="fa-regular fa-envelope"></i></a></li>
+      <li class="social-list__item"><a class="social-list__link" href="https://www.linkedin.com/in/uoyuvvou"
+          target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile"><i
+            class="fa-brands fa-linkedin-in"></i></a></li>
+      <li class="social-list__item"><a class="social-list__link" href="https://github.com/Gyuwon-Na" target="_blank"
+          rel="noopener noreferrer" aria-label="GitHub profile"><i class="fa-brands fa-github"></i></a></li>
+      <li class="social-list__item"><a class="social-list__link" href="https://www.instagram.com/uoyuvvou"
+          target="_blank" rel="noopener noreferrer" aria-label="Instagram profile"><i
+            class="fa-brands fa-instagram"></i></a></li>
     </ul>
     <p class="footer-copyright">&copy; 2026 Gyuwon Na. All rights reserved.</p>
   </footer>
