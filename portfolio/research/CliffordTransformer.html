@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Clifford-Structured Geometric Transformer</title>
   <meta name="description"
-    content="Research detail page for a Clifford-inspired geometric transformer for rotation-aware dense correspondence and geometric alignment.">
+    content="Research detail page for a Clifford-inspired geometric transformer for rotation-aware image-pair alignment and global transform estimation.">
 
   <link rel="stylesheet" href="../../external/normalize.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
@@ -78,7 +78,7 @@
         <div class="clifford-hero__copy">
           <p class="clifford-eyebrow">
             <span class="clifford-status-dot" aria-hidden="true"></span>
-            Computer Vision Research / Journal Manuscript
+            Journal Manuscript / Under Review
           </p>
 
           <h1 class="clifford-hero__title">
@@ -86,80 +86,31 @@
           </h1>
 
           <p class="clifford-hero__summary">
-            I designed a five-stage dense correspondence framework that separates image evidence into scalar,
-            vector, and rotor-related streams, then uses grade-aware attention, bounded residual correction, and
-            inference-time geometric optimization to improve stability under severe in-plane rotation.
+            I designed a five-stage geometric alignment framework that organizes image evidence into scalar,
+            vector, and rotor-related streams, then estimates and refines a global image-pair transform under severe
+            in-plane rotation. Pixel-wise fields are used internally for residual geometry and confidence, while
+            the principal reported output is the final transformation between the two images.
           </p>
 
           <div class="clifford-meta" aria-label="Research metadata">
             <span><i data-lucide="calendar" aria-hidden="true"></i> 2026 JAN - 2026 JUL</span>
-            <span><i data-lucide="user-round" aria-hidden="true"></i> Lead Author and Primary Implementer</span>
+            <span><i data-lucide="user-round" aria-hidden="true"></i> First Author</span>
             <span><i data-lucide="file-text" aria-hidden="true"></i> Image and Vision Computing Manuscript</span>
           </div>
 
           <div class="tech-stack-detailed clifford-tech-stack" aria-label="Technology stack">
-            <span class="tech-badge">PyTorch</span>
-            <span class="tech-badge">Python</span>
-            <span class="tech-badge">OpenCV</span>
-            <span class="tech-badge">Transformers</span>
+            <span class="tech-badge">Vision Transformers</span>
             <span class="tech-badge">Clifford Algebra</span>
             <span class="tech-badge">Geometric Alignment</span>
+            <span class="tech-badge">Energy-Based Optimization</span>
           </div>
 
-          <div class="clifford-hero__actions">
-            <!-- <a class="clifford-action clifford-action--primary"
-              href="https://www.notion.so/Image-and-Vision-Computing-35aecf05ce4c807eb8e3da625787466e?source=copy_link"
-              target="_blank" rel="noopener noreferrer">
-              <i data-lucide="notebook-tabs" aria-hidden="true"></i>
-              Research Notes
-            </a> -->
-            <a class="clifford-action" href="mailto:uoyuvvou@gmail.com?subject=Clifford-Structured%20Geometric%20Transformer">
-              <i data-lucide="mail" aria-hidden="true"></i>
-              Contact
-            </a>
-          </div>
         </div>
 
-        <div class="clifford-hero__visual" role="img"
-          aria-label="Conceptual pipeline from geometric cues to grade-aware embeddings, transformer estimation, and refinement">
-          <div class="hero-orbit hero-orbit--one" aria-hidden="true"></div>
-          <div class="hero-orbit hero-orbit--two" aria-hidden="true"></div>
 
-          <div class="hero-visual__input">
-            <span class="hero-visual__label">Image Pair</span>
-            <div class="hero-image-plane hero-image-plane--back"></div>
-            <div class="hero-image-plane hero-image-plane--front">
-              <span class="hero-rotation-mark">R</span>
-            </div>
-          </div>
-
-          <div class="hero-visual__arrow" aria-hidden="true">
-            <i data-lucide="arrow-right"></i>
-          </div>
-
-          <div class="hero-visual__grades">
-            <div class="grade-cube grade-cube--scalar"><span>S</span><small>scalar</small></div>
-            <div class="grade-cube grade-cube--vector"><span>V</span><small>vector</small></div>
-            <div class="grade-cube grade-cube--rotor"><span>R</span><small>rotor</small></div>
-          </div>
-
-          <div class="hero-visual__arrow" aria-hidden="true">
-            <i data-lucide="arrow-right"></i>
-          </div>
-
-          <div class="hero-transformer">
-            <span class="hero-transformer__token">S</span>
-            <span class="hero-transformer__token">V</span>
-            <span class="hero-transformer__token">R</span>
-            <strong>Geometric<br>Transformer</strong>
-            <span class="hero-transformer__output">W</span>
-          </div>
-
-          <div class="hero-refine-path" aria-hidden="true">
-            <span>Residual</span>
-            <i data-lucide="arrow-right"></i>
-            <span>Energy</span>
-          </div>
+        <div class="project-card__visual">
+          <img src="../../img/research/clifford/abstract.jpg" alt="Clifford transformer research abstract"
+            class="img-static" loading="lazy">
         </div>
       </div>
 
@@ -176,21 +127,18 @@
           <strong>3.6%</strong>
           <span>alignment-error reduction from P3 to P5</span>
         </div>
-        <div class="clifford-stat">
-          <strong>0</strong>
-          <span>additional trainable parameters introduced by P5</span>
-        </div>
       </div>
     </section>
 
     <nav class="clifford-jump-nav" aria-label="Page sections">
       <div class="container">
         <a href="#overview">Overview</a>
-        <a href="#origin">Origin</a>
-        <a href="#evolution">Evolution</a>
-        <a href="#architecture">Architecture</a>
+        <a href="#origin">Hypothesis</a>
+        <a href="#architecture">Pipeline</a>
         <a href="#evaluation">Evaluation</a>
         <a href="#results">Results</a>
+        <a href="#challenges">Challenges</a>
+        <a href="#role">Role</a>
         <a href="#reflection">Reflection</a>
       </div>
     </nav>
@@ -200,7 +148,7 @@
         <div class="clifford-section-heading">
           <span class="clifford-section-index">01</span>
           <div>
-            <p class="clifford-section-kicker">Research Overview</p>
+            <p class="clifford-section-kicker">Overview</p>
             <h2 class="detail-section-title">What this research investigates</h2>
           </div>
         </div>
@@ -208,20 +156,20 @@
         <div class="clifford-overview-grid">
           <div>
             <p class="detail-text clifford-lede">
-              Dense correspondence models are usually trained to discover geometric relationships implicitly inside a
-              unified feature space. I wanted to test a different premise: <strong>could a network become more stable
-                under large rotation if image evidence were organized according to geometric type before attention?</strong>
+              Image-pair alignment systems often encode appearance and geometry together inside a unified latent feature
+              space. I investigated a different premise: <strong>could global transform estimation become more stable
+                under large in-plane rotation if magnitude, direction, and rotation-related evidence were organized by
+                geometric role before attention?</strong>
             </p>
             <p class="detail-text">
-              The resulting framework is inspired by the grade structure of Clifford Algebra. Scalar channels represent
-              magnitude and structure, vector channels preserve direction, and bivector-derived rotor channels encode
-              local rotational tendency. These streams remain separated through early projection and attention, then are
-              fused during coarse-to-fine geometric decoding.
-            </p>
-            <p class="detail-text">
-              The project covers the complete research cycle: mathematical framing, architecture design, implementation,
-              training-system debugging, benchmark construction, ablation analysis, qualitative visualization, and
-              preparation of a journal manuscript with Deokwoo Lee.
+              The resulting framework is inspired by the grade structure of Clifford Algebra. Scalar cues describe
+              texture and structural energy, vector cues preserve local direction, and a normalized bivector candidate
+              is
+              combined with the vector cues to infer a rotor-related representation. These streams remain separated
+              through
+              early projection and encoder processing, then are mixed in the coarse-to-fine decoder to estimate the
+              image-pair
+              transformation.
             </p>
           </div>
 
@@ -230,19 +178,19 @@
             <dl>
               <div>
                 <dt>Problem</dt>
-                <dd>Dense geometric alignment under severe in-plane rotation and ambiguous visual evidence.</dd>
+                <dd>Global geometric alignment under severe in-plane rotation and ambiguous visual evidence.</dd>
               </div>
               <div>
                 <dt>Core idea</dt>
-                <dd>Represent scalar, directional, and rotational cues as separate grade-aware streams.</dd>
+                <dd>Represent scalar, directional, and rotation-related cues as separate grade-aware streams.</dd>
               </div>
               <div>
-                <dt>Output</dt>
-                <dd>A dense correspondence representation and a global rotation-translation transform.</dd>
+                <dt>Internal prediction</dt>
+                <dd>A pixel-wise residual transform field, confidence gates, and refined geometric features.</dd>
               </div>
               <div>
-                <dt>Research focus</dt>
-                <dd>Rotation robustness, stable failure behavior, and parameter-efficient refinement.</dd>
+                <dt>Final output</dt>
+                <dd>A refined global backward affine transform for sampling and its inverse for evaluation.</dd>
               </div>
             </dl>
           </aside>
@@ -253,182 +201,93 @@
         <div class="clifford-section-heading">
           <span class="clifford-section-index">02</span>
           <div>
-            <p class="clifford-section-kicker">The Starting Question</p>
-            <h2 class="detail-section-title">From distance metrics to a different mathematical language</h2>
+            <p class="clifford-section-kicker">Hypothesis</p>
+            <h2 class="detail-section-title">From implicit geometry to a grade-structured representation</h2>
           </div>
         </div>
 
-        <div class="clifford-origin-card">
-          <div class="origin-card__story">
-            <p class="detail-text">
-              The research began with a simple observation. Many learning objectives measure error through familiar
-              Euclidean or L1-style distances. I wondered whether changing only the loss was too narrow, and whether a
-              different mathematical system could shape the <em>representation itself</em>.
-            </p>
-            <p class="detail-text">
-              While surveying mathematical frameworks, I encountered Clifford Algebra: a system that places scalars,
-              vectors, bivectors, and higher-grade quantities inside one multivector representation. Its ability to express
-              oriented planes and rotations suggested a natural connection to image matching under large in-plane rotation.
-            </p>
-            <p class="detail-text">
-              That led to the central research hypothesis: rather than asking one latent feature tensor to learn every
-              geometric property implicitly, explicitly separate magnitude, direction, and rotational interaction, then
-              design attention and refinement around those roles.
+        <div class="clifford-hypothesis-card">
+          <div class="clifford-hypothesis-card__lead">
+            <span>Core question</span>
+            <h3>Could the representation carry geometric roles more explicitly?</h3>
+            <p>
+              The work started from a question about Euclidean distance-based objectives in image matching, then moved
+              toward a broader design question: instead of only changing the loss, could the feature representation
+              itself be reorganized around geometric structure?
             </p>
           </div>
 
-          <div class="origin-card__math" aria-label="Geometric product concept">
-            <span class="math-caption">Geometric Product</span>
-            <div class="math-equation">
-              <span>uv</span>
-              <span class="math-operator">=</span>
-              <span class="math-dot">u &middot; v</span>
-              <span class="math-operator">+</span>
-              <span class="math-wedge">u &and; v</span>
-            </div>
-            <div class="math-meaning">
-              <span><b>inner product</b> metric relation</span>
-              <span><b>outer product</b> oriented area / rotation cue</span>
-            </div>
-            <div class="math-rotor-ring">
-              <span>R</span>
-              <small>rotation as a structured operator</small>
-            </div>
+          <div class="clifford-hypothesis-grid">
+            <article class="clifford-hypothesis-point">
+              <span>01</span>
+              <h3>Implicit geometry</h3>
+              <p>
+                Standard learned features often encode appearance, direction, scale, and rotation inside one unified
+                tensor, leaving their geometric relationships to be learned indirectly.
+              </p>
+            </article>
+
+            <article class="clifford-hypothesis-point">
+              <span>02</span>
+              <h3>Grade-aware split</h3>
+              <p>
+                Clifford Algebra suggested a way to separate magnitude, direction, and rotation-related evidence as
+                distinct but connected quantities.
+              </p>
+            </article>
+
+            <article class="clifford-hypothesis-point">
+              <span>03</span>
+              <h3>Rotor-related cue</h3>
+              <p>
+                Scalar, vector, and bivector-candidate cues are extracted explicitly, then mapped into a learned
+                representation for global transform estimation.
+              </p>
+            </article>
           </div>
+
+          <p class="clifford-hypothesis-takeaway">
+            Clifford Algebra is used here as architectural inspiration, not as a claim of full Clifford equivariance.
+            The hypothesis is that clearer geometric roles can make severe-rotation alignment easier to reason about
+            inside the model.
+          </p>
         </div>
       </section>
 
-      <section class="detail-section" id="evolution">
-        <div class="clifford-section-heading">
-          <span class="clifford-section-index">03</span>
-          <div>
-            <p class="clifford-section-kicker">Research Evolution</p>
-            <h2 class="detail-section-title">How the architecture changed through failure</h2>
-          </div>
-        </div>
-
-        <p class="detail-text clifford-section-intro">
-          The final system was not designed in one pass. Each redesign narrowed the research question, exposed a new
-          failure mode, and moved the implementation closer to a testable geometric hypothesis.
-        </p>
-
-        <div class="clifford-timeline">
-          <article class="clifford-timeline__item">
-            <div class="timeline-marker">01</div>
-            <div class="timeline-card">
-              <p class="timeline-card__version">Initial End-to-End Prototype</p>
-              <h3>Apply the mathematical idea across the whole pipeline</h3>
-              <p>
-                The first architecture attempted to connect custom geometric preprocessing, Clifford-inspired features,
-                and end-to-end transformation prediction immediately. It was conceptually broad, but too many components
-                changed at once, making optimization failures difficult to isolate.
-              </p>
-              <span class="timeline-card__lesson">Lesson: a mathematical concept needs explicit interfaces and testable stages.</span>
-            </div>
-          </article>
-
-          <article class="clifford-timeline__item">
-            <div class="timeline-marker">02</div>
-            <div class="timeline-card">
-              <p class="timeline-card__version">v1 Multi-Stream Redesign</p>
-              <h3>Separate geometric roles before learning to fuse them</h3>
-              <p>
-                The next design organized image evidence into scalar, vector, and bivector-related paths and introduced
-                multi-scale processing. This made the representation more interpretable, but the model still required a
-                clearer matching objective and a better way to propagate transforms across resolutions.
-              </p>
-              <span class="timeline-card__lesson">Lesson: separation is useful only when the decoder respects the same geometry.</span>
-            </div>
-          </article>
-
-          <article class="clifford-timeline__item">
-            <div class="timeline-marker">03</div>
-            <div class="timeline-card">
-              <p class="timeline-card__version">Matching-Focused Rebuild</p>
-              <h3>Reframe the system around correspondence and transform estimation</h3>
-              <p>
-                I rebuilt the model around a coarse-to-fine geometric transformer. Source features were pre-warped by the
-                current estimate, each level predicted a residual update, and forward/backward transform conventions were
-                made explicit for sampling and supervision.
-              </p>
-              <span class="timeline-card__lesson">Lesson: the transformation convention is part of the architecture, not an implementation detail.</span>
-            </div>
-          </article>
-
-          <article class="clifford-timeline__item">
-            <div class="timeline-marker">04</div>
-            <div class="timeline-card">
-              <p class="timeline-card__version">V4 Diagnostic Stage</p>
-              <h3>Identify under-rotation, constant prediction, and unstable refinement</h3>
-              <p>
-                Large-rotation experiments showed that the model could learn a geometric trend while still collapsing
-                toward biased predictions. Earlier refinement logic either changed the estimate too aggressively or stayed
-                near identity. I added curriculum training, deep transform supervision, and checkpoint guards that reject
-                identity-like or constant-prediction solutions.
-              </p>
-              <span class="timeline-card__lesson">Lesson: a lower training loss does not guarantee pair-dependent geometric reasoning.</span>
-            </div>
-          </article>
-
-          <article class="clifford-timeline__item clifford-timeline__item--final">
-            <div class="timeline-marker">05</div>
-            <div class="timeline-card">
-              <p class="timeline-card__version">Final Five-Stage Framework</p>
-              <h3>Bounded direct residual refinement plus inference-time energy optimization</h3>
-              <p>
-                The final architecture replaced unstable iterative refinement with a zero-initialized direct residual head
-                and added a parameter-free geometric optimizer. The paper, implementation, losses, diagrams, and
-                evaluation protocol were then synchronized around the same five-stage pipeline.
-              </p>
-              <span class="timeline-card__lesson">Outcome: a compact, staged framework with clearer behavior and measurable recovery cases.</span>
-            </div>
-          </article>
-        </div>
-      </section>
 
       <section class="detail-section" id="architecture">
         <div class="clifford-section-heading">
-          <span class="clifford-section-index">04</span>
+          <span class="clifford-section-index">03</span>
           <div>
-            <p class="clifford-section-kicker">Final Architecture</p>
-            <h2 class="detail-section-title">Five stages from raw geometry to refined alignment</h2>
+            <p class="clifford-section-kicker">Pipeline</p>
+            <h2 class="detail-section-title">Five phases from raw geometry to refined alignment</h2>
           </div>
         </div>
 
         <div class="clifford-pipeline" role="img"
           aria-label="Five-stage architecture: feature extraction, Clifford embedding, geometric transformer, direct residual refinement, and energy optimization">
           <article class="pipeline-stage pipeline-stage--p1">
-            <span class="pipeline-stage__number">P1</span>
-            <i data-lucide="layers-3" aria-hidden="true"></i>
-            <h3>Geometric Feature Extraction</h3>
-            <p>Gaussian pyramid with scalar, vector, and wedge-product rotation cues.</p>
+            <h3><span class="pipeline-stage__number">1</span>Geometric Feature Extraction</h3>
+            <p>Gaussian pyramid with scalar, vector, and normalized bivector-candidate cues.</p>
           </article>
           <div class="pipeline-connector" aria-hidden="true"><i data-lucide="chevron-right"></i></div>
           <article class="pipeline-stage pipeline-stage--p2">
-            <span class="pipeline-stage__number">P2</span>
-            <i data-lucide="boxes" aria-hidden="true"></i>
-            <h3>Clifford Embedding</h3>
-            <p>Grade-decomposed scalar, vector, and rotor streams.</p>
+            <h3><span class="pipeline-stage__number">2</span>Clifford Embedding</h3>
+            <p>Grade-decomposed scalar, vector, and learned rotor-related streams.</p>
           </article>
           <div class="pipeline-connector" aria-hidden="true"><i data-lucide="chevron-right"></i></div>
           <article class="pipeline-stage pipeline-stage--p3">
-            <span class="pipeline-stage__number">P3</span>
-            <i data-lucide="waypoints" aria-hidden="true"></i>
-            <h3>Geometric Transformer</h3>
-            <p>Rotor-scale attention and coarse-to-fine transform composition.</p>
+            <h3><span class="pipeline-stage__number">3</span>Geometric Transformer</h3>
+            <p>Rotor-scale-aware encoding and coarse-to-fine global transform composition.</p>
           </article>
           <div class="pipeline-connector" aria-hidden="true"><i data-lucide="chevron-right"></i></div>
           <article class="pipeline-stage pipeline-stage--p4">
-            <span class="pipeline-stage__number">P4</span>
-            <i data-lucide="scan-search" aria-hidden="true"></i>
-            <h3>Direct Residual Refiner</h3>
+            <h3><span class="pipeline-stage__number">4</span>Direct Residual Refiner</h3>
             <p>Bounded correction from warped feature discrepancy.</p>
           </article>
           <div class="pipeline-connector" aria-hidden="true"><i data-lucide="chevron-right"></i></div>
           <article class="pipeline-stage pipeline-stage--p5">
-            <span class="pipeline-stage__number">P5</span>
-            <i data-lucide="gauge" aria-hidden="true"></i>
-            <h3>Energy Optimization</h3>
+            <h3><span class="pipeline-stage__number">5</span>Energy Optimization</h3>
             <p>Gate-weighted inference-time geometric consistency.</p>
           </article>
         </div>
@@ -436,152 +295,113 @@
         <div class="phase-detail-grid">
           <article class="phase-detail-card phase-detail-card--p1">
             <div class="phase-detail-card__header">
-              <span>P1</span>
+              <span>1</span>
               <div>
                 <p>Raw geometric evidence</p>
                 <h3>Multi-scale feature extraction</h3>
               </div>
             </div>
             <ul class="clifford-dash-list">
-              <li><strong>Scalar cues:</strong> CLAHE texture, structure-tensor anisotropy, edge magnitude, and an edge-distance potential field.</li>
-              <li><strong>Vector cues:</strong> normalized Sobel gradient and structure-aware texture-flow direction.</li>
+              <li><strong>Scalar cues:</strong> CLAHE texture, structure-tensor anisotropy, edge magnitude, and an
+                edge-distance potential field.</li>
+              <li><strong>Vector cues:</strong> normalized Sobel gradient and structure-aware texture-flow direction.
+              </li>
               <li><strong>Bivector candidate:</strong> signed 2D wedge product between gradient and texture flow.</li>
-              <li><strong>Multi-scale context:</strong> the same cues are extracted over a Gaussian pyramid.</li>
             </ul>
           </article>
 
           <article class="phase-detail-card phase-detail-card--p2">
             <div class="phase-detail-card__header">
-              <span>P2</span>
+              <span>2</span>
               <div>
                 <p>Grade-aware representation</p>
                 <h3>Clifford multivector embedding</h3>
               </div>
             </div>
             <ul class="clifford-dash-list">
-              <li><strong>Scalar stream:</strong> smooth Softplus projection, learnable scaling, and global descriptor gating.</li>
+              <li><strong>Scalar stream:</strong> smooth Softplus projection, learnable scaling, and global descriptor
+                gating.</li>
               <li><strong>Vector stream:</strong> bias-free projection preserves directional linearity.</li>
-              <li><strong>Rotor stream:</strong> normalized cosine, sine, and magnitude represent direction and scale tendency.</li>
-              <li><strong>Explicit GP branch:</strong> dot and wedge cues enter through a zero-initialized residual path.</li>
+              <li><strong>Rotor-related stream:</strong> normalized cosine, sine, and magnitude are inferred from vector
+                cues and the bivector candidate.</li>
             </ul>
           </article>
 
           <article class="phase-detail-card phase-detail-card--p3">
             <div class="phase-detail-card__header">
-              <span>P3</span>
+              <span>3</span>
               <div>
                 <p>Initial geometric estimator</p>
                 <h3>Multivector-aware transformer</h3>
               </div>
             </div>
             <ul class="clifford-dash-list">
-              <li><strong>Grouped tokenization:</strong> scalar, vector, and rotor channels gain local context without immediate mixing.</li>
-              <li><strong>Independent Q/K/V:</strong> each grade receives its own linear projection.</li>
-              <li><strong>Rotor-scale attention:</strong> rotation similarity and log-scale distance bias token interaction.</li>
-              <li><strong>Coarse-to-fine decoder:</strong> pre-warp, cross-attend, predict a dense residual rotor field, pool by confidence, and compose transforms.</li>
-              <li><strong>Memory control:</strong> chunked attention and local windows keep high-resolution processing feasible.</li>
+              <li><strong>Grouped tokenization:</strong> scalar, vector, and rotor channels gain local context without
+                immediate mixing.</li>
+              <li><strong>Rotor-scale attention:</strong> rotation similarity and log-scale distance bias token
+                interaction.</li>
+              <li><strong>Coarse-to-fine decoder:</strong> pre-warp, cross-attend, predict a pixel-wise residual
+                transform field, pool it by confidence, and compose the global update.</li>
             </ul>
           </article>
 
           <article class="phase-detail-card phase-detail-card--p4">
             <div class="phase-detail-card__header">
-              <span>P4</span>
+              <span>4</span>
               <div>
                 <p>Learned global correction</p>
                 <h3>Direct residual geometric refiner</h3>
               </div>
             </div>
             <ul class="clifford-dash-list">
-              <li><strong>Input descriptor:</strong> pooled target features, warped source features, signed difference, absolute difference, and seed-transform parameters.</li>
-              <li><strong>Bounded prediction:</strong> residual rotation is limited to 35 degrees and normalized translation to 0.25.</li>
-              <li><strong>Stable initialization:</strong> the final layer is zero-initialized, so refinement starts as an identity residual.</li>
-              <li><strong>Composition:</strong> the residual is composed with the backward sampling transform rather than replacing it.</li>
+              <li><strong>Input descriptor:</strong> pooled target features, warped source features, signed difference,
+                absolute difference, and seed-transform parameters.</li>
+              <li><strong>Bounded prediction:</strong> residual rotation is limited to 35 degrees and normalized
+                translation to 0.25.</li>
             </ul>
           </article>
 
           <article class="phase-detail-card phase-detail-card--p5">
             <div class="phase-detail-card__header">
-              <span>P5</span>
+              <span>5</span>
               <div>
-                <p>Parameter-free final adjustment</p>
+                <p>Inference-only final adjustment</p>
                 <h3>Geometric energy optimization</h3>
               </div>
             </div>
             <ul class="clifford-dash-list">
-              <li><strong>Initialization:</strong> begins from the refined backward affine transformation.</li>
-              <li><strong>Objective:</strong> minimizes gate-weighted scalar, vector, and rotor consistency energies.</li>
-              <li><strong>Constraint:</strong> only a bounded similarity-style residual is optimized, preserving the learned seed.</li>
-              <li><strong>Trade-off:</strong> no new trainable parameters, but additional inference-time computation.</li>
+              <li><strong>Objective:</strong> minimizes gate-weighted scalar, vector, and rotor consistency energies.
+              </li>
+              <li><strong>Trade-off:</strong> no new trainable parameters, but additional inference-time computation.
+              </li>
             </ul>
           </article>
         </div>
       </section>
 
-      <section class="detail-section" id="principles">
-        <div class="clifford-section-heading">
-          <span class="clifford-section-index">05</span>
-          <div>
-            <p class="clifford-section-kicker">Architecture Decisions</p>
-            <h2 class="detail-section-title">What was deliberately preserved</h2>
-          </div>
-        </div>
-
-        <div class="principle-grid">
-          <article class="principle-card">
-            <i data-lucide="split" aria-hidden="true"></i>
-            <h3>Separate before fusion</h3>
-            <p>Geometric types are projected and tokenized independently so that early layers do not erase their roles.</p>
-          </article>
-          <article class="principle-card">
-            <i data-lucide="rotate-ccw" aria-hidden="true"></i>
-            <h3>Predict residual geometry</h3>
-            <p>Each stage corrects an existing transform instead of relearning alignment from zero.</p>
-          </article>
-          <article class="principle-card">
-            <i data-lucide="shield-check" aria-hidden="true"></i>
-            <h3>Preserve a valid seed</h3>
-            <p>Zero initialization and bounded updates prevent refinement from destroying a useful initial estimate.</p>
-          </article>
-          <article class="principle-card">
-            <i data-lucide="arrow-left-right" aria-hidden="true"></i>
-            <h3>Make conventions explicit</h3>
-            <p>Backward transforms are used for sampling; forward transforms are produced by inversion for supervision and evaluation.</p>
-          </article>
-        </div>
-      </section>
 
       <section class="detail-section" id="evaluation">
         <div class="clifford-section-heading">
-          <span class="clifford-section-index">06</span>
+          <span class="clifford-section-index">04</span>
           <div>
-            <p class="clifford-section-kicker">Training and Evaluation</p>
+            <p class="clifford-section-kicker">Experimental Questions</p>
             <h2 class="detail-section-title">A protocol centered on severe rotation</h2>
           </div>
         </div>
 
-        <div class="protocol-grid">
-          <article class="protocol-card">
-            <span class="protocol-card__label">Training</span>
-            <h3>Curriculum to &plusmn;90&deg;</h3>
-            <p>Rotation difficulty increases by stage, preventing the model from facing the full angular range before learning basic geometric behavior.</p>
-            <ul>
-              <li>Input resolution: 256 x 256</li>
-              <li>Batch size: 1 image pair</li>
-              <li>Gradient accumulation: 16</li>
-              <li>Scale jitter and image augmentation</li>
-            </ul>
-          </article>
+        <div class="protocol-grid protocol-grid--two">
 
           <article class="protocol-card">
             <span class="protocol-card__label">Benchmarks</span>
             <h3>Multiple scene distributions</h3>
-            <p>The evaluation separates overall accuracy from hard-rotation behavior and ambiguous visual conditions.</p>
+            <p>The evaluation separates overall accuracy from hard-rotation behavior and ambiguous visual conditions.
+            </p>
             <ul>
               <li>COCO rotation benchmark</li>
               <li>Fixed angles from 0&deg; to 90&deg;</li>
               <li>Low-gradient / ill-posed subset</li>
               <li>Repetitive-pattern subset</li>
-              <li>HPatches and MegaDepth transfer</li>
+              <li>HPatches and MegaDepth image sources with synthetic hard rotations</li>
             </ul>
           </article>
 
@@ -602,9 +422,9 @@
 
       <section class="detail-section" id="results">
         <div class="clifford-section-heading">
-          <span class="clifford-section-index">07</span>
+          <span class="clifford-section-index">05</span>
           <div>
-            <p class="clifford-section-kicker">Experimental Results</p>
+            <p class="clifford-section-kicker">Observed Results</p>
             <h2 class="detail-section-title">Strengths, recovery behavior, and remaining gaps</h2>
           </div>
         </div>
@@ -613,9 +433,8 @@
           <i data-lucide="scale" aria-hidden="true"></i>
           <p>
             The final model did <strong>not</strong> outperform SIFT+RANSAC or DKM in overall alignment accuracy.
-            Its main result is different: compared with several learned matchers, it showed a lower-variance and more
-            gradual degradation pattern when in-plane rotation became severe. The portfolio page presents both sides of
-            that result rather than treating one favorable subset as the whole conclusion.
+            Compared with several learned matchers, it showed a lower-variance and more
+            gradual degradation pattern when in-plane rotation became severe.
           </p>
         </div>
 
@@ -639,12 +458,42 @@
                 </tr>
               </thead>
               <tbody>
-                <tr><th scope="row">SIFT+RANSAC</th><td>0.012</td><td>0.012</td><td>0.004</td></tr>
-                <tr><th scope="row">DKM</th><td>0.007</td><td>1.076</td><td>9.772</td></tr>
-                <tr><th scope="row">SuperPoint+LightGlue</th><td>29.477</td><td>60.401</td><td>76.056</td></tr>
-                <tr><th scope="row">LoFTR</th><td>40.427</td><td>69.483</td><td>77.341</td></tr>
-                <tr><th scope="row">XFeat</th><td>47.264</td><td>76.511</td><td>89.050</td></tr>
-                <tr class="clifford-result-table__ours"><th scope="row">Ours - P5</th><td>19.958</td><td>29.107</td><td>41.511</td></tr>
+                <tr>
+                  <th scope="row">SIFT+RANSAC</th>
+                  <td>0.012</td>
+                  <td>0.012</td>
+                  <td>0.004</td>
+                </tr>
+                <tr>
+                  <th scope="row">DKM</th>
+                  <td>0.007</td>
+                  <td>1.076</td>
+                  <td>9.772</td>
+                </tr>
+                <tr>
+                  <th scope="row">SuperPoint+LightGlue</th>
+                  <td>29.477</td>
+                  <td>60.401</td>
+                  <td>76.056</td>
+                </tr>
+                <tr>
+                  <th scope="row">LoFTR</th>
+                  <td>40.427</td>
+                  <td>69.483</td>
+                  <td>77.341</td>
+                </tr>
+                <tr>
+                  <th scope="row">XFeat</th>
+                  <td>47.264</td>
+                  <td>76.511</td>
+                  <td>89.050</td>
+                </tr>
+                <tr class="clifford-result-table__ours">
+                  <th scope="row">Ours - P5</th>
+                  <td>19.958</td>
+                  <td>29.107</td>
+                  <td>41.511</td>
+                </tr>
               </tbody>
             </table>
           </div>
@@ -655,13 +504,15 @@
             <span class="result-card__tag">Ablation</span>
             <strong>3.2% / 3.6% / 2.9%</strong>
             <h3>P5 reduction over P3</h3>
-            <p>MACE, alignment error, and angle error decreased progressively after adding residual and energy refinement.</p>
+            <p>MACE, alignment error, and angle error decreased progressively after adding residual and energy
+              refinement.</p>
           </article>
           <article class="result-card">
             <span class="result-card__tag">Recovery subset</span>
             <strong>40.49&deg; to 17.01&deg;</strong>
             <h3>Large-error correction</h3>
-            <p>On the Top-100 recovery cases, P5 substantially reduced the mean angular error from the P3 initialization.</p>
+            <p>On the Top-100 recovery cases, P5 substantially reduced the mean angular error from the P3
+              initialization.</p>
           </article>
           <article class="result-card">
             <span class="result-card__tag">Ill-posed hard cases</span>
@@ -690,6 +541,7 @@
           <div class="efficiency-bars" aria-label="Parameter count comparison">
             <div class="efficiency-bar"><span>Ours-P3</span><b style="--bar: 18%;">1.28M</b></div>
             <div class="efficiency-bar"><span>Ours-P4/P5</span><b style="--bar: 20%;">1.43M</b></div>
+            <div class="efficiency-bar"><span>XFeat</span><b style="--bar: 22%;">1.54M</b></div>
             <div class="efficiency-bar"><span>LoFTR</span><b style="--bar: 54%;">11.56M</b></div>
             <div class="efficiency-bar"><span>SP+LightGlue</span><b style="--bar: 60%;">13.15M</b></div>
             <div class="efficiency-bar"><span>DKM</span><b style="--bar: 100%;">72.26M</b></div>
@@ -699,59 +551,57 @@
 
       <section class="detail-section" id="challenges">
         <div class="clifford-section-heading">
-          <span class="clifford-section-index">08</span>
+          <span class="clifford-section-index">06</span>
           <div>
-            <p class="clifford-section-kicker">Engineering and Research Challenges</p>
-            <h2 class="detail-section-title">Problems that forced the final redesign</h2>
+            <p class="clifford-section-kicker">Research Challenges</p>
+            <h2 class="detail-section-title">Implementation problems resolved during development</h2>
           </div>
         </div>
 
         <div class="clifford-challenge-grid">
           <article class="challenge-card clifford-challenge-card">
-            <div class="challenge-header"><span class="challenge-header-num">1</span>Turning algebra into a learnable representation</div>
+            <div class="challenge-header"><span class="challenge-header-num">1</span>Refinement either overshot or did
+              nothing</div>
             <div class="cs-box problem">
               <div class="cs-box-title"><i data-lucide="alert-triangle" aria-hidden="true"></i> Challenge</div>
-              <p>Calling a tensor a multivector does not preserve geometric meaning. A direct fusion path allowed appearance features to dominate the intended structure.</p>
+              <p>Earlier iterative and safety-gated refiners could destroy a good P3 estimate, while conservative
+                settings made P4 nearly identical to P3.</p>
             </div>
             <div class="cs-box solution">
               <div class="cs-box-title"><i data-lucide="lightbulb" aria-hidden="true"></i> Response</div>
-              <p>I defined explicit scalar, vector, and bivector-derived cues, preserved their separation through projection and tokenization, and introduced the geometric-product branch only as a zero-initialized residual.</p>
+              <p>I replaced the mechanism with a direct residual head trained by the final consistency objective. Zero
+                initialization and bounded tanh outputs preserve the seed while allowing gradients immediately.</p>
             </div>
           </article>
 
           <article class="challenge-card clifford-challenge-card">
-            <div class="challenge-header"><span class="challenge-header-num">2</span>Refinement either overshot or did nothing</div>
+            <div class="challenge-header"><span class="challenge-header-num">2</span>Backward and forward transform
+              confusion</div>
             <div class="cs-box problem">
               <div class="cs-box-title"><i data-lucide="alert-triangle" aria-hidden="true"></i> Challenge</div>
-              <p>Earlier iterative and safety-gated refiners could destroy a good P3 estimate, while conservative settings made P4 nearly identical to P3.</p>
+              <p>PyTorch warping expects an output-to-input sampling transform, while evaluation and paper equations
+                often describe the opposite direction.</p>
             </div>
             <div class="cs-box solution">
               <div class="cs-box-title"><i data-lucide="lightbulb" aria-hidden="true"></i> Response</div>
-              <p>I replaced the mechanism with a direct residual head trained by the final consistency objective. Zero initialization and bounded tanh outputs preserve the seed while allowing gradients immediately.</p>
+              <p>The final code explicitly stores B-to-A for sampling, derives A-to-B by inversion at the loss boundary,
+                and uses the same align-corners convention throughout training and inference.</p>
             </div>
           </article>
 
           <article class="challenge-card clifford-challenge-card">
-            <div class="challenge-header"><span class="challenge-header-num">3</span>Backward and forward transform confusion</div>
+            <div class="challenge-header"><span class="challenge-header-num">3</span>High-resolution attention and
+              rotation collapse</div>
             <div class="cs-box problem">
               <div class="cs-box-title"><i data-lucide="alert-triangle" aria-hidden="true"></i> Challenge</div>
-              <p>PyTorch warping expects an output-to-input sampling transform, while evaluation and paper equations often describe the opposite direction.</p>
+              <p>Full attention became expensive at fine resolutions, while training could still converge to
+                image-independent or under-rotated predictions.</p>
             </div>
             <div class="cs-box solution">
               <div class="cs-box-title"><i data-lucide="lightbulb" aria-hidden="true"></i> Response</div>
-              <p>The final code explicitly stores B-to-A for sampling, derives A-to-B by inversion at the loss boundary, and uses the same align-corners convention throughout training and inference.</p>
-            </div>
-          </article>
-
-          <article class="challenge-card clifford-challenge-card">
-            <div class="challenge-header"><span class="challenge-header-num">4</span>High-resolution attention and rotation collapse</div>
-            <div class="cs-box problem">
-              <div class="cs-box-title"><i data-lucide="alert-triangle" aria-hidden="true"></i> Challenge</div>
-              <p>Full attention became expensive at fine resolutions, while training could still converge to image-independent or under-rotated predictions.</p>
-            </div>
-            <div class="cs-box solution">
-              <div class="cs-box-title"><i data-lucide="lightbulb" aria-hidden="true"></i> Response</div>
-              <p>I combined chunked attention, local-window fine-level matching, staged rotation curriculum, multi-level angle supervision, and checkpoint guards based on prediction variance and target correlation.</p>
+              <p>I used resolution-specific computation, retaining local-window cross-attention on pre-aligned
+                fine-level features while omitting the most expensive full-resolution encoder attention where necessary.
+                Training pairs followed a staged rotation curriculum.</p>
             </div>
           </article>
         </div>
@@ -759,7 +609,7 @@
 
       <section class="detail-section" id="role">
         <div class="clifford-section-heading">
-          <span class="clifford-section-index">09</span>
+          <span class="clifford-section-index">07</span>
           <div>
             <p class="clifford-section-kicker">My Role</p>
             <h2 class="detail-section-title">Research-to-system ownership</h2>
@@ -770,29 +620,33 @@
           <article class="role-card">
             <i data-lucide="sparkles" aria-hidden="true"></i>
             <h3>Research framing</h3>
-            <p>Formulated the original hypothesis, surveyed mathematical systems and matching architectures, and translated Clifford concepts into a computer-vision problem statement.</p>
+            <p>Formulated the original hypothesis, surveyed mathematical systems and matching architectures, and
+              translated Clifford concepts into a computer-vision problem statement.</p>
           </article>
           <article class="role-card">
             <i data-lucide="network" aria-hidden="true"></i>
             <h3>Architecture design</h3>
-            <p>Designed the P1-P5 interfaces, geometric feature representation, transformer blocks, transform composition, residual refiner, and energy objective.</p>
+            <p>Designed the P1-P5 interfaces, geometric feature representation, transformer blocks, transform
+              composition, residual refiner, and energy objective.</p>
           </article>
           <article class="role-card">
             <i data-lucide="terminal-square" aria-hidden="true"></i>
             <h3>Implementation and debugging</h3>
-            <p>Implemented the complete PyTorch pipeline and investigated memory limits, gradient flow, collapse modes, transform conventions, and checkpoint quality.</p>
+            <p>Implemented the complete PyTorch pipeline and investigated memory limits, gradient flow, collapse modes,
+              transform conventions, and checkpoint quality.</p>
           </article>
           <article class="role-card">
             <i data-lucide="chart-no-axes-combined" aria-hidden="true"></i>
             <h3>Evaluation and communication</h3>
-            <p>Built benchmark protocols, ablations, hard-case subsets, cross-dataset tests, qualitative figures, and the journal manuscript.</p>
+            <p>Built benchmark protocols, ablations, hard-case subsets, cross-dataset tests, qualitative figures, and
+              the journal manuscript.</p>
           </article>
         </div>
       </section>
 
       <section class="detail-section" id="reflection">
         <div class="clifford-section-heading">
-          <span class="clifford-section-index">10</span>
+          <span class="clifford-section-index">08</span>
           <div>
             <p class="clifford-section-kicker">Reflection</p>
             <h2 class="detail-section-title">What this project changed in how I conduct research</h2>
@@ -801,90 +655,44 @@
 
         <div class="reflection-grid">
           <div class="reflection-card reflection-card--learning">
-            <span>What I learned</span>
+            <span>What This Study Revealed</span>
             <ul class="clifford-dash-list">
-              <li>A strong mathematical analogy becomes useful only after every tensor, operation, and loss has a concrete geometric role.</li>
-              <li>Architecture diagrams, code conventions, and equations must be revised together; otherwise a plausible paper can describe a different system from the implementation.</li>
-              <li>Failure distributions can reveal value that a single average metric hides, but they must be presented without obscuring stronger baselines.</li>
-              <li>Refinement should be designed to preserve a good estimate first and improve it second.</li>
+              <li>Refinement should first preserve a reliable estimate and only then attempt to improve it.</li>
+              <li>Conducting extensive ablation studies strengthened my ability to identify the source of performance
+                limitations and evaluate targeted solutions.</li>
+              <li>Because full training runs were time-consuming, incorrect design choices were sometimes discovered too
+                late. This highlighted the importance of using smoke tests and small-scale validation experiments to
+                verify ideas before committing to long training cycles.</li>
             </ul>
           </div>
 
           <div class="reflection-card reflection-card--limits">
-            <span>Current limitations</span>
+            <span>Limitations and Next Steps</span>
             <ul class="clifford-dash-list">
-              <li>The framework remains less precise than SIFT+RANSAC and DKM on the overall synthetic-rotation benchmark.</li>
-              <li>Small and moderate rotations remain weaker than several established methods.</li>
-              <li>P5 produces strong corrections in favorable cases, but does not consistently beat P4 on every hard subset.</li>
-              <li>The model is Clifford-inspired and grade-structured; it is not presented as a fully Clifford-equivariant network.</li>
+              <li>Fine local alignment and global transform precision both require further improvement.</li>
+              <li>P5 can strongly correct selected cases but should be activated selectively through confidence-aware
+                criteria or adaptive stopping.</li>
+              <li>The model is Clifford-inspired and grade-structured; it is not presented as a fully
+                Clifford-equivariant network.</li>
             </ul>
           </div>
         </div>
 
-        <div class="future-direction-card">
-          <div>
-            <span>Next direction</span>
-            <h3>From global transform recovery to richer correspondence geometry</h3>
-          </div>
-          <p>
-            The next step is to improve local correspondence precision while preserving rotation robustness: stronger
-            pair-dependent descriptors, uncertainty-aware residual routing, better scale and viewpoint modeling, and
-            evaluation on non-synthetic geometric transformations.
-          </p>
-        </div>
       </section>
 
-      <!-- <section class="detail-section" id="archive">
-        <div class="clifford-section-heading">
-          <span class="clifford-section-index">11</span>
-          <div>
-            <p class="clifford-section-kicker">Development Archive</p>
-            <h2 class="detail-section-title">Research notes across architecture versions</h2>
-          </div>
-        </div>
-
-        <div class="archive-grid">
-          <a class="archive-card" href="https://www.notion.so/End-to-End-2cdecf05ce4c80adb596ffa5b4f77d40?source=copy_link" target="_blank" rel="noopener noreferrer">
-            <span>Prototype 01</span>
-            <h3>End-to-End Architecture</h3>
-            <p>The first broad attempt to connect geometric preprocessing, representation learning, and transform prediction.</p>
-            <i data-lucide="arrow-up-right" aria-hidden="true"></i>
-          </a>
-          <a class="archive-card" href="https://www.notion.so/v1-2dfecf05ce4c806f8ff0f62cdc63e5be?source=copy_link" target="_blank" rel="noopener noreferrer">
-            <span>Prototype 02</span>
-            <h3>v1 Multi-Stream Design</h3>
-            <p>The first architecture organized around scalar, vector, and bivector-related feature paths.</p>
-            <i data-lucide="arrow-up-right" aria-hidden="true"></i>
-          </a>
-          <a class="archive-card" href="https://www.notion.so/matching-2cdecf05ce4c806085d5dd656be19539?source=copy_link" target="_blank" rel="noopener noreferrer">
-            <span>Rebuild</span>
-            <h3>Matching-Oriented Architecture</h3>
-            <p>Notes on replacing the earlier model, repairing intermediate stages, and focusing on correspondence estimation.</p>
-            <i data-lucide="arrow-up-right" aria-hidden="true"></i>
-          </a>
-          <a class="archive-card" href="https://www.notion.so/Clifford-Estimation-2d3ecf05ce4c8014ac3cc65cf65a0060?source=copy_link" target="_blank" rel="noopener noreferrer">
-            <span>Diagnostic Milestone</span>
-            <h3>Clifford Estimation through V4</h3>
-            <p>Intermediate results and the behavior that motivated the final refinement redesign.</p>
-            <i data-lucide="arrow-up-right" aria-hidden="true"></i>
-          </a>
-          <a class="archive-card archive-card--final" href="https://www.notion.so/Image-and-Vision-Computing-35aecf05ce4c807eb8e3da625787466e?source=copy_link" target="_blank" rel="noopener noreferrer">
-            <span>Final Manuscript</span>
-            <h3>Image and Vision Computing</h3>
-            <p>The final architecture, experiments, figures, paper revisions, and submission preparation.</p>
-            <i data-lucide="arrow-up-right" aria-hidden="true"></i>
-          </a>
-        </div>
-      </section> -->
     </section>
   </main>
 
   <footer class="footer">
     <ul class="social-list">
-      <li class="social-list__item"><a class="social-list__link" href="mailto:uoyuvvou@gmail.com" aria-label="Email"><i class="fa-regular fa-envelope"></i></a></li>
-      <li class="social-list__item"><a class="social-list__link" href="https://www.linkedin.com/in/uoyuvvou" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a></li>
-      <li class="social-list__item"><a class="social-list__link" href="https://github.com/Gyuwon-Na" aria-label="GitHub"><i class="fa-brands fa-github"></i></a></li>
-      <li class="social-list__item"><a class="social-list__link" href="https://www.instagram.com/uoyuvvou" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a></li>
+      <li class="social-list__item"><a class="social-list__link" href="mailto:uoyuvvou@gmail.com" aria-label="Email"><i
+            class="fa-regular fa-envelope"></i></a></li>
+      <li class="social-list__item"><a class="social-list__link" href="https://www.linkedin.com/in/uoyuvvou"
+          aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a></li>
+      <li class="social-list__item"><a class="social-list__link" href="https://github.com/Gyuwon-Na"
+          aria-label="GitHub"><i class="fa-brands fa-github"></i></a></li>
+      <li class="social-list__item"><a class="social-list__link" href="https://www.instagram.com/uoyuvvou"
+          aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a></li>
     </ul>
     <p class="footer-copyright">&copy; 2026 Gyuwon Na. All rights reserved.</p>
   </footer>

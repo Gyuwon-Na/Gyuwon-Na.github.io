@@ -90,38 +90,25 @@
           <div class="tech-stack-detailed clifford-tech-stack" aria-label="Technology stack">
             <span class="tech-badge">Correspondence Matching</span>
             <span class="tech-badge">ROI Filtering</span>
+            <span class="tech-badge">Graph Searching</span>
+            <span class="tech-badge">HNSW</span>
             <span class="tech-badge">Approximate Nearest Neighbor</span>
           </div>
-
-          <!-- <div class="clifford-hero__actions">
-            <a class="clifford-action clifford-action--primary"
-              href="https://www.notion.so/roi-2a3ecf05ce4c80d88618f096cec08f58?source=copy_link" target="_blank"
-              rel="noopener noreferrer">
-              <i data-lucide="lightbulb" aria-hidden="true"></i> Idea Notes
-            </a>
-            <a class="clifford-action"
-              href="https://www.notion.so/ROI-HNSW-2b1ecf05ce4c80668f98d67580822cf8?source=copy_link" target="_blank"
-              rel="noopener noreferrer">
-              <i data-lucide="chart-no-axes-combined" aria-hidden="true"></i> Experiment Notes
-            </a>
-          </div> -->
         </div>
 
 
         <div class="project-card__visual">
-          <img src="../../img/research/roi/comparison_result.png" alt="Hello Quad project" class="img-static"
+          <img src="../../img/research/roi/comparison_result.png" alt="ROI and HNSW matching comparison result"
+            class="img-static"
             loading="lazy">
         </div>
       </div>
-      </div>
 
       <div class="container clifford-stat-strip" aria-label="Study summary">
-        <div class="clifford-stat"><strong>ROI first</strong><span>reduce irrelevant descriptor candidates before
-            retrieval</span></div>
-        <div class="clifford-stat"><strong>ANN</strong><span>replace exhaustive nearest-neighbor lookup with graph
-            search</span></div>
-        <div class="clifford-stat"><strong>Prototype</strong><span>explore design trade-offs rather than claim a
-            final method</span></div>
+        <div class="clifford-stat"><strong>96.12%</strong><span>candidate comparison reduction in the HNSW setting</span></div>
+        <div class="clifford-stat"><strong>0.99</strong><span>success rate retained after candidate-space reduction</span></div>
+        <div class="clifford-stat"><strong>94.69%</strong><span>highest reported match purity with MAGSAC verification</span></div>
+        <div class="clifford-stat"><strong>30,304</strong><span>comparisons after ROI-ratio feature limiting</span></div>
       </div>
     </section>
 
@@ -131,8 +118,8 @@
         <a href="#hypothesis">Hypothesis</a>
         <a href="#pipeline">Pipeline</a>
         <a href="#evaluation">Evaluation</a>
-        <a href="#findings">Findings</a>
-        <a href="#limits">Limitations</a>
+        <a href="#findings">Conclusion</a>
+        <a href="#limits">Future Work</a>
         <a href="#reflection">Reflection</a>
       </div>
     </nav>
@@ -191,61 +178,50 @@
           </div>
         </div>
 
-        <div class="clifford-origin-card">
-          <div class="origin-card__story">
-            <p class="detail-text">
-              Global descriptor search treats every extracted point as a possible match. This is useful when the scene
-              is unknown, but wasteful when the application already knows which object or region matters.
+        <div class="roi-hypothesis-card">
+          <div class="roi-hypothesis-card__lead">
+            <p class="roi-hypothesis-card__label">Core assumption</p>
+            <h3>Stable, center-weighted regions can become a practical prior for feature matching.</h3>
+            <p>
+              Global descriptor search treats every extracted point as a possible match. That is useful when the scene is
+              unknown, but wasteful when the application already knows which object or region matters.
             </p>
-            <p class="detail-text">
-              The central hypothesis was inspired by the unconscious behavior of people when capturing panoramic images.
-              During camera rotation, users tend to stabilize the frame around the horizon and keep the main subject
-              near the
-              horizontal center, even in the presence of hand jitter. This suggests that the central horizontal region
-              is likely
-              to maintain more stable overlap across adjacent frames.
-            </p>
-
-            <p class="detail-text">
-              To examine this assumption, the prototype collected IMU measurements from a smartphone camera alongside
-              the
-              captured image sequence. Gyroscope and accelerometer measurements were incorporated into the ROI-selection
-              process to identify temporally
-              stable regions during camera motion.
-            </p>
-
-            <p class="detail-text">
-              Based on these observations, the ROI was considered as a potentially adaptive region rather than only a
-              fixed
-              rectangular crop. Low-motion and texture-rich regions could be prioritized using visual features together
-              with
-              IMU-derived motion cues, while unstable foreground regions and areas affected by parallax distortion could
-              be
-              down-weighted or excluded from descriptor matching.
-            </p>
-            <!-- <ul class="clifford-dash-list">
-              <li><strong>Spatial prior:</strong> keep only descriptors from a relevant region.</li>
-              <li><strong>Efficient lookup:</strong> traverse a multi-layer proximity graph instead of brute-force
-                search.</li>
-              <li><strong>Verification:</strong> treat retrieved neighbors as candidates, not final geometric truth.
-              </li>
-            </ul> -->
           </div>
 
-          <div class="origin-card__math" aria-label="Conceptual ROI and HNSW search expression">
-            <span class="math-caption">Constrained Retrieval</span>
-            <div class="math-equation">
-              <span class="math-dot">Q</span>
-              <span class="math-operator">&rarr;</span>
-              <span class="math-wedge">I<sub>ROI</sub></span>
-              <span class="math-operator">&rarr;</span>
-              <span class="math-dot">NN<sub>HNSW</sub></span>
-            </div>
-            <div class="math-meaning">
-              <span><b>ROI</b> controls which candidates exist.</span>
-              <span><b>HNSW</b> controls how candidates are retrieved.</span>
-            </div>
-            <div class="math-rotor-ring"><span>k-NN</span><small>approximate graph traversal</small></div>
+          <div class="roi-hypothesis-grid">
+            <article class="roi-hypothesis-point">
+              <span>01</span>
+              <h4>Human capture behavior</h4>
+              <p>
+                During panorama capture, people tend to stabilize around the horizon, move slowly across important
+                regions, and keep the primary subject near the center despite hand jitter.
+              </p>
+            </article>
+            <article class="roi-hypothesis-point">
+              <span>02</span>
+              <h4>Geometric stability</h4>
+              <p>
+                Since rotation often happens near the body's center, the middle horizontal band remains more consistently
+                overlapped while nearby foreground objects are more vulnerable to parallax and distortion.
+              </p>
+            </article>
+            <article class="roi-hypothesis-point">
+              <span>03</span>
+              <h4>Sensor-supported ROI</h4>
+              <p>
+                The prototype collected smartphone IMU measurements with the image sequence. Gyroscope and accelerometer
+                cues helped identify temporally stable regions during camera motion.
+              </p>
+            </article>
+          </div>
+
+          <div class="roi-hypothesis-takeaway">
+            <i data-lucide="scan-line" aria-hidden="true"></i>
+            <p>
+              The ROI was treated as an adaptive region, not only a fixed crop. Low-motion and texture-rich regions could
+              be prioritized with visual features and IMU-derived motion cues, while unstable foreground regions could be
+              down-weighted before descriptor matching.
+            </p>
           </div>
         </div>
       </section>
@@ -254,38 +230,38 @@
         <div class="clifford-section-heading">
           <span class="clifford-section-index">03</span>
           <div>
-            <p class="clifford-section-kicker">Prototype Pipeline</p>
+            <p class="clifford-section-kicker">Pipeline</p>
             <h2 class="detail-section-title">From region selection to verified correspondences</h2>
           </div>
         </div>
 
         <div class="clifford-pipeline" aria-label="ROI and HNSW feature matching pipeline">
-          <article class="pipeline-stage pipeline-stage--p1"><span class="pipeline-stage__number">P1</span>
-            <h3>Define ROI</h3>
+          <article class="pipeline-stage pipeline-stage--p1">
+            <h3><span class="pipeline-stage__number">1</span>Define ROI</h3>
             <p>Select the spatial area expected to contain useful correspondences.</p>
           </article>
           <div class="pipeline-connector"><i data-lucide="arrow-right"></i></div>
-          <article class="pipeline-stage pipeline-stage--p2"><span class="pipeline-stage__number">P2</span>
-            <h3>Extract Descriptors</h3>
-            <p>Represent local points inside the retained region.</p>
+          <article class="pipeline-stage pipeline-stage--p2">
+            <h3><span class="pipeline-stage__number">2</span>Extract Features</h3>
+            <p>Use ORB to extract fast local features only from within the selected ROI.</p>
           </article>
           <div class="pipeline-connector"><i data-lucide="arrow-right"></i></div>
-          <article class="pipeline-stage pipeline-stage--p3"><span class="pipeline-stage__number">P3</span>
-            <h3>Build HNSW Index</h3>
+          <article class="pipeline-stage pipeline-stage--p3">
+            <h3><span class="pipeline-stage__number">3</span>Build HNSW Index</h3>
             <p>Organize reference descriptors in a hierarchical proximity graph.</p>
           </article>
           <div class="pipeline-connector"><i data-lucide="arrow-right"></i></div>
-          <article class="pipeline-stage pipeline-stage--p4"><span class="pipeline-stage__number">P4</span>
-            <h3>Retrieve Top-k</h3>
+          <article class="pipeline-stage pipeline-stage--p4">
+            <h3><span class="pipeline-stage__number">4</span>Retrieve Top-k</h3>
             <p>Query approximate nearest neighbors for target descriptors.</p>
           </article>
           <div class="pipeline-connector"><i data-lucide="arrow-right"></i></div>
-          <article class="pipeline-stage pipeline-stage--p5"><span class="pipeline-stage__number">P5</span>
-            <h3>Filter &amp; Verify</h3>
-            <p>Reject ambiguous candidates and check geometric consistency.</p>
+          <article class="pipeline-stage pipeline-stage--p5">
+            <h3><span class="pipeline-stage__number">5</span>Filter &amp; Verify</h3>
+            <p>Use MAGSAC++ to reject inconsistent matches and verify geometrically valid correspondences.</p>
           </article>
         </div>
-
+<!-- 
         <div class="phase-detail-grid" style="margin-top:28px;">
           <article class="phase-detail-card phase-detail-card--p1">
             <div class="phase-detail-card__header">
@@ -311,7 +287,7 @@
             <p>Approximate nearest neighbors still need descriptor ambiguity checks and geometric verification because
               fast vector similarity alone does not establish a valid correspondence.</p>
           </article>
-        </div>
+        </div> -->
       </section>
 
       <section class="detail-section" id="evaluation">
@@ -319,7 +295,7 @@
           <span class="clifford-section-index">04</span>
           <div>
             <p class="clifford-section-kicker">Experimental Questions</p>
-            <h2 class="detail-section-title">What the prototype was designed to reveal</h2>
+            <h2 class="detail-section-title">Benchmarking candidate reduction, latency, and match quality</h2>
           </div>
         </div>
 
@@ -350,11 +326,43 @@
           </article>
         </div>
 
+        <div class="result-block roi-benchmark-block" style="margin-top:24px;">
+          <div class="result-block__heading">
+            <div>
+              <span>Quantitative Comparison</span>
+              <h3>Matching pipeline benchmark</h3>
+            </div>
+            <p>Average values from the prototype evaluation</p>
+          </div>
+          <div class="clifford-table-wrap">
+            <table class="clifford-result-table roi-benchmark-table">
+              <thead>
+                <tr>
+                  <th scope="col">Metric</th>
+                  <th scope="col">BF-KNN</th>
+                  <th scope="col">BF-IMU</th>
+                  <th scope="col">HNSW</th>
+                  <th scope="col">MAGSAC</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><th scope="row">Match Time (ms)</th><td>2.45</td><td>2.94</td><td>7.45</td><td>7.39</td></tr>
+                <tr><th scope="row">RANSAC Time (ms)</th><td>6.80</td><td>6.48</td><td>8.98</td><td>9.11</td></tr>
+                <tr><th scope="row">Total Time (ms)</th><td>44.10</td><td>44.26</td><td>51.28</td><td>51.35</td></tr>
+                <tr class="clifford-result-table__ours"><th scope="row">Reduction Rate (%)</th><td>0.63</td><td>0.63</td><td>96.12</td><td>96.12</td></tr>
+                <tr><th scope="row">Success Rate</th><td>0.99</td><td>0.93</td><td>0.99</td><td>0.99</td></tr>
+                <tr><th scope="row">Inliers (count)</th><td>464.3</td><td>452.8</td><td>464.3</td><td>465.5</td></tr>
+                <tr><th scope="row">Putative (count)</th><td>478.9</td><td>464.5</td><td>478.9</td><td>478.9</td></tr>
+                <tr><th scope="row">Purity (%)</th><td>94.08</td><td>90.38</td><td>94.08</td><td>94.69</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
         <div class="result-summary-callout" style="margin-top:24px;">
           <i data-lucide="info" aria-hidden="true"></i>
           <p><strong>Scope note:</strong> this was an exploratory comparison, not a publication-grade benchmark. The
-            page therefore emphasizes the design questions and observed trade-offs rather than presenting unsupported
-            headline metrics.</p>
+            page therefore emphasizes the design questions and observed trade-offs.</p>
         </div>
       </section>
 
@@ -362,38 +370,41 @@
         <div class="clifford-section-heading">
           <span class="clifford-section-index">05</span>
           <div>
-            <p class="clifford-section-kicker">Practical Findings</p>
-            <h2 class="detail-section-title">The search prior and the search algorithm must be evaluated together</h2>
+            <p class="clifford-section-kicker">Observed Results</p>
+            <h2 class="detail-section-title">Discussions</h2>
           </div>
         </div>
 
         <div class="result-card-grid">
-          <article class="result-card"><span class="result-card__tag">Candidate quality</span><strong>ROI
-              filtering</strong>
-            <h3>Fewer irrelevant neighbors</h3>
-            <p>Restricting the reference descriptor set can reduce matches caused by repeated texture or unrelated
-              background regions.</p>
+          <article class="result-card"><span class="result-card__tag">Fixed feature budget</span>
+            <strong>Higher inlier quality</strong>
+            <h3>ROI guidance improved match reliability</h3>
+            <p>When every method used the same maximum ORB feature count, the ROI-based approach produced a higher
+              inlier ratio than the conventional ORB-only pipeline.</p>
           </article>
-          <article class="result-card"><span class="result-card__tag">Scalability</span><strong>HNSW</strong>
-            <h3>Faster growth than brute force</h3>
-            <p>Graph-based lookup is useful when the descriptor index becomes large enough that exhaustive comparison
-              dominates the pipeline.</p>
+          <article class="result-card"><span class="result-card__tag">Backend efficiency</span>
+            <strong>Less matching work</strong>
+            <h3>Matching and verification became cheaper</h3>
+            <p>Under the fixed-feature setting, the proposed candidate restriction shortened both descriptor matching
+              and RANSAC verification, although ROI masking added overhead to feature extraction.</p>
           </article>
-          <article class="result-card"><span class="result-card__tag">Failure mode</span><strong>ROI error</strong>
-            <h3>A strong prior can be brittle</h3>
-            <p>If the selected region excludes the true correspondence, no retrieval method can recover it from the
-              missing candidate set.</p>
+          <article class="result-card"><span class="result-card__tag">Ratio-aware feature cap</span>
+            <strong>96.12% fewer comparisons</strong>
+            <h3>Candidate reduction became the main speed advantage</h3>
+            <p>Limiting the maximum feature count according to the ROI ratio reduced comparisons from 921,683 to
+              30,304 while preserving a 0.99 success rate in the reported benchmark.</p>
           </article>
-          <article class="result-card"><span class="result-card__tag">Verification</span><strong>Geometry</strong>
-            <h3>Nearest is not always correct</h3>
-            <p>Approximate vector similarity should be followed by consistency checks, especially in repetitive or
-              low-texture scenes.</p>
+          <article class="result-card"><span class="result-card__tag">Precision</span>
+            <strong>94.69% purity</strong>
+            <h3>Geometric verification retained strong correspondences</h3>
+            <p>The MAGSAC configuration reached the highest reported purity and inlier count, showing that candidate
+              reduction can be paired with geometric verification without sacrificing match quality.</p>
           </article>
         </div>
 
         <div class="future-direction-card" style="margin-top:24px;">
-          <span>Key takeaway</span>
-          <h3>“Where to search” may matter as much as “which descriptor to use.”</h3>
+          <span>Key Takeaway</span>
+          <h3>Candidate-space design is part of the matching algorithm.</h3>
           <p>The experiment reframed ROI selection as part of the matching algorithm itself. A smaller candidate set can
             improve relevance and speed, but only when the spatial prior is reliable and the approximate-search recall
             is sufficient.</p>
@@ -404,8 +415,8 @@
         <div class="clifford-section-heading">
           <span class="clifford-section-index">06</span>
           <div>
-            <p class="clifford-section-kicker">Limitations</p>
-            <h2 class="detail-section-title">Why this remained an experiment rather than a finished method</h2>
+            <p class="clifford-section-kicker">Future Work</p>
+            <h2 class="detail-section-title">How the prototype could become a stronger matching system</h2>
           </div>
         </div>
 
@@ -424,21 +435,7 @@
             </div>
           </article>
           <article class="challenge-card clifford-challenge-card">
-            <div class="challenge-header"><span class="challenge-header-num">2</span>No standardized quantitative
-              benchmark</div>
-            <div class="cs-box problem">
-              <div class="cs-box-title"><i data-lucide="alert-triangle"></i> Limitation</div>
-              <p>The work was not evaluated as a full research paper against established matching systems and datasets.
-              </p>
-            </div>
-            <div class="cs-box solution">
-              <div class="cs-box-title"><i data-lucide="lightbulb"></i> Next step</div>
-              <p>Measure recall, precision, latency, memory, geometric inlier rate, and sensitivity to ROI perturbation.
-              </p>
-            </div>
-          </article>
-          <article class="challenge-card clifford-challenge-card">
-            <div class="challenge-header"><span class="challenge-header-num">3</span>Approximation introduces another
+            <div class="challenge-header"><span class="challenge-header-num">2</span>Approximation introduces another
               error source</div>
             <div class="cs-box problem">
               <div class="cs-box-title"><i data-lucide="alert-triangle"></i> Limitation</div>
@@ -452,7 +449,7 @@
             </div>
           </article>
           <article class="challenge-card clifford-challenge-card">
-            <div class="challenge-header"><span class="challenge-header-num">4</span>Descriptor quality remains
+            <div class="challenge-header"><span class="challenge-header-num">3</span>Descriptor quality remains
               unchanged</div>
             <div class="cs-box problem">
               <div class="cs-box-title"><i data-lucide="alert-triangle"></i> Limitation</div>
@@ -491,7 +488,7 @@
               reliability.</p>
           </article>
           <article class="role-card"><i data-lucide="notebook-pen"></i>
-            <h3>Experiment documentation</h3>
+            <h3>Evaluation documentation</h3>
             <p>Recorded the initial idea, experimental observations, limitations, and possible directions for a stronger
               study.</p>
           </article>
@@ -503,64 +500,40 @@
           <span class="clifford-section-index">08</span>
           <div>
             <p class="clifford-section-kicker">Reflection</p>
-            <h2 class="detail-section-title">The value of a small experiment</h2>
+            <h2 class="detail-section-title">The value of a small research</h2>
           </div>
         </div>
 
         <div class="reflection-grid">
           <div class="reflection-card reflection-card--learning">
-            <span>What the prototype clarified</span>
+            <span>What This Study Revealed</span>
             <ul class="clifford-dash-list">
-              <li>Matching performance is shaped by the candidate population before similarity is computed.</li>
-              <li>Approximate search is most useful when paired with a clear recall and verification strategy.</li>
-              <li>A strong prior improves efficiency but creates a new dependency that must be stress-tested.</li>
+              <li>Candidate selection can influence matching quality as strongly as the choice of search algorithm.</li>
+              <li>Efficiency must be measured across extraction, retrieval, and geometric verification rather than from
+                matching time alone.</li>
+              <li>A small prototype can expose useful system-level trade-offs and motivate more systematic matching
+                research.</li>
             </ul>
           </div>
           <div class="reflection-card reflection-card--limits">
-            <span>Why I present it as secondary work</span>
+            <span>Future Directions</span>
             <ul class="clifford-dash-list">
-              <li>It remained a focused experiment rather than a complete research contribution.</li>
-              <li>There is no publication, standardized benchmark, or final system artifact.</li>
-              <li>Its main value is the design insight that later informed more systematic matching research.</li>
+              <li>Replace handcrafted ORB detection with learned local features to improve robustness under viewpoint,
+                lighting, and texture changes.</li>
+              <li>Predict or track the ROI automatically using image motion and smartphone IMU cues, with uncertainty-aware
+                expansion near ROI boundaries.</li>
             </ul>
           </div>
         </div>
 
-        <div class="future-direction-card">
-          <span>Potential continuation</span>
+        <!-- <div class="future-direction-card">
+          <span>Future Works</span>
           <h3>Learned ROI proposal + HNSW candidate generation + exact geometric re-ranking</h3>
           <p>A fuller study would jointly evaluate ROI uncertainty, descriptor recall, ANN parameters, and geometric
             inlier quality across standard local-feature and dense-matching datasets.</p>
-        </div>
+        </div> -->
       </section>
 
-      <!-- <section class="detail-section" id="archive">
-        <div class="clifford-section-heading">
-          <span class="clifford-section-index">09</span>
-          <div>
-            <p class="clifford-section-kicker">Development Archive</p>
-            <h2 class="detail-section-title">Idea and experiment notes</h2>
-          </div>
-        </div>
-
-        <div class="archive-grid">
-          <a class="archive-card" href="https://www.notion.so/roi-2a3ecf05ce4c80d88618f096cec08f58?source=copy_link"
-            target="_blank" rel="noopener noreferrer">
-            <span>Concept</span>
-            <h3>ROI-Based Matching Idea</h3>
-            <p>The original reasoning for constraining the descriptor search region before nearest-neighbor retrieval.
-            </p><i data-lucide="arrow-up-right"></i>
-          </a>
-          <a class="archive-card"
-            href="https://www.notion.so/ROI-HNSW-2b1ecf05ce4c80668f98d67580822cf8?source=copy_link" target="_blank"
-            rel="noopener noreferrer">
-            <span>Experiment</span>
-            <h3>ROI + HNSW Results Notes</h3>
-            <p>Prototype observations, retrieval behavior, and limitations recorded during the experiment.</p><i
-              data-lucide="arrow-up-right"></i>
-          </a>
-        </div>
-      </section> -->
     </section>
   </main>
 
