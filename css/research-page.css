@@ -1446,7 +1446,7 @@
 }
 
 .problem-insight-card strong {
-  color: var(--clr-text-main);
+  color: inherit;
 }
 
 .origin-card__math {
@@ -1808,7 +1808,7 @@
 }
 
 .clifford-dash-list strong {
-  color: var(--clr-text-main);
+  color: inherit;
 }
 
 .principle-grid,
@@ -1948,7 +1948,7 @@
 }
 
 .result-summary-callout strong {
-  color: var(--clr-text-main);
+  color: inherit;
 }
 
 .result-block {
