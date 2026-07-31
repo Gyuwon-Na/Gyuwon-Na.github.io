@@ -99,7 +99,11 @@
     <section class="projects-hero">
       <div class="container">
         <h1 class="projects-hero__title">All Projects</h1>
+      </div>
+    </section>
 
+    <nav class="project-category-nav" aria-label="Project categories">
+      <div class="container">
         <div class="category-filter" role="tablist" aria-label="Project categories">
           <button class="filter-btn active" type="button" data-category="all" role="tab" aria-selected="true">
             <i data-lucide="grid" aria-hidden="true"></i>
@@ -123,11 +127,11 @@
           </button>
         </div>
       </div>
-    </section>
+    </nav>
 
     <section class="projects-list">
       <div class="container">
-        <div class="project-category" data-category="autonomous">
+        <div class="project-category" id="autonomous" data-category="autonomous">
           <div class="category-header">
             <div>
               <h2 class="category-title">
@@ -136,88 +140,115 @@
               </h2>
               <p class="category-description">Perception, planning, control, and sim-to-real field deployment.</p>
             </div>
-            <button class="show-only-btn" type="button" data-target-category="autonomous">
-              Show Only <i data-lucide="filter" aria-hidden="true"></i>
-            </button>
           </div>
 
           <div class="project-grid">
             <article class="project-card">
               <div class="project-card__visual">
-                <span class="glass-badge">Autonomous Systems</span>
-                <img src="../img/portfolio_thumbnails/auto/hackaton.jpg" alt="SEA:ME HACKATHON project" class="img-static" loading="lazy">
+                <span class="award-icon-badge" aria-label="4th Place"><i data-lucide="award" aria-hidden="true"></i> 4th
+                  Place</span>
+                <img src="../img/portfolio_thumbnails/auto/hackathon.jpg" alt="SEA:ME HACKATHON project"
+                  class="img-static img-hackathon" loading="lazy">
               </div>
               <div class="glass-overlay-info">
                 <h4>Key Achievement</h4>
-                <p>Built an autonomous mobility prototype under hackathon constraints with rapid system integration.</p>
-                <a href="../portfolio/autonomous_driving/HACKATHON.html" class="project-overlay-link">View Project <i data-lucide="arrow-right" aria-hidden="true"></i></a>
+                <p>Led a vision-only ROS2 racing system to a 56-second Silver Award run (4th overall), while raising
+                  perception throughput 3.3x from 6 to 20 FPS.</p>
+                <a href="../portfolio/autonomous_driving/HACKATHON.html" class="project-overlay-link">View Project <i
+                    data-lucide="arrow-right" aria-hidden="true"></i></a>
               </div>
               <div class="project-card__info">
-                <h3 class="project-title">SEA:ME HACKATHON</h3>
+                <h3 class="project-title">Vision-Only Driving System</h3>
+                <div class="project-card-meta" aria-label="Project details">
+                  <span><i data-lucide="calendar" aria-hidden="true"></i> JUL 2026</span>
+                  <span><i data-lucide="user" aria-hidden="true"></i> Lead Autonomous Systems Engineer</span>
+                </div>
                 <div class="tech-stack">
-                  <span class="tech-pill">Autonomous Driving</span>
-                  <span class="tech-pill">System Integration</span>
-                  <span class="tech-pill">Prototype</span>
+                  <span class="tech-pill">ROS2 Humble</span>
+                  <span class="tech-pill">Vision-Only</span>
+                  <span class="tech-pill">Embedded Systems</span>
                 </div>
               </div>
             </article>
 
             <article class="project-card">
               <div class="project-card__visual">
-                <span class="glass-badge">Autonomous Systems</span>
-                <img src="../img/portfolio_thumbnails/auto/KAIST_V2X.jpg" alt="V2X cooperative driving project" class="img-static" loading="lazy">
+                <span class="award-icon-badge" aria-label="3rd Place"><i data-lucide="award" aria-hidden="true"></i> 3rd
+                  Place</span>
+                <img src="../img/portfolio_thumbnails/auto/KAIST_V2X.jpg" alt="V2X cooperative driving project"
+                  class="img-static" loading="lazy">
               </div>
               <div class="glass-overlay-info">
                 <h4>Key Achievement</h4>
-                <p>Cooperative decision-making and MPC path tracking for multi-agent autonomous driving.</p>
-                <a href="../portfolio/autonomous_driving/V2X.html" class="project-overlay-link">View Project <i data-lucide="arrow-right" aria-hidden="true"></i></a>
+                <p>Earned 3rd place and an Excellence Award by building V2X cooperative decision logic and MPC-inspired
+                  path tracking for multi-vehicle intersections and roundabouts.</p>
+                <a href="../portfolio/autonomous_driving/V2X.html" class="project-overlay-link">View Project <i
+                    data-lucide="arrow-right" aria-hidden="true"></i></a>
               </div>
               <div class="project-card__info">
                 <h3 class="project-title">V2X-Based Cooperative Driving System</h3>
+                <div class="project-card-meta" aria-label="Project details">
+                  <span><i data-lucide="calendar" aria-hidden="true"></i> OCT 2025 - FEB 2026</span>
+                  <span><i data-lucide="user" aria-hidden="true"></i> Systems Engineer</span>
+                </div>
                 <div class="tech-stack">
-                  <span class="tech-pill">ROS2</span>
-                  <span class="tech-pill">C++</span>
-                  <span class="tech-pill">Python</span>
+                  <span class="tech-pill">ROS2 Foxy</span>
+                  <span class="tech-pill">Cooperative Control</span>
+                  <span class="tech-pill">Overtaking Algorithm</span>
                 </div>
               </div>
             </article>
 
             <article class="project-card">
               <div class="project-card__visual">
-                <span class="glass-badge">Autonomous Systems</span>
-                <img src="../img/portfolio_thumbnails/auto/2.jpg" alt="1/2-scale autonomous vehicle project" class="img-static" loading="lazy">
+                <img src="../img/portfolio_thumbnails/auto/IMG_4125.JPG" alt="1/2-scale autonomous vehicle project"
+                  class="img-static" loading="lazy">
               </div>
               <div class="glass-overlay-info">
                 <h4>Key Achievement</h4>
-                <p>Built a vision-based perception pipeline for lane, traffic light, pedestrian, and delivery-sign missions.</p>
-                <a href="../portfolio/autonomous_driving/creative_mobility.html" class="project-overlay-link">View Project <i data-lucide="arrow-right" aria-hidden="true"></i></a>
+                <p>Led the vision-based perception pipeline for lane tracking, traffic-light and delivery-sign
+                  recognition, pedestrian emergency braking, and automated training-data labeling.</p>
+                <a href="../portfolio/autonomous_driving/creative_mobility.html" class="project-overlay-link">View
+                  Project <i data-lucide="arrow-right" aria-hidden="true"></i></a>
               </div>
               <div class="project-card__info">
-                <h3 class="project-title">1/2-Scale Autonomous Vehicle</h3>
+                <h3 class="project-title">1/2-Scale Vehicle Platform</h3>
+                <div class="project-card-meta" aria-label="Project details">
+                  <span><i data-lucide="calendar" aria-hidden="true"></i> AUG 2025 - OCT 2025</span>
+                  <span><i data-lucide="user" aria-hidden="true"></i> Lead Perception Engineer</span>
+                </div>
                 <div class="tech-stack">
-                  <span class="tech-pill">ROS1</span>
-                  <span class="tech-pill">OpenCV</span>
-                  <span class="tech-pill">YOLO</span>
+                  <span class="tech-pill">ROS1 Noetic</span>
+                  <span class="tech-pill">Object Detection</span>
+                  <span class="tech-pill">Lane Following</span>
                 </div>
               </div>
             </article>
 
             <article class="project-card">
               <div class="project-card__visual">
-                <span class="glass-badge">Autonomous Systems</span>
-                <img src="../img/portfolio_thumbnails/auto/HL FMA.jpg" alt="1/5-scale autonomous vehicle project" class="img-static" loading="lazy">
+                <span class="award-icon-badge" aria-label="Encouragement Award"><i data-lucide="award"
+                    aria-hidden="true"></i> Encouragement Award</span>
+                <img src="../img/portfolio_thumbnails/auto/HL_FMA.jpg" alt="1/5-scale autonomous vehicle project"
+                  class="img-static img-hl" loading="lazy">
               </div>
               <div class="glass-overlay-info">
                 <h4>Key Achievement</h4>
-                <p>Implemented a compact autonomy stack for path following and traffic-light-aware mission logic.</p>
-                <a href="../portfolio/autonomous_driving/HL_FMA.html" class="project-overlay-link">View Project <i data-lucide="arrow-right" aria-hidden="true"></i></a>
+                <p>Earned an Encouragement Award by integrating GPS-IMU fusion, mixed-direction path sequencing,
+                  parking maneuvers, traffic-light response, and slope-aware control.</p>
+                <a href="../portfolio/autonomous_driving/HL_FMA.html" class="project-overlay-link">View Project <i
+                    data-lucide="arrow-right" aria-hidden="true"></i></a>
               </div>
               <div class="project-card__info">
-                <h3 class="project-title">1/5-Scale Autonomous Vehicle</h3>
+                <h3 class="project-title">1/5-Scale Vehicle Platform</h3>
+                <div class="project-card-meta" aria-label="Project details">
+                  <span><i data-lucide="calendar" aria-hidden="true"></i> AUG 2025 - SEP 2025</span>
+                  <span><i data-lucide="user" aria-hidden="true"></i>Systems Engineer</span>
+                </div>
                 <div class="tech-stack">
-                  <span class="tech-pill">ROS1</span>
-                  <span class="tech-pill">OpenCV</span>
-                  <span class="tech-pill">C++</span>
+                  <span class="tech-pill">ROS1 Noetic</span>
+                  <span class="tech-pill">Path Following</span>
+                  <span class="tech-pill">Autonomous Parking</span>
                 </div>
               </div>
             </article>
@@ -225,291 +256,359 @@
           </div>
         </div>
 
-        <div class="project-category" data-category="graphics">
+        <div class="project-category" id="graphics" data-category="graphics">
           <div class="category-header">
             <div>
               <h2 class="category-title">
                 <i data-lucide="cpu" aria-hidden="true"></i>
                 Computer Graphics
               </h2>
-              <p class="category-description">Rendering foundations, shader effects, procedural geometry, and WebGL demos.</p>
+              <p class="category-description">Rendering foundations, shader effects, procedural geometry, and WebGL
+                demos.</p>
             </div>
-            <button class="show-only-btn" type="button" data-target-category="graphics">
-              Show Only <i data-lucide="filter" aria-hidden="true"></i>
-            </button>
           </div>
 
           <div class="project-grid">
             <article class="project-card">
               <div class="project-card__visual">
-                <span class="glass-badge">Computer Graphics</span>
-                <img src="../img/portfolio_thumbnails/01_hello.jpg" alt="Hello Quad project" class="img-static" loading="lazy">
+                <img src="../img/portfolio_thumbnails/graphics/01_hello.jpg" alt="Hello Quad project" class="img-static"
+                  loading="lazy">
               </div>
               <div class="glass-overlay-info">
                 <h4>Key Achievement</h4>
-                <p>Built reusable OpenGL abstractions and shader-driven interaction across native and web builds.</p>
-                <a href="../portfolio/graphics/01_hello.html" class="project-overlay-link">View Project <i data-lucide="arrow-right" aria-hidden="true"></i></a>
+                <p>Built reusable C++/OpenGL abstractions for textures, vertex and index buffers, and vertex arrays,
+                  with GLSL animation deployed on Windows and the web.</p>
+                <a href="../portfolio/graphics/01_hello.html" class="project-overlay-link">View Project <i
+                    data-lucide="arrow-right" aria-hidden="true"></i></a>
               </div>
               <div class="project-card__info">
                 <h3 class="project-title">Hello Quad</h3>
+                <div class="project-card-meta" aria-label="Project details">
+                  <span><i data-lucide="calendar" aria-hidden="true"></i> MAR 2025</span>
+                  <span><i data-lucide="user" aria-hidden="true"></i> CS250 Coursework</span>
+                </div>
                 <div class="tech-stack">
-                  <span class="tech-pill">C++</span>
                   <span class="tech-pill">OpenGL</span>
-                  <span class="tech-pill">WebGL</span>
+                  <span class="tech-pill">CMake</span>
+                  <span class="tech-pill">Mesh Rendering</span>
                 </div>
               </div>
             </article>
 
             <article class="project-card">
               <div class="project-card__visual">
-                <span class="glass-badge">Computer Graphics</span>
-                <img src="../img/portfolio_thumbnails/02_meshes.jpg" alt="procedural geometric modeling project" class="img-static" loading="lazy">
+                <img src="../img/portfolio_thumbnails/graphics/02_meshes.jpg"
+                  alt="procedural geometric modeling project" class="img-static" loading="lazy">
               </div>
               <div class="glass-overlay-info">
                 <h4>Key Achievement</h4>
-                <p>Generated mesh primitives and index buffers for interactive OpenGL rendering demos.</p>
-                <a href="../portfolio/graphics/02_meshes.html" class="project-overlay-link">View Project <i data-lucide="arrow-right" aria-hidden="true"></i></a>
+                <p>Implemented indexed OpenGL rendering for six geometric primitives and procedural vertex generation
+                  for an interactive graphics demo.</p>
+                <a href="../portfolio/graphics/02_meshes.html" class="project-overlay-link">View Project <i
+                    data-lucide="arrow-right" aria-hidden="true"></i></a>
               </div>
               <div class="project-card__info">
                 <h3 class="project-title">Procedural Geometric Modeling</h3>
+                <div class="project-card-meta" aria-label="Project details">
+                  <span><i data-lucide="calendar" aria-hidden="true"></i> APR 2025</span>
+                  <span><i data-lucide="user" aria-hidden="true"></i> CS250 Coursework</span>
+                </div>
                 <div class="tech-stack">
-                  <span class="tech-pill">C++</span>
                   <span class="tech-pill">OpenGL</span>
-                  <span class="tech-pill">CMake</span>
+                  <span class="tech-pill">WebGL</span>
+                  <span class="tech-pill">Procedural Meshes</span>
                 </div>
               </div>
             </article>
 
             <article class="project-card">
               <div class="project-card__visual">
-                <span class="glass-badge">Computer Graphics</span>
-                <img src="../img/portfolio_thumbnails/03_fog.jpg" alt="fog rendering project" class="img-static" loading="lazy">
+                <img src="../img/portfolio_thumbnails/graphics/03_fog.jpg" alt="fog rendering project"
+                  class="img-static" loading="lazy">
               </div>
               <div class="glass-overlay-info">
                 <h4>Key Achievement</h4>
-                <p>Implemented linear, exponential, and depth-based fog models in GLSL.</p>
-                <a href="../portfolio/graphics/03_fog.html" class="project-overlay-link">View Project <i data-lucide="arrow-right" aria-hidden="true"></i></a>
+                <p>Implemented three GLSL fog models - linear, exponential, and fragment-depth based - along with
+                  correct clip-space vertex transformations.</p>
+                <a href="../portfolio/graphics/03_fog.html" class="project-overlay-link">View Project <i
+                    data-lucide="arrow-right" aria-hidden="true"></i></a>
               </div>
               <div class="project-card__info">
                 <h3 class="project-title">Fog Rendering</h3>
+                <div class="project-card-meta" aria-label="Project details">
+                  <span><i data-lucide="calendar" aria-hidden="true"></i> APR 2025</span>
+                  <span><i data-lucide="user" aria-hidden="true"></i> CS250 Coursework</span>
+                </div>
                 <div class="tech-stack">
-                  <span class="tech-pill">C++</span>
+                  <span class="tech-pill">OpenGL</span>
                   <span class="tech-pill">GLSL</span>
-                  <span class="tech-pill">WebGL</span>
+                  <span class="tech-pill">Fog Effects</span>
                 </div>
               </div>
             </article>
 
             <article class="project-card">
               <div class="project-card__visual">
-                <span class="glass-badge">Computer Graphics</span>
-                <img src="../img/portfolio_thumbnails/04_toon.jpg" alt="toon shading project" class="img-static" loading="lazy">
+                <img src="../img/portfolio_thumbnails/graphics/04_toon.jpg" alt="toon shading project"
+                  class="img-static" loading="lazy">
               </div>
               <div class="glass-overlay-info">
                 <h4>Key Achievement</h4>
-                <p>Built ramp-based lighting, specular shaping, normal transforms, and fog integration.</p>
-                <a href="../portfolio/graphics/04_toon.html" class="project-overlay-link">View Project <i data-lucide="arrow-right" aria-hidden="true"></i></a>
+                <p>Implemented configurable toon shading with custom and uniform lighting bands, 1D gradient textures,
+                  specular thresholding, fog, and anti-aliasing comparisons.</p>
+                <a href="../portfolio/graphics/04_toon.html" class="project-overlay-link">View Project <i
+                    data-lucide="arrow-right" aria-hidden="true"></i></a>
               </div>
               <div class="project-card__info">
                 <h3 class="project-title">Toon Shading</h3>
+                <div class="project-card-meta" aria-label="Project details">
+                  <span><i data-lucide="calendar" aria-hidden="true"></i> MAY 2025</span>
+                  <span><i data-lucide="user" aria-hidden="true"></i> CS250 Coursework</span>
+                </div>
                 <div class="tech-stack">
-                  <span class="tech-pill">C++</span>
                   <span class="tech-pill">OpenGL</span>
                   <span class="tech-pill">GLSL</span>
+                  <span class="tech-pill">Non-Photorealistic Rendering</span>
                 </div>
               </div>
             </article>
 
             <article class="project-card">
               <div class="project-card__visual">
-                <span class="glass-badge">Computer Graphics</span>
-                <img src="../img/portfolio_thumbnails/05_shadow.jpg" alt="shadow mapping project" class="img-static" loading="lazy">
+                <img src="../img/portfolio_thumbnails/graphics/05_shadow.jpg" alt="shadow mapping project"
+                  class="img-static" loading="lazy">
               </div>
               <div class="glass-overlay-info">
                 <h4>Key Achievement</h4>
-                <p>Created two-pass shadow rendering with depth textures, framebuffer support, and camera transforms.</p>
-                <a href="../portfolio/graphics/05_shadow.html" class="project-overlay-link">View Project <i data-lucide="arrow-right" aria-hidden="true"></i></a>
+                <p>Built an interactive shadow-mapping pipeline with perspective-light depth passes, framebuffer and
+                  depth-texture support, camera transforms, and debug visualization.</p>
+                <a href="../portfolio/graphics/05_shadow.html" class="project-overlay-link">View Project <i
+                    data-lucide="arrow-right" aria-hidden="true"></i></a>
               </div>
               <div class="project-card__info">
                 <h3 class="project-title">Shadow Mapping</h3>
+                <div class="project-card-meta" aria-label="Project details">
+                  <span><i data-lucide="calendar" aria-hidden="true"></i> MAY 2025</span>
+                  <span><i data-lucide="user" aria-hidden="true"></i> CS250 Coursework</span>
+                </div>
                 <div class="tech-stack">
-                  <span class="tech-pill">C++</span>
+                  <span class="tech-pill">OpenGL</span>
                   <span class="tech-pill">GLSL</span>
-                  <span class="tech-pill">CMake</span>
+                  <span class="tech-pill">Depth Buffer</span>
                 </div>
               </div>
             </article>
 
             <article class="project-card">
               <div class="project-card__visual">
-                <span class="glass-badge">Computer Graphics</span>
-                <img src="../img/portfolio_thumbnails/06_value.jpg" alt="value noise project" class="img-static" loading="lazy">
+                <img src="../img/portfolio_thumbnails/graphics/06_value.jpg" alt="value noise project"
+                  class="img-static" loading="lazy">
               </div>
               <div class="glass-overlay-info">
                 <h4>Key Achievement</h4>
-                <p>Generated 1D, 2D, and 3D procedural textures with CPU-side noise functions.</p>
-                <a href="../portfolio/graphics/06_value.html" class="project-overlay-link">View Project <i data-lucide="arrow-right" aria-hidden="true"></i></a>
+                <p>Implemented configurable 1D, 2D, and 3D value noise in C++ using permutation hashing and selectable
+                  interpolation, then visualized it through OpenGL shaders.</p>
+                <a href="../portfolio/graphics/06_value.html" class="project-overlay-link">View Project <i
+                    data-lucide="arrow-right" aria-hidden="true"></i></a>
               </div>
               <div class="project-card__info">
                 <h3 class="project-title">Value Noise</h3>
+                <div class="project-card-meta" aria-label="Project details">
+                  <span><i data-lucide="calendar" aria-hidden="true"></i> JUN 2025</span>
+                  <span><i data-lucide="user" aria-hidden="true"></i> CS250 Coursework</span>
+                </div>
                 <div class="tech-stack">
-                  <span class="tech-pill">C++</span>
                   <span class="tech-pill">OpenGL</span>
                   <span class="tech-pill">GLSL</span>
+                  <span class="tech-pill">Texture Generation</span>
                 </div>
               </div>
             </article>
 
             <article class="project-card">
               <div class="project-card__visual">
-                <span class="glass-badge">Computer Graphics</span>
-                <img src="../img/portfolio_thumbnails/07_gradient.jpg" alt="gradient noise project" class="img-static" loading="lazy">
+                <img src="../img/portfolio_thumbnails/graphics/07_gradient.jpg" alt="gradient noise project"
+                  class="img-static" loading="lazy">
               </div>
               <div class="glass-overlay-info">
                 <h4>Key Achievement</h4>
-                <p>Implemented gradient noise and procedural patterns including marble, wood, and turbulence.</p>
-                <a href="../portfolio/graphics/07_gradient.html" class="project-overlay-link">View Project <i data-lucide="arrow-right" aria-hidden="true"></i></a>
+                <p>Implemented GLSL gradient noise and 3D noise construction with permutation tables, producing fractal
+                  sum, turbulence, marble, and wood patterns.</p>
+                <a href="../portfolio/graphics/07_gradient.html" class="project-overlay-link">View Project <i
+                    data-lucide="arrow-right" aria-hidden="true"></i></a>
               </div>
               <div class="project-card__info">
                 <h3 class="project-title">Gradient Noise</h3>
+                <div class="project-card-meta" aria-label="Project details">
+                  <span><i data-lucide="calendar" aria-hidden="true"></i> JUN 2025</span>
+                  <span><i data-lucide="user" aria-hidden="true"></i> CS250 Coursework</span>
+                </div>
                 <div class="tech-stack">
-                  <span class="tech-pill">C++</span>
+                  <span class="tech-pill">OpenGL</span>
                   <span class="tech-pill">GLSL</span>
-                  <span class="tech-pill">WebGL</span>
+                  <span class="tech-pill">Texture Generation</span>
                 </div>
               </div>
             </article>
 
             <article class="project-card">
               <div class="project-card__visual">
-                <span class="glass-badge">Computer Graphics</span>
-                <img src="../img/portfolio_thumbnails/08_fun.jpg" alt="CS250 Final Project" class="img-static" loading="lazy">
+                <img src="../img/portfolio_thumbnails/graphics/08_fun.jpg" alt="Interactive Terrain and Water Rendering"
+                  class="img-static" loading="lazy">
               </div>
               <div class="glass-overlay-info">
                 <h4>Key Achievement</h4>
-                <p>Combined procedural geometry, noise terrain, lighting, and real-time controls in an interactive scene.</p>
-                <a href="../portfolio/graphics/08_fun.html" class="project-overlay-link">View Project <i data-lucide="arrow-right" aria-hidden="true"></i></a>
+                <p>Built an interactive OpenGL beach scene with Perlin-noise terrain, shoreline reflections, day-night
+                  lighting, and a mouse- and keyboard-controlled procedural ball.</p>
+                <a href="../portfolio/graphics/08_fun.html" class="project-overlay-link">View Project <i
+                    data-lucide="arrow-right" aria-hidden="true"></i></a>
               </div>
               <div class="project-card__info">
-                <h3 class="project-title">CS250 Final Project</h3>
+                <h3 class="project-title">Interactive Terrain and Water Rendering</h3>
+                <div class="project-card-meta" aria-label="Project details">
+                  <span><i data-lucide="calendar" aria-hidden="true"></i> JUN 2025</span>
+                  <span><i data-lucide="user" aria-hidden="true"></i> CS250 Coursework</span>
+                </div>
                 <div class="tech-stack">
-                  <span class="tech-pill">C++</span>
                   <span class="tech-pill">OpenGL</span>
-                  <span class="tech-pill">GLSL</span>
+                  <span class="tech-pill">Terrain Rendering</span>
+                  <span class="tech-pill">Water Rendering</span>
                 </div>
               </div>
             </article>
           </div>
         </div>
 
-        <div class="project-category" data-category="vision">
+        <div class="project-category" id="vision" data-category="vision">
           <div class="category-header">
             <div>
               <h2 class="category-title">
                 <i data-lucide="scan-search" aria-hidden="true"></i>
                 Computer Vision
               </h2>
-              <p class="category-description">Visual recognition and retrieval systems built around practical object search.</p>
+              <p class="category-description">Visual recognition and retrieval systems built around practical object
+                search.</p>
             </div>
-            <button class="show-only-btn" type="button" data-target-category="vision">
-              Show Only <i data-lucide="filter" aria-hidden="true"></i>
-            </button>
           </div>
 
           <div class="project-grid">
             <article class="project-card">
               <div class="project-card__visual">
-                <span class="glass-badge">Computer Vision</span>
-                <img src="../img/portfolio_thumbnails/lego-finder.jpg" alt="Lego Finder project" class="img-static" loading="lazy">
+                <img src="../img/portfolio_thumbnails/lego-finder.jpg" alt="Lego Finder project" class="img-static"
+                  loading="lazy">
               </div>
               <div class="glass-overlay-info">
                 <h4>Key Achievement</h4>
-                <p>Designed a model-assisted visual search workflow for identifying Lego pieces or sets from images.</p>
-                <a href="../portfolio/computer_vision/lego_finder.html" class="project-overlay-link">View Project <i data-lucide="arrow-right" aria-hidden="true"></i></a>
+                <p>Built a real-time, prompt-guided LEGO finder that narrows search with ROI masking, queries an offline
+                  HNSW index, verifies matches with RANSAC, and highlights targets in AR.</p>
+                <a href="../portfolio/computer_vision/lego_finder.html" class="project-overlay-link">View Project <i
+                    data-lucide="arrow-right" aria-hidden="true"></i></a>
               </div>
               <div class="project-card__info">
                 <h3 class="project-title">Lego Finder</h3>
+                <div class="project-card-meta" aria-label="Project details">
+                  <span><i data-lucide="calendar" aria-hidden="true"></i> APR 2026 - JUN 2026</span>
+                  <span><i data-lucide="user" aria-hidden="true"></i>AI Model Design Coursework</span>
+                </div>
                 <div class="tech-stack">
-                  <span class="tech-pill">Python</span>
-                  <span class="tech-pill">PyTorch</span>
-                  <span class="tech-pill">OpenCV</span>
+                  <span class="tech-pill">Natural-Language Query</span>
+                  <span class="tech-pill">Visual Matching</span>
+                  <span class="tech-pill">Real-time Inference</span>
                 </div>
               </div>
             </article>
           </div>
         </div>
 
-        <div class="project-category" data-category="game">
+        <div class="project-category" id="game" data-category="game">
           <div class="category-header">
             <div>
               <h2 class="category-title">
                 <i data-lucide="gamepad-2" aria-hidden="true"></i>
                 Games
               </h2>
-              <p class="category-description">Playable loops, gameplay systems, state flow, and team production practices.</p>
+              <p class="category-description">Playable loops, gameplay systems, state flow, and team production
+                practices.</p>
             </div>
-            <button class="show-only-btn" type="button" data-target-category="game">
-              Show Only <i data-lucide="filter" aria-hidden="true"></i>
-            </button>
           </div>
 
           <div class="project-grid">
             <article class="project-card">
               <div class="project-card__visual">
-                <span class="glass-badge">Games</span>
-                <img src="../img/portfolio_thumbnails/games/Manzo.png" alt="MANZO project" class="img-static" loading="lazy">
+                <img src="../img/portfolio_thumbnails/games/Manzo.png" alt="MANZO project" class="img-static"
+                  loading="lazy">
               </div>
               <div class="glass-overlay-info">
                 <h4>Key Achievement</h4>
-                <p>Built production-style gameplay systems and engine integration across a long-form team project.</p>
-                <a href="../portfolio/games/manzo.html" class="project-overlay-link">View Project <i data-lucide="arrow-right" aria-hidden="true"></i></a>
+                <p>As technical lead, built core C++/OpenGL engine and gameplay systems spanning vector-font rendering,
+                  positional audio, navigation AI, fish behavior, and progression.</p>
+                <a href="../portfolio/games/manzo.html" class="project-overlay-link">View Project <i
+                    data-lucide="arrow-right" aria-hidden="true"></i></a>
               </div>
               <div class="project-card__info">
                 <h3 class="project-title">MANZO</h3>
+                <div class="project-card-meta" aria-label="Project details">
+                  <span><i data-lucide="calendar" aria-hidden="true"></i> Jun 2024 - Jun 2025</span>
+                  <span><i data-lucide="user" aria-hidden="true"></i> Technical Lead</span>
+                </div>
                 <div class="tech-stack">
                   <span class="tech-pill">C++</span>
                   <span class="tech-pill">OpenGL</span>
-                  <span class="tech-pill">Engine</span>
+                  <span class="tech-pill">Custom Engine</span>
                 </div>
               </div>
             </article>
 
             <article class="project-card">
               <div class="project-card__visual">
-                <span class="glass-badge">Games</span>
-                <img src="../img/portfolio_thumbnails/games/Stand-by.png" alt="Stand-By project" class="img-static" loading="lazy">
+                <span class="award-icon-badge" aria-label="2nd Place"><i data-lucide="award" aria-hidden="true"></i> 2nd
+                  Place</span>
+                <img src="../img/portfolio_thumbnails/games/Stand-by.png" alt="Stand-By project"
+                  class="img-static img-standby" loading="lazy">
               </div>
               <div class="glass-overlay-info">
                 <h4>Key Achievement</h4>
-                <p>Delivered a complete playable loop with responsive controls, clear feedback, and stable state flow.</p>
-                <a href="../portfolio/games/stand-by.html" class="project-overlay-link">View Project <i data-lucide="arrow-right" aria-hidden="true"></i></a>
+                <p>Won 2nd place at the 2025 Micro Degree Expo after leading C++ gameplay state
+                  architecture, engine systems, and iterative stability testing.</p>
+                <a href="../portfolio/games/stand-by.html" class="project-overlay-link">View Project <i
+                    data-lucide="arrow-right" aria-hidden="true"></i></a>
               </div>
               <div class="project-card__info">
                 <h3 class="project-title">Stand-By</h3>
+                <div class="project-card-meta" aria-label="Project details">
+                  <span><i data-lucide="calendar" aria-hidden="true"></i> Mar 2024 - Jun 2024</span>
+                  <span><i data-lucide="user" aria-hidden="true"></i> Technical Lead</span>
+                </div>
                 <div class="tech-stack">
                   <span class="tech-pill">C++</span>
                   <span class="tech-pill">Raylib</span>
-                  <span class="tech-pill">Gameplay</span>
+                  <span class="tech-pill">Custom Engine</span>
                 </div>
               </div>
             </article>
 
             <article class="project-card">
               <div class="project-card__visual">
-                <span class="glass-badge">Games</span>
-                <img src="../img/portfolio_thumbnails/games/Resonate.jpg" alt="Resonate project" class="img-static" loading="lazy">
+                <img src="../img/portfolio_thumbnails/games/Resonate.jpg" alt="Resonate project" class="img-static"
+                  loading="lazy">
               </div>
               <div class="glass-overlay-info">
                 <h4>Key Achievement</h4>
-                <p>Completed an early team game project focused on scope control, player feedback, and delivery.</p>
-                <a href="../portfolio/games/resonate.html" class="project-overlay-link">View Project <i data-lucide="arrow-right" aria-hidden="true"></i></a>
+                <p>Led delivery of a complete C++/raylib boss-rush game, implementing player controls, attack patterns,
+                  collision recovery, menu-play-reset flow, and stability-focused rewrites.</p>
+                <a href="../portfolio/games/resonate.html" class="project-overlay-link">View Project <i
+                    data-lucide="arrow-right" aria-hidden="true"></i></a>
               </div>
               <div class="project-card__info">
                 <h3 class="project-title">Resonate</h3>
+                <div class="project-card-meta" aria-label="Project details">
+                  <span><i data-lucide="calendar" aria-hidden="true"></i> Sep 2023 - Dec 2023</span>
+                  <span><i data-lucide="user" aria-hidden="true"></i> Technical Lead</span>
+                </div>
                 <div class="tech-stack">
                   <span class="tech-pill">C++</span>
                   <span class="tech-pill">Raylib</span>
-                  <span class="tech-pill">2D</span>
+                  <span class="tech-pill">Game Development</span>
                 </div>
               </div>
             </article>

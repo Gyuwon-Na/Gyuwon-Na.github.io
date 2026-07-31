@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <link rel="icon" type="image/svg+xml" href="../../img/face.jpg">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Own 3D Demo</title>
+  <title>Interactive Terrain and Water Rendering</title>
   <meta name="description" content="Details about the Own 3D Demo project for the 3D Graphics course.">
 
   <link rel="stylesheet" href="../../external/normalize.css" />
@@ -62,13 +62,13 @@
         <a href="../../pages/Projects.html" class="back-btn"><i data-lucide="arrow-left"></i> Back to Projects</a>
       </div>
       <div class="container">
-        <h1 class="projects-hero__title" style="font-size: clamp(2rem, 4vw, 3rem);">CS250 Final Project</h1>
+        <h1 class="projects-hero__title" style="font-size: clamp(2rem, 4vw, 3rem);">Interactive Terrain and Water Rendering</h1>
         <div class="project-meta" style="justify-content: center; margin-top: 20px;">
           <span class="project-date">
             <i data-lucide="calendar" aria-hidden="true"></i> JUN 2025
           </span>
           <span class="project-type">
-            <i data-lucide="award" aria-hidden="true"></i> CS250 Coursework
+            <i data-lucide="tag" aria-hidden="true"></i> CS250 Coursework
           </span>
         </div>
         <div class="tech-stack-detailed" style="justify-content: center; margin-top: 20px;">
@@ -98,7 +98,7 @@
           The <strong>CS250 Final Project</strong> combines the course's rendering topics into one cohesive interactive
           scene.
           <br><br>
-          I built an OpenGL beach scene that brings together procedural geometry, noise-based terrain, shader-controlled
+          I built an OpenGL beach scene that brings together procedural mesh, noise-based terrain, shader-controlled
           lighting, and real-time interaction so the final demo feels like a small graphics sandbox rather than a set of
           isolated assignments.
         </p>
@@ -142,13 +142,17 @@
       </div>
 
       <div class="detail-section">
-        <h2 class="detail-section-title">Reflection & Future Work</h2>
-        <div class="project-highlights" style="background: rgba(0, 122, 255, 0.02); border-left-color: var(--clr-text-main);">
-          <ul class="highlights-list">
-            <li><strong>Reflection:</strong> </li>
-            <li><strong>Future Work:</strong> </li>
-          </ul>
-        </div>
+        <h2 class="detail-section-title">Reflection</h2>
+        <p class="detail-text">
+          This project helped me connect several smaller rendering techniques into a single interactive scene. Working
+          with terrain, water, lighting, and camera interaction together made the overall graphics pipeline feel more
+          integrated and practical. Although the water rendering was not as realistic as I wanted, I learned a lot about
+          shader programming and became interested in developing more complex water effects in the future. Overall, this
+          project was a great way to consolidate my knowledge from the course and apply it in a creative way.
+        </p>
+      </div>
+      <div class="project-next">
+        <a href="07_gradient.html" class="action-btn secondary"><i data-lucide="arrow-left"></i> Gradient Noise</a>
       </div>
     </section>
   </main>
@@ -167,6 +171,7 @@
     <p class="footer-copyright">&copy; 2026 Gyuwon Na. All rights reserved.</p>
   </footer>
   <script src="../../js/index.js"></script>
+  <script src="../../js/research-navigator.js"></script>
 
   <script src="https://unpkg.com/lucide@latest"></script>
   <script>

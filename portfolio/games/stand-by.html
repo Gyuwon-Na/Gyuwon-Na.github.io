@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <link rel="icon" type="image/svg+xml" href="../../img/face.jpg">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Stand-By - Game Project</title>
+  <title>Stand-By</title>
   <meta name="description" content="Detailed portfolio page for Stand-By, a C++ game project by Gyuwon Na.">
   <link rel="stylesheet" href="../../external/normalize.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css"
@@ -65,13 +65,14 @@
         <h1 class="projects-hero__title" style="font-size: clamp(2rem, 4vw, 3rem);">Stand-By</h1>
         <div class="project-meta" style="justify-content: center; margin-top: 20px;">
           <span class="project-date"><i data-lucide="calendar"></i> Mar 2024 - Jun 2024</span>
-          <span class="project-type"><i data-lucide="tag"></i> GAM 150 Project</span>
+          <span class="project-type"><i data-lucide="user"></i>Technical Lead</span>
+          <span class="project-type"><i data-lucide="award"></i>2nd Place</span>
+          <span class="project-type"><i data-lucide="tag"></i>GAM150 Project &dot; 2025 Micro Degree Expo</span>
         </div>
         <div class="tech-stack-detailed" style="justify-content: center; margin-top: 20px;">
           <span class="tech-badge">C++</span>
           <span class="tech-badge">Raylib</span>
-          <span class="tech-badge">Cafe Simulation</span>
-          <span class="tech-badge">Team Project</span>
+          <span class="tech-badge">Custom Engine</span>
         </div>
       </div>
     </section>
@@ -98,9 +99,11 @@
       <div class="detail-section">
         <h2 class="detail-section-title">Key Achievements</h2>
         <ul class="highlights-list">
-          <li>Implemented core gameplay states and transition logic.</li>
-          <li>Connected player interactions to clear visual and timing feedback.</li>
-          <li>Handled reset and scene-flow edge cases for repeated playtesting.</li>
+          <li>Placed 2nd(Outstanding Award) at the 2025 Micro Degree Expo.</li>
+          <li>Implemented core gameplay states and contributed to the development of key engine systems.</li>
+          <li>Conducted iterative playtesting and self-QA to identify, reproduce, and resolve gameplay bugs, improving
+            overall stability.</li>
+          <li>Connected player interactions to clear visual feedback and responsive timing cues.</li>
         </ul>
       </div>
 
@@ -129,7 +132,8 @@
             <i data-lucide="scan-line"></i>
             <h3 class="info-card__title">Game Object Interaction</h3>
             <p class="info-card__text">Used C++ pointers to route interactions between active game objects, then applied
-              outline feedback to the selected object so the player could immediately read what the cursor was targeting.
+              outline feedback to the selected object so the player could immediately read what the cursor was
+              targeting.
             </p>
           </article>
           <article class="info-card">
@@ -198,16 +202,32 @@
 
       <div class="detail-section">
         <h2 class="detail-section-title">Reflection</h2>
+
         <p class="detail-text">
-          Stand-By showed me how quickly a management game becomes a systems problem. A simple customer order touches
-          UI, input, collision, recipes, inventory, timers, money, and scene transitions, so the implementation only
-          feels good when those pieces agree with each other every frame.
+          Stand-By showed me how quickly a management game can become a systems problem. A single customer order affects
+          the
+          UI, input handling, collision logic, recipes, inventory, timers, currency, and scene transitions, so the
+          experience
+          only feels reliable when all of these systems remain synchronized.
         </p>
+
         <p class="detail-text">
-          The project also made me much more aware of memory management. Because the game repeats day after day,
-          small resource-handling mistakes can build into memory leaks over long play sessions. If I were rebuilding the
-          system, I would pay closer attention to ownership rules, cleanup timing, and repeated state-entry/state-exit
-          checks from the beginning.
+          The project also made me more aware of memory management. Because the game progresses through repeated daily
+          cycles,
+          small mistakes in resource ownership or cleanup can accumulate into memory leaks during long play sessions. If
+          I were
+          rebuilding the system, I would define clearer ownership rules, verify cleanup during repeated state
+          transitions, and
+          test long-running sessions much earlier in development.
+        </p>
+
+        <p class="detail-text">
+          One limitation was that the development schedule left little time for optimization and structural refactoring.
+          Several objects with similar behavior were implemented as separate classes, which increased duplication and
+          made
+          the codebase longer and harder to maintain. This experience taught me to identify shared behavior earlier and
+          use
+          inheritance where appropriate to build reusable abstractions in future projects.
         </p>
       </div>
 
@@ -232,6 +252,7 @@
     <p class="footer-copyright">&copy; 2026 Gyuwon Na. All rights reserved.</p>
   </footer>
   <script src="../../js/index.js"></script>
+  <script src="../../js/research-navigator.js"></script>
 
   <script src="https://unpkg.com/lucide@latest"></script>
   <script>

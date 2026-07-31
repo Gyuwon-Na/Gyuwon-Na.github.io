@@ -34,6 +34,7 @@
 
   <link rel="stylesheet" href="../../css/style.css" />
   <link rel="stylesheet" href="../../css/projects.css" />
+  <link rel="stylesheet" href="../../css/research-page.css" />
 </head>
 
 <body>
@@ -74,14 +75,16 @@
             <i data-lucide="calendar" aria-hidden="true"></i> APR 2026 - JUN 2026
           </span>
           <span class="project-type">
-            <i data-lucide="award" aria-hidden="true"></i> AI Model Design Coursework
+            <i data-lucide="tag" aria-hidden="true"></i> AI Model Design Coursework
           </span>
         </div>
         <div class="tech-stack-detailed" style="justify-content: center; margin-top: 20px;">
-          <span class="tech-badge">Python</span>
-          <span class="tech-badge">PyTorch</span>
-          <span class="tech-badge">OpenCV</span>
-          <span class="tech-badge">Image Retrieval</span>
+          <span class="tech-badge">Computer Vision</span>
+          <span class="tech-badge">ROI Masking</span>
+          <span class="tech-badge">HNSW</span>
+          <span class="tech-badge">ORB Features</span>
+          <span class="tech-badge">RANSAC</span>
+          <span class="tech-badge">AR Visualization</span>
         </div>
       </div>
     </section>
@@ -89,10 +92,39 @@
     <section class="detail-content">
 
       <h1 class="detail-section-title">Project Visual</h1>
-      <div class="detail-section" style="margin-top: -20px;">
-        <div class="detail-figure">
-          <div class="visual-placeholder">
-            Lego Finder Visual
+      <div class="detail-section" style="margin-top: 10px;">
+        <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px;">
+          <div>
+            <h3 class="project-title" style="text-align: center; margin: 0 0 14px; font-size: 1rem;">Finding Red Bricks</h3>
+            <div class="detail-figure">
+              <video controls muted playsinline preload="metadata"
+                style="aspect-ratio: 9 / 16; height: auto; object-fit: contain; background: #000;">
+                <source src="../../img/video/cv/video1.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+            </div>
+          </div>
+
+          <div>
+            <h3 class="project-title" style="text-align: center; margin: 0 0 14px; font-size: 1rem;">Detecting Partially Occluded Bricks</h3>
+            <div class="detail-figure">
+              <video controls muted playsinline preload="metadata"
+                style="aspect-ratio: 9 / 16; height: auto; object-fit: contain; background: #000;">
+                <source src="../../img/video/cv/video2.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+            </div>
+          </div>
+
+          <div>
+            <h3 class="project-title" style="text-align: center; margin: 0 0 14px; font-size: 1rem;">Detecting Flipped Bricks</h3>
+            <div class="detail-figure">
+              <video controls muted playsinline preload="metadata"
+                style="aspect-ratio: 9 / 16; height: auto; object-fit: contain; background: #000;">
+                <source src="../../img/video/cv/video3.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+            </div>
           </div>
         </div>
       </div>
@@ -100,23 +132,110 @@
       <div class="detail-section">
         <h2 class="detail-section-title">Overview</h2>
         <p class="detail-text">
-          <strong>Lego Finder</strong> is a computer vision project for the AI Model Design course. The project is
-          planned around a visual search workflow that can identify or retrieve relevant Lego pieces or sets from input
-          images.
+          <strong>Lego Finder</strong> is a vision-based real-time LEGO brick matching model. The project targets a
+          familiar problem: when many LEGO parts are scattered on the floor or desk, finding one required brick can
+          interrupt the building flow. The proposed system lets a user point a smartphone camera at a mixed pile and
+          receive visual guidance toward the requested part.
+        </p>
+        <p class="detail-text">
+          The model is designed as an application of my previous ROI masking and HNSW-based image matching research.
+          Instead of searching every feature in a full frame, the system first predicts the region where the target part
+          is likely to exist, extracts compact visual features only from that area, and queries an offline LEGO part
+          index for fast matching.
+        </p>
+      </div>
+
+
+      <div class="detail-section">
+        <h2 class="detail-section-title">Difference From Existing Apps</h2>
+        <p class="detail-text">
+          Existing LEGO-related AI apps often focus on adjacent use cases. Brickit scans bricks and suggests things to
+          build, while inventory-oriented tools such as Pileometer assume a more controlled setup for labeling and
+          managing stored parts. Lego Finder focuses on the assembly-time search problem: the user already knows the part
+          they need and wants to find it quickly in a cluttered pile.
         </p>
       </div>
 
       <div class="detail-section">
-        <h2 class="detail-section-title">Tasks Completed</h2>
-        <div class="project-highlights" style="background: rgba(0, 122, 255, 0.02); border-left-color: var(--clr-accent);">
-          <ul class="highlights-list">
-            <li><strong>Dataset Pipeline:</strong> </li>
-            <li><strong>Model Design:</strong> </li>
-            <li><strong>Search / Retrieval Flow:</strong> </li>
-            <li><strong>Evaluation:</strong> </li>
-          </ul>
+        <h2 class="detail-section-title">Pipeline</h2>
+        <div class="clifford-pipeline" aria-label="Lego Finder model pipeline">
+          <article class="pipeline-stage pipeline-stage--p1">
+            <h3><span class="pipeline-stage__number">1</span>Encode Query</h3>
+            <p>Convert text, voice, or instruction-image input into a fixed prompt embedding with a vision-language
+              encoder such as CLIP.</p>
+          </article>
+          <div class="pipeline-connector"><i data-lucide="arrow-right"></i></div>
+          <article class="pipeline-stage pipeline-stage--p2">
+            <h3><span class="pipeline-stage__number">2</span>Match LEGO DB</h3>
+            <p>Map the query to Rebrickable-style part metadata, official color records, and rendered part references.
+            </p>
+          </article>
+          <div class="pipeline-connector"><i data-lucide="arrow-right"></i></div>
+          <article class="pipeline-stage pipeline-stage--p3">
+            <h3><span class="pipeline-stage__number">3</span>Predict ROI</h3>
+            <p>Use a MobileNet-style visual backbone and cross-modal attention to produce a prompt-guided ROI probability
+              map.</p>
+          </article>
+          <div class="pipeline-connector"><i data-lucide="arrow-right"></i></div>
+          <article class="pipeline-stage pipeline-stage--p4">
+            <h3><span class="pipeline-stage__number">4</span>Search Features</h3>
+            <p>Binarize and dilate the ROI, extract ORB-like features only inside the mask, then query an offline HNSW
+              index.</p>
+          </article>
+          <div class="pipeline-connector"><i data-lucide="arrow-right"></i></div>
+          <article class="pipeline-stage pipeline-stage--p5">
+            <h3><span class="pipeline-stage__number">5</span>Verify &amp; Visualize</h3>
+            <p>Use RANSAC to reject inconsistent matches, estimate the target pose, and render an AR-style brick
+              highlight.</p>
+          </article>
+        </div>
+
+        <div class="phase-detail-grid" style="margin-top:28px;">
+          <article class="phase-detail-card">
+            <div class="phase-detail-card__header">
+              <span>01</span>
+              <div>
+                <p>Learning Signal</p>
+                <h3>Triplet-based ROI supervision</h3>
+              </div>
+            </div>
+            <p class="detail-text" style="font-size: 1rem; margin-bottom: 0;">
+              The ROI model is trained with an input image, target prompt, and ground-truth mask. Copy-paste
+              augmentation places rendered LEGO parts on real backgrounds when manually labeled masks are limited.
+            </p>
+          </article>
+
+          <article class="phase-detail-card">
+            <div class="phase-detail-card__header">
+              <span>02</span>
+              <div>
+                <p>Loss Design</p>
+                <h3>BCE plus Dice loss</h3>
+              </div>
+            </div>
+            <p class="detail-text" style="font-size: 1rem; margin-bottom: 0;">
+              Binary Cross Entropy scores each spatial cell, while Dice Loss improves mask overlap. The goal is to raise
+              confidence only around the requested brick and suppress visually similar distractors.
+            </p>
+          </article>
+
+          <article class="phase-detail-card phase-detail-card--p3">
+            <div class="phase-detail-card__header">
+              <span>03</span>
+              <div>
+                <p>Runtime Strategy</p>
+                <h3>Offline index, online query</h3>
+              </div>
+            </div>
+            <p class="detail-text" style="font-size: 1rem; margin-bottom: 0;">
+              HNSW is not rebuilt during live camera use. LEGO part descriptors are indexed offline before service time,
+              so the runtime only sends compact frame descriptors as queries and verifies the returned candidates
+              geometrically.
+            </p>
+          </article>
         </div>
       </div>
+
 
       <div class="detail-section">
         <h2 class="detail-section-title">Challenges & Solutions</h2>
@@ -124,31 +243,112 @@
         <article class="challenge-card">
           <div class="challenge-header">
             <span class="challenge-header-num">1</span>
+            Occluded or Partially Hidden Blocks
           </div>
 
           <div class="cs-box problem">
             <div class="cs-box-title">
               <i data-lucide="alert-triangle" style="width:18px; height:18px;"></i> Challenge
             </div>
-            <p></p>
+            <p>Real piles often hide part of a brick behind other pieces, making feature matching less stable.</p>
           </div>
 
           <div class="cs-box solution">
             <div class="cs-box-title">
               <i data-lucide="lightbulb" style="width:18px; height:18px;"></i> Solution
             </div>
-            <p></p>
+            <p>Fuse auxiliary cues such as color distribution, partial shape evidence, and verifier confidence so the
+              target can still be recovered from incomplete visual evidence.</p>
           </div>
         </article>
 
+        <article class="challenge-card">
+          <div class="challenge-header">
+            <span class="challenge-header-num">2</span>
+            Domain Gap Between Manual Images and Real Photos
+          </div>
+
+          <div class="cs-box problem">
+            <div class="cs-box-title">
+              <i data-lucide="alert-triangle" style="width:18px; height:18px;"></i> Challenge
+            </div>
+            <p>Instruction images, official rendered parts, and real camera photos differ in lighting, shadows, and
+              texture detail.</p>
+          </div>
+
+          <div class="cs-box solution">
+            <div class="cs-box-title">
+              <i data-lucide="lightbulb" style="width:18px; height:18px;"></i> Solution
+            </div>
+            <p>Use lightweight preprocessing, including HSL color-space normalization, to reduce lighting interference
+              before feature extraction and matching.</p>
+          </div>
+        </article>
+
+        <article class="challenge-card">
+          <div class="challenge-header">
+            <span class="challenge-header-num">3</span>
+            Color Confusion and Non-LEGO Distractors
+          </div>
+
+          <div class="cs-box problem">
+            <div class="cs-box-title">
+              <i data-lucide="alert-triangle" style="width:18px; height:18px;"></i> Challenge
+            </div>
+            <p>A same-colored non-LEGO object, or a mixed-color part with a small patch of the target color, can be
+              ranked too highly if color is over-weighted.</p>
+          </div>
+
+          <div class="cs-box solution">
+            <div class="cs-box-title">
+              <i data-lucide="lightbulb" style="width:18px; height:18px;"></i> Solution
+            </div>
+            <p>Adjust scoring around dominant object color, rectangularity, polygon corner count, and geometric
+              verification so the model distinguishes target bricks from incidental color matches.</p>
+          </div>
+        </article>
+
+        <article class="challenge-card">
+          <div class="challenge-header">
+            <span class="challenge-header-num">4</span>
+            Merged ROI Components
+          </div>
+
+          <div class="cs-box problem">
+            <div class="cs-box-title">
+              <i data-lucide="alert-triangle" style="width:18px; height:18px;"></i> Challenge
+            </div>
+            <p>Multiple nearby blocks can merge into one large connected component, causing the ROI to cover too much of
+              the frame.</p>
+          </div>
+
+          <div class="cs-box solution">
+            <div class="cs-box-title">
+              <i data-lucide="lightbulb" style="width:18px; height:18px;"></i> Solution
+            </div>
+            <p>Refine proposals by splitting target-color connected components and adding boundary evidence such as
+              Sobel gradient cues before final verification.</p>
+          </div>
+        </article>
       </div>
 
       <div class="detail-section">
         <h2 class="detail-section-title">Reflection & Future Work</h2>
         <div class="project-highlights" style="background: rgba(0, 122, 255, 0.02); border-left-color: var(--clr-text-main);">
           <ul class="highlights-list">
-            <li><strong>Reflection:</strong> </li>
-            <li><strong>Future Work:</strong> </li>
+            <li><strong>Reflection:</strong> This was my first project using Codex as a practical development partner to
+              move beyond model design and build a fuller prototype. It was especially helpful for backend API structure,
+              server execution, and hosting-related workflows that I had not studied deeply before. At the same time, the
+              process showed me that AI-assisted development still requires active review, testing, and judgment because
+              generated code can contain assumptions that do not match the actual project goal. Working across the
+              frontend, backend, image-processing logic, and API flow also helped me understand the overall structure of
+              a full-stack AI application, where usability, data handling, runtime efficiency, and validation matter as
+              much as the model itself. However, the prototype still had clear constraints. To keep the project scope
+              manageable, I limited the target parts to basic rectangular m-by-n bricks, and I would like to expand this
+              work into a more complete service that can handle a broader range of LEGO parts.</li>
+            <li><strong>Future Work:</strong> Improve occlusion robustness, reduce render-to-photo domain gap, fine-tune
+              color and shape scoring, cache frequently used basic bricks, and evaluate latency on real mobile hardware.
+            </li>
           </ul>
         </div>
       </div>
@@ -170,6 +370,7 @@
     <p class="footer-copyright">&copy; 2026 Gyuwon Na. All rights reserved.</p>
   </footer>
   <script src="../../js/index.js"></script>
+  <script src="../../js/research-navigator.js"></script>
 
   <script src="https://unpkg.com/lucide@latest"></script>
   <script>

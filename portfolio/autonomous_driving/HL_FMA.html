@@ -5,9 +5,9 @@
   <meta charset="UTF-8">
   <link rel="icon" type="image/svg+xml" href="../../img/face.jpg">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>V2X Cooperative Driving</title>
+  <title>1/5-Scale Vehicle Platform</title>
   <meta name="description"
-    content="Details about the V2X-Based Cooperative Driving System project for KAIST Mobility Challenge Competition.">
+    content="A ROS1-based 1/5-scale autonomous vehicle developed for the 2025 HL Future Mobility Award, featuring GPS-IMU sensor fusion, segmented forward and reverse path tracking, parking missions, and slope-aware control.">
 
   <!-- Normalize -->
   <link rel="stylesheet" href="../../external/normalize.css" />
@@ -39,11 +39,103 @@
 
   <link rel="stylesheet" href="../../css/style.css" />
   <link rel="stylesheet" href="../../css/projects.css" />
+  <style>
+    .hl-dash-list li {
+      padding-left: 30px;
+    }
+
+    .hl-dash-list li::before {
+      content: "";
+      display: block;
+      position: absolute;
+      width: 14px;
+      height: 2px;
+      border-radius: 999px;
+      background: var(--clr-accent);
+      left: 0;
+      top: 0.82em;
+    }
+
+    .hl-dash-list li strong {
+      color: var(--clr-text-main);
+    }
+
+    .hl-role-card {
+      background: var(--clr-bg-alt);
+      padding: 20px 20px 20px 24px;
+      border-radius: 12px;
+      border-left: 3px solid var(--role-accent, var(--clr-accent));
+    }
+
+    .hl-role-card h3 {
+      color: var(--role-accent, var(--clr-accent));
+      font-size: 1.15rem;
+      margin-bottom: 15px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .hl-flow-step {
+      display: grid;
+      grid-template-columns: 86px minmax(0, 1fr);
+      gap: 12px;
+      align-items: stretch;
+    }
+
+    .hl-flow-label {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      border-radius: 8px;
+      background: rgba(0, 122, 255, 0.08);
+      color: var(--clr-accent);
+      font-weight: 700;
+      text-align: center;
+      padding: 10px 6px;
+    }
+
+    .hl-flow-label span:last-child {
+      font-size: 0.75rem;
+      opacity: 0.82;
+    }
+
+    .hl-flow-content {
+      padding: 14px 16px;
+      border-radius: 8px;
+      background: var(--clr-bg);
+      border: 1px solid rgba(128, 128, 128, 0.18);
+    }
+
+    .hl-flow-arrow {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-left: 36px;
+      color: var(--clr-accent);
+    }
+
+    .hl-flow-arrow span {
+      font-size: 0.86rem;
+      opacity: 0.82;
+    }
+
+    @media (max-width: 560px) {
+      .hl-flow-step {
+        grid-template-columns: 64px minmax(0, 1fr);
+      }
+
+      .hl-flow-arrow {
+        margin-left: 23px;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-  <!-- Floating Navigation (Í∏∞Ï°¥Í≥??ôÏùº) -->
+  <!-- Floating Navigation -->
   <div class="floating-nav-container" id="navContainer" role="navigation" aria-label="Main navigation">
     <button class="theme-toggle-btn" id="themeToggle" aria-label="Switch to dark mode" aria-pressed="false">
       <i class="fa-solid fa-moon" aria-hidden="true"></i>
@@ -78,119 +170,382 @@
         </a>
       </div>
       <div class="container">
-        <h1 class="projects-hero__title" style="font-size: clamp(2rem, 4vw, 3rem);">V2X Cooperative Driving</h1>
+        <h1 class="projects-hero__title" style="font-size: clamp(2rem, 4vw, 3rem);">
+          1/5-Scale Vehicle Platform
+        </h1>
         <div class="project-meta" style="justify-content: center; margin-top: 20px;">
           <span class="project-date">
-            <i data-lucide="calendar" aria-hidden="true"></i> DEC 2025 - FEB 2026
+            <i data-lucide="calendar" aria-hidden="true"></i> AUG 2025 - SEP 2025
           </span>
           <span class="project-type">
-            <i data-lucide="award" aria-hidden="true"></i> KAIST Mobility Challenge Competition
+            <i data-lucide="user" aria-hidden="true"></i> Systems Engineer
+          </span>
+          <span class="project-type">
+            <i data-lucide="award" aria-hidden="true"></i> Encouragement Award
+          </span>
+          <span class="project-type">
+            <i data-lucide="tag" aria-hidden="true"></i> 2025 HL Future Mobility Award
           </span>
         </div>
         <div class="tech-stack-detailed" style="justify-content: center; margin-top: 20px;">
-          <span class="tech-badge">ROS2 Foxy</span>
-          <span class="tech-badge">C++</span>
-          <span class="tech-badge">Python</span>
-          <span class="tech-badge">Linux</span>
-          <span class="tech-badge">Docker</span>
+          <span class="tech-badge">ROS1 Noetic</span>
+          <span class="tech-badge">Path Following</span>
+          <span class="tech-badge">Autonomous Parking</span>
+          <span class="tech-badge">GPS-IMU Fusion</span>
         </div>
       </div>
     </section>
 
     <!-- Main Content Section -->
     <section class="detail-content">
-      <!-- 1. Demo Video (?ïÏ§ë???ïÎ†¨ + ?âÏÉÅ ?∏Î≤Ñ ?®Í≥º) -->
-      <h1 class="detail-section-title">Demo Video</h1>
-      <div class="detail-section" style="margin-top: -20px;">
-        <a href="https://youtu.be/X6_6XrGptqQ?si=D7Mj_nsYNKSff-gz" target="_blank" rel="noopener noreferrer"
-          style="text-decoration: none;">
-
-          <div style="
-            position: relative;
-            width: 100%;
-            padding-bottom: 56.25%; /* 16:9 ÎπÑÏú® ?†Ï? */
-            background-image: url('https://img.youtube.com/vi/X6_6XrGptqQ/maxresdefault.jpg'); 
-            background-size: cover; 
-            background-position: center; 
-            border-radius: 16px;
-            overflow: hidden;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.08);
-          " onmouseover="this.querySelector('i').style.color='#ff0000'"
-            onmouseout="this.querySelector('i').style.color='white'">
-
-            <!-- ?¥Î?ÏßÄÎ•??¥Ïßù ?¥Îë°Í≤???ñ¥Ï£ºÎäî ?§Î≤Ñ?àÏù¥ -->
-            <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.3);">
-            </div>
-
-            <!-- ?ÑÎ≤Ω?òÍ≤å Ï§ëÏïô ?ïÎ†¨???†ÌäúÎ∏?Î°úÍ≥† -->
-            <i class="fa-brands fa-youtube" style="
-              position: absolute;
-              top: 50%;
-              left: 50%;
-              transform: translate(-50%, -50%);
-              font-size: 5rem; 
-              color: white; 
-              z-index: 10; 
-              transition: color 0.2s ease-in-out;
-              filter: drop-shadow(0 4px 10px rgba(0,0,0,0.3));
-            "></i>
-
-          </div>
-        </a>
-      </div>
 
       <!-- Overview -->
       <div class="detail-section">
         <h2 class="detail-section-title">Overview</h2>
         <p class="detail-text">
-          ?¥Îñ§ ?ÑÎ°ú?ùÌä∏?∏Í??
-          - ?ÑÎ°ú?ùÌä∏??Î™©Ï†Å
-          -Ï£ºÏöî ?±Í≥º
-          -?úÏä§???µÏã¨ Í∏∞Îä•
+          This project was a <strong>ROS1-based autonomous driving system for a 1/5-scale vehicle</strong>, developed
+          for
+          the 2025 HL Future Mobility Award. The vehicle had to follow a predefined course while executing a sequence of
+          forward driving, T-shaped reversing, parallel parking, traffic-light stopping, and a timed stop on a slope.
+          Because the mission combined multiple driving directions and tightly spaced parking paths, reliable state
+          transitions were as important as basic path tracking.
+          <br><br>
+          As a <strong>systems engineer</strong>, I worked on localization input, mission sequencing, path-following
+          behavior, and vehicle-level tuning. I connected the GPS and IMU fusion output to the driving stack, organized
+          the course into direction-specific path segments, and refined endpoint, speed, and slope-handling logic
+          through
+          repeated field tests. The team received an <strong>Encouragement Award</strong> at the competition.
         </p>
       </div>
+
       <div class="detail-section">
         <h2 class="detail-section-title">Key Achievements</h2>
-        <ul class="highlights-list">
-          <li>Received an Encouragement Award at the HL Future Mobility Award 2025.</li>
-          <li>Implemented traffic-light-aware mission logic for autonomous stop/go behavior.</li>
-          <li>Developed path-following logic for stable lane-centered driving.</li>
+        <ul class="highlights-list hl-dash-list">
+          <li>
+            <strong>Competition Recognition:</strong> Received an Encouragement Award at the 2025 HL Future Mobility
+            Award.
+          </li>
+          <li>
+            <strong>Stable Heading Input:</strong> Integrated a Kalman-filtered GPS and IMU heading estimate through the
+            <code>/imu_gps_heading</code> ROS topic for path tracking.
+          </li>
+          <li>
+            <strong>Mixed-Direction Mission Execution:</strong> Structured the course as sequential forward and reverse
+            path segments for T-parking, parallel parking, and final-course navigation.
+          </li>
+          <li>
+            <strong>Vehicle-Aware Speed Control:</strong> Added endpoint deceleration, direction-specific speed
+            handling,
+            and pitch-based compensation for the slope mission.
+          </li>
+          <li>
+            <strong>Field Tuning:</strong> Adjusted lateral recovery gain and PID behavior to reduce corner drift and
+            straight-line oscillation on the physical platform.
+          </li>
         </ul>
       </div>
+
       <div class="detail-section">
-        <h2 class="detail-section-title">My Role & Contributions</h2>
-        <p class="detail-text">
-          -?¥Í? ÏßÅÏ†ë ?§Í≥Ñ?òÍ≥† Íµ¨ÌòÑ??Î∂ÄÎ∂?
+        <h2 class="detail-section-title">My Role &amp; Contributions</h2>
+        <p class="detail-text" style="margin-bottom: 25px;">
+          Rather than treating each maneuver as an isolated script, I helped organize the system around
+          explicit path states, completion conditions, and direction-aware control parameters.
         </p>
+
+        <div style="display: grid; gap: 30px;">
+          <section class="hl-role-card" style="--role-accent: var(--clr-accent);">
+            <h3>
+              <i data-lucide="navigation" style="width: 20px; height: 20px;"></i> Localization &amp; State Estimation
+            </h3>
+            <ul class="highlights-list hl-dash-list">
+              <li style="margin-bottom: 10px;">
+                <strong>GPS-IMU Sensor Fusion:</strong> Connected the heading estimate generated by
+                <code>statusInfo.py</code>, which fused GPS and IMU measurements with a Kalman filter.
+              </li>
+              <li>
+                <strong>Unified Heading Topic:</strong> Used the filtered <code>/imu_gps_heading</code> output as the
+                vehicle orientation input for waypoint tracking and mission-state decisions.
+              </li>
+            </ul>
+          </section>
+
+          <section class="hl-role-card" style="--role-accent: #ff9800;">
+            <h3>
+              <i data-lucide="route" style="width: 20px; height: 20px;"></i> Mission Sequencing &amp; Path Tracking
+            </h3>
+            <ul class="highlights-list hl-dash-list">
+              <li style="margin-bottom: 10px;">
+                <strong>Segmented Course Execution:</strong> Organized the competition course into forward and reverse
+                path files, including separate segments for T-parking and parallel-parking maneuvers.
+              </li>
+              <li style="margin-bottom: 10px;">
+                <strong>Explicit Path Transitions:</strong> Refined completion conditions, stop intervals, path-index
+                resets, and direction changes so the vehicle could move from one maneuver to the next without continuing
+                straight or switching early.
+              </li>
+              <li>
+                <strong>Tracking Recovery:</strong> Tuned the lateral recovery gain used when the vehicle drifted away
+                from the reference path, while balancing it against overshoot near corners.
+              </li>
+            </ul>
+          </section>
+
+          <section class="hl-role-card" style="--role-accent: #4caf50;">
+            <h3>
+              <i data-lucide="gauge" style="width: 20px; height: 20px;"></i> Vehicle Control &amp; Field Testing
+            </h3>
+            <ul class="highlights-list hl-dash-list">
+              <li style="margin-bottom: 10px;">
+                <strong>Direction-Aware Speed Profiles:</strong> Separated forward and reverse speed behavior so
+                endpoint deceleration did not unintentionally stop an already slow reversing segment.
+              </li>
+              <li style="margin-bottom: 10px;">
+                <strong>Oscillation Reduction:</strong> Iteratively tuned the derivative term and steering response to
+                reduce left-right oscillation on straight sections.
+              </li>
+              <li>
+                <strong>Slope Compensation:</strong> Used the IMU pitch signal to detect the ramp and apply bounded
+                throttle compensation during climbing and the required timed stop.
+              </li>
+              <li>
+                <strong>Traffic-Light-Based Control:</strong> Developed and tested logic that stopped the vehicle
+                in response to a detected traffic signal and resumed driving when permitted.
+              </li>
+            </ul>
+          </section>
+        </div>
       </div>
 
       <div class="detail-section">
         <h2 class="detail-section-title">Technical Highlights</h2>
-        <p class="detail-text">
-          - ?úÏä§???ÑÏ≤¥ ?∞Ïù¥???êÎ¶Ñ Í∑∏Î¶º
-          - ??Í∏∞Ïà†?????¥ÎñªÍ≤??ºÎäîÏßÄ
-        </p>
+
+        <div class="project-highlights"
+          style="background: var(--clr-bg-alt); border-left-color: var(--clr-accent); margin-bottom: 28px;">
+          <div style="display: grid; gap: 10px;">
+            <div class="hl-flow-step">
+              <div class="hl-flow-label">
+                <span>01</span>
+                <span>SENSE</span>
+              </div>
+              <div class="hl-flow-content">
+                <strong>GPS, IMU, and LiDAR Inputs</strong><br>
+                <span style="font-size: 0.92rem; opacity: 0.78;">vehicle position, orientation, pitch, and parking-space
+                  observations</span>
+              </div>
+            </div>
+
+            <div class="hl-flow-arrow">
+              <i data-lucide="arrow-down" style="width: 18px; height: 18px;"></i>
+              <span>combine complementary localization measurements</span>
+            </div>
+
+            <div class="hl-flow-step">
+              <div class="hl-flow-label">
+                <span>02</span>
+                <span>FUSE</span>
+              </div>
+              <div class="hl-flow-content">
+                <strong>Kalman-Filtered Heading in statusInfo.py</strong><br>
+                <span style="font-size: 0.92rem; opacity: 0.78;">publishes the stabilized heading through
+                  <code>/imu_gps_heading</code></span>
+              </div>
+            </div>
+
+            <div class="hl-flow-arrow">
+              <i data-lucide="arrow-down" style="width: 18px; height: 18px;"></i>
+              <span>pair the current pose with the active mission path</span>
+            </div>
+
+            <div class="hl-flow-step">
+              <div class="hl-flow-label">
+                <span>03</span>
+                <span>SEQUENCE</span>
+              </div>
+              <div class="hl-flow-content">
+                <strong>Segmented Mission State Machine</strong><br>
+                <span style="font-size: 0.92rem; opacity: 0.78;">loads forward and reverse path files for approach,
+                  T-parking, parallel parking, and final driving</span>
+                <div style="display: grid; gap: 7px; margin-top: 12px;">
+                  <div
+                    style="padding: 9px 11px; border-radius: 8px; background: rgba(128,128,128,0.08); border: 1px solid rgba(128,128,128,0.14);">
+                    <strong>Transition gate:</strong> final waypoint index, distance tolerance, stop interval, and next
+                    direction
+                  </div>
+                  <div
+                    style="padding: 9px 11px; border-radius: 8px; background: rgba(128,128,128,0.08); border: 1px solid rgba(128,128,128,0.14);">
+                    <strong>Mission branch:</strong> parking path selected from the available-space decision
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="hl-flow-arrow">
+              <i data-lucide="arrow-down" style="width: 18px; height: 18px;"></i>
+              <span>calculate steering and remaining distance</span>
+            </div>
+
+            <div class="hl-flow-step">
+              <div class="hl-flow-label">
+                <span>04</span>
+                <span>TRACK</span>
+              </div>
+              <div class="hl-flow-content">
+                <strong>Waypoint Tracking Controller</strong><br>
+                <span style="font-size: 0.92rem; opacity: 0.78;">heading error, lateral recovery gain, and PID-based
+                  steering correction</span>
+              </div>
+            </div>
+
+            <div class="hl-flow-arrow">
+              <i data-lucide="arrow-down" style="width: 18px; height: 18px;"></i>
+              <span>apply mission- and direction-specific speed behavior</span>
+            </div>
+
+            <div class="hl-flow-step">
+              <div class="hl-flow-label">
+                <span>05</span>
+                <span>CONTROL</span>
+              </div>
+              <div class="hl-flow-content">
+                <strong>Speed Scheduling</strong><br>
+                <span style="font-size: 0.92rem; opacity: 0.78;">forward/reverse profiles, endpoint deceleration,
+                  pitch-based climbing compensation, and bounded counter-throttle</span>
+              </div>
+            </div>
+
+            <div class="hl-flow-arrow">
+              <i data-lucide="arrow-down" style="width: 18px; height: 18px;"></i>
+              <span>publish commands to the physical platform</span>
+            </div>
+
+            <div class="hl-flow-step">
+              <div class="hl-flow-label">
+                <span>06</span>
+                <span>OUTPUT</span>
+              </div>
+              <div class="hl-flow-content">
+                <strong>1/5-Scale Vehicle Steering and Throttle</strong><br>
+                <span style="font-size: 0.92rem; opacity: 0.78;">executes the active path segment and mission stop
+                  behavior</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <ul class="highlights-list hl-dash-list" style="margin-top: 10px;">
+          <li>
+            <strong>State-based control:</strong> Direction, speed profile, stopping behavior, and the next path were
+            selected from the current mission state rather than inferred only from the nearest waypoint.
+          </li>
+          <li>
+            <strong>Physical-vehicle compensation:</strong> The controller accounted for coasting distance, low reverse
+            speed, steering oscillation, and rollback that were not visible from waypoint geometry alone.
+          </li>
+        </ul>
       </div>
 
       <div class="detail-section">
-        <h2 class="detail-section-title">Challenges & Solutions</h2>
-        <p class="detail-text">
-          - Î¨∏Ï†ú ?ÅÌô©>?¥Í≤∞Î∞©Î≤ï>Í≤∞Í≥º
-        </p>
+        <h2 class="detail-section-title">Challenges &amp; Solutions</h2>
+
+        <article class="challenge-card">
+          <div class="challenge-header">
+            <span class="challenge-header-num">1</span>
+            Preventing Premature Transitions Between Reverse and Forward Paths
+          </div>
+
+          <div class="cs-box problem">
+            <div class="cs-box-title">
+              <i data-lucide="alert-triangle" style="width:18px; height:18px;"></i> Challenge
+            </div>
+            <p>
+              During a reversing segment, the path-completion check could become true at the second-to-last waypoint.
+              If the vehicle was within a broader <strong>0.3 m</strong> range of the final point, the system called the
+              final-stop routine before reaching the intended <strong>0.1 m</strong> tolerance. The mission then loaded
+              the next forward path while the reverse maneuver was still incomplete.
+            </p>
+          </div>
+
+          <div class="cs-box solution">
+            <div class="cs-box-title">
+              <i data-lucide="lightbulb" style="width:18px; height:18px;"></i> Solution
+            </div>
+            <p>
+              The transition logic was tightened so path completion required the actual terminal waypoint and the final
+              distance tolerance, not only a near-terminal index. I separated the stop-and-switch sequence from normal
+              tracking, reset the target index when loading the next segment, and kept forward and reverse completion
+              conditions explicit. This prevented an early state change from turning an unfinished reverse maneuver into
+              a forward command.
+            </p>
+          </div>
+        </article>
+
+        <article class="challenge-card">
+          <div class="challenge-header">
+            <span class="challenge-header-num">2</span>
+            Holding Position During the Timed Slope Stop
+          </div>
+
+          <div class="cs-box problem">
+            <div class="cs-box-title">
+              <i data-lucide="alert-triangle" style="width:18px; height:18px;"></i> Challenge
+            </div>
+            <p>
+              One mission required the vehicle to stop on a ramp for a fixed period. A neutral throttle command allowed
+              the vehicle to roll backward under gravity, while a large counter-throttle command made it creep forward.
+              A single fixed braking value therefore could not hold the vehicle reliably on the physical slope.
+            </p>
+          </div>
+
+          <div class="cs-box solution">
+            <div class="cs-box-title">
+              <i data-lucide="lightbulb" style="width:18px; height:18px;"></i> Solution
+            </div>
+            <p>
+              I used the IMU pitch value to trigger a dedicated slope-hold state instead of treating the ramp like a
+              normal waypoint stop. During the timed hold, the controller applied a <strong>small, bounded
+                counter-throttle near the neutral point</strong>, with the compensation tuned to the measured incline.
+              Keeping the command inside a narrow range prevented rollback without applying enough force to move the
+              vehicle forward. The same pitch signal was also used to add controlled speed compensation while climbing.
+            </p>
+          </div>
+        </article>
       </div>
 
       <div class="detail-section">
         <h2 class="detail-section-title">Reflection</h2>
         <p class="detail-text">
-          - Î∞∞Ïö¥ ??
-          - ?ÑÏâ¨????& Î∞úÏ†Ñ Î∞©Ìñ•
+          This project showed me that autonomous driving reliability often depends on the boundaries between algorithms.
+          A heading estimate, waypoint follower, parking path, and throttle controller can each work independently, yet
+          the vehicle can still fail if a path finishes too early, a direction flag is not reset, or a braking rule is
+          reused in the wrong state.
         </p>
+        <p class="detail-text">
+          The most important lesson was to design mission transitions around both software state and physical vehicle
+          behavior. If I rebuilt the system, I would separate mission sequencing, path tracking, and longitudinal
+          control
+          into clearer modules, add recorded-data regression tests for every transition, and use measured wheel speed or
+          position drift to close the slope-hold loop instead of relying mainly on tuned throttle compensation.
+        </p>
+        <p class="detail-text">
+          The entire team repeatedly worked through the night at school, so it was especially disappointing that
+          we were unable to complete the parking missions. Heavy rain on competition day also introduced substantial
+          noise into the vehicles' sensor readings, and only a few teams were able to drive reliably. Under those
+          conditions, receiving the Encouragement Award was still meaningful. More importantly, the experience made me
+          curious about how autonomous systems can remain dependable in even harsher weather. Although we did not
+          complete every mission, the strong collaboration within the team made the project a valuable experience.
+        </p>
+      </div>
+
+      <div class="project-next">
+        <a href="creative_mobility.html" class="action-btn secondary">
+          <i data-lucide="arrow-left"></i> 1/2-Scale Autonomous Vehicle
+        </a>
       </div>
     </section>
 
   </main>
 
-  <!-- Footer (Í∏∞Ï°¥Í≥??ôÏùº) -->
+  <!-- Footer -->
   <footer class="footer">
     <ul class="social-list">
       <li class="social-list__item"><a class="social-list__link" href="mailto:uoyuvvou@gmail.com"><i
@@ -205,12 +560,12 @@
     <p class="footer-copyright">&copy; 2026 Gyuwon Na. All rights reserved.</p>
   </footer>
   <script src="../../js/index.js"></script>
+  <script src="../../js/research-navigator.js"></script>
 
   <script src="https://unpkg.com/lucide@latest"></script>
   <script>
     lucide.createIcons();
 
-    // ?§ÎπÑÍ≤åÏù¥???†Í? ?§ÌÅ¨Î¶ΩÌä∏ (Í∏∞Ï°¥Í≥??ôÏùº)
     function toggleNav() {
       const container = document.getElementById('navContainer');
       const triggerBtn = container.querySelector('.nav-trigger-btn');

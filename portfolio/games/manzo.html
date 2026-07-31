@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <link rel="icon" type="image/svg+xml" href="../../img/face.jpg">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>MANZO - Game Project</title>
+  <title>MANZO</title>
   <meta name="description" content="Detailed portfolio page for MANZO, a C++ game project by Gyuwon Na.">
   <link rel="stylesheet" href="../../external/normalize.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css"
@@ -65,7 +65,8 @@
         <h1 class="projects-hero__title" style="font-size: clamp(2rem, 4vw, 3rem);">MANZO</h1>
         <div class="project-meta" style="justify-content: center; margin-top: 20px;">
           <span class="project-date"><i data-lucide="calendar"></i> Jun 2024 - Jun 2025</span>
-          <span class="project-type"><i data-lucide="tag"></i> GAM 200-250 Project</span>
+          <span class="project-type"><i data-lucide="user"></i>Technical Lead</span>
+          <span class="project-type"><i data-lucide="tag"></i>GAM200 - 250 Project</span>
         </div>
         <div class="tech-stack-detailed" style="justify-content: center; margin-top: 20px;">
           <span class="tech-badge">C++</span>
@@ -110,9 +111,11 @@
           fish behavior, and module-driven progression.
         </p>
         <ul class="highlights-list">
-          <li>Developed engine support for quest windows and icons so UI content could be added and managed more easily.</li>
+          <li>Developed engine support for quest windows and icons so UI content could be added and managed more easily.
+          </li>
           <li>Implemented shader-based visibility limits that intensify as the player moves deeper underwater.</li>
-          <li>Laid the foundation for the OpenGL rendering engine and debugged the rendering pipeline with RenderDoc.</li>
+          <li>Laid the foundation for the OpenGL rendering engine and debugged the rendering pipeline with RenderDoc.
+          </li>
           <li>Designed fish movement patterns and module-related gameplay patterns for the exploration loop.</li>
         </ul>
       </div>
@@ -179,7 +182,8 @@
           <div class="cs-box problem">
             <div class="cs-box-title"><i data-lucide="alert-triangle"></i> Challenge</div>
             <p>Fish needed to avoid terrain on their own, but the avoidance algorithms I first tested did not produce
-              the behavior I wanted. At first, it was also difficult to understand exactly where the AI logic was failing.</p>
+              the behavior I wanted. At first, it was also difficult to understand exactly where the AI logic was
+              failing.</p>
           </div>
           <div class="cs-box solution">
             <div class="cs-box-title"><i data-lucide="lightbulb"></i> Solution</div>
@@ -193,9 +197,23 @@
       <div class="detail-section">
         <h2 class="detail-section-title">Reflection</h2>
         <p class="detail-text">
-          MANZO showed me how much unclear interfaces can hurt a long-term project. Because multi-semester game projects
-          often require people to continue each other's work, good game code has to be more than functionally correct;
-          it also has to remain understandable when several people are changing the system at the same time.
+          MANZO also taught me the importance of defining a clear product vision from the beginning. Because everyone
+          had
+          ambitious ideas, the initial scope expanded rapidly and the project gradually became a collection of unrelated
+          features rather than a cohesive game experience. I realized that successful software is not built by adding
+          every
+          possible feature, but by maintaining a consistent direction and introducing differentiation within a unified
+          vision.
+        </p>
+
+        <p class="detail-text">
+          This experience also showed me how difficult scope and schedule management become in long-term projects. As
+          the
+          project grew, coordinating priorities, estimating development effort, and maintaining progress became
+          increasingly
+          challenging. I learned that controlling the scope early and making deliberate trade-offs are just as important
+          as
+          implementing new features.
         </p>
       </div>
 
@@ -219,6 +237,7 @@
     <p class="footer-copyright">&copy; 2026 Gyuwon Na. All rights reserved.</p>
   </footer>
   <script src="../../js/index.js"></script>
+  <script src="../../js/research-navigator.js"></script>
 
   <script src="https://unpkg.com/lucide@latest"></script>
   <script>

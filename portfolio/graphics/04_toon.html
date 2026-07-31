@@ -70,7 +70,7 @@
             <i data-lucide="calendar" aria-hidden="true"></i> MAY 2025
           </span>
           <span class="project-type">
-            <i data-lucide="award" aria-hidden="true"></i> CS250 Coursework
+            <i data-lucide="tag" aria-hidden="true"></i> CS250 Coursework
           </span>
         </div>
         <div class="tech-stack-detailed" style="justify-content: center; margin-top: 20px;">
@@ -148,13 +148,16 @@
       </div>
 
       <div class="detail-section">
-        <h2 class="detail-section-title">Reflection & Future Work</h2>
-        <div class="project-highlights" style="background: rgba(0, 122, 255, 0.02); border-left-color: var(--clr-text-main);">
-          <ul class="highlights-list">
-            <li><strong>Reflection:</strong> </li>
-            <li><strong>Future Work:</strong> </li>
-          </ul>
-        </div>
+        <h2 class="detail-section-title">Reflection</h2>
+        <p class="detail-text">
+          This project helped me understand how non-photorealistic rendering depends on deliberately simplifying
+          lighting information rather than making the scene physically realistic. Implementing toon shading made the
+          relationship between normals, light direction, ramp thresholds, and final visual style much clearer.
+        </p>
+      </div>
+      <div class="project-next">
+        <a href="03_fog.html" class="action-btn secondary"><i data-lucide="arrow-left"></i> Fog</a>
+        <a href="05_shadow.html" class="action-btn secondary">Shadow Mapping <i data-lucide="arrow-right"></i></a>
       </div>
     </section>
   </main>
@@ -173,6 +176,7 @@
     <p class="footer-copyright">&copy; 2026 Gyuwon Na. All rights reserved.</p>
   </footer>
   <script src="../../js/index.js"></script>
+  <script src="../../js/research-navigator.js"></script>
 
   <script src="https://unpkg.com/lucide@latest"></script>
   <script>

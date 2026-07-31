@@ -64,7 +64,7 @@
 
 <body>
 
-  <!-- Floating Navigation (기존�??�일) -->
+  <!-- Floating navigation -->
   <div class="floating-nav-container" id="navContainer" role="navigation" aria-label="Main navigation">
     <button class="theme-toggle-btn" id="themeToggle" aria-label="Switch to dark mode" aria-pressed="false">
       <i class="fa-solid fa-moon" aria-hidden="true"></i>
@@ -103,17 +103,24 @@
         </h1>
         <div class="project-meta" style="justify-content: center; margin-top: 20px;">
           <span class="project-date">
-            <i data-lucide="calendar" aria-hidden="true"></i> DEC 2025 - FEB 2026
+            <i data-lucide="calendar" aria-hidden="true"></i> OCT 2025 - FEB 2026
           </span>
           <span class="project-type">
-            <i data-lucide="award" aria-hidden="true"></i> KAIST Mobility Challenge Competition
+            <i data-lucide="user" aria-hidden="true"></i> Systems Engineer
+          </span>
+          <span class="project-type">
+            <i data-lucide="award" aria-hidden="true"></i> 3rd Place
+          </span>
+          <span class="project-type">
+            <i data-lucide="tag" aria-hidden="true"></i> KAIST Mobility Challenge Competition
           </span>
         </div>
         <div class="tech-stack-detailed" style="justify-content: center; margin-top: 20px;">
           <span class="tech-badge">ROS2 Foxy</span>
+          <span class="tech-badge">Cooperative Control</span>
+          <span class="tech-badge">Overtaking Algorithm</span>
           <span class="tech-badge">C++</span>
           <span class="tech-badge">Python</span>
-          <span class="tech-badge">Linux</span>
           <span class="tech-badge">Docker</span>
         </div>
       </div>
@@ -121,7 +128,6 @@
 
     <!-- Main Content Section -->
     <section class="detail-content">
-      <!-- 1. Demo Video (?�중???�렬 + ?�상 ?�버 ?�과) -->
       <h1 class="detail-section-title">Demo Video</h1>
       <div class="detail-section" style="margin-top: -20px;">
         <a href="https://youtu.be/X6_6XrGptqQ?si=D7Mj_nsYNKSff-gz" target="_blank" rel="noopener noreferrer"
@@ -130,7 +136,7 @@
           <div style="
             position: relative;
             width: 100%;
-            padding-bottom: 56.25%; /* 16:9 비율 ?��? */
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
             background-image: url('https://img.youtube.com/vi/X6_6XrGptqQ/maxresdefault.jpg'); 
             background-size: cover; 
             background-position: center; 
@@ -140,11 +146,9 @@
           " onmouseover="this.querySelector('i').style.color='#ff0000'"
             onmouseout="this.querySelector('i').style.color='white'">
 
-            <!-- ?��?지�??�짝 ?�둡�???��주는 ?�버?�이 -->
             <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.3);">
             </div>
 
-            <!-- ?�벽?�게 중앙 ?�렬???�튜�?로고 -->
             <i class="fa-brands fa-youtube" style="
               position: absolute;
               top: 50%;
@@ -501,7 +505,7 @@
 
       </div>
 
-      <!-- Reflection & Future Work (?�고 �?발전 방향) -->
+      <!-- Reflection & Future Work -->
       <div class="detail-section">
         <h2 class="detail-section-title">Reflection & Future Work</h2>
 
@@ -547,11 +551,16 @@
           </ul>
         </div>
       </div>
+
+      <div class="project-next">
+        <a href="HACKATHON.html" class="action-btn secondary"><i data-lucide="arrow-left"></i> SEA:ME Hackathon</a>
+        <a href="creative_mobility.html" class="action-btn secondary">1/2-Scale Vehicle Platform <i data-lucide="arrow-right"></i></a>
+      </div>
     </section>
 
   </main>
 
-  <!-- Footer (기존�??�일) -->
+  <!-- Footer -->
   <footer class="footer">
     <ul class="social-list">
       <li class="social-list__item"><a class="social-list__link" href="mailto:uoyuvvou@gmail.com"><i
@@ -566,12 +575,12 @@
     <p class="footer-copyright">&copy; 2026 Gyuwon Na. All rights reserved.</p>
   </footer>
   <script src="../../js/index.js"></script>
+  <script src="../../js/research-navigator.js"></script>
 
   <script src="https://unpkg.com/lucide@latest"></script>
   <script>
     lucide.createIcons();
 
-    // ?�비게이???��? ?�크립트 (기존�??�일)
     function toggleNav() {
       const container = document.getElementById('navContainer');
       const triggerBtn = container.querySelector('.nav-trigger-btn');

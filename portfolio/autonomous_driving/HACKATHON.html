@@ -5,9 +5,9 @@
   <meta charset="UTF-8">
   <link rel="icon" type="image/svg+xml" href="../../img/face.jpg">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>V2X Cooperative Driving</title>
+  <title>Vision-Only Driving System</title>
   <meta name="description"
-    content="Details about the V2X-Based Cooperative Driving System project for KAIST Mobility Challenge Competition.">
+    content="A ROS2-based vision-only autonomous driving system developed for the 2026 SEA:ME Hackathon, achieving the Silver Award and 4th place overall.">
 
   <!-- Normalize -->
   <link rel="stylesheet" href="../../external/normalize.css" />
@@ -39,11 +39,103 @@
 
   <link rel="stylesheet" href="../../css/style.css" />
   <link rel="stylesheet" href="../../css/projects.css" />
+  <style>
+    .hackathon-dash-list li {
+      padding-left: 30px;
+    }
+
+    .hackathon-dash-list li::before {
+      content: "";
+      display: block;
+      position: absolute;
+      width: 14px;
+      height: 2px;
+      border-radius: 999px;
+      background: var(--clr-accent);
+      left: 0;
+      top: 0.82em;
+    }
+
+    .hackathon-dash-list li strong {
+      color: var(--clr-text-main);
+    }
+
+    .hackathon-role-card {
+      background: var(--clr-bg-alt);
+      padding: 20px 20px 20px 24px;
+      border-radius: 12px;
+      border-left: 3px solid var(--role-accent, var(--clr-accent));
+    }
+
+    .hackathon-role-card h3 {
+      color: var(--role-accent, var(--clr-accent));
+      font-size: 1.15rem;
+      margin-bottom: 15px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .hackathon-flow-step {
+      display: grid;
+      grid-template-columns: 86px minmax(0, 1fr);
+      gap: 12px;
+      align-items: stretch;
+    }
+
+    .hackathon-flow-label {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      border-radius: 8px;
+      background: rgba(0, 122, 255, 0.08);
+      color: var(--clr-accent);
+      font-weight: 700;
+      text-align: center;
+      padding: 10px 6px;
+    }
+
+    .hackathon-flow-label span:last-child {
+      font-size: 0.75rem;
+      opacity: 0.82;
+    }
+
+    .hackathon-flow-content {
+      padding: 14px 16px;
+      border-radius: 8px;
+      background: var(--clr-bg);
+      border: 1px solid rgba(128, 128, 128, 0.18);
+    }
+
+    .hackathon-flow-arrow {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-left: 36px;
+      color: var(--clr-accent);
+    }
+
+    .hackathon-flow-arrow span {
+      font-size: 0.86rem;
+      opacity: 0.82;
+    }
+
+    @media (max-width: 560px) {
+      .hackathon-flow-step {
+        grid-template-columns: 64px minmax(0, 1fr);
+      }
+
+      .hackathon-flow-arrow {
+        margin-left: 23px;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-  <!-- Floating Navigation (기존�??�일) -->
+  <!-- Floating Navigation -->
   <div class="floating-nav-container" id="navContainer" role="navigation" aria-label="Main navigation">
     <button class="theme-toggle-btn" id="themeToggle" aria-label="Switch to dark mode" aria-pressed="false">
       <i class="fa-solid fa-moon" aria-hidden="true"></i>
@@ -78,113 +170,473 @@
         </a>
       </div>
       <div class="container">
-        <h1 class="projects-hero__title" style="font-size: clamp(2rem, 4vw, 3rem);">V2X Cooperative Driving</h1>
+        <h1 class="projects-hero__title" style="font-size: clamp(2rem, 4vw, 3rem);">
+          Vision-Only Driving System
+        </h1>
         <div class="project-meta" style="justify-content: center; margin-top: 20px;">
           <span class="project-date">
             <i data-lucide="calendar" aria-hidden="true"></i> JUL 2026
           </span>
           <span class="project-type">
-            <i data-lucide="award" aria-hidden="true"></i> KAIST Mobility Challenge Competition
+            <i data-lucide="user" aria-hidden="true"></i> Lead Autonomous Systems Engineer
+          </span>
+          <span class="project-type">
+            <i data-lucide="award" aria-hidden="true"></i> 4th Place
+          </span>
+          <span class="project-type">
+            <i data-lucide="tag" aria-hidden="true"></i> SEA:ME Hackathon
           </span>
         </div>
         <div class="tech-stack-detailed" style="justify-content: center; margin-top: 20px;">
-          <span class="tech-badge">ROS2 Foxy</span>
-          <span class="tech-badge">C++</span>
-          <span class="tech-badge">Python</span>
-          <span class="tech-badge">Linux</span>
-          <span class="tech-badge">Docker</span>
+          <span class="tech-badge">ROS2 Humble</span>
+          <span class="tech-badge">Vision-Only</span>
+          <span class="tech-badge">Embedded Systems</span>
+          <span class="tech-badge">NCNN</span>
+          <span class="tech-badge">Pure Pursuit</span>
+          <span class="tech-badge">TOPST D3-G</span>
         </div>
       </div>
     </section>
 
     <!-- Main Content Section -->
     <section class="detail-content">
-      <!-- 1. Demo Video (?�중???�렬 + ?�상 ?�버 ?�과) -->
-      <h1 class="detail-section-title">Demo Video</h1>
+      <h1 class="detail-section-title">Early Test Footage</h1>
       <div class="detail-section" style="margin-top: -20px;">
-        <a href="https://youtu.be/X6_6XrGptqQ?si=D7Mj_nsYNKSff-gz" target="_blank" rel="noopener noreferrer"
-          style="text-decoration: none;">
-
-          <div style="
-            position: relative;
-            width: 100%;
-            padding-bottom: 56.25%; /* 16:9 비율 ?��? */
-            background-image: url('https://img.youtube.com/vi/X6_6XrGptqQ/maxresdefault.jpg'); 
-            background-size: cover; 
-            background-position: center; 
-            border-radius: 16px;
-            overflow: hidden;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.08);
-          " onmouseover="this.querySelector('i').style.color='#ff0000'"
-            onmouseout="this.querySelector('i').style.color='white'">
-
-            <!-- ?��?지�??�짝 ?�둡�???��주는 ?�버?�이 -->
-            <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.3);">
-            </div>
-
-            <!-- ?�벽?�게 중앙 ?�렬???�튜�?로고 -->
-            <i class="fa-brands fa-youtube" style="
-              position: absolute;
-              top: 50%;
-              left: 50%;
-              transform: translate(-50%, -50%);
-              font-size: 5rem; 
-              color: white; 
-              z-index: 10; 
-              transition: color 0.2s ease-in-out;
-              filter: drop-shadow(0 4px 10px rgba(0,0,0,0.3));
-            "></i>
-
-          </div>
-        </a>
+        <div class="detail-figure">
+          <video controls muted playsinline preload="metadata" style="object-fit: contain; background: #000;">
+            <source src="../../img/video/bisa/hackathon.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
       </div>
 
       <!-- Overview -->
       <div class="detail-section">
         <h2 class="detail-section-title">Overview</h2>
         <p class="detail-text">
-          ?�떤 ?�로?�트?��??
-          - ?�로?�트??목적
-          -주요 ?�과
-          -?�스???�심 기능
+          This project is a <strong>camera-driven autonomous racing system</strong> developed for the 2026 SEA:ME
+          Hackathon. A compact D-Racer vehicle had to complete a mission track containing a traffic-light start,
+          high-curvature S-bends, a direction-sign-controlled Y-junction, a roundabout, a dynamic obstacle, and a
+          traffic-light finish. Missing a sign, stopping before the obstacle appeared, leaving before it cleared, or
+          failing to complete the roundabout was treated as a mission failure, so the system needed both fast perception
+          and deterministic mission logic.
+          <br><br>
+          As the <strong>team lead and a core autonomy software engineer</strong>, I led the integration of perception,
+          mission-state management, vehicle control, visualization, and hardware interfaces into a unified ROS2 system.
+          The final vehicle recorded a <strong>56-second run</strong>, earning the <strong>Silver Award and 4th place
+            overall</strong>, only <strong>0.03 seconds behind 3rd place</strong>.
         </p>
       </div>
+
       <div class="detail-section">
         <h2 class="detail-section-title">Key Achievements</h2>
-        <ul class="highlights-list">
-          <li>Implemented lane-recognition-based driving behavior in MORAI simulation.</li>
-          <li>Designed decision logic for rotary entry and scenario transitions.</li>
-          <li>Handled obstacle-aware behavior for safer virtual navigation.</li>
+        <ul class="highlights-list hackathon-dash-list">
+          <li>
+            <strong>Silver Award · 4th Overall:</strong> Completed the course in 56 seconds, finishing just 0.03 seconds
+            behind the 3rd-place team.
+          </li>
+          <li>
+            <strong>3.3× Faster Perception:</strong> Increased the end-to-end perception pipeline from approximately
+            6 FPS to a stable 20 FPS by identifying bottlenecks across image transport, model inference, ROS2 execution,
+            and visualization.
+          </li>
+          <li>Integrated camera acquisition, classical lane perception,
+            NCNN object detection, temporal filtering, mission FSMs, steering and throttle control, and actuator output.
+          </li>
+          <li> Implemented lane following, traffic-light recognition,
+            direction-sign decisions, Y-junction navigation, dynamic-obstacle handling, and
+            finish-state stopping using a single front camera.
+          </li>
+          <li>Added live ROS2 parameter tuning, visual overlays, detector
+            status topics, and separate debug streams so failures could be diagnosed and corrected during track tests.
+          </li>
         </ul>
       </div>
+
       <div class="detail-section">
-        <h2 class="detail-section-title">My Role & Contributions</h2>
-        <p class="detail-text">
-          -?��? 직접 ?�계?�고 구현??부�?
+        <h2 class="detail-section-title">My Role &amp; Contributions</h2>
+        <p class="detail-text" style="margin-bottom: 25px;">
+          My contributions covered the full loop from camera frames to physical steering and
+          throttle commands, with particular emphasis on real-time performance, mission reliability, and rapid field
+          iteration. I also assembled the vehicle hardware and configured the onboard computing platform when the kit
+          was first delivered.
         </p>
+
+        <div style="display: grid; gap: 30px;">
+          <section class="hackathon-role-card" style="--role-accent: var(--clr-accent);">
+            <h3>
+              <i data-lucide="scan-eye" style="width: 20px; height: 20px;"></i> Perception &amp; Scene Understanding
+            </h3>
+            <ul class="highlights-list hackathon-dash-list">
+              <li style="margin-bottom: 10px;">
+                <strong>Lane Geometry:</strong> Built a LAB-based lane pipeline with morphology, Canny edges,
+                Hough features, quadratic curve fitting, road-mask centroids, and historical lane-width tracking.
+              </li>
+              <li style="margin-bottom: 10px;">
+                <strong>Mission Objects:</strong> Integrated NCNN inference for traffic lights and left/right signs,
+                row-based traffic-light color verification, and ArUco marker detection for the dynamic obstacle.
+              </li>
+              <li>
+                <strong>Temporal Robustness:</strong> Added k-of-n voting, consecutive-frame checks, stale-result
+                rejection, and latched decisions to prevent one noisy frame from changing vehicle behavior.
+              </li>
+            </ul>
+          </section>
+
+          <section class="hackathon-role-card" style="--role-accent: #ff9800;">
+            <h3>
+              <i data-lucide="route" style="width: 20px; height: 20px;"></i> Mission Planning &amp; Vehicle Control
+            </h3>
+            <ul class="highlights-list hackathon-dash-list">
+              <li style="margin-bottom: 10px;">
+                <strong>Mission-State Machines:</strong> Structured the course as explicit states for waiting, launch,
+                S-curve driving, sign approach, fork commit, obstacle stop, resume, and final stop.
+              </li>
+              <li style="margin-bottom: 10px;">
+                <strong>Path Tracking:</strong> Implemented a Pure Pursuit controller with adaptive lookahead,
+                curvature feedforward, command clamping, and rate limiting for the short-wheelbase platform.
+              </li>
+              <li>
+                <strong>Speed Scheduling:</strong> Reduced throttle according to steering demand, curvature, and mission
+                phase while keeping acceleration ramped and emergency stops immediate.
+              </li>
+            </ul>
+          </section>
+
+          <section class="hackathon-role-card" style="--role-accent: #4caf50;">
+            <h3>
+              <i data-lucide="cpu" style="width: 20px; height: 20px;"></i> Real-Time Systems &amp; Optimization
+            </h3>
+            <ul class="highlights-list hackathon-dash-list">
+              <li style="margin-bottom: 10px;">
+                <strong>Embedded Inference:</strong> Converted and deployed the detector through NCNN, tuned inference
+                resolution and thread counts, and used mission-dependent ROIs to avoid processing irrelevant pixels.
+              </li>
+              <li style="margin-bottom: 10px;">
+                <strong>Process Isolation:</strong> Moved model inference into a spawned process using a fixed
+                shared-memory latest-frame buffer, preventing NCNN initialization and inference from blocking ROS2
+                callbacks. I then profiled CPU utilization and applied additional system-level optimizations.
+              </li>
+              <li>
+                <strong>Fresh-Data ROS2 Design:</strong> Used shallow BEST_EFFORT image queues, separated callback
+                groups,
+                capped debug publication, and latest-result queues to prioritize current frames over stale backlog.
+              </li>
+            </ul>
+          </section>
+        </div>
       </div>
 
       <div class="detail-section">
         <h2 class="detail-section-title">Technical Highlights</h2>
-        <p class="detail-text">
-          - ?�스???�체 ?�이???�름 그림
-          - ??기술?????�떻�??�는지
-        </p>
+
+        <div class="project-highlights"
+          style="background: var(--clr-bg-alt); border-left-color: var(--clr-accent); margin-bottom: 28px;">
+          <div style="display: grid; gap: 10px;">
+            <div class="hackathon-flow-step">
+              <div class="hackathon-flow-label">
+                <span>01</span>
+                <span>INPUT</span>
+              </div>
+              <div class="hackathon-flow-content">
+                <strong>USB Camera / ROS2 Compressed Image</strong><br>
+                <span style="font-size: 0.92rem; opacity: 0.78;">front-view frames from the D-Racer platform</span>
+              </div>
+            </div>
+
+            <div class="hackathon-flow-arrow">
+              <i data-lucide="arrow-down" style="width: 18px; height: 18px;"></i>
+              <span>decode once and route the newest frame to parallel perception paths</span>
+            </div>
+
+            <div class="hackathon-flow-step">
+              <div class="hackathon-flow-label">
+                <span>02</span>
+                <span>PERCEIVE</span>
+              </div>
+              <div class="hackathon-flow-content">
+                <strong>Classical Vision + NCNN + ArUco</strong><br>
+                <span style="font-size: 0.92rem; opacity: 0.78;">LAB lane masks, Hough curves, traffic lights,
+                  direction signs, and dynamic-obstacle marker</span>
+                <div style="display: grid; gap: 7px; margin-top: 12px;">
+                  <div
+                    style="padding: 9px 11px; border-radius: 8px; background: rgba(128,128,128,0.08); border: 1px solid rgba(128,128,128,0.14);">
+                    <strong>Fast path:</strong> lane geometry and curvature on each usable camera frame
+                  </div>
+                  <div
+                    style="padding: 9px 11px; border-radius: 8px; background: rgba(128,128,128,0.08); border: 1px solid rgba(128,128,128,0.14);">
+                    <strong>Model path:</strong> rate-limited NCNN inference in a separate process
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="hackathon-flow-arrow">
+              <i data-lucide="arrow-down" style="width: 18px; height: 18px;"></i>
+              <span>filter detections across time and reject stale observations</span>
+            </div>
+
+            <div class="hackathon-flow-step">
+              <div class="hackathon-flow-label">
+                <span>03</span>
+                <span>INTERPRET</span>
+              </div>
+              <div class="hackathon-flow-content">
+                <strong>Temporal Evidence Layer</strong><br>
+                <span style="font-size: 0.92rem; opacity: 0.78;">k-of-n votes, consecutive-frame confirmation,
+                  locked sign decisions, and obstacle clear windows</span>
+              </div>
+            </div>
+
+            <div class="hackathon-flow-arrow">
+              <i data-lucide="arrow-down" style="width: 18px; height: 18px;"></i>
+              <span>combine observations with the current course phase</span>
+            </div>
+
+            <div class="hackathon-flow-step">
+              <div class="hackathon-flow-label">
+                <span>04</span>
+                <span>DECIDE</span>
+              </div>
+              <div class="hackathon-flow-content">
+                <strong>Mission Finite-State Machine</strong><br>
+                <span style="font-size: 0.92rem; opacity: 0.78;">selects lane following, sharp S-curve handling, sign voting, fork commitment,
+                  stopping, waiting, resuming, or finishing behavior</span>
+              </div>
+            </div>
+
+            <div class="hackathon-flow-arrow">
+              <i data-lucide="arrow-down" style="width: 18px; height: 18px;"></i>
+              <span>convert mission targets into bounded steering and throttle</span>
+            </div>
+
+            <div class="hackathon-flow-step">
+              <div class="hackathon-flow-label">
+                <span>05</span>
+                <span>CONTROL</span>
+              </div>
+              <div class="hackathon-flow-content">
+                <strong>Pure Pursuit Controller</strong><br>
+                <span style="font-size: 0.92rem; opacity: 0.78;">adaptive lookahead, curvature-aware speed,
+                  steering limits, and command-rate limiting</span>
+              </div>
+            </div>
+
+            <div class="hackathon-flow-arrow">
+              <i data-lucide="arrow-down" style="width: 18px; height: 18px;"></i>
+              <span>publish normalized commands through the ROS2 control interface</span>
+            </div>
+
+            <div class="hackathon-flow-step">
+              <div class="hackathon-flow-label">
+                <span>06</span>
+                <span>OUTPUT</span>
+              </div>
+              <div class="hackathon-flow-content">
+                <strong>D-Racer Steering &amp; Throttle Actuators</strong><br>
+                <span style="font-size: 0.92rem; opacity: 0.78;">real-time /control commands executed by the
+                  physical vehicle</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <ul class="highlights-list hackathon-dash-list" style="margin-top: 10px;">
+          <li>
+            <strong>Mission-aware computation:</strong> The detector changed its ROI according to the FSM phase, using a
+            focused traffic-light crop before launch and a wider region when approaching the fork.
+          </li>
+          <li>
+            <strong>Graceful degradation:</strong> When one lane boundary disappeared, the system used tracked lane
+            width,
+            prior boundary identity, and the last valid center rather than immediately producing a discontinuous
+            command.
+          </li>
+        </ul>
       </div>
 
+      <!-- Challenges & Solutions -->
       <div class="detail-section">
-        <h2 class="detail-section-title">Challenges & Solutions</h2>
-        <p class="detail-text">
-          - 문제 ?�황>?�결방법>결과
-        </p>
+        <h2 class="detail-section-title">Challenges &amp; Solutions</h2>
+
+        <article class="challenge-card">
+          <div class="challenge-header">
+            <span class="challenge-header-num">1</span>
+            Reaching Real-Time Perception on an Embedded Platform
+          </div>
+
+          <div class="cs-box problem">
+            <div class="cs-box-title">
+              <i data-lucide="alert-triangle" style="width:18px; height:18px;"></i> Challenge
+            </div>
+            <p>
+              Because the vehicle had to run without the SSH dongle, all computation needed to execute on the onboard
+              embedded platform. The first integrated pipeline processed only about <strong>6 FPS</strong>. Camera
+              decoding, full-frame model inference, visualization, and ROS2 callbacks competed for the same CPU
+              resources, producing delayed observations and unstable steering. Under heavy load, the board also
+              experienced shutdowns during operation.
+            </p>
+          </div>
+
+          <div class="cs-box solution">
+            <div class="cs-box-title">
+              <i data-lucide="lightbulb" style="width:18px; height:18px;"></i> Solution
+            </div>
+            <p>
+              I profiled the pipeline and optimized it as a system rather than only shrinking the model. I introduced
+              <strong>NCNN inference, phase-specific ROIs, controlled thread counts, a spawned inference process, a
+                fixed shared-memory latest-frame slot, shallow BEST_EFFORT queues, and rate-limited debug
+                output</strong>.
+              Together, these changes raised throughput to a stable <strong>20 FPS</strong>, a <strong>3.3×
+                improvement</strong>, while keeping control callbacks responsive.
+            </p>
+          </div>
+        </article>
+
+        <article class="challenge-card">
+          <div class="challenge-header">
+            <span class="challenge-header-num">2</span>
+            Preserving Lane Identity Through Sharp Curves
+          </div>
+
+          <div class="cs-box problem">
+            <div class="cs-box-title">
+              <i data-lucide="alert-triangle" style="width:18px; height:18px;"></i> Challenge
+            </div>
+            <p>
+              In tight bends, only one boundary could remain visible and could even cross the image center. A naive
+              left-half/right-half classification then mislabeled the right boundary as the left lane, causing the
+              controller to steer farther into the curve and leave the track.
+            </p>
+          </div>
+
+          <div class="cs-box solution">
+            <div class="cs-box-title">
+              <i data-lucide="lightbulb" style="width:18px; height:18px;"></i> Solution
+            </div>
+            <p>
+              I combined <strong>quadratic x(y) curve fitting</strong> with temporal boundary tracking. Previous left
+              and
+              right targets, tracked lane width, the prior lane center, and a curvature hint were used to preserve lane
+              identity when only one curve was visible. Adaptive lookahead and curvature-aware throttle then reduced
+              overshoot on the most aggressive S-bends.
+            </p>
+          </div>
+        </article>
+
+        <article class="challenge-card">
+          <div class="challenge-header">
+            <span class="challenge-header-num">3</span>
+            Making the Y-Junction Decision Repeatable
+          </div>
+
+          <div class="cs-box problem">
+            <div class="cs-box-title">
+              <i data-lucide="alert-triangle" style="width:18px; height:18px;"></i> Challenge
+            </div>
+            <p>
+              The direction sign was small at distance, and entering the fork while still following the ordinary lane
+              center biased the vehicle toward the geometrically closer branch. A single incorrect sign frame or a late
+              steering command could therefore select the wrong route and immediately fail the mission.
+            </p>
+          </div>
+
+          <div class="cs-box solution">
+            <div class="cs-box-title">
+              <i data-lucide="lightbulb" style="width:18px; height:18px;"></i> Solution
+            </div>
+            <p>
+              I separated sign acquisition from branch execution. The vehicle slowed, stopped after a controlled delay,
+              cleared old detections, and performed a fresh <strong>k-of-n stationary vote</strong>. Once selected, the
+              LEFT or RIGHT decision was latched and converted into a virtual lane target with a forced directional
+              error. The system maintained that target through a timed commit phase, then reset fork history after a
+              single lane was reacquired.
+            </p>
+          </div>
+        </article>
+
+        <article class="challenge-card">
+          <div class="challenge-header">
+            <span class="challenge-header-num">4</span>
+            Closing the Training-to-Deployment Gap in Traffic-Light Detection
+          </div>
+
+          <div class="cs-box problem">
+            <div class="cs-box-title">
+              <i data-lucide="alert-triangle" style="width:18px; height:18px;"></i> Challenge
+            </div>
+            <p>
+              During the first official run, the vehicle failed to launch even after the traffic light turned green. The
+              detector had been trained primarily on close-range traffic-light images, so it did not generalize reliably
+              to the approximately two-meter viewing distance at the starting line. We had also planned a timeout-based
+              fallback launch, but a communication gap within the team meant that the fallback was not integrated before
+              the run.
+            </p>
+          </div>
+
+          <div class="cs-box solution">
+            <div class="cs-box-title">
+              <i data-lucide="lightbulb" style="width:18px; height:18px;"></i> Solution
+            </div>
+            <p>
+              Rather than retraining the NCNN model under competition time constraints, I introduced a dedicated
+              traffic-light ROI. The system cropped the expected light region and rescaled it to the detector input size,
+              increasing the apparent object scale and enabling reliable inference from farther away.
+            </p>
+          </div>
+        </article>
       </div>
 
+      <!-- Reflection & Future Work -->
       <div class="detail-section">
         <h2 class="detail-section-title">Reflection</h2>
-        <p class="detail-text">
-          - 배운 ??
-          - ?�쉬????& 발전 방향
+        <p class="detail-text" style="margin-bottom: 25px;">
+          The event also used an explicitly AI-assisted development workflow. I used coding agents to accelerate
+          implementation and refactoring, but physical testing remained the source of truth. This reinforced an
+          important engineering habit: generated code must still be reviewed against architecture, timing measurements,
+          telemetry, and real vehicle behavior rather than accepted simply because it compiles. Claude Code was also
+          useful in areas that were initially unfamiliar to me, including CPU utilization analysis, battery-voltage
+          monitoring, and power-related debugging. With its assistance, I traced repeated connection losses to the
+          vehicle's power and resource constraints and resolved the underlying issue.
         </p>
+        <p class="detail-text" style="margin-bottom: 25px;">
+          The hackathon also showed me that team performance depends on managing energy and working rhythms, not only
+          technical ability. Our team avoided major conflict, but sustained sleep deprivation still made communication
+          more fragile and occasionally brought us close to unnecessary tension. Observing similar scheduling conflicts
+          in other teams reinforced the importance of setting realistic work rotations, protecting rest, and addressing
+          friction early during high-pressure development.        </p>
+
+        <div class="project-highlights"
+          style="background: rgba(0, 122, 255, 0.02); border-left-color: var(--clr-text-main);">
+          <ul class="highlights-list hackathon-dash-list">
+            <li style="margin-bottom: 15px;">
+              <strong>Quantitative Validation:</strong> I would add automated rosbag replay benchmarks for lane error,
+              mission-event precision, control latency, and end-to-end success rate so parameter changes can be compared
+              with more than lap time alone.
+            </li>
+            <li style="margin-bottom: 15px;">
+              <strong>More Predictive Control:</strong> The current controller is intentionally lightweight and
+              competition-oriented. A future version could use a calibrated bicycle model with MPC to optimize steering
+              and speed jointly under actuator and track-boundary constraints.
+            </li>
+            <li style="margin-bottom: 15px;">
+              <strong>Stronger Localization &amp; Fusion:</strong> Adding wheel odometry and IMU estimates would make
+              roundabout progress, fork commitment, and temporary lane-loss recovery less dependent on visual
+              heuristics.
+            </li>
+            <li>
+              <strong>Production-Oriented ROS2 Execution:</strong> I would move more hot-path components to C++,
+              evaluate
+              composable nodes and zero-copy transport, and define explicit QoS contracts and watchdogs for each data
+              stream.
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="project-next project-next--end">
+        <a href="V2X.html" class="action-btn secondary">V2X-Based Cooperative Driving System <i
+            data-lucide="arrow-right"></i></a>
       </div>
     </section>
 
@@ -204,6 +656,7 @@
     <p class="footer-copyright">&copy; 2026 Gyuwon Na. All rights reserved.</p>
   </footer>
   <script src="../../js/index.js"></script>
+  <script src="../../js/research-navigator.js"></script>
 
   <script src="https://unpkg.com/lucide@latest"></script>
   <script>

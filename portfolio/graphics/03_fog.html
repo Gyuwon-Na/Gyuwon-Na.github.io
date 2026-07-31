@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <link rel="icon" type="image/svg+xml" href="../../img/face.jpg">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Fog</title>
+  <title>Fog Rendering</title>
   <meta name="description" content="Details about the Fog project for the 3D Graphics course.">
 
   <!-- Normalize -->
@@ -75,13 +75,13 @@
         </a>
       </div>
       <div class="container">
-        <h1 class="projects-hero__title" style="font-size: clamp(2rem, 4vw, 3rem);">Fog</h1>
+        <h1 class="projects-hero__title" style="font-size: clamp(2rem, 4vw, 3rem);">Fog Rendering</h1>
         <div class="project-meta" style="justify-content: center; margin-top: 20px;">
           <span class="project-date">
             <i data-lucide="calendar" aria-hidden="true"></i> APR 2025
           </span>
           <span class="project-type">
-            <i data-lucide="award" aria-hidden="true"></i> CS250 Coursework
+            <i data-lucide="tag" aria-hidden="true"></i> CS250 Coursework
           </span>
         </div>
         <div class="tech-stack-detailed" style="justify-content: center; margin-top: 20px;">
@@ -129,47 +129,20 @@
           </ul>
         </div>
       </div>
-
-      <!-- Challenges & Solutions -->
-      <div class="detail-section">
-        <h2 class="detail-section-title">Challenges & Solutions</h2>
-        
-        <article class="challenge-card">
-          <div class="challenge-header">
-            <span class="challenge-header-num">1</span>
-          </div>
-
-          <div class="cs-box problem">
-            <div class="cs-box-title">
-              <i data-lucide="alert-triangle" style="width:18px; height:18px;"></i> Challenge
-            </div>
-            <p></p>
-          </div>
-
-          <div class="cs-box solution">
-            <div class="cs-box-title">
-              <i data-lucide="lightbulb" style="width:18px; height:18px;"></i> Solution
-            </div>
-            <p></p>
-          </div>
-        </article>
-
-      </div>
-
       <!-- Reflection & Future Work -->
       <div class="detail-section">
-        <h2 class="detail-section-title">Reflection & Future Work</h2>
-        <div class="project-highlights" style="background: rgba(0, 122, 255, 0.02); border-left-color: var(--clr-text-main);">
-          <ul class="highlights-list">
-            <li>
-              I felt it somewhat counterintuitive and unnatural that in linear fog, when the fog near value is greater than the fog far value, objects closer to the camera become invisible while those farther away remain visible.
-            </li>
-            <li>
-              Although I did not encounter any major issues or errors during this project, this observation significantly deepened my understanding of calculation differences between various fog techniques.
-            </li>
-            <li><strong>Future Work:</strong> </li>
-          </ul>
-        </div>
+        <h2 class="detail-section-title">Reflection</h2>
+        <p class="detail-text">
+          I felt it somewhat counterintuitive and unnatural that in linear fog, when the fog near value is greater than
+          the fog far value, objects closer to the camera become invisible while those farther away remain visible.
+          Although I did not encounter any major issues or errors during this project, this observation significantly
+          deepened my understanding of calculation differences between various fog techniques.
+        </p>
+      </div>
+
+      <div class="project-next">
+        <a href="02_meshes.html" class="action-btn secondary"><i data-lucide="arrow-left"></i> Procedural Geometric Modeling</a>
+        <a href="04_toon.html" class="action-btn secondary">Toon Shading <i data-lucide="arrow-right"></i></a>
       </div>
     </section>
 
@@ -186,6 +159,7 @@
     <p class="footer-copyright">&copy; 2026 Gyuwon Na. All rights reserved.</p>
   </footer>
   <script src="../../js/index.js"></script>
+  <script src="../../js/research-navigator.js"></script>
 
   <script src="https://unpkg.com/lucide@latest"></script>
   <script>

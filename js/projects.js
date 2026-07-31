@@ -1,7 +1,12 @@
 document.addEventListener('DOMContentLoaded', () => {
   const filterButtons = document.querySelectorAll('.filter-btn');
   const projectCategories = document.querySelectorAll('.project-category');
-  const showOnlyButtons = document.querySelectorAll('.show-only-btn');
+  const validCategories = new Set(Array.from(filterButtons, (button) => button.dataset.category));
+
+  const getCategoryFromHash = () => {
+    const category = window.location.hash.slice(1);
+    return validCategories.has(category) ? category : 'all';
+  };
 
   const filterProjects = (category) => {
     projectCategories.forEach((section) => {
@@ -10,16 +15,38 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   };
 
+  const activateCategory = (category) => {
+    const targetCategory = validCategories.has(category) ? category : 'all';
+
+    filterButtons.forEach((button) => {
+      const isActive = button.dataset.category === targetCategory;
+      button.classList.toggle('active', isActive);
+      button.setAttribute('aria-selected', String(isActive));
+    });
+
+    filterProjects(targetCategory);
+    return targetCategory;
+  };
+
+  const updateHash = (category) => {
+    const nextUrl = category === 'all'
+      ? `${window.location.pathname}${window.location.search}`
+      : `#${category}`;
+    window.history.replaceState(null, '', nextUrl);
+  };
+
+  const scrollToCategory = (category) => {
+    const target = category === 'all'
+      ? document.querySelector('.projects-list')
+      : document.querySelector(`.project-category[data-category="${category}"]`);
+    target?.scrollIntoView({ block: 'start' });
+  };
+
   filterButtons.forEach((button, index) => {
     button.addEventListener('click', () => {
-      filterButtons.forEach((item) => {
-        item.classList.remove('active');
-        item.setAttribute('aria-selected', 'false');
-      });
-
-      button.classList.add('active');
-      button.setAttribute('aria-selected', 'true');
-      filterProjects(button.dataset.category);
+      const category = activateCategory(button.dataset.category);
+      updateHash(category);
+      scrollToCategory(category);
     });
 
     button.addEventListener('keydown', (event) => {
@@ -38,12 +65,13 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  showOnlyButtons.forEach((button) => {
-    button.addEventListener('click', () => {
-      const targetButton = document.querySelector(`.filter-btn[data-category="${button.dataset.targetCategory}"]`);
-      if (targetButton) targetButton.click();
-    });
-  });
+  const applyHashFilter = () => {
+    const category = activateCategory(getCategoryFromHash());
+    if (category !== 'all') {
+      window.requestAnimationFrame(() => scrollToCategory(category));
+    }
+  };
 
-  filterProjects('all');
+  window.addEventListener('hashchange', applyHashFilter);
+  applyHashFilter();
 });

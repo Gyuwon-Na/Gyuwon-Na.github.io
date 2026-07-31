@@ -7,6 +7,8 @@
   --clr-bg-alt: #f4f2ee;
   --clr-surface: #ffffff;
   --clr-surface-soft: #f8f7f5;
+  --clr-project-card-info: #f8f7f5;
+  --clr-project-tech-pill: #ffffff;
   --clr-text-main: #1d1d1f;
   --clr-text-sub: #86868b;
   --clr-accent: #007AFF;
@@ -48,6 +50,8 @@
   --clr-bg-alt: #1b1f26;
   --clr-surface: #20242c;
   --clr-surface-soft: #1c2027;
+  --clr-project-card-info: #262c36;
+  --clr-project-tech-pill: #303745;
   --clr-text-main: #f1f4f8;
   --clr-text-sub: #a6afbc;
   --clr-accent: #4da3ff;
@@ -722,9 +726,8 @@ section {
   object-fit: contain;
 }
 
-:root[data-theme="dark"] .tech-skill img[src*="unity"],
-:root[data-theme="dark"] .tech-skill img[src*="opengl"] {
-  filter: invert(1) brightness(1.08);
+:root[data-theme="dark"] .tech-skill img {
+  filter: brightness(0) invert(1);
 }
 
 .tech-mark {
@@ -737,6 +740,11 @@ section {
   font-family: var(--ff-secondary);
   font-size: 0.74rem;
   font-weight: 800;
+}
+
+:root[data-theme="dark"] .tech-mark {
+  background: #ffffff;
+  color: #15171c;
 }
 
 .tech-name {
@@ -1207,7 +1215,7 @@ section {
 /* Project Info */
 .project-card__info {
   padding: 30px 26px;
-  background-color: var(--clr-surface-soft);
+  background-color: var(--clr-project-card-info);
   border-top: 1px solid var(--clr-border);
   text-align: center;
   flex-grow: 1;
@@ -1233,7 +1241,7 @@ section {
 .tech-pill {
   font-size: 0.86rem;
   font-weight: 600;
-  background-color: var(--clr-surface);
+  background-color: var(--clr-project-tech-pill);
   color: var(--clr-text-sub);
   padding: 7px 15px;
   border-radius: 12px;
@@ -1246,7 +1254,7 @@ section {
 
 .project-card:hover .tech-pill {
   color: var(--clr-accent);
-  background-color: var(--clr-surface);
+  background-color: var(--clr-project-tech-pill);
   box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
 }
 
@@ -1670,4 +1678,39 @@ section {
   body {
     background: white;
   }
+}
+
+/* =========================================
+    Projects Thumbnail
+   ========================================= */
+   .img-standby {
+  object-position: center 0%;
+}
+   .img-hl {
+  object-position: center 55%;
+}
+   .img-hackathon {
+  object-position: center 80%;
+}
+
+
+.detail-return {
+  display: flex;
+  justify-content: center;
+  margin-top: 42px;
+  padding-top: 26px;
+}
+
+.detail-return__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--clr-text-sub);
+  font-size: 0.94rem;
+  font-weight: 700;
+}
+
+.detail-return__link:hover,
+.detail-return__link:focus-visible {
+  color: var(--clr-accent);
 }

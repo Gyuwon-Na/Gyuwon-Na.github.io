@@ -11,7 +11,34 @@
   font-size: clamp(2.5rem, 5vw, 4rem);
   font-weight: 900;
   line-height: 1.08;
-  margin-bottom: 1.5rem;
+  margin-bottom: 0;
+}
+
+.project-category-nav {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: var(--clr-nav-bg-strong);
+  border-bottom: 1px solid var(--clr-nav-border);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+}
+
+.project-category-nav .category-filter {
+  flex-wrap: nowrap;
+  justify-content: center;
+  margin-top: 0;
+  padding: 12px 0;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.project-category-nav .category-filter::-webkit-scrollbar {
+  display: none;
+}
+
+.project-category-nav .filter-btn {
+  flex: 0 0 auto;
 }
 
 .category-filter {
@@ -66,6 +93,11 @@
   display: block;
   padding: 0;
   margin-bottom: 76px;
+  scroll-margin-top: 82px;
+}
+
+.projects-list {
+  scroll-margin-top: 82px;
 }
 
 .project-category:last-child {
@@ -113,37 +145,6 @@
   margin: 0;
 }
 
-.show-only-btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  flex: 0 0 auto;
-  min-height: 42px;
-  padding: 10px 18px;
-  background: var(--clr-surface);
-  border: 1px solid var(--clr-border);
-  border-radius: 999px;
-  color: var(--clr-text-main);
-  cursor: pointer;
-  font-family: var(--ff-primary);
-  font-size: 0.92rem;
-  font-weight: 800;
-  transition: none;
-}
-
-.show-only-btn:hover,
-.show-only-btn:focus-visible {
-  border-color: rgba(0, 122, 255, 0.32);
-  color: var(--clr-accent);
-}
-
-.show-only-btn i,
-.show-only-btn svg {
-  width: 16px;
-  height: 16px;
-}
-
 .projects-list .project-grid {
   grid-template-columns: repeat(3, minmax(0, 1fr));
   align-items: stretch;
@@ -163,7 +164,7 @@
 }
 
 .projects-list .project-card__visual {
-  padding-top: 82%;
+  padding-top: 76%;
 }
 
 .projects-list .project-card__info {
@@ -206,8 +207,12 @@
     padding: 56px 16px 76px;
   }
 
-  .filter-btn {
-    flex: 1 1 calc(50% - 8px);
+  .project-category-nav .category-filter {
+    justify-content: flex-start;
+  }
+
+  .project-category-nav .filter-btn {
+    flex: 0 0 auto;
     padding: 10px 14px;
     font-size: 0.88rem;
   }

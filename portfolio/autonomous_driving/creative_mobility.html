@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <link rel="icon" type="image/svg+xml" href="../../img/face.jpg">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>1/2-Scale Autonomous Vehicle</title>
+  <title>1/2-Scale Vehicle Platform</title>
   <meta name="description"
     content="Details about the 1/2-Scale Autonomous Vehicle project for KAIST Mobility Challenge Competition.">
 
@@ -43,7 +43,7 @@
 
 <body>
 
-  <!-- Floating Navigation (Í∏∞Ï°¥Í≥??ôÏùº) -->
+  <!-- Floating navigation -->
   <div class="floating-nav-container" id="navContainer" role="navigation" aria-label="Main navigation">
     <button class="theme-toggle-btn" id="themeToggle" aria-label="Switch to dark mode" aria-pressed="false">
       <i class="fa-solid fa-moon" aria-hidden="true"></i>
@@ -78,29 +78,31 @@
         </a>
       </div>
       <div class="container">
-        <h1 class="projects-hero__title" style="font-size: clamp(2rem, 4vw, 3rem);">1/2-Scale Autonomous Vehicle</h1>
+        <h1 class="projects-hero__title" style="font-size: clamp(2rem, 4vw, 3rem);">1/2-Scale Vehicle Platform</h1>
         <div class="project-meta" style="justify-content: center; margin-top: 20px;">
           <span class="project-date">
             <i data-lucide="calendar" aria-hidden="true"></i> AUG 2025 - OCT 2025
           </span>
           <span class="project-type">
-            <i data-lucide="award" aria-hidden="true"></i> Student Creative Mobility Competition 2025 - Unmanned
+            <i data-lucide="user" aria-hidden="true"></i> Lead Perception Engineer
+          </span>
+          <span class="project-type">
+            <i data-lucide="tag" aria-hidden="true"></i> Student Creative Mobility Competition 2025 - Unmanned
             Mobility Division
           </span>
         </div>
         <div class="tech-stack-detailed" style="justify-content: center; margin-top: 20px;">
           <span class="tech-badge">ROS1 Noetic</span>
-          <span class="tech-badge">OpenCV</span>
-          <span class="tech-badge">Python</span>
-          <span class="tech-badge">C++</span>
-          <span class="tech-badge">Linux</span>
+          <span class="tech-badge">Object Detection</span>
+          <span class="tech-badge">Lane Following</span>
+          <span class="tech-badge">Obstacle Avoidance</span>
         </div>
       </div>
     </section>
 
     <!-- Main Content Section -->
     <section class="detail-content">
-      <!-- 1. Demo Video (?ïÏ§ë???ïÎ†¨ + ?âÏÉÅ ?∏Î≤Ñ ?®Í≥º) -->
+      <!-- Demo video -->
       <h1 class="detail-section-title">Demo Video</h1>
       <div class="detail-section" style="margin-top: -20px;">
         <a href="https://youtu.be/YCeGdbSMRuc?t=4669" target="_blank" rel="noopener noreferrer"
@@ -109,7 +111,7 @@
           <div style="
             position: relative;
             width: 100%;
-            padding-bottom: 56.25%; /* 16:9 ÎπÑÏú® ?†Ï? */
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
             background-image: url('https://img.youtube.com/vi/YCeGdbSMRuc/maxresdefault.jpg'); 
             background-size: cover; 
             background-position: center; 
@@ -119,11 +121,11 @@
           " onmouseover="this.querySelector('i').style.color='#ff0000'"
             onmouseout="this.querySelector('i').style.color='white'">
 
-            <!-- ?¥Î?ÏßÄÎ•??¥Ïßù ?¥Îë°Í≤???ñ¥Ï£ºÎäî ?§Î≤Ñ?àÏù¥ -->
+            <!-- Dark video overlay -->
             <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.3);">
             </div>
 
-            <!-- ?ÑÎ≤Ω?òÍ≤å Ï§ëÏïô ?ïÎ†¨???†ÌäúÎ∏?Î°úÍ≥† -->
+            <!-- Centered YouTube icon -->
             <i class="fa-brands fa-youtube" style="
               position: absolute;
               top: 50%;
@@ -218,10 +220,147 @@
 
       <div class="detail-section">
         <h2 class="detail-section-title">Technical Highlights</h2>
-        <p class="detail-text">
-          - ?úÏä§???ÑÏ≤¥ ?∞Ïù¥???êÎ¶Ñ Í∑∏Î¶º
-          - ??Í∏∞Ïà†?????¥ÎñªÍ≤??ºÎäîÏßÄ
-        </p>
+
+        <div class="project-highlights"
+          style="background: var(--clr-bg-alt); border-left-color: var(--clr-accent); margin-bottom: 28px;">
+          <div style="display: grid; gap: 10px;">
+            <div style="display: grid; grid-template-columns: 86px minmax(0, 1fr); gap: 12px; align-items: stretch;">
+              <div
+                style="display: flex; flex-direction: column; justify-content: center; align-items: center; border-radius: 8px; background: rgba(0, 122, 255, 0.08); color: var(--clr-accent); font-weight: 700; padding: 10px 6px; text-align: center;">
+                <span>01</span>
+                <span style="font-size: 0.75rem; opacity: 0.82;">INPUT</span>
+              </div>
+              <div
+                style="padding: 14px 16px; border-radius: 8px; background: var(--clr-bg); border: 1px solid rgba(128,128,128,0.18);">
+                <strong>USB Camera, ZED 2i, and u-blox F9P</strong><br>
+                <span style="font-size: 0.92rem; opacity: 0.78;">front-view images, stereo depth, and GNSS measurements from the physical vehicle</span>
+              </div>
+            </div>
+
+            <div style="display: flex; align-items: center; gap: 10px; margin-left: 36px; color: var(--clr-accent);">
+              <i data-lucide="arrow-down" style="width: 18px; height: 18px;"></i>
+              <span style="font-size: 0.86rem; opacity: 0.82;">standardize sensor streams and estimate the vehicle state</span>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 86px minmax(0, 1fr); gap: 12px; align-items: stretch;">
+              <div
+                style="display: flex; flex-direction: column; justify-content: center; align-items: center; border-radius: 8px; background: rgba(0, 122, 255, 0.08); color: var(--clr-accent); font-weight: 700; padding: 10px 6px; text-align: center;">
+                <span>02</span>
+                <span style="font-size: 0.75rem; opacity: 0.82;">LOCALIZE</span>
+              </div>
+              <div
+                style="padding: 14px 16px; border-radius: 8px; background: var(--clr-bg); border: 1px solid rgba(128,128,128,0.18);">
+                <strong>GNSS and Filtered State Estimation</strong><br>
+                <span style="font-size: 0.92rem; opacity: 0.78;"><code>ublox_f9p</code> provides positioning data, while <code>robot_localization</code> maintains a consistent pose and motion estimate for path and mission logic</span>
+              </div>
+            </div>
+
+            <div style="display: flex; align-items: center; gap: 10px; margin-left: 36px; color: var(--clr-accent);">
+              <i data-lucide="arrow-down" style="width: 18px; height: 18px;"></i>
+              <span style="font-size: 0.86rem; opacity: 0.82;">combine the current vehicle state with camera and depth observations</span>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 86px minmax(0, 1fr); gap: 12px; align-items: stretch;">
+              <div
+                style="display: flex; flex-direction: column; justify-content: center; align-items: center; border-radius: 8px; background: rgba(0, 122, 255, 0.08); color: var(--clr-accent); font-weight: 700; padding: 10px 6px; text-align: center;">
+                <span>03</span>
+                <span style="font-size: 0.75rem; opacity: 0.82;">PERCEIVE</span>
+              </div>
+              <div
+                style="padding: 14px 16px; border-radius: 8px; background: var(--clr-bg); border: 1px solid rgba(128,128,128,0.18);">
+                <strong>Vision and Stereo-Depth Perception</strong><br>
+                <span style="font-size: 0.92rem; opacity: 0.78;">lane geometry, traffic-light state, delivery signs, pedestrians, and obstacle distance are extracted inside the custom autonomy package</span>
+                <div style="display: grid; gap: 7px; margin-top: 12px;">
+                  <div
+                    style="padding: 9px 11px; border-radius: 8px; background: rgba(128,128,128,0.08); border: 1px solid rgba(128,128,128,0.14);">
+                    <strong>Monocular path:</strong> lane, traffic-light, and delivery-sign recognition from the front camera
+                  </div>
+                  <div
+                    style="padding: 9px 11px; border-radius: 8px; background: rgba(128,128,128,0.08); border: 1px solid rgba(128,128,128,0.14);">
+                    <strong>Depth path:</strong> ZED-based distance checks for pedestrian emergency braking
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div style="display: flex; align-items: center; gap: 10px; margin-left: 36px; color: var(--clr-accent);">
+              <i data-lucide="arrow-down" style="width: 18px; height: 18px;"></i>
+              <span style="font-size: 0.86rem; opacity: 0.82;">interpret detections according to the current waypoint and mission phase</span>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 86px minmax(0, 1fr); gap: 12px; align-items: stretch;">
+              <div
+                style="display: flex; flex-direction: column; justify-content: center; align-items: center; border-radius: 8px; background: rgba(0, 122, 255, 0.08); color: var(--clr-accent); font-weight: 700; padding: 10px 6px; text-align: center;">
+                <span>04</span>
+                <span style="font-size: 0.75rem; opacity: 0.82;">DECIDE</span>
+              </div>
+              <div
+                style="padding: 14px 16px; border-radius: 8px; background: var(--clr-bg); border: 1px solid rgba(128,128,128,0.18);">
+                <strong>Dictionary-Based Mission Management</strong><br>
+                <span style="font-size: 0.92rem; opacity: 0.78;">the active waypoint region selects the relevant behavior instead of allowing every detector to affect the vehicle at all times</span>
+                <div style="display: grid; gap: 7px; margin-top: 12px;">
+                  <div
+                    style="padding: 9px 11px; border-radius: 8px; background: rgba(128,128,128,0.08); border: 1px solid rgba(128,128,128,0.14);">
+                    <strong>Stop behaviors:</strong> traffic-light compliance, pedestrian AEB, and delivery-target stopping
+                  </div>
+                  <div
+                    style="padding: 9px 11px; border-radius: 8px; background: rgba(128,128,128,0.08); border: 1px solid rgba(128,128,128,0.14);">
+                    <strong>Driving behaviors:</strong> lane following, mission-specific speed selection, and controlled restart
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div style="display: flex; align-items: center; gap: 10px; margin-left: 36px; color: var(--clr-accent);">
+              <i data-lucide="arrow-down" style="width: 18px; height: 18px;"></i>
+              <span style="font-size: 0.86rem; opacity: 0.82;">convert the selected behavior into steering and longitudinal commands</span>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 86px minmax(0, 1fr); gap: 12px; align-items: stretch;">
+              <div
+                style="display: flex; flex-direction: column; justify-content: center; align-items: center; border-radius: 8px; background: rgba(0, 122, 255, 0.08); color: var(--clr-accent); font-weight: 700; padding: 10px 6px; text-align: center;">
+                <span>05</span>
+                <span style="font-size: 0.75rem; opacity: 0.82;">CONTROL</span>
+              </div>
+              <div
+                style="padding: 14px 16px; border-radius: 8px; background: var(--clr-bg); border: 1px solid rgba(128,128,128,0.18);">
+                <strong>Lane- and Mission-Aware Vehicle Control</strong><br>
+                <span style="font-size: 0.92rem; opacity: 0.78;">the custom <code>erp_bisa</code> layer combines the lane target with mission speed and stop conditions to produce bounded steering and velocity commands</span>
+              </div>
+            </div>
+
+            <div style="display: flex; align-items: center; gap: 10px; margin-left: 36px; color: var(--clr-accent);">
+              <i data-lucide="arrow-down" style="width: 18px; height: 18px;"></i>
+              <span style="font-size: 0.86rem; opacity: 0.82;">publish the command through the vehicle interface</span>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 86px minmax(0, 1fr); gap: 12px; align-items: stretch;">
+              <div
+                style="display: flex; flex-direction: column; justify-content: center; align-items: center; border-radius: 8px; background: rgba(0, 122, 255, 0.08); color: var(--clr-accent); font-weight: 700; padding: 10px 6px; text-align: center;">
+                <span>06</span>
+                <span style="font-size: 0.75rem; opacity: 0.82;">OUTPUT</span>
+              </div>
+              <div
+                style="padding: 14px 16px; border-radius: 8px; background: var(--clr-bg); border: 1px solid rgba(128,128,128,0.18);">
+                <strong>Ackermann Command to ERP42 Actuators</strong><br>
+                <span style="font-size: 0.92rem; opacity: 0.78;"><code>ackermann_msgs</code> defines the motion command, and <code>erp42_driver</code> transfers it to the physical steering, accelerator, and brake interfaces</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <ul class="highlights-list" style="margin-top: 10px;">
+          <li>
+            <strong>Layered ROS1 workspace:</strong> Hardware drivers and sensor wrappers remain separate from the custom
+            <code>erp_bisa</code> autonomy package, making individual camera, localization, and actuator components easier
+            to replace or diagnose.
+          </li>
+          <li>
+            <strong>Mission-scoped perception:</strong> Detection results are interpreted through the active mission
+            state and waypoint region, reducing the chance that an unrelated sign, pedestrian, or traffic light triggers
+            the wrong behavior elsewhere on the course.
+          </li>
+        </ul>
       </div>
 
       <div class="detail-section">
@@ -271,7 +410,7 @@
               <i data-lucide="alert-triangle" style="width:18px; height:18px;"></i> Challenge
             </div>
             <p>The initial lane detection algorithm suffered a sharp drop in recognition rates in dark environments.
-              Manually readjusting the <strong>HSL color thresholds</strong> for every lighting change was highly
+              Manually readjusting the <strong>HSV color thresholds</strong> for every lighting change was highly
               inefficient and posed a massive risk for adapting to unpredictable weather and lighting conditions on the
               competition day.</p>
           </div>
@@ -344,8 +483,8 @@
             
             <ul class="highlights-list" style="margin-bottom: 0;">
               <li style="margin-bottom: 10px;">
-                <strong>Lane Detection (HSL + Otsu's Binarization):</strong><br>
-                Initially, I implemented a pipeline combining HSL color space conversion, morphological closing, and Otsu's binarization. However, this approach proved highly vulnerable in outdoor environments where rapid illumination changes caused the static color thresholds to collapse completely.
+                <strong>Lane Detection (HSV + Otsu's Binarization):</strong><br>
+                Initially, I implemented a pipeline combining HSV color space conversion, morphological closing, and Otsu's binarization. However, this approach proved highly vulnerable in outdoor environments where rapid illumination changes caused the static color thresholds to collapse completely.
               </li>
               <li style="margin-bottom: 10px;">
                 <strong>Obstacle Avoidance 1 (Grid-based Planning):</strong><br>
@@ -374,7 +513,7 @@
 
       </div>
 
-      <!-- Reflection & Future Work (?åÍ≥† Î∞?Î∞úÏ†Ñ Î∞©Ìñ•) -->
+      <!-- Reflection & Future Work--->
       <div class="detail-section">
         <h2 class="detail-section-title">Reflection & Future Work</h2>
 
@@ -387,13 +526,7 @@
         <div class="project-highlights"
           style="background: rgba(0, 122, 255, 0.02); border-left-color: var(--clr-text-main);">
           <ul class="highlights-list">
-            <li style="margin-bottom: 15px;">
-              <strong>Deepening Interest in Computational Imaging:</strong>
-              Developing robust lane and traffic light detection pipelines sparked a profound interest in how light
-              interacts with physical environments. Moving forward, I aspire to delve deeper into <strong>Inverse
-                Rendering and Computational Imaging</strong>?îresearching how to mathematically process light to extract
-              precise physical properties and desired information from observed images.
-            </li>
+
             <li style="margin-bottom: 15px;">
               <strong>Leveraging Open-Source for Algorithmic Breakthroughs:</strong> 
               When encountering algorithmic roadblocks, I actively researched and analyzed various open-source implementations on GitHub. By dissecting complex external codebases and seamlessly integrating them into our custom system architecture, I significantly enhanced my code-reading proficiency and my ability to rapidly adapt and apply new technologies to solve practical engineering problems.
@@ -422,11 +555,16 @@
           </ul>
         </div>
       </div>
+
+      <div class="project-next">
+        <a href="V2X.html" class="action-btn secondary"><i data-lucide="arrow-left"></i> V2X-Based Cooperative Driving System</a>
+        <a href="HL_FMA.html" class="action-btn secondary">1/5-Scale Vehicle Platform <i data-lucide="arrow-right"></i></a>
+      </div>
     </section>
 
   </main>
 
-  <!-- Footer (Í∏∞Ï°¥Í≥??ôÏùº) -->
+  <!-- Footer -->
   <footer class="footer">
     <ul class="social-list">
       <li class="social-list__item"><a class="social-list__link" href="mailto:uoyuvvou@gmail.com"><i
@@ -441,12 +579,13 @@
     <p class="footer-copyright">&copy; 2026 Gyuwon Na. All rights reserved.</p>
   </footer>
   <script src="../../js/index.js"></script>
+  <script src="../../js/research-navigator.js"></script>
 
   <script src="https://unpkg.com/lucide@latest"></script>
   <script>
     lucide.createIcons();
 
-    // ?§ÎπÑÍ≤åÏù¥???†Í? ?§ÌÅ¨Î¶ΩÌä∏ (Í∏∞Ï°¥Í≥??ôÏùº)
+    // Navigation toggle
     function toggleNav() {
       const container = document.getElementById('navContainer');
       const triggerBtn = container.querySelector('.nav-trigger-btn');

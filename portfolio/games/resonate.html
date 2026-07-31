@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <link rel="icon" type="image/svg+xml" href="../../img/face.jpg">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Resonate - Game Project</title>
+  <title>Resonate</title>
   <meta name="description" content="Detailed portfolio page for Resonate, a C++ game project by Gyuwon Na.">
   <link rel="stylesheet" href="../../external/normalize.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css"
@@ -63,13 +63,12 @@
         <h1 class="projects-hero__title" style="font-size: clamp(2rem, 4vw, 3rem);">Resonate</h1>
         <div class="project-meta" style="justify-content: center; margin-top: 20px;">
           <span class="project-date"><i data-lucide="calendar"></i> Sep 2023 - Dec 2023</span>
-          <span class="project-type"><i data-lucide="tag"></i> GAM 100 Project</span>
+          <span class="project-type"><i data-lucide="user"></i>Technical Lead</span>
+          <span class="project-type"><i data-lucide="tag"></i>GAM100 Project</span>
         </div>
         <div class="tech-stack-detailed" style="justify-content: center; margin-top: 20px;">
           <span class="tech-badge">C++</span>
           <span class="tech-badge">Raylib</span>
-          <span class="tech-badge">2D Gameplay</span>
-          <span class="tech-badge">Team Project</span>
         </div>
       </div>
     </section>
@@ -101,9 +100,9 @@
       <div class="detail-section">
         <h2 class="detail-section-title">Key Achievements</h2>
         <ul class="highlights-list">
-          <li>Built a small but complete game loop with menu, play, and reset behavior.</li>
-          <li>Separated input capture from gameplay response for clearer debugging.</li>
-          <li>Balanced feature scope against milestone reliability.</li>
+          <li>Built my first complete game within a short development cycle, including menu, play, and reset states.</li>
+          <li>Separated input capture from gameplay response to make behavior easier to trace and debug.</li>
+          <li>Coordinated technical decisions as the team adapted the design, rewrote unstable systems, and reduced scope before the final milestone.</li>
         </ul>
       </div>
 
@@ -111,7 +110,8 @@
         <h2 class="detail-section-title">Project Focus</h2>
         <ul class="highlights-list">
           <li>Built a readable boss fight around repeated attempts, pattern recognition, and high-pressure attacks.</li>
-          <li>Connected keyboard movement, mouse attacks, healing, health state, boss behavior, and end conditions into one playable loop.</li>
+          <li>Connected keyboard movement, mouse attacks, healing, health state, boss behavior, and end conditions into one
+            playable loop.</li>
           <li>Used playtesting to tune pacing, reduce downtime, and make special patterns feel understandable instead of arbitrary.</li>
           <li>Balanced ambitious ideas against the deadline by cutting features that did not strengthen the final experience.</li>
         </ul>
@@ -141,14 +141,14 @@
       <div class="detail-section">
         <h2 class="detail-section-title">Challenges & Solutions</h2>
         <article class="challenge-card">
-          <div class="challenge-header"><span class="challenge-header-num">1</span> Collision and Boss Contact</div>
+          <div class="challenge-header"><span class="challenge-header-num">1</span> Resolving Unstable Collision Behavior</div>
           <div class="cs-box problem">
             <div class="cs-box-title"><i data-lucide="alert-triangle"></i> Challenge</div>
             <p>During development, collision bugs could trap the player on or under the boss, breaking the fight and making repeated attempts frustrating.</p>
           </div>
           <div class="cs-box solution">
             <div class="cs-box-title"><i data-lucide="lightbulb"></i> Solution</div>
-            <p>I reworked the collision response so movement and boss contact behaved predictably, then tested the fight repeatedly around edge cases.</p>
+            <p>I separated movement from collision correction and added explicit position recovery when the player overlapped the boss. Repeated edge-case testing helped prevent the player from becoming trapped and made close-range interactions more consistent.</p>
           </div>
         </article>
 
@@ -208,6 +208,7 @@
     <p class="footer-copyright">&copy; 2026 Gyuwon Na. All rights reserved.</p>
   </footer>
   <script src="../../js/index.js"></script>
+  <script src="../../js/research-navigator.js"></script>
 
   <script src="https://unpkg.com/lucide@latest"></script>
   <script>
