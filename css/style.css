@@ -456,6 +456,10 @@ section {
   justify-content: center;
 }
 
+.mobile-identity {
+  display: none;
+}
+
 .profile-image-wrapper {
   width: 100%;
   max-width: 450px;
@@ -521,6 +525,19 @@ section {
   display: flex;
   gap: 16px;
   flex-wrap: wrap;
+}
+
+/* Preserve the existing desktop CTA order after the mobile-first markup order. */
+.btn-github {
+  order: 1;
+}
+
+.btn-linkedin {
+  order: 2;
+}
+
+.btn-resume {
+  order: 3;
 }
 
 .btn-primary,
@@ -613,17 +630,112 @@ section {
     min-width: 140px;
     justify-content: center;
   }
+
 }
 
-@media (max-width: 500px) {
+@media (max-width: 768px) {
+  .main-section {
+    padding: 88px 0 56px;
+  }
+
+  .main-container {
+    gap: 24px;
+  }
+
+  .main-visual {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .mobile-identity {
+    display: block;
+    text-align: center;
+  }
+
+  .mobile-identity__name,
+  .mobile-identity__legal-name {
+    margin: 0;
+  }
+
+  .mobile-identity__name {
+    color: var(--clr-text-main);
+    font-size: 1.75rem;
+    font-weight: 800;
+    letter-spacing: -0.6px;
+    line-height: 1.05;
+  }
+
+  .mobile-identity__legal-name {
+    color: var(--clr-text-sub);
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    margin-top: 4px;
+  }
+
+  .profile-image-wrapper {
+    max-width: 240px;
+    border-radius: 20px;
+  }
+
+  .main-title {
+    font-size: clamp(1.85rem, 8.05vw, 2.16rem);
+    line-height: 1.08;
+    letter-spacing: -0.7px;
+    margin-bottom: 14px;
+  }
+
+  .main-description {
+    font-size: 1.05rem;
+    line-height: 1.55;
+    margin: 0 auto 22px;
+    max-width: 34rem;
+  }
+
   .hero-cta-group {
     flex-direction: column;
+    gap: 10px;
     width: 100%;
   }
 
   .btn-primary,
   .btn-secondary {
     width: 100%;
+    min-height: 50px;
+    padding: 12px 24px;
+  }
+
+  .btn-linkedin {
+    order: 1;
+    background-color: var(--clr-text-main);
+    border-color: var(--clr-text-main);
+    color: var(--clr-bg);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+  }
+
+  .btn-linkedin:hover {
+    background-color: var(--clr-accent);
+    border-color: var(--clr-accent);
+    color: #fff;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+  }
+
+  .btn-github {
+    order: 2;
+    background-color: transparent;
+    border-color: var(--clr-text-main);
+    color: var(--clr-text-main);
+    box-shadow: none;
+  }
+
+  .btn-github:hover {
+    background-color: var(--clr-text-main);
+    color: var(--clr-bg);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+  }
+
+  .btn-resume {
+    order: 3;
   }
 }
 
