@@ -475,31 +475,12 @@ section {
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
-  animation: hero-scroll-pulse 1.8s ease-in-out infinite;
-}
-
-.hero-scroll-cue:hover span,
-.hero-scroll-cue:focus-visible span {
-  animation-play-state: paused;
-  opacity: 1;
 }
 
 .hero-scroll-cue:focus-visible {
   outline: 2px solid var(--clr-accent);
   outline-offset: 4px;
   border-radius: 8px;
-}
-
-@keyframes hero-scroll-pulse {
-  0%,
-  100% {
-    opacity: 0.45;
-  }
-
-  50% {
-    transform: rotate(90deg) translateX(-4px);
-    opacity: 1;
-  }
 }
 
 /* Image Area */
