@@ -460,21 +460,10 @@ section {
   transform: translateX(-50%);
 }
 
-.hero-scroll-cue span {
+.hero-scroll-cue__icon {
   display: block;
-  width: 3.2em;
-  text-align: center;
-  font-family: var(--ff-secondary);
-  font-size: 1.15rem;
-  font-weight: 800;
-  letter-spacing: 0.08em;
-  line-height: 1;
-  transform: rotate(90deg);
-  /* Rotating this left-to-right gradient clockwise makes it read top-to-bottom. */
-  background: linear-gradient(to right, #c7c7cc 0%, #3a3a3c 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+  width: 24px;
+  height: 36px;
 }
 
 .hero-scroll-cue:focus-visible {
