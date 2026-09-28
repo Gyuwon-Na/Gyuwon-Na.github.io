@@ -308,6 +308,26 @@
   margin-top: auto;
 }
 
+/* Keep unreleased research visible without exposing a detail-page entry point. */
+.card-link--locked {
+  width: fit-content;
+  color: var(--clr-text-sub);
+  cursor: not-allowed;
+  opacity: 0.78;
+  user-select: none;
+}
+
+.card-link--locked i,
+.card-link--locked svg {
+  width: 16px;
+  height: 16px;
+}
+
+.card-link--locked:hover {
+  color: var(--clr-text-sub);
+  gap: 8px;
+}
+
 .approach-grid {
   display: grid;
   gap: 14px;
